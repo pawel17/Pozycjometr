@@ -1,0 +1,1699 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass aghdpl
+\options pdflatex
+\use_default_options true
+\maintain_unincluded_children false
+\language polish
+\language_package default
+\inputencoding latin2
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Mikrokontrolery 
+\emph on
+ARM
+\emph default
+ 
+\emph on
+Cortex M3
+\end_layout
+
+\begin_layout Standard
+Od kilku lat widać duży wzrost popularności mikrokontrolerów 
+\emph on
+ARM
+\emph default
+ w systemach wbudowanych.
+ Producenci wprowadzają na rynek coraz tańsze i lepiej wyposażone układy.
+ Zjawisko to zostało zainicjowane w 2003 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zbysinski_EP_2008_2009"
+
+\end_inset
+
+ roku przez firmę 
+\emph on
+Philips Semiconductor
+\emph default
+, która spopularyzowała 32 bitowe wersje mikrokontrolerów 
+\emph on
+ARM
+\emph default
+.
+ W niniejszym rozdziale opisane zostaną, bardzo powszechne dzisiaj, układy
+ z rdzeniami 
+\emph on
+Cortex
+\emph default
+.
+ Szczegółowa uwaga zostanie poświęcona także serii 
+\emph on
+M3
+\emph default
+, gdyż jej dotyczy temat niniejszej pracy.
+\end_layout
+
+\begin_layout Section
+Firma 
+\emph on
+ARM
+\emph default
+ i jej działalność
+\end_layout
+
+\begin_layout Standard
+Firma 
+\emph on
+ARM
+\emph default
+ powstała ok.
+ roku 1990 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+ dzięki porozumieniu kilku przedsiębiorstw (m.
+ in.
+ 
+\emph on
+Apple Computer
+\emph default
+ oraz 
+\emph on
+VLSI Technology
+\emph default
+) jako 
+\emph on
+Advanced RISC Machines
+\emph default
+.
+ W 1998 roku zmieniono nazwę i obecnie funkcjonuje ona jako 
+\emph on
+ARM Holdings
+\emph default
+.
+ Działalność firmy skupia się na układach cyfrowych, przy czym nie jest
+ to stricte produkcja półprzewodników, lecz projektowanie i opracowywanie
+ tzw.
+ bloków własności intelektualnej IP (ang.
+ 
+\emph on
+Intellectual Property
+\emph default
+).
+ Flagowym produktem przedsiębiorstwa są rdzenie mikrokontrolerów, z których
+ najbardziej popularnymi były 
+\emph on
+ARM7
+\emph default
+, 
+\emph on
+ARM9
+\emph default
+ i 
+\emph on
+ARM11
+\emph default
+ zastępowane opecnie przez układy serii 
+\emph on
+Cortex
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Przeglądając dokumentacje konkretnych urządzeń cyfrowych wykorzystujących
+ rdzenie 
+\emph on
+ARM
+\emph default
+ i porównując ją z treścią zawartą na stronie firmy 
+\emph on
+ARM
+\emph default
+ można zauważyć rozbieżność 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+ nazw.
+ Wynika ona z tego, że producenci sprzętu używają nazwy rdzeni, podczas
+ gdy firma 
+\emph on
+ARM
+\emph default
+ odnosi się do nazw architektur (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:nazwa-arch-nazwa-rdzenia"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nazwa architektury
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nazwa rdzenia
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARMv4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARM7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARMv5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARM9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARMv6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARM11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARMv7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cortex
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Nazwy rodzin rdzeni ARM i odpowiadające im oznaczenia architektur (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:nazwa-arch-nazwa-rdzenia"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Seria 
+\emph on
+Cortex
+\end_layout
+
+\begin_layout Standard
+Seria Cortex obejmuje trzy podrodziny dostosowane pod kątem konkretnych
+ zastosowań 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Cortex-Ax
+\emph default
+ - przeznaczona dla aplikacji pracujących pod kontrolą systemów operacyjnych
+ takich jak 
+\emph on
+Symbian
+\emph default
+, 
+\emph on
+Linux
+\emph default
+ oraz 
+\emph on
+Windows Embedded
+\emph default
+, wymagających dużych mocy obliczeniowych, układu zarządzania pamięcią (MMU)
+ lub implementacji maszyny wirtualnej Javy,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Cortex-Rx
+\emph default
+ - przeznaczona dla systemów czasu rzeczywistego, w których krytyczny jest
+ czas odpowiedzi na zdarzenia (np.
+ układy bezpieczeństwa biernego w samochodach),
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Cortex-Mx
+\emph default
+ - przeznaczona dla zastosowań przemysłowych i konsumenckich; stanowi próbę
+ osiągnięcia kompromisu między dużą wydajnością i niskimi kosztami.
+\end_layout
+
+\begin_layout Standard
+Litera 
+\emph on
+x
+\emph default
+ w każdym z powyższych przypadków oznacza liczbę, precyzującą wersję rdzenia.
+\end_layout
+
+\begin_layout Standard
+Oprócz wspomnianych różnic, rdzenie 
+\emph on
+Cortex-Mx
+\emph default
+ obsługują wyłącznie rozkazy z listy określanej w literaturze 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+ jako 
+\emph on
+Thumb-2
+\emph default
+, w odróżnieniu od pozostałych podrodzin 
+\emph on
+Cortex
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Najprostszym i najbardziej energooszczędnym rdzeniem z serii 
+\emph on
+M
+\emph default
+, jest układ uznaczony jako 
+\emph on
+M0
+\emph default
+.
+ W założeniach miał być jednostką 32 bitową stanowiącą poważna konkurencję
+ dla mikrokomputerów ośmio i szesnastobitowych w mniej zaawansowanych zastosowan
+iach.
+ Rdzeń 
+\emph on
+Cortex-M1
+\emph default
+ projektowano z myślą o zastosowaniu w układach logiki programowalnej (FPGA).
+ Linia 
+\emph on
+M3
+\emph default
+ zostanie szczegółowiej opisana w kolejnym paragrafie.
+ Najsilniejszym, pod względem mocy i możliwości obliczeniowych, przedstawicielem
+ podrodziny 
+\emph on
+Cortex-Mx
+\emph default
+ są układy sygnowane jako 
+\emph on
+M4
+\emph default
+.
+ Ich zastosowaniem mają być w założeniach obszary podobne do tych, w których
+ używa się procesorów DSP, a więc cyfrowe przetwarzanie sygnałów.
+ W tym celu mikrokontrolery 
+\emph on
+Cortex-M4
+\emph default
+ wyposażono w sprzętowe bloki (np.
+ koprocesory) pozwalające realizować obliczenia charakterystyczne dla procesorów
+ sygnałowych.
+\end_layout
+
+\begin_layout Standard
+Z punktu widzenia programisty najistotniejszą różnicą między poszczególnymi
+ rdzeniami 
+\emph on
+Cortex-Mx
+\emph default
+ jest lista rozkazów (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:thumb_2"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/thumb_2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Rozkazy wykonywane przez rdzenie rodziny 
+\emph on
+Cortex-Mx
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:thumb_2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rdzeń 
+\emph on
+Cortex-M3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/cortex_m3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schemat rdzenia 
+\emph on
+Cortex-M3
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schemat-rdzenia-Cortex-M3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schemat-rdzenia-Cortex-M3"
+
+\end_inset
+
+ przedstawiono w sposób uproszczony budowę rdzenia 
+\emph on
+Cortex-M3
+\emph default
+.
+ Obsługuje on listę rozkazów 
+\emph on
+Thumb-2
+\emph default
+, która pozwala realizować operacje zarówno na liczbach 16- jak i 32-bitowych.
+ Dzięki temu uzyskuje się większą (w porównaniu do rozkazów 
+\emph on
+ARM
+\emph default
+) gęstość upakowania poleceń, mniejsze zapotrzebowanie na pamięć programu
+ (flash) oraz szybsze wykonywanie rozkazów w stosunku do programu zapisanego
+ przy uzyciu listy 
+\emph on
+Thumb
+\emph default
+.
+ Pisząc program, nie ma zatem potrzeby przełączania się między 32-bitowym
+ trybem 
+\emph on
+ARM
+\emph default
+ i 16-bitowym trybem 
+\emph on
+Thumb
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Rdzeń 
+\emph on
+Cortex-M3
+\emph default
+ jest zaprojektowany zgodnie z pełną architekturą harwardzką.
+ Oznacza to rozdzielenie pamięci programu i danych oraz magistrali danych
+ i rozkazów (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Architektura-Harvard"
+
+\end_inset
+
+).
+ Zaletą takiej architektury jest możliwość dostępu do pamięci danych i programu
+ w tym samym czasie.
+ Ponieważ jednak przestrzeń adresowa dla obu z nich jest wspólna, nie mogą
+ one wykorzystywać tej przestrzeni w pełni, lecz tylko w części.
+ Teoretycznie architektura harwardzka pozwala zmniejszyć wpływ dostępu do
+ danych na szybkość wykonywania się programu.
+ W praktyce stosunkowo powolne taktowanie pamięci flash (do 24 Mhz 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) może spowolnić wykonywanie programu.
+\end_layout
+
+\begin_layout Standard
+Mikrokontrolery z rdzeniem 
+\emph on
+Cortex-M3
+\emph default
+ wspierają dostęp do danych z uwzględnieniem dwóch sposobów ulożenia bajtów,
+ tj.
+ 
+\emph on
+little endian
+\emph default
+ i 
+\emph on
+big endian
+\emph default
+.
+ W pierwszym przypadku młodsze bajty zapisywane są pod niższymi adresami,
+ zaś starsze pod wyższymi.
+ W przypadku big endian jest na odwrót.
+ Dzięki temu można dostosować i zoptymalizować projektowaną aplikację pod
+ kontem własnych potrzeb.
+ Przykładowo wykorzystanie w programie komunikacji sieciowej przy pomocy
+ interfejsu Ethernet, nie będzie wymagało zmiany kolejności bajtów na big
+ endian.
+\end_layout
+
+\begin_layout Standard
+Bardziej złożone rdzenie 
+\emph on
+Cortex-M3
+\emph default
+ posiadają jednostkę ochrony pamięci MPU (ang.
+ 
+\emph on
+memory protextion unit
+\emph default
+).
+ Ponadto architektura Cortex przewiduje obecność bloków debugowania z obsługą
+ pułapek (ang.
+
+\emph on
+ breakpoint
+\emph default
+) oraz punktów podglądowych (ang.
+ 
+\emph on
+watchpoint
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Dla rdzeni rodziny 
+\emph on
+Cortex
+\emph default
+ przewidziane są dwa tryby pracy - uprzywilejowany oraz użytkownika.
+ W pierwszym z nich aplikacja ma pełny dostęp do wszystkich zasobów rdzenia.
+ W trybie użytkownika, niektóre zasoby nie mogą być używane przez aplikacje.
+ Takie podejście pozwala na tworzenie bezpiecznych programów, w tym systemów
+ operacyjnych, których jądra pracują w trybie uprzywilejowanym, zaś programy
+ użytkownika w trybie nieuprzywilejowanym.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/harvard.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Architektura Harvard (
+\emph on
+Źródło: 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Architektura-Harvard"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rejestry ogólnego przeznaczenia
+\end_layout
+
+\begin_layout Standard
+Rdzeń 
+\emph on
+Cortex M3
+\emph default
+ posiada 16 rejestrów podstawowych (R0 - R15), z których trzynaście (R0
+ - R12) stanowią rejestry ogólnego przeznaczenia (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rejestry"
+
+\end_inset
+
+).
+ Większość rozkazów 16-bitowych może używać jedynie rejestrów R0 - R7.
+ Rejestr R13 pełni funkcje wskażnika stosu SP (ang.
+ 
+\emph on
+stack pointer
+\emph default
+) i w rzeczywistości sklada się z dwóch rejestrów bankowanych 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+, z których w danej chwili widoczny jest jeden:
+\end_layout
+
+\begin_layout Itemize
+głównego wskaźnika stosu MSP (ang.
+ 
+\emph on
+main stack pointer
+\emph default
+) - używanego domyślnie przez przerwania i jądra systemów operacyjnych pracujący
+ch w trybie uprzywilejowanym,
+\end_layout
+
+\begin_layout Itemize
+procesowego wskaźnika stosu PSP (ang.
+ 
+\emph on
+process stack pointer
+\emph default
+) - używanego przez programy użytkownika uruchamiane pod kontrolą systemu
+ operacyjnego.
+\end_layout
+
+\begin_layout Standard
+Wykorzystanie dwóch stosów jest korzystne dla tworzenia bezpiecznych aplikacji,
+ gdyż uniemożliwia dostęp do systemowego stosu, co groziłoby naruszeniem
+ stabilności systemu.
+\end_layout
+
+\begin_layout Standard
+Pozostałe dwa rejestry podstawowe to:
+\end_layout
+
+\begin_layout Itemize
+R14 - zawierający adres powrotu z podprocedury,
+\end_layout
+
+\begin_layout Itemize
+R15 - licznik programu PC (ang.
+ 
+\emph on
+program counter
+\emph default
+) znany też jako licznik instrukcji IC (ang.
+ 
+\emph on
+instruction counter
+\emph default
+) - zawiera adres aktualnie wykonywanego rozkazu.
+\end_layout
+
+\begin_layout Standard
+Oprócz wymienionych rejestrów podstawowych, rdzeń 
+\emph on
+Cortex-M3
+\emph default
+ zawiera także:
+\end_layout
+
+\begin_layout Itemize
+rejestr stanu (ang.
+ 
+\emph on
+program status register
+\emph default
+) - zawierający tzw.
+ flagi,
+\end_layout
+
+\begin_layout Itemize
+rejestr maski przerwań (ang.
+ 
+\emph on
+interrupt mask register
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+rejestr sterowania (ang.
+ 
+\emph on
+control register
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Rejestry slużą do sterowania rdzeniem oraz do kontroli przebiegu wykonywania
+ programu.
+ Moga być modyfikowane jedynie za pomocą specjalnych rozkazów i nie może
+ to mieć miejsca w trakcie normalnej pracy mikrokontrolera 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/rejestry.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Rejestry podstawowe rdzenia 
+\emph on
+Cortex-M3
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rejestry"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Przestrzeń adresowa
+\end_layout
+
+\begin_layout Standard
+Rdzeń Cortex-M3 jest w stanie zaadresować przestrzeń 4 GB pamięci 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+.
+ Obejmuje ona tzw.
+ segmenty, m.
+ in.
+ pamięć programu, SRAM, zewnętrzną pamięć RAM.
+ Odpowiednią mapę pamięci pokazano na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mapa-pamieci"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/mapa_pamieci.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa pamięci rdzenia 
+\emph on
+Cortex-M3
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mapa-pamieci"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Obszary o dostępie bitowym
+\end_layout
+
+\begin_layout Standard
+Przestrzeń adresowa rdzenia 
+\emph on
+Cortex-M3
+\emph default
+ zawiera dwa obszary o dostępie bitowym (określanych jako 
+\emph on
+bit-band
+\emph default
+) - jeden w regionie pamięci RAM, a drugi w regionie urządzeń peryferyjnych.
+ W pierwszym przypadku obszar rozpoczyna się od adresu 0x20000000, zaś drugi
+ od 0x40000000 [źródło].
+ Takie rozwiązanie pozwala na optymalną pracę rdzenia.
+ Normalnie zaby zmienić jeden bit, należy odczytać wartość z właściwej komórki
+ pamięci, ustawić w niej wartość odpowiedniego bitu, a następnie tak zmodyfikowa
+ną wartość zapisać w pierwotnej komórce.
+ Dzięki wykorzystaniu dostępu bitowego, ten sam rezultat mozna uzyskać dzięki
+ dostępowi do właściwej komórki pamięci w obszarze mapowania bitów regionu
+ 
+\emph on
+bit-band
+\emph default
+.
+ Jej odpowiedni adres można wyznaczyć dzieki poniższym formułom 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bit_band_arm_www"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+bit\_word\_offset=(byte\_offset\cdot32)+(bit\_number\cdot4)\label{eq:bitband_formula_1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+bit\_word\_addr=bit\_band\_base+bit\_word\_offset\label{eq:bitband_formula_2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_word_offset
+\emph default
+ - pozycja bitu w obszarze pamięci 
+\emph on
+bit-band
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+byte_offset
+\emph default
+ - numer bajtu w obszarze 
+\emph on
+bit-band
+\emph default
+ zawierającego żądany bit,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_number
+\emph default
+ - pozycja bitu w bajcie,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_word_addr
+\emph default
+ - adres bajtu mapującego żądany bit w obszarze pamięci mapowania bitów
+ (
+\emph on
+alias memory region
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_band_base
+\emph default
+ - adres początku regionu mapowania bitów (dla obszaru pamięci RAM wynosi
+ on 0x22000000 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Przykładowo, dla piątego bitu w bajcie o adresie 0x20000007, wymienione
+ powyżej parametry wynoszą:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_number
+\emph default
+ = 5;
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+byte_offset
+\emph default
+ = 7 (0x20000007 - 0x20000000),
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_word_offset
+\emph default
+ =
+\begin_inset Formula $7\cdot32+5\cdot4=244=0x000000F4$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+bit_word_addr
+\emph default
+ = 
+\begin_inset Formula $0x22000000+0x000000F4=0x220000F4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Aby skasować lub ustawić określony bit w regionie bit-band, należy wpisać
+ odpowiednio 0 lub 1 do właściwej komórki w obszarze mapowania.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/bit_band.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapowanie piątego bitu komórki o adresie 0x20000007 z regionu bit-band (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Kontroler przerwań 
+\emph on
+NVIC
+\end_layout
+
+\begin_layout Standard
+Aby mikroprocesor (lub centralna jednostka przetwarzająca mikrokontrolera)
+ mógł się komunikować z urządzeniami peryferyjnymi poprzez układy wejścia/wyjści
+a, stosuje się dwie techniki:
+\end_layout
+
+\begin_layout Itemize
+przeglądanie (ang.
+ 
+\emph on
+polling
+\emph default
+) rejestrów układów wejścia/wyjścia,
+\end_layout
+
+\begin_layout Itemize
+przerwania.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/priorytety_przerwan.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Przerwania obługiwane przez rdzeń 
+\emph on
+Cortex-M3
+\emph default
+ i ich priorytety (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:priorytety-przerwan"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Konstrukcje dzisiejszych mikrokomputerów są optymalizowane pod kątem obsługi
+ przerwań.
+ Rdzeń 
+\emph on
+Cortex-M3
+\emph default
+ posiada wbudowany kontroler przerwań 
+\emph on
+NVIC
+\emph default
+ (ang.
+ 
+\emph on
+nested vectored interrupt controller
+\emph default
+).
+ Pozwala on na obsługę piętnastu przerwań (wyjatków) systemowych i 240 przerwań
+ zewnętrznych.
+ Faktyczna liczba obsługiwanych przerwań zależy od konkretnego mikrokontrolera.
+ Większość wyjątków systemowych i wszystkie przerwania wewnętrzne moga mieć
+ ustalany programowo priorytet 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+.
+ Niektóre priorytety zgrupowano (w kolejności malejącej) w tabeli na rysunku
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:priorytety-przerwan"
+
+\end_inset
+
+.
+ Jak widać, zdarzeniem o najwyższym priorytecie w systemie jest zerowanie
+ układu.
+\end_layout
+
+\begin_layout Standard
+Możliwości kontrolera 
+\emph on
+NVIC
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Obsługa przerwań zagnieżdżonych (zwanych też wielopoziomowymi) - jeśli w
+ trakcie procedury obsługi przerwania ISR (ang.
+ 
+\emph on
+interrupt service routine
+\emph default
+) wystąpi przerwanie o wyższym poziomie, obsługa bieżącego jest przerywana,
+ następuje skok do procedury obsługi przerwania o wyższym poziomie, a po
+ jej zakończeniu powrót do obsługi zdarzenia poprzedniego (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:wielpoz-obsluga-przerwan"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Sprzętowa obsługa wektorów przerwań - adres funkcji obsługi przerwania jest
+ pobierany z wektora w pamięci i nie potrzeby jego programowego wyznaczania,
+ dzięki czemu czas obsługi zdarzenia jest mniejszy.
+\end_layout
+
+\begin_layout Enumerate
+Dynamiczna zmiana priorytetów przerwań - pozwala zmieniać programowo priorytet
+ przerwania podczas wykonywania programu.
+ Nie mozna jednak zmienić priorytetu przerwania przed wyjściem z procedury
+ jego obsługi, dzięki czemu unika sie sytuacji wielokrotnego obsłużenia
+ tego samego zdarzenia podczas zmiany priorytetu.
+\end_layout
+
+\begin_layout Enumerate
+Zoptymalizowane opóźnienia czasowe obsługi przerwań - uzyskano to m.
+ in.
+ dzięki automatycznemu zapisywaniu i odzyskiwaniu tzw.
+ kontekstu zadania, czyli wartości kluczowych dla niego rejestrów.
+ Inne sposoby skrócenia opóźnień w obsłudze przerwań (np.
+ 
+\emph on
+Tail-Chaining
+\emph default
+, przerywanie operacji POP) opisano w literaturze 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Maskowanie przerwań - wszystkie przerwania mogą być maskowane na podstawie
+ priorytetów lub maskowane całkowicie poprzez wpisy do właściwych rejestrów
+ maskujących.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/ARM/przerwania_zagniezdzone.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Wielopoziomowa obsługa przerwań (
+\emph on
+Źródło: 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:wielpoz-obsluga-przerwan"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lista instrukcji 
+\emph on
+Thumb-2
+\end_layout
+
+\begin_layout Standard
+Jedną z największych zalet rdzenia 
+\emph on
+Cortex-M3
+\emph default
+ z punktu widzenia programisty, jest możliwość wykorzystania rozkazów operującyc
+h na danych 16- i 32-bitowych bez konieczności dodatkowych zabiegów (przełączani
+e się między trybami).
+ Dzięki temu uzyskuje się zmniejszenie zużycia pamięci programu przy jednoczesny
+m wzroście szybkości wykonywania programu 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+W celu jeszcze lepszego wykorzystania ww.
+ cech rdzenia 
+\emph on
+Cortex-M3
+\emph default
+, stworzono odmianę asemblera oznaczaną w skrócie jako UAL (ang.
+ 
+\emph on
+unified assembly language
+\emph default
+).
+ Pozwala ona w szybszy i czytelniejszy sposób wykorzystywać w programie
+ rozkazy 16- i 32-bitowe.
+\end_layout
+
+\begin_layout Standard
+Zestaw rozkazów 
+\emph on
+Thumb-2
+\emph default
+ zawiera operacje, które mogą być wykonywane zarówno jako 16- jak i 32-bitowe.
+ Przykładem jest dodawanie liczby do zawartości rejestru 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paprocki2009"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ADDS R0, #5 ;Domyślnie zostanie użyta instrukcja 16-bitowa
+\end_layout
+
+\begin_layout Plain Layout
+
+ADDS.N R0, #5 ;Jawne użycie rozkazu 16-bitowego (N = Narrow)
+\end_layout
+
+\begin_layout Plain Layout
+
+ADDS.W R0, #5 ;Jawne użycie rozkazu 32-bitowego Thumb–2 (W = Wide)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Użycie przyrostka 
+\emph on
+W
+\emph default
+ lub 
+\emph on
+N
+\emph default
+ po kropce za właściwą nazwą rozkazu pozwala wyspecyfikować długość rozkazu.
+ Mnemoniki pozbawione sufiksu są zwykle tłumaczone na instrukcje 16-bitowe.
+\end_layout
+
+\begin_layout Standard
+Jak widać programowanie rdzenia 
+\emph on
+Cortex-M3
+\emph default
+ w języku asemblera niesie ze sobą spore możliwości optymalizacji.
+ Wadą tak niskopoziomowego podejścia jest czasochłonność, duży nakład pracy
+ i często także kiepska czytelność kodu.
+ Decyzje o pisaniu aplikacji (bądź jej fragmentów) w asemblerze powinny
+ być wynikiem kompromisu między względami wydajnościowymi oraz ekonomicznymi.
+\end_layout
+
+\end_body
+\end_document

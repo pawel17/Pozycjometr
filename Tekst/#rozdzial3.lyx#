@@ -1,0 +1,1880 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass aghdpl
+\use_default_options true
+\maintain_unincluded_children false
+\language polish
+\language_package default
+\inputencoding latin2
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Współpraca mikrokontrolerów z urządzeniami zewnętrznymi
+\end_layout
+
+\begin_layout Section
+Wiadomości ogólne
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/wspolpraca_z_urz_zew.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Współpraca mikrokontrolera z urządzeniem zewnętrznym (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Współpraca mikrokomputerów z urządzeniami peryferyjnymi odbywa się za pomocą
+ tzw.
+ interfejsów.
+ Przez interfejs rozumie się urządzenie, które pozwala na komunikację i
+ wymianę danych pomiędzy dwoma innymi urządzeniami.
+ Istnieją różne kryteria podziału interfejsów:
+\end_layout
+
+\begin_layout Itemize
+ze względu na istnienie fizycznego połącznia między komunikujacymi się urządzeni
+ami:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+przewodowe (np.
+ UART, I2C, FireWire (IEEE 1394), RS-232), w których rolę sygnałów pełnią
+ napięcie lub prąd, zaś rolę medium przewody,
+\end_layout
+
+\begin_layout Itemize
+bezprzewodowe (np.
+ Bluetooth, IrDA, WiFi) , w których sygnałami są fale elektromagnetyczne,
+ zaś medium najczęściej powietrze,
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+ze względu na ilość danych (bitów) przesyłanych w trakcie elementarnego
+ cyklu transmisji:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+szeregowe (np.
+ SPI, UART, I2C), w których dane są transmitowane bit po bicie,
+\end_layout
+
+\begin_layout Itemize
+równoległe (np.
+ GPIB, SCSI, ATA oraz używany kiedyś w drukarkach interfejs Centronics),
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+charakter sygnałów:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+analogowe (np.
+ Jack, S-Video),
+\end_layout
+
+\begin_layout Itemize
+cyfrowe (np.
+ SPI, I2C, USB).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Pod pojęciem interfejsu przewodowego rozumie się złącza oraz przewody łączące
+ urządzenie zewnętrzne z mikrokomputerem wraz z ich specyfikacją mechaniczną
+ (kształt, rozmiar, ilość) oraz charakterystykami elektrycznymi sygnałów
+ (poziomy napięć i prądów, relacje czasowe).
+ Aby przesył sygnałów był możliwy, związany z nimi obwód elektryczny musi
+ być zamknięty., dlatego składa się z dwóch przewodów tworzących linię.
+ Istnieją linie symetryczne i niesymetryczne.
+ Schemat obu pokazano na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Linie-transmisyjne"
+
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/linie.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Linie transmisyjne: a) niesymetryczna, b) symetryczna (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Linie-transmisyjne"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Linia niesymetryczna składa się z przewodu sygnałowego (zwanego także gorącym)
+ oraz masowego, stanowiącego odniesienie dla sygnału po obu stronach toru
+ transmisyjnego.
+ W przypadku większej liczby sygnałów możliwe jest zastosowanie wspólnego
+ przewodu powrotnego 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+.
+ Największą wadą linii niesymetrycznej jest jej podatność na wpływ obcych
+ pól elektromagnetycznych.
+ Powodują one indukowanie się zakłóceń w przewodzie sygnałowym i powrotnym,
+ które dodają się lub odejmują od właściwego sygnału na wejściu odbiornika.
+ Z tego powodu linie tego typu stosuje się do przesyłu informacji na nieduże
+ odległości.
+ W celu zmniejszenia wpływu zewnętrznych pól, stosuje się następujące zabiegi:
+\end_layout
+
+\begin_layout Itemize
+skręcanie przewodów,
+\end_layout
+
+\begin_layout Itemize
+ekranowanie linii.
+\end_layout
+
+\begin_layout Standard
+Linia symetryczna składa się z dwóch przewiodów wiodących sygnały znajdujące
+ się w przeciwfazie oraz odbiornika z wejściem różnicowym.
+ Dzięki temu, sygnały o takich samych przebiegach indukowane w poszczególnych
+ przewodach znoszą się po odjęciu na wejściu wzmacniacza.
+ W celu zapewnienia lepszej ochrony przed zakłóceniami możliwe jest również
+ skręcanie przewodów.
+ Zasięg linii symetrycznych jest dużo większy niż w przypadku linii niesymetrycz
+nych i osiaga rząd 1 km 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Najbardziej odpornym na zakłócenia elektromagnetyczne medium jest światłowód.
+ Pozwala on na transmisję na bardzo duże odległości (od kilku do klikudziesięciu
+ kilometrów).
+ Tor światłowodowy wymaga zastosowania nadajnika przekształcającego sygnał
+ elektryczny na impulsy świetlne, właściwego światłowodu (wykonanego zwykle
+ z włókna szklanego) oraz odbiornika realizującego odwrotną konwersję sygnałów.
+\end_layout
+
+\begin_layout Subsection
+Transmisja szeregowa i równoległa
+\end_layout
+
+\begin_layout Standard
+Transmisja szeregowa polega na przesyłaniu informacji bit po bicie.
+ Oznacza to, że w elementarnym cyklu transmisji nadajnik wysyła jeden bit,
+ zaś odbiornik go odbiera.
+ Zaletą takiego rozwiązania jest stosunkowo niewielka ilość użytych przewodów.
+ Liczba ta jest większa w przypadku transmisji równoległej, w której na
+ raz możliwe jest przesyłanie większej ilości bitów (każdy swoim torem).
+ Teoretycznie przyspiesza to szybkość transferu danych, jednak w praktyce
+ jest ona ograniczona ze względu na zakłócanie sygnałów przez pola pochodzące
+ od sąsiednich linii danych.
+ Inną wadą tego typu komunikacji jest także stosunkowo skomplikowana budowa
+ (a co zatym idzie większy koszt) interfejsów równoległych.
+ Omawiana fakty uzasadniają dlaczego większość współczesnych urządzeń cyfrowych
+ wykorzystuje interfejsy i transmisję szeregową.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/transmisja_szeregowa.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Układ transmisji szeregowej (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Uklad-transmisji-szeregowej"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Uklad-transmisji-szeregowej"
+
+\end_inset
+
+ przedstawia uproszczony schemat układu transmisji szeregowej.
+ Dzięki obecności dwóch przewodów sygnałowych, możliwa jest komunikacja
+ w trybie dupleks (ang.
+ 
+\emph on
+full duplex
+\emph default
+), pozwalająca na jednoczesną wymianę danych przez komunikujące się urządzenia.
+ Sygnał nadawany (TxD) wysyłany jest do portu odbierającego dane (RxD).
+ Urządzenia uczestniczące w komunikacji wyposażone są zarówno w nadajnik
+ jak i odbiornik.
+\end_layout
+
+\begin_layout Standard
+Prócz transmisji dupleksowej, w układach cyfrowych możliwe są również jeszcze
+ dwa inne tryby wymiany danych:
+\end_layout
+
+\begin_layout Itemize
+półdupleks (ang.
+ 
+\emph on
+half duplex
+\emph default
+) - pozwalający na obustronną, lecz nie jednoczesną wymianę danych,
+\end_layout
+
+\begin_layout Itemize
+simpleks (ang.
+ 
+\emph on
+simplex
+\emph default
+) - pozwalający na przesył danych tylko w jednym kierunku.
+\end_layout
+
+\begin_layout Standard
+Dane wysyłane szeregowo są często przechowywane w rejestrach.
+ Aby umożliwić transmisję bit po bicie stosuje się rejestry przesuwne lub
+ multipleksery.
+ W obu przypadkach należy określić czas trwania bitu (tzw.
+ odcinek bitowy) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+.
+ Służy do tego sygnał zegarowy nadajnika.
+ Odbiornik określa wartość przesyłanych bitów w środkach poszczególnych
+ odcinków bitowych.
+ Także w tym przypadku używany jest sygnał zegarowy (zegar odbiornika).
+ Istnieją dwa rodzaje transmisji szeregowej, różniące się zależnościami
+ sygnałów zegarowych nadajnika i odbiornika:
+\end_layout
+
+\begin_layout Itemize
+transmisja asynchroniczna,
+\end_layout
+
+\begin_layout Itemize
+transmisja synchroniczna.
+\end_layout
+
+\begin_layout Subsection
+Transmisja asynchroniczna i synchroniczna
+\end_layout
+
+\begin_layout Standard
+W przypadku transmishi asynchronicznej zegary nadajnika i odbiornika nie
+ są synchronizowane.
+ Dane nie muszą być przesyłane w sposób ciągły, tzn.
+ między kolejnymi transmisjami, linia danych znajduje się w stanie spoczynku
+ przez tzw.
+ czas martwy.
+ Dane przesyłane noszą w literaturze nazwę znaku i składają się zwykle od
+ pięciu do ośmiu bitów.
+ Aby odbiornik mógł wykryć początek oraz koniec nadawania danych, każdy
+ znak poprzedzony jest tzw.
+ bitem startu oraz zakończony tzw.
+ bitami stopu (od jednego do dwóch).
+ Dodatkowo w celu zapewnienia poprawności transmisji stosuje się również
+ tzw.
+ bit parzystości.
+ Wadą transmisji asynchronicznej jest istnienie czasu martwego, zmniejszającego
+ efektywność przesyłu danych.
+ Suma liczby jedynek tworzacych znak wraz z bitem parzystości powinna tworzyć
+ liczbę parzystą.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/transmisja_szeregowa_asynchroniczna.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Przebieg sygnału w transmisji szeregowej asynchronicznej (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Przed właściwą komunikacją należy ustalić jej następujące parametry:
+\end_layout
+
+\begin_layout Itemize
+częstotliwość zegarów,
+\end_layout
+
+\begin_layout Itemize
+długość znaku,
+\end_layout
+
+\begin_layout Itemize
+bit parzystości (obecny, nieobecny lub zanegowany),
+\end_layout
+
+\begin_layout Itemize
+ilość bitów stopu.
+\end_layout
+
+\begin_layout Standard
+W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
+ (stąd nazwa), dzięki czemu nie są konieczne bity startu i stopu.
+ Dane przesyłane grupowane są w bloki zwane ramkami (ang.
+ 
+\emph on
+frame
+\emph default
+).
+ Każdą ramkę rozpoczyna nagłówek (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ramka-transmisji-szeregowej-synchr"
+
+\end_inset
+
+), zawierający bajty synchronizacji potrzebne do zsynchronizowania zegarów
+ nadajnika i odbiornika.
+ W celu zapewnienia poprawnego transferu, synchronizacja ta powinna być
+ utrzymywana podczas całego procesu komunikacji.
+ Prócz wspomnianych bajtów, nagłówek zawiera także dodatkowe informacje,
+ np.
+ ilość przesyłanych danych.
+ Blok danych zawiera właściwe dane zgrupowane jeden za drugim.
+ W celu zapewnienia poprawności transmisji, są one zakończone tzw.
+ bajtami kontrolnymi i wewntualnymi bajtami korekcyjnymi pozwalającymi na
+ naprawę uszkodzonych danych.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/ramka_transmisji_szeregowej_synchronicznej.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ramka transmisji szeregowej synchronicznej (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ramka-transmisji-szeregowej-synchr"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Transmisja równoległa
+\end_layout
+
+\begin_layout Standard
+W transmisji równoległej grupy bitów wysyłane są w tym samym czasie niezależnymi
+ liniami danych.
+ Można powiedzieć, że w tym przypadku przesyłane są szeregowo grupy bitów
+ (zwykle bajty lub tzw.
+ słowa).
+ Dane wysyłane są w takt sygnału zegarowego, zwanego sygnałem strobującym.
+ Odbiornik wykorzystuje ten sygnał do zapisu odbieranych danych.
+ Zwykle transmisja tego typu jest realizowana jednokierunkowo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+.
+ W przypadku powolnych odbiorników (np.
+ drukarki) stosuje się dodatkowe bufory uniezależniające transmisję od czasu
+ przetwarzania.
+ Aby jednak dane mogły być przesyłane, odbiornik musi zasygnalizować nadajnikowi
+ gotowość do ich odbioru przy pomocy sygnału gotowości (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Uklad-transmisji-rownoleglej"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/transmisja_rownolegla.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Układ transmisji równoległej (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Uklad-transmisji-rownoleglej"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sygnaly-transm-rown"
+
+\end_inset
+
+ pokazano przebiegi sygnalów towarzyszących transmisji równoległej.
+ Sygnał strobu (aktywny poziomem niskim) jest ustawiany w sytuacji aktywnego
+ sygnału gotowości oraz po ustabilizowaniu się stanu magistrali danych.
+ Urządzenie zewnętrzne (odbiornik) wykorzystuje jego zbocze opadające do
+ zapisu odbieranych danych.
+ W istniejących interfejsach, zarówno szeregowych jak i równoległych wykorzystuj
+e się także inne sygnały sterujace komunikacją.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/przebiegi_transmisja_rownolegla.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Przbiegi sygnałów w transmisji równoległej (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sygnaly-transm-rown"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Interfejs SPI
+\end_layout
+
+\begin_layout Standard
+Interfejs SPI (ang.
+ 
+\emph on
+Serial Peripheral Interface
+\emph default
+) został zaprojektowany i po raz pierwszy zastosowany przez firmę Motorola.
+ Jest jednym z najczęściej używanych interfejsów komunikacyjnych między
+ układami mikroprocesorowymi a peryferiami takimi jak przetworniki ADC/DAC,
+ układy RTC, pamięci EEPROM, pamięci flash, karty MMC/SD, sterowniki ekranów
+ dotykowych itp.
+ W świetle omówionych wcześniej cech interfejsów, SPI może być scharaktryzowany
+ jako:
+\end_layout
+
+\begin_layout Itemize
+szeregowy,
+\end_layout
+
+\begin_layout Itemize
+synchroniczny,
+\end_layout
+
+\begin_layout Itemize
+komunikujący się w trybie 
+\emph on
+full duplex
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+przewodowy.
+\end_layout
+
+\begin_layout Standard
+Komunikacja z urządzeniami wykonywana jest w oparciu o model wymiany danych
+ master/slave.
+ Do przesyłu danych wykorzystywane są zwykle 4 przewody, choć interfejs
+ może również funkcjonować w postaci trójprzewodowej.
+ SPI jest standardem 
+\emph on
+de facto
+\emph default
+, tzn.
+ jest powszechnie stosowany przez wielu producentów sprzętu elektronicznego,
+ lecz w przeciwieństwie do standardu 
+\emph on
+de jure
+\emph default
+ nie istnieje jego formalna specyfikacja zaakceptowana przez komitety standaryza
+cyjne typu IEEE, ANSI lub ISO.
+ Interfejs SPI jest też czasem określany jako czteroprzewodowa magistrala
+ szeregowa lub SSI (ang.
+ 
+\emph on
+Synchronous Serial Interface
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Omawiany interfejs obejmuje cztery sygnały:
+\end_layout
+
+\begin_layout Itemize
+sygnał zegarowy SCLK (wyjście urządzenia
+\emph on
+ master
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+sygnał MOSI (ang.
+ 
+\emph on
+Master Output Slave Input
+\emph default
+) -wyjście urządzenia 
+\emph on
+master
+\emph default
+ i wejście urządzenia 
+\emph on
+slave
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+sygnał MISO (ang.
+ 
+\emph on
+Master Input Slave Output
+\emph default
+) - wejście urządzenia 
+\emph on
+master
+\emph default
+ i wyjście urządzenia 
+\emph on
+slave
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+sygnał CS (ang.
+ 
+\emph on
+Chip Select
+\emph default
+) lub SS (ang.
+ 
+\emph on
+Slave Select
+\emph default
+) - sygnał wyboru urządzenia (wyjście urządzenia 
+\emph on
+master
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Wymienione powyżej sygnały posiadają także alternatywne nazwy:
+\end_layout
+
+\begin_layout Itemize
+SCLK - SCK, CLK,
+\end_layout
+
+\begin_layout Itemize
+MOSI - SIMO, SDO, DO,
+\end_layout
+
+\begin_layout Itemize
+MISO - SOMI, SDI, DI,
+\end_layout
+
+\begin_layout Itemize
+CS - nCS, nSS, CSB, STE.
+\end_layout
+
+\begin_layout Standard
+Z pojedynczym układem 
+\emph on
+master
+\emph default
+ może współpracować jeden lub więcej układów typu 
+\emph on
+slave
+\emph default
+.
+ W ostatnim przypadku należy zapewnić odpowiednią (równa liczbie urządzeń
+ 
+\emph on
+slave
+\emph default
+) ilość niezależnych sygnałów wyboru płytki (CS).
+ Ponieważ układ transmisji SPI wykorzystuje rejestr przesuwny, innym rozwiązanie
+m może okazać się także połączenie układów podrzędnych, tak aby utworzyły
+ jeden rejestr przesuwny.
+ Ponadto współpraca z wieloma urządzeniami 
+\emph on
+slave
+\emph default
+ wymaga, aby w trakcie ich nieaktywności ich wyjścia MISO wchodziły w stan
+ wysokiej impedancji.
+\end_layout
+
+\begin_layout Subsection
+Przesył danych
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/spi_rejestry_przesuwne.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Typowa realizacja transmisji SPI przy pomocy cyklicznego rejestru przesuwnego
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:spi-rej-przesuwny"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Przed dokonaniem transmisji danych, urządzenie 
+\emph on
+master
+\emph default
+ musi określić odpowiednią częstotliwość sygnału zegarowego.
+ Nie może być ona większa od żadnej z maksymalnych dopuszczalnych częstotliwośći
+ wspieranych przez urządzenia 
+\emph on
+slave
+\emph default
+.
+ Następnie sygnał wyboru urządzenia (CS) przechodzi w stan aktywny (zwykle
+ logiczne 0).
+ Jeśli należy poczekać, aby współpracujące urządzenie podrzędne dokonało
+ przetwarzania danych (tak jest np.
+ w przypadku przetworników analogowo-cyfrowych), urządzenie nadrzędne musi
+ wstrzymać się z generacją sygnału zegarowego.
+\end_layout
+
+\begin_layout Standard
+Z każdym taktem zegara związany jest cykl komunikacji 
+\emph on
+full duplex
+\emph default
+:
+\end_layout
+
+\begin_layout Itemize
+urządzenie master wysyła linią MOSI kolejny bit, zaś slave go odbiera,
+\end_layout
+
+\begin_layout Itemize
+urządzenie slave wysyła klejny bit danych linią MISO, zaś master go odbiera.
+\end_layout
+
+\begin_layout Standard
+W transmisji wykorzystywane są zwykle dwa rejestry przesuwne (po jednym
+ dla urządzenia master i slave) połączone ze sobą tworząc rejestr cykliczny
+ (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:spi-rej-przesuwny"
+
+\end_inset
+
+).
+ Zwykle wysyłany jest najbardziej znaczący bit MSB (ang.
+ 
+\emph on
+most significant bit
+\emph default
+) a odbierany najmniej znaczący LSB (ang.
+ 
+\emph on
+least significant bit
+\emph default
+).
+ Po wypełnieniu rejestrów następuje obróbka zawartych w nich danych, tj.
+ zapis do pamięci, przetwarzanie itp.
+ W celu wymiany większej ilości informacji, wspomniany proces się powtarza.
+ W trakcie pojedynczego cyklu komunikacji przesyłany jest zwykle bajt danych
+ (8 bitów), choć nie jest to regułą; istnieją układy w których przesyla
+ się 12, 16 lub 24 bity.
+ Niektóre urządzenia 
+\emph on
+slave
+\emph default
+ nie pozwalają na odbieranie danych w ciągu większej od zadanej liczby taktów
+ sygnału zegarowego; w innych rozwiązaniach konstrukcyjnych dane nadmiarowe
+ są ignorowane.
+\end_layout
+
+\begin_layout Standard
+Oprócz wymienionych sygnałów sterujących komunikacją, w urządzeniu 
+\emph on
+slave
+\emph default
+ możliwe jest również wyprowadzenie sygnału przerwania.
+ Przykładowo może to być sygnał informujący o dotknięciu ekranu dotykowego,
+ sygnał alarmowy generowany przez czujnik temperatury lub zegar czasu rzeczywist
+ego.
+ Standard SPI nie przewiduje użycia przerwań, więc przeznaczanie dla nich
+ oddzielnego pinu w urządzeniu 
+\emph on
+slave
+\emph default
+ nie jest ani zakazane ani obowiązkowe.
+\end_layout
+
+\begin_layout Standard
+Każde z urządzeń 
+\emph on
+slave
+\emph default
+, które nie zostało aktywowane sygnałem CS nie powinno reagować na sygnał
+ taktujący ani sterować wspólną magistralą.
+ Urządzenie 
+\emph on
+master
+\emph default
+, wybiera zaś do wymiany informacji tylko jedno urządzenie podrzędne.
+\end_layout
+
+\begin_layout Subsection
+Faza i polaryzacja sygnału zegarowego
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/spi_pol_faza.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Przebiegi odpowiadające różnym polaryzacjom i fazom sygnału taktującego
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "spi_pol_ph"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Poza określeniem częstotliwości sygnału taktujacego, urządzenie nadrzędne
+ musi także zdefiniować polaryzację i fazę tego sygnału.
+ Zwykle jest to związane z wpisaniem do odpowiednich rejestrów konfiguracyjnych
+ wartości 0 lub 1 na odpowiednich pozycjach.
+ Bity na tych pozycjach zwykle nazywane są CPOL (dla określenia polaryzacji)
+ oraz CPHA (dla określenia fazy); ich znaczenie jest następujące:
+\end_layout
+
+\begin_layout Itemize
+jeśli CPOL = 0, to stanem nieaktywnym sygnału zegara jest stan niski oraz:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+jeśli CPHA = 0, to dane zapisywane są przy zboczu narastającym zegara, zaś
+ przesyłane przy opadającym,
+\end_layout
+
+\begin_layout Itemize
+jeśli CPHA = 1, to dane zapisywane są przy zboczu opadającym zegara, zaś
+ przesyłane przy narastającym,
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+jeśli CPOL = 1, to stanem nieaktywnym sygnału taktującego jest stan wysoki
+ oraz:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+jeśli CPHA = 0, to dane zapisywane są przy zboczu opadającym zegara, zaś
+ przesyłane przy narastającym,
+\end_layout
+
+\begin_layout Itemize
+jeśli CPHA = 1, to dane zapisywane są przy zboczu narastającym zegara, zaś
+ przesyłane przy opadającym.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Współpraca z kilkoma urządzeniami podrzędnymi
+\end_layout
+
+\begin_layout Standard
+Jak wspomniano wcześniej, interfejs SPI pozwala na współpracę jednego urządzenia
+ nadrzędnego z kilkoma urządzeniami 
+\emph on
+slave
+\emph default
+.
+ Jednym ze sposobów zorganizowania takiego układu transmisji danych jest
+ zastosowanie niezależnych sygnałów CS dla każdego z urządzeń podrzędnych.
+ Przykład takiego rozwiązania pokazano na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:spi-independent-slaves"
+
+\end_inset
+
+.
+ Ponieważ wszystkie wyjścia MISO układów 
+\emph on
+slave
+\emph default
+ są połączone do wspólnej linii, powinny być one wyjsciami trójstanowymi.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/spi_independent_slaves.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Typowa realizacja komunikacji przy pomocy interfejsu SPI z wieloma urządzeniami
+ 
+\emph on
+slave
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "spi_independent_slaves"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:spi-independent-slaves"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Niektóre urządzenia wspierające SPI są zaprojektowane z myślą o zastosowaniu
+ połączenia łańcuchowego (znanego w literaturze anglojęzycznej jako 
+\emph on
+daisy chain
+\emph default
+).
+ W takiej konfiguracji wyjście jednego z urządzeń 
+\emph on
+slave
+\emph default
+ jest połączone do wejścia drugiego 
+\emph on
+slave'a
+\emph default
+ itd.
+ Port SPI takiego urządzenia podrzędnego w danym cyklu transmisji odbiera
+ dane od poprzedniego urządzenia, które te same dane odebrało w poprzednim
+ cyklu.
+ Cała kaskada działa jak jeden duży rejestr przesuwny.
+ Zaletą takiego rozwiązania jest to, że urządzenie typu 
+\emph on
+master
+\emph default
+ może wykorzystywać tylko jeden sygnał CS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/spi_daisy_chain.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Komunikacja przy pomocy interfejsu SPI w konfiguracji 
+\emph on
+daisy chain
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "spi_daisy_chain"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Zalety i wady interfejsu SPI
+\end_layout
+
+\begin_layout Standard
+Do zalet interfejsu SPI możemy zaliczyć:
+\end_layout
+
+\begin_layout Itemize
+komunikacja w trybie 
+\emph on
+full duplex
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+ilość przesyłanych danych nie jest ograniczona do 8 bitów,
+\end_layout
+
+\begin_layout Itemize
+prosty do zrozumienia i implementacji protokół,
+\end_layout
+
+\begin_layout Itemize
+stosunkowo prosta budowa:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+relatywnie mało skomplikowane obwody elektryczne, mniejsze zużycie energii,
+\end_layout
+
+\begin_layout Itemize
+urządzenia 
+\emph on
+slave
+\emph default
+ używają wspólnego sygnału zegarowego generowanego przez układ 
+\emph on
+master
+\emph default
+ (dodatkowe precyzyjne oscylatory i pętle PLL są niepotrzebne),
+\end_layout
+
+\begin_layout Itemize
+urządzenia slave nie wymagają unikalnych adresów (w przeciwieństwie do I2C,
+ GPIB czy SCSI),
+\end_layout
+
+\begin_layout Itemize
+nie są wymagane transceivery,
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+wystarczają tylko 4 piny,
+\end_layout
+
+\begin_layout Itemize
+większość linii sygnałowych może być współdzielonych przez różne urządzenia
+ 
+\emph on
+slave
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Wśród wad interfejsu SPI można wymienić:
+\end_layout
+
+\begin_layout Itemize
+większą w porównaniu do I2C ilość pinów obudowy IC,
+\end_layout
+
+\begin_layout Itemize
+brak sprzętowej kontroli przepływu danych przez urządzenia 
+\emph on
+slave
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+brak sprzętowego potwierdzania obecności urządzenia 
+\emph on
+slave
+\emph default
+ (
+\emph on
+master
+\emph default
+ może 
+\begin_inset Quotes eld
+\end_inset
+
+rozmawiać
+\begin_inset Quotes erd
+\end_inset
+
+ z niczym),
+\end_layout
+
+\begin_layout Itemize
+brak wsparcia dla architektury multi-master,
+\end_layout
+
+\begin_layout Itemize
+brak oficjalnego standardu,
+\end_layout
+
+\begin_layout Itemize
+brak protokołu obsługi błędów,
+\end_layout
+
+\begin_layout Itemize
+brak wsparcia dla dynamicznego podłączania urządzeń 
+\emph on
+slave
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+działanie na stosunkowo nieduże odległości.
+\end_layout
+
+\begin_layout Subsection
+Zastosowania
+\end_layout
+
+\begin_layout Standard
+Dużo mniejsza w porównaniu z interfejsami równoległymi liczba niezbędnych
+ pinów powoduje, że SPI jest bardzo często wykorzystywany w systemach wbudowanyc
+h.
+ Jest on elementem wielu mikrokontrolerów z rodziny ARM, AVR, PIC oraz MSP.
+ Niektóre mikrokontrolery AVR mogą być programowane z użyciem interfejsu
+ SPI.
+ Często używa się go także do komunikacji z takimi układami peryferyjnymi
+ jak:
+\end_layout
+
+\begin_layout Itemize
+czujniki temperatury, ciśnienia, przyspieszenia,
+\end_layout
+
+\begin_layout Itemize
+przetworniki ADC oraz DAC,
+\end_layout
+
+\begin_layout Itemize
+kontrolery ekranów dotykowych oraz gier,
+\end_layout
+
+\begin_layout Itemize
+pamięci flash oraz EEPROM,
+\end_layout
+
+\begin_layout Itemize
+zegary RTC,
+\end_layout
+
+\begin_layout Itemize
+karty MMC oraz SD.
+\end_layout
+
+\begin_layout Section
+Interfejs UART
+\end_layout
+
+\begin_layout Standard
+UART (ang.
+ 
+\emph on
+Universal Asynchronous Receiver and Transmitter
+\emph default
+) jest urządzeniem umożliwiającym asynchroniczne odbieranie i nadawanie
+ informacji przy pomocy portu szeregowego.
+ Sklada się z trzech zasadniczych elementów:
+\end_layout
+
+\begin_layout Itemize
+konwertera równoległo-szeregowego (ang.
+ 
+\emph on
+parallel to serial
+\emph default
+), pozwalającego na przesyłanie danych z komputera,
+\end_layout
+
+\begin_layout Itemize
+konwertera szerogowo-równoległego, umożliwiającego odbiór danych pochodzących
+ z komputera przez urządzenie zewnętrzne,
+\end_layout
+
+\begin_layout Itemize
+bufora danych, służącego do tymczasowego przechowywania danych w przypadku
+ szybkiej transmisji.
+\end_layout
+
+\begin_layout Standard
+UART używany jest często w połaczeniu z takim standardami komunikacyjnymi
+ jak RS-232, EIA czy RS-485.
+ Jego uniwersalność polega na tym, że szybkość transmisji oraz format danych
+ są konfigurowalne.
+ Poziomy elektryczne sygnałów elektrycznych oraz ich postać (np.
+ sygnal różnicowy) są przez zewnętrzny układ sterownika.
+ Omawiane urządzenia wystąpują jako układy scalone (bądź ich komponenty)
+ będące składnikami mikrokontrolerów.
+ Isnieją konstrukcje łączące dwa (DUART) lub osiem układów UART w jednej
+ obudowie.
+ Istnieją również chipy pozwalające na komunikację synchroniczną, okreslane
+ w skrócie jako USART (ang.
+ 
+\emph on
+Universal Synchronous and Asynchronous Receiver and Transmitter
+\emph default
+).
+\end_layout
+
+\begin_layout Subsection
+Transmisja
+\end_layout
+
+\begin_layout Standard
+Uniwersalny asynchroniczny odbiornik/nadajnik przesyła bajty danych bit
+ po bicie.
+ UART znajdujący się po drugiej stronie odbiera poszczególne bity łącząc
+ je w bajty.
+ Konwersję z równoległej postaci danych na szeregową uzyskuje się zwykle
+ przy pomocy rejestrów przesuwnych będących składnikami UARTów.
+ Użycie szeregowej transmisji danych zamiast równoległej (bardziej naturalnej
+ dla urządzeń cyfrowych) pozwala na zmniejszenie kosztów oraz problemów
+ związanych z zakłóceniami elektromagnetycznymi.
+\end_layout
+
+\begin_layout Standard
+UART zwykle nie generuje ani nie odbiera bezpośrednio sygnałów odpowiedzialnych
+ za komunikację.
+ W tym celu używa się dodatkowych interfejsów, konwertujących sygnały używane
+ przez UART na właściwe przebiegi odpowiadające za transmisję danych.
+ Często używanymi standardami są RS-232, RS-485 oraz EIA.
+ Komunikacja może odbywać się w trybie 
+\emph on
+simplex
+\emph default
+, 
+\emph on
+half duplex
+\emph default
+ oraz 
+\emph on
+full duplex
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Ramka danych
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/interfejsy/ramka_uart.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ramka danych wysyłana lub odbierana przez UART (
+\emph on
+Źródło:
+\emph default
+ ) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ramka-danych-uart"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ramka-danych-uart"
+
+\end_inset
+
+ przedstawia typową ramkę używanę w trakcie transmisji przy pomocy układu
+ UART.
+ W stanie bezczynności (gdy nie przesyłane są żadne dane), linia danych
+ jest zwykle w stanie wysokim.
+ Wysyłanie właściwych danych (zwanych znakiem) sygnalizowane jest bitem
+ startu, tj.
+ przejściem linii danych do stanu niskiego.
+ Znak składa się zazwyczaj z 5 - 8 bitów.
+ W celu zapewnienia kontroli poprawności danych, może być zakończony tzw.
+ bitem parzystości.
+ W celu zasygnalizowania odbiornikowi zakończenia transmisji, przesyłany
+ jest bit stopu, który może być zdublowany.
+\end_layout
+
+\begin_layout Subsection
+Odbiór danych
+\end_layout
+
+\begin_layout Standard
+Wszystkie operacje w ukladzie UART sterowane są sygnałem zegarowym o częstotliwo
+śći będącej wielokrotnością częstości używanej do przesyłania danych.
+ Odbiornik próbkuje linię danych w oczekiwaniu na pojawienie się bitu startu.
+ Jeśli linia danych przejdzie ze stanu spoczynkowego do aktywnego na czas
+ wynoszący co najmniej połowę okresu trwania bitu, zostanie to zinterpretowane
+ jako bit startu.
+ W przeciwnym wypadku zarejestrowany impuls zostanie zignorowany.
+ Następnie po upływie niewielkiego czasu następuje dalsze próbkowanie linii
+ danych połączone z wczytywaniem znaku do odbiorczego rejestru przesuwnego.
+ Po wczytaniu określonej liczby bitów, UART ustawia odpowiednią flagę lub
+ generuje sygnał przerwania informujący mikroprocesor o odebraniu danych.
+\end_layout
+
+\begin_layout Standard
+Komunikujące się układy UART nie posiadają wspólnego sygnału zegarowego.
+ Każdy z nich posiada własne zegary, których synchronizacja dokonuje się
+ w oparciu o sygnał na linii danych.
+ Zwykle synchronizacja ma miejsce w chwili zmianu stanu linii danych, o
+ ile zmiana ta może być uznana za ważną.
+ Uproszczone układy synchronizują się w momencie detekcji opadającego zbocza
+ bitu startu, zaś odczyt kolejnych bitów następuje w połowach czasów ich
+ trwania.
+ Takie rozwiązanie działa poprawnie, o ile szybkość transmisji pozwala na
+ poprawny odczyt bitów stopu.
+\end_layout
+
+\begin_layout Standard
+Standardową cechą układów UART jest pobieranie kolejnego znaku, gdy poprzedni
+ został zapisany w rejestrze.
+ Zastosowane w ten sposób podwójne buforowanie pozwala mikroprocesorowi
+ na odczyt poprzedniego znaku, przed odebraniem następnego.
+ Jeśli centralna jednostka przetwarzająca po stronie odbiornika potrzebuje
+ jeszcze więcej czasu na odbiór, można zastosować buforowanie danych z użyciem
+ kolejek FIFO.
+\end_layout
+
+\begin_layout Subsection
+Nadawanie danych
+\end_layout
+
+\begin_layout Standard
+Po umieszczeniu znaku w rejestrze przesuwnym nadajnika, UART wysyła na linię
+ danych bit startu, kolejne bity danych, bit parzystości (jeśli jest używany)
+ oraz bit (lub dwa bity) stopu.
+ Ponieważ transmisja pojedynczego znaku zajmuje pewien czas, układ nadawczy
+ ustawia odpowiednią flagę zajętości, która informuje mikroprocesor, żeby
+ nie umieszczał kolejnego znaku w rejestrze przesuwnym.
+ Zamiast flagi może być wygenerowane odpowiednie przerwanie.
+ W przypadku trybu 
+\emph on
+full duplex
+\emph default
+ oba układy UART używają dwóch rejestrów przesuwnych.
+\end_layout
+
+\begin_layout Subsection
+Własności
+\end_layout
+
+\begin_layout Standard
+Oba układy UART, zarówno nadawczy jak i odbiorczy muszą mieć zgodne następujące
+ parametry:
+\end_layout
+
+\begin_layout Itemize
+szybkość transmisji danych,
+\end_layout
+
+\begin_layout Itemize
+ilość bitów danych,
+\end_layout
+
+\begin_layout Itemize
+obecność (lub jej brak) bitu parzystości,
+\end_layout
+
+\begin_layout Itemize
+ilość bitów stopu.
+\end_layout
+
+\begin_layout Standard
+W przypadku niezgodności ww.
+ parametrów, układ odbiorczy może ustawić odpowiednią flagę błędu.
+ Typowo porty szeregowe komputerów wykorzystują osiem bitów danych, bit
+ parzystości i jeden bit stopu.
+\end_layout
+
+\begin_layout Subsection
+Transmisja w trybie synchronicznym
+\end_layout
+
+\begin_layout Standard
+Jak wspomniano wcześniej istnieją układy typu USART potrafiące także pracować
+ w trybie transmisji synchronicznej.
+ W tym wypadku przebieg sygnału zegarowego jest pozyskiwany na podstawie
+ sygnału na linii danych.
+ Dzięki obecności sygnału synchronizacyjnego niepotrzebne stają się bity
+ startu i stopu, co pozwala na lepsze wykorzystanie linii danych i w efekcie
+ bardziej efektywną komunikację.
+ W przypadku trybu asynchronicznego, gdy nie ma danych do przesłania, linia
+ danych znajduje się w stanie spoczynku.
+ W trybie transmisji synchronicznej konieczne jest przesyłanie specjalnych
+ znaków w celu utrzymania synchronizacji.
+\end_layout
+
+\begin_layout Subsection
+Stany błędne
+\end_layout
+
+\begin_layout Standard
+Poniżej opisano możliwe błędy towarzyszące komunikacji z wykorzystaniem
+ urządzeń UART.
+\end_layout
+
+\begin_layout Itemize
+Błąd przepełnienia (ang.
+ overrun error) - wystepuje, gdy odbiorca danych nie może przetworzyć danej
+ przed pojawieniem się kolejne.
+ Różne urządzenia dysponują różnymi pojemnościami buforów służących do przechowy
+wania odebranych danych.
+ Jednostka przetwarzająca dane musi to robić na tyle szybko, aby zwolnić
+ miejsce dla kolejnych znaków - w przeciwnym razie dochodzi do nadpisania
+ nie przetworzonych jeszcze informacji.
+\end_layout
+
+\begin_layout Itemize
+Błąd niedopełnienia (ang.
+ underrun error) - ma miejsce, gdy po wysłaniu danych przez nadajnik, bufor
+ nadawczy jest pusty.
+ W trybie asynchronicznym sytuacja taka traktowana jest raczej jako brak
+ danych do wysłania niż stan błędny.
+ W trybie synchronicznym jest to poważny błąd.
+\end_layout
+
+\begin_layout Itemize
+Błąd ramki (ang.
+ framing error) - pojawia się, gdy bity startu i stopu nie są wykrywane.
+ Bit startu sygnalizujący początek znaku stanowi odniesienie dla pozostałych
+ bitów.
+ Jeśli linia danych nie znajdzie się we właściwym stanie, gdy spodziewany
+ jest bit stopu sygnalizowany jest błąd ramki.
+\end_layout
+
+\begin_layout Itemize
+Błąd parzystości - wystepuje, gdy liczba jedynek w przesyłanym znaku wraz
+ z bitem parzystości jest liczbą parzystą.
+ Istnienie omawianego bitu w ramce jest opcjonalne.
+\end_layout
+
+\end_body
+\end_document

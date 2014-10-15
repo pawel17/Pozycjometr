@@ -1,0 +1,2639 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass aghdpl
+\begin_preamble
+\chapter{Pierwszy dokument}
+\label{cha:pierwszyDokument}
+
+W rozdziale tym przedstawiono podstawowe informacje dotyczące struktury prostych plików \LaTeX a. Omówiono również metody kompilacji plików z zastosowaniem programów \emph{latex} oraz \emph{pdflatex}.
+
+%---------------------------------------------------------------------------
+
+\section{Struktura dokumentu}
+\label{sec:strukturaDokumentu}
+
+Plik \LaTeX owy jest plikiem tekstowym, który oprócz tekstu zawiera polecenia formatujące ten tekst (analogicznie do języka HTML). Plik składa się z dwóch części:
+\begin{enumerate}%[1)]
+\item Preambuły -- określającej klasę dokumentu oraz zawierającej m.in. polecenia dołączającej dodatkowe pakiety;
+
+\item Części głównej -- zawierającej zasadniczą treść dokumentu.
+\end{enumerate}
+
+
+
+\begin{lstlisting}
+      % preambuła
+
+
+
+\usepackage{times}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language polish
+\language_package default
+\inputencoding latin2
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indeks
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Akcelerometry
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+
+\series medium
+Akcelerometr, zwany także przyśpieszeniomierzem, jest czujnikiem służącym
+ do pomiarów przyspieszeń liniowych oraz kątowych.
+ Przyspieszenie liniowe jest wielkością fizyczną, określoną następującym
+ wzorem:
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Formula 
+\begin{equation}
+\mathbf{a}=\frac{d\mathbf{v}}{dt}\label{eq:przyspieszenie_wzor_ogolny}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+gdzie:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing onehalf
+
+\series bold
+a
+\series default
+ - wektor przyspieszenia,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing onehalf
+
+\series bold
+v
+\series default
+ - wektor prędkości,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing onehalf
+t - czas.
+\end_layout
+
+\begin_layout Standard
+Rozkładając wektor 
+\series bold
+v
+\series default
+ na składowe 
+\emph on
+v
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+x
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+v
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+y
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+v
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+z
+\end_layout
+
+\end_inset
+
+
+\emph default
+ wzdłuż odpowiednio osi 
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+, 
+\emph on
+z
+\emph default
+ kartezjańskiego układu współrzędnych, wzór 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:przyspieszenie_wzor_ogolny"
+
+\end_inset
+
+ można zapisać w następujący sposób:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{\mathcal{\mathbf{a}}}=\frac{dv_{x}}{dt}\mathbf{i}+\frac{dv_{y}}{dt}\mathbf{j}+\frac{dv_{z}}{dt}\mathbf{k}=a_{x}\mathbf{i}+a_{y}\mathbf{j}+a_{z}\mathbf{k}\label{eq:przyspieszenie_rozklad_na_skladowe}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+v
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+x
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+v
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+y
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+v
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+z
+\end_layout
+
+\end_inset
+
+
+\emph default
+ - składowe wektora prędkości wzdłuż odpowiednio osi 
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+ i 
+\emph on
+z
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+x
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+y
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+z
+\end_layout
+
+\end_inset
+
+
+\emph default
+ - składowe wektora przyspieszenia wzdłuż odpowiednio osi 
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+, 
+\emph on
+z
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+i
+\series default
+, 
+\series bold
+j
+\series default
+, 
+\series bold
+k
+\series default
+ - wersory osi (odpowiednio) 
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+, 
+\emph on
+z
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Obecnie produkowane akcelerometry potrafią mierzyć przyspieszenia w jednej
+ (akcelerometry jednoosiowe), dwóch (dwuosiowe) bądź trzech osiach (trójosiowe).
+ W przypadku układów wieloosiowych, często spotyka się rozwiązania, które
+ łączą w sobie kilka przyspieszeniomierzy jednoosiowych, mierzących przyspieszen
+ia wzdłuż trzech prostopadłych osi 
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+, 
+\emph on
+z
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Akcelerometry znalazły szerokie zastosowanie w technice i są używane jako
+ części składowe wielu urządzeń elektronicznych i mechanicznych.
+ Do przykładów ich użycia można zaliczyć:
+\end_layout
+
+\begin_layout Itemize
+układy stabilizacji optycznej w aparatach fotograficznych,
+\end_layout
+
+\begin_layout Itemize
+zabezpieczenia dysków twardych, chroniące przed skutkami upadków i utratą
+ danych,
+\end_layout
+
+\begin_layout Itemize
+urządzenia mobilne, których aplikacje wykorzystują informacje o nachyleniu
+ i przemieszczeniu urządzenia,
+\end_layout
+
+\begin_layout Itemize
+konsole i kontrolery gier,
+\end_layout
+
+\begin_layout Itemize
+układy wyzwalania poduszek powietrznych w samochodach,
+\end_layout
+
+\begin_layout Itemize
+układy automatyki i robotyki (identyfikatory położenia),
+\end_layout
+
+\begin_layout Itemize
+detektory ruchu w systemach zabezpieczeń,
+\end_layout
+
+\begin_layout Itemize
+protezy kończyn,
+\end_layout
+
+\begin_layout Itemize
+detektory zderzeń.
+\end_layout
+
+\begin_layout Standard
+Istniejące obecnie na rynku konstrukcje akcelerometrów cechują się następującymi
+ parametrami:
+\end_layout
+
+\begin_layout Itemize
+napięcie zasilania (zwykle 3.3 V lub 5 V),
+\end_layout
+
+\begin_layout Itemize
+charakter sygnału wyjściowego (zwykle analogowy, rzadziej cyfrowy),
+\end_layout
+
+\begin_layout Itemize
+pasmo przenoszenia,
+\end_layout
+
+\begin_layout Itemize
+zakres pomiarowy (podawany zwykle w krotnościach przyspieszenia ziemskiego
+ 
+\emph on
+g
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+ilość osi pomiarowych,
+\end_layout
+
+\begin_layout Itemize
+interfejs komunikacyjny (najczęściej SPI lub I
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+C).
+\end_layout
+
+\begin_layout Standard
+Istotnym aspektem odróżniającym akcelerometry jest wykorzystywane w nich
+ zjawisko fizyczne, pozwalające na pomiar przyspieszenia.
+ W dalszej części omówiono najczęściej spotykane rodzaje akcelerometrów
+ oraz zasadę ich działania.
+\end_layout
+
+\begin_layout Section
+Przetwornik sejsmiczny
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/wibrometr.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Model przetwornika sejsmicznego (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Model-przetwornika-sejsmicznego"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model-przetwornika-sejsmicznego"
+
+\end_inset
+
+ pokazano model przetwornika sejsmicznego.
+ Jego podstawowymi elementami są:
+\end_layout
+
+\begin_layout Itemize
+masa sejsmiczna 
+\emph on
+m
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+stała sprężystości 
+\emph on
+k
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+stała tłumienia 
+\emph on
+D
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Z uwagi na stałość parametrów 
+\emph on
+k
+\emph default
+, 
+\emph on
+D
+\emph default
+ przyjmujemy założenie co do liniowości przetwornika.
+ Znaczenie wielkości 
+\emph on
+x
+\emph default
+, 
+\emph on
+u
+\emph default
+, 
+\emph on
+y
+\emph default
+ jest następujące:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+x(t)
+\emph default
+ – bezwzględne przemieszczenie obudowy przetwornika,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+y(t)
+\emph default
+ – przemieszczenie masy sejsmicznej względem obudowy,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+u(t)
+\emph default
+ – bezwzględne przemieszczenie masy sejsmicznej.
+\end_layout
+
+\begin_layout Standard
+Równanie ruchu masy sejsmicznej ma następującą postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+mu''=-ky-Dy'\label{eq:rownanie_ruchu_sejsmiczny_1}
+\end{equation}
+
+\end_inset
+
+Ponadto można zauważyć, że:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u-x=y\label{eq:zwiazek_miedzy_wspolrzednymi}
+\end{equation}
+
+\end_inset
+
+Po przekształceniach otrzymujemy zależność:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+my''+Dy'+ky=-mx''\label{eq:rownanie_ruchu_sejsmiczny_2}
+\end{equation}
+
+\end_inset
+
+Równanie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rownanie_ruchu_sejsmiczny_2"
+
+\end_inset
+
+ wiąże bezwzględne przemieszczenie obudowy z względnym przemieszczeniem
+ masy sejsmicznej.
+ Po dokonaniu podstawień:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega_{0}=\sqrt{\frac{k}{m}}\label{eq:pulsacja_drgan_wlasnych}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\xi=\frac{D}{2\sqrt{km}}\label{eq:tlumienie_wzgledne}
+\end{equation}
+
+\end_inset
+
+omawiane równanie różniczkowe może być zapisane jako:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\omega_{0}^{2}}y''+\frac{2\xi}{\omega_{0}}y'+y=-\frac{1}{\omega_{0}^{2}}x''\label{eq:rownanie_ruchu_sejsmiczny_3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+W celu wyznaczenia poprawnych warunków warunków pracy przetwornika, należy
+ posłużyć się analizą częstotliwościową.
+ W tym celu równanie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rownanie_ruchu_sejsmiczny_3"
+
+\end_inset
+
+ poddajemy obustronnie transformacji Laplace'a (zakładamy zerowe warunki
+ początkowe):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\omega_{0}^{2}}s^{2}Y+\frac{2\xi}{\omega_{0}}sY+Y=-\frac{1}{\omega_{0}^{2}}s^{2}X\label{eq:rownanie_ruchu_sejsmiczny_operatorowo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\emph on
+X
+\emph default
+ i 
+\emph on
+Y
+\emph default
+ są transformatami sygnałów odpowiednio 
+\emph on
+x
+\emph default
+ i 
+\emph on
+y
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X\left(s\right)=\mathcal{L}\left\{ x\left(t\right)\right\} \label{eq:laplace_x}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y\left(s\right)=\mathcal{L}\left\{ y\left(t\right)\right\} \label{eq:laplace_y}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\begin_inset Formula $\mathcal{L}\left\{ f\left(t\right)\right\} $
+\end_inset
+
+oznacza transformację Laplace'a funkcji 
+\emph on
+f
+\emph default
+, określoną wzorem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F\left(s\right)=\left\{ f\left(t\right)\right\} =\int_{0}^{+\infty}e^{-st}f\left(t\right)dt\label{eq:laplace_definicja}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zmienna 
+\emph on
+t
+\emph default
+ jest zmienną, po której całkujemy i najczęściej oznacza czas, zaś 
+\emph on
+s
+\emph default
+ jest zmienną zespoloną, będącą zmienną niezależną transformaty.
+ Sygnały poddawane przekształceniu Laplace'a przyjęło się nazywać w literaturze
+ oryginałami.
+\end_layout
+
+\begin_layout Standard
+Zgodnie z literaturą 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+, opisywane przetwornik sejsmiczny może służyć do pomiaru przemieszczenia
+ lub przyspieszenia.
+ Jeżeli za jego transmitancje operatorową przyjmiemy iloraz transformaty
+ względnego przemieszczenia 
+\emph on
+Y
+\emph default
+ oraz transformaty bezwzględnego przyspieszenia obudowy 
+\emph on
+s
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+
+\emph on
+2
+\end_layout
+
+\end_inset
+
+X
+\emph default
+, wówczas taki przetwornik nazywamy akcelerometrem.
+ Omawiana transmitancja zgodnie ze wzorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rownanie_ruchu_sejsmiczny_operatorowo"
+
+\end_inset
+
+ ma postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G\left(s\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_akcelerometru_sejsmicznego}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+W celu zbadania własności częstotliwościowych przetwornika należy posłużyć
+ się transmitancją widmową.
+ W tym celu do zależności 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:transmitancja_akcelerometru_sejsmicznego"
+
+\end_inset
+
+ podstawiamy 
+\begin_inset Formula $s=j\omega$
+\end_inset
+
+, gdzie 
+\emph on
+j
+\emph default
+ jest jednostką urojoną a 
+\begin_inset Formula $\omega$
+\end_inset
+
+ pulsacją.
+ Otrzymana transmitancja ma postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G\left(j\omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\left(\frac{\omega}{\omega_{0}}\right)^{2}+j2\xi\frac{\omega}{\omega_{0}}+1}\label{eq:transmitancja_widm_akcel_sejsm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wygodniej posłużyć się transmitancją widmową w funkcji pulsacji względnej:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G_{r}\left(j\Omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\Omega{}^{2}+j2\xi\Omega+1}\label{eq:transmitancja_widm_akcel_sejsm_wzgl}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\begin_inset Formula $\Omega=\frac{\omega}{\omega_{0}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Na podstawie zależności 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:transmitancja_widm_akcel_sejsm_wzgl"
+
+\end_inset
+
+ można wyznaczyć charakterystyki amplitudowe 
+\emph on
+A
+\emph default
+ i fazowe 
+\begin_inset Formula $\phi$
+\end_inset
+
+ akcelerometru 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}^{2}}\frac{1}{\sqrt{\left(1-\Omega^{2}\right)^{2}+4\xi^{2}\Omega^{2}}}\label{eq:chka_ampl_akcel_sejsm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\phi\left(j\Omega\right)=arg\left\{ G_{r}\left(j\Omega\right)\right\} =-arctg\left(\frac{2\xi\Omega}{1-\Omega^{2}}\right)\label{eq:chka_fazowa_akcel_sejsm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/chki_akcelerometru.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Charakterystyki częstotliwościowe akcelerometru (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Charakterystyki-czestotliwosciow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Charakterystyki-czestotliwosciow"
+
+\end_inset
+
+ przedstawiono przebiegi odpowiadające wzorom 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:chka_ampl_akcel_sejsm"
+
+\end_inset
+
+ oraz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:chka_fazowa_akcel_sejsm"
+
+\end_inset
+
+.
+ Można zauważyć, że dla dostatecznie małych tłumień 
+\begin_inset Formula $\xi$
+\end_inset
+
+ charakterystyki amplitudowe omawianego akcelerometru posiadają wyraźne
+ maksimum, dla częstotliwości zbliżonych do częstości drgań własnych.
+ W przypadku granicznym, gdy tłumienie wynosi zero, amplituda wzmocnienia
+ dąży do nieskończoności.
+ Omawiane zjawisko nosi nazwę rezonansu.
+ Aby rezonans mógł wystąpić, musi być spełniony warunek 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\xi<\frac{1}{\sqrt{2}}\thickapprox0.707\label{eq:warunek_rezonansu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Maksimum funkcji modułu transmitancji widmowej jest osiągane dla pulsacji
+ względnej:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega_{r}=\sqrt{1-2\xi^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Z literatury 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+ wiadomo, że warunkiem niezniekształcającego przetwarzania sygnału jest
+ stałość charakterystyki amplitudowej i liniowość charakterystyki fazowej.
+ Biorąc pod uwagę rysunki (rysunek) oraz (rysunek) można dojść do wniosku,
+ że warunki te spełnione są, gdy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega<\omega_{g}\thickapprox0.5\omega_{0}\label{eq:war_nieznieksztalc_pracy_akcel_sejsm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dla tłumienia ograniczonego warunkiem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\xi\in\left(0.6,0.707\right)\label{eq:tlumienie_dla_niezniekszt_pracy_akcel_sejsm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+W przypadku pulsacji bliskich 
+\begin_inset Formula $\omega_{g}$
+\end_inset
+
+ należy liczyć się z większym błędem przetwarzania wynikającym ze spadku
+ wzmocnienia i z błędu fazowego 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
+ Z przebiegu charakterystyk częstotliwościowych wynika, że pasmo przenoszenia
+ będzie tym szersze im większa będzie pulsacja drgań własnych.
+ Można to uzyskać zgodnie z zależnością 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pulsacja_drgan_wlasnych"
+
+\end_inset
+
+ poprzez zwiększenie stałej 
+\emph on
+k
+\emph default
+ i zmniejszenie masy sejsmicznej 
+\emph on
+m
+\emph default
+.
+ Wzrost sprężystości prowadzi również do spadku tłumienia (zależność 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:tlumienie_wzgledne"
+
+\end_inset
+
+).
+ Pozwala to na uproszczenie równania (wzór) do postaci 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=-\frac{1}{\omega_{0}^{2}}x''=-\frac{1}{\omega_{0}^{2}}a\label{eq:uproszczone_rownanie_ruchu_akcel_sejsm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+z której wynika, że względne wychylenie masy przetwornika jest proporcjonalne
+ do przyspieszenia bezwzględnego.
+ Współczynnik proporcjonalności łączący te dwie wielkości jest jednak odwrotnie
+ proporcjonalny do kwadratu pulsacji drgań własnych.
+ Wynika z tego, że żądania uzyskania szerokiego pasma przepustowego i dużej
+ czułości przetwarzania są sprzeczne.
+\end_layout
+
+\begin_layout Section
+Akcelerometr piezorezystancyjny
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/piezorezystancyjny.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Akcelerometr z piezorezystancyjnym czujnikiem tensometrycznym (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Akcelerometr-z-piezorezystancyjn"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rysunek (Rysunek) przedstawia schemat akcelerometru z piezorezystancyjnym
+ czujnikiem tensometrycznym.
+ Zasadniczym elementem przetwornika jest masa sejsmiczna znajdująca się
+ na końcu sprężystej belki, zamocowanej jednostronnie do obudowy.
+ Drgania masy na końcu belki zachodzą wewnątrz obudowy wypełnionej olejem
+ wiskotycznym.
+\end_layout
+
+\begin_layout Standard
+Mierzone przyspieszenie bezwzględnejest przekształcane kolejno na:
+\end_layout
+
+\begin_layout Itemize
+względne przemieszczenie y masy m względem obudowy,
+\end_layout
+
+\begin_layout Itemize
+odkształcenie 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ względne belki,
+\end_layout
+
+\begin_layout Itemize
+względną zmianę rezystancji 
+\begin_inset Formula $\varepsilon_{R}$
+\end_inset
+
+ czujnika tensometrycznego,
+\end_layout
+
+\begin_layout Itemize
+względną zmianę napięcia nierównowagi 
+\begin_inset Formula $\frac{\Delta U}{U_{Z}}$
+\end_inset
+
+ mostka (
+\begin_inset Formula $\Delta U$
+\end_inset
+
+ oznacza przyrost napięcia niezrównoważenia mostka, zaś 
+\emph on
+U
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+Z
+\end_layout
+
+\end_inset
+
+
+\emph default
+ napięcie zasilające mostek).
+\end_layout
+
+\begin_layout Standard
+Ponieważ częstotliwość drgań własnych tego typu przetworników są stosunkowo
+ niskie (od kilkuset herców do kilku kiloherców), niewielkie jest również
+ ich pasmo przenoszenia.
+ Do zalet tego typu konstrukcji można zaliczyć możliwość pomiaru stałych
+ przyspieszeń 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
+ Czułość przetwornika można wyznaczyć z następującej zależności 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{a}=\frac{\frac{\Delta U_{-g}^{g}}{U_{Z}}}{2g}\label{eq:czulosc_akcel_piezorez}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\begin_inset Formula $\Delta U_{-g}^{g}$
+\end_inset
+
+ oznacza przyrost napięcia nierównowagi mostka przy zmianie pomiaru przyspieszen
+ia z 
+\emph on
+g
+\emph default
+ na 
+\emph on
+-g
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Układy podobne do powyższego są wytwarzane w technice mikromaszynowej MEMS,
+ pozwalającej na znaczne zmniejszenie rozmiaru przetwornika.
+ W akcelerometrach takich do przetwarzania zmiany odkształcenia na zmianę
+ rezystancji wykorzystuje się tensometry piezorezystywne.
+\end_layout
+
+\begin_layout Standard
+Wspomniana technika MEMS pozwala również na produkcję przyspieszeniomierzy
+ pojemnościowych, stosowanych bardzo często jako elementy układów bezpieczeństwa
+ czynnego w samochodach (wyzwalacze poduszek powietrznych).
+ Przykład konstrukcji takiego akcelerometru pokazano na rysunku (rysunek).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/mems.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Zasada działania akcelerometru pojemnościowego: a) układ znajdujący się
+ w spoczynku, b) układ poddawany działaniu przyspieszenia 
+\series bold
+\emph on
+a
+\series default
+ 
+\emph default
+(
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mems-pojemnosciowy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podstawowym elementem przetwornika jest płyta, stanowiąca masę sejsmiczną,
+ której końce zamocowane są poprzez sprężyste uchwyty do obudowy.
+ Z płytą połączona jest elektroda, znajdująca się pomiędzy dwiema innymi,
+ ale nieruchomymi (względem obudowy) elektrodami, połączonymi z obudową.
+ Całość tworzy różnicowy układ dwóch kondensatorów 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+1
+\end_layout
+
+\end_inset
+
+
+\emph default
+ i 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+2
+\end_layout
+
+\end_inset
+
+
+\emph default
+, których pojemności zależą od położenia środkowej okładki, które z kolei
+ zależy od wychylenia masy sejsmicznej.
+ Do okładek nieruchomych przykłada się prostokątne napięcia znajdujące się
+ w przeciwfazie.
+\end_layout
+
+\begin_layout Standard
+Jeżeli układ nie jest poddawany działaniu przyspieszenia, pojemności 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+1
+\end_layout
+
+\end_inset
+
+
+\emph default
+ i 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+2
+\end_layout
+
+\end_inset
+
+
+\emph default
+ są równe, a napięciowy sygnał wyjściowy ze środkowej elektrody ma wartość
+ zerową.
+ Działanie przyspieszenia powoduje wychylenie masy sejsmicznej oraz środkowej
+ okładki, co prowadzi do zmniejszenia jednej z pojemności i zwiększenia
+ drugiej.
+ Niezerowy już sygnał z ruchomej elektrody jest demodulowany i przetwarzany
+ przez wzmacniacz buforowy 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
+ Cały układ pomiarowy posiada pętlę ujemnego sprzężenia zwrotnego, utrzymującego
+ środkową elektrodę w położeniu równowagi.
+ Miarą przyspieszenia jest wartość napięcia wyjściowego akcelerometru, niezbędna
+ do utrzymania środkowej okładki w położeniu równowagi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Przetworniki piezoelektryczne
+\end_layout
+
+\begin_layout Subsection
+Zasada działania
+\end_layout
+
+\begin_layout Standard
+Działanie tego typu przetworników polega na wykorzystaniu zjawiska piezoelektryc
+znego.
+ Polega ono na pojawianiu się ładunku elektrycznego na powierzchni ładunku
+ pod wpływem istniejących naprężeń mechanicznych.
+ Kryształy, które cechują się omawianymi własnościami nazywane są piezoelektryka
+mi.
+ W naturze istnieje również zjawisko odwrotne (nazywane zjawiskiem piezoelektryc
+znym odwrotnym, w odróżnieniu od prostego), polegające na zmianie wymiarów
+ kryształu pod wpływem przyłożonego pola elektrycznego.
+ 
+\end_layout
+
+\begin_layout Standard
+W praktyce jako piezoelektryka najczęściej używa się krzemu (SiO
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+).
+ Do jego zalet można zaliczyć stosunkowo dużą wytrzymałość mechaniczną,
+ znaczną rezystywność i stałą piezoelektryczną i niewielką zależność zjawiska
+ piezoelektrycznego od temperatury.
+\end_layout
+
+\begin_layout Standard
+Na rysunku przedstawiono schematycznie budowę kryształu kwarcu.
+ Jak widać jego komórka elementarna ma postać układu heksagonalnego.
+ Przyłożenie do płytki kwarcowej siły powoduje przemieszczenie się jonów
+ krzemu i tlenu, co skutkuje pojawieniem się ładunków na jej powierzchni
+ oraz pola elektrycznego w jej wnętrzu.
+ Kierunek pola zależy od kierunku działania siły oraz od sposobu wycięcia
+ płytki względem osi krystalograficznych kwarcu, zaś jego wartość od wartości
+ działającej siły.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/kwarc.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ilustracja efektu piezoelektrycznego wzdłużnego na przykładzie kryształu
+ kwarcu: a) kryształ nieobciążony, b) kryształ poddany działaniu siły 
+\series bold
+\emph on
+F
+\series default
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ilustracja-efektu-piezoelektrycz"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Do osi krystalicznych kwarcu można zaliczyć 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+trzy osie elektryczne, łączące przeciwległe wierzchołki sześciokąta,
+\end_layout
+
+\begin_layout Itemize
+trzy osie mechaniczne, łączące środki przeciwległych boków sześciokąta,
+\end_layout
+
+\begin_layout Itemize
+oś optyczną, prostopadłą do płaszczyzny sześciokąta.
+\end_layout
+
+\begin_layout Standard
+Jeśli siła 
+\emph on
+F
+\emph default
+ działa wzdłuż osi 
+\emph on
+x
+\emph default
+, to ładunki generowane są na powierzchniach do niej prostopadłych.
+ Odkształcanie kryształu wzdłuż osi 
+\emph on
+y
+\emph default
+ powoduje powstawanie ładunków również na tych samych powierzchniach.
+ W pierwszym przypadku mamy do czynienia ze zjawiskiem piezoelektrycznym
+ wzdłużnym, zaś w drugim z poprzecznym.
+\end_layout
+
+\begin_layout Standard
+W przypadku zjawiska wzdłużnego, gęstość 
+\emph on
+q
+\emph default
+ ładunku wygenerowanego na powierzchni 
+\emph on
+A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+x
+\end_layout
+
+\end_inset
+
+
+\emph default
+ prostopadłej do osi elektrycznej 
+\emph on
+x
+\emph default
+, wzdłuż której działa siła 
+\emph on
+F
+\emph default
+ wynosi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+q=k_{p}\sigma\label{eq:gestosc_ladunku_piezoelektryk}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+k
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+p
+\end_layout
+
+\end_inset
+
+
+\emph default
+ – stała (tzw.
+ moduł piezoelektryczny),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\sigma$
+\end_inset
+
+ - naprężenie powstałe w płytce, w wyniku działania siły 
+\emph on
+F
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Naprężenie występujące w ostatnim wzorze może być wyznaczone w następujący
+ sposób:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma=\frac{F}{A_{x}}\label{eq:naprezenie}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wartość ładunku 
+\emph on
+Q
+\emph default
+ zgromadzonego na powierzchni krzemu wyniesie zatem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Q=qA_{x}=k_{p}F\label{eq:ladunek_piezoelektryk}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a napięcie 
+\emph on
+U
+\emph default
+ między powierzchniami płytki będzie miało wartość:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U=\frac{Q}{C}\label{eq:napiecie_piezoelektryk}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\emph on
+C
+\emph default
+ jest sumą pojemności płytki i obwodu pomiarowego 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
+ Czułość ładunkowa wynosi:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{Q}=\frac{dQ}{dF}=k_{p}\label{eq:czulosc_ladunkowa_piezoelektryka}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zaś napięciowa:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{U}=\frac{dU}{dF}=\frac{1}{C}S_{Q}=\frac{k_{p}}{C}\label{eq:czulosc_napieciowa_piezoelektryka}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Jak widać z powyższych wzorów, czułość ładunkowa piezoelektryka jest wielkością
+ stałą, zaś czułość napięciowa zależy od pojemności przewodów i wzmacniacza
+ pomiarowego.
+\end_layout
+
+\begin_layout Subsection
+Własności dynamiczne
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/piezo_zastepczy.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Własności toru pomiarowego z przetwornikiem piezoelektrycznym w zakresie
+ niskich częstotliwości: a) model toru, b) schemat zastępczy (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:schemat-toru-pomiarowego"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Płytka piezoelektryka posiada częstotliwość rezonansową drgań zależną od
+ jej masy 
+\emph on
+m
+\emph default
+, i sprężystości 
+\emph on
+k
+\emph default
+.
+ Jeśli uwzględnimy, że płytka taka jest obiektem o parametrach rozłożonych,
+ a nie skupionych (jak w omawianym poprzednio modelu), to należy pamiętać,
+ że będzie ona mogła posiadać kilka częstotliwości rezonansowych.
+ Najniższa z nich ogranicza pasmo przetwarzania przetwornika od góry.
+ W celu określenia dolnego ograniczenia, można posłużyć się modelem toru
+ pomiarowego ukazanego na rysunku [rysunek], wykorzystującego przetwornik
+ piezoelektryczny.
+ Tor składa się z następujących elementów:
+\end_layout
+
+\begin_layout Itemize
+płytki piezoelektrycznej o rezystancji 
+\emph on
+R
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+c
+\end_layout
+
+\end_inset
+
+
+\emph default
+ i pojemności 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+c
+\end_layout
+
+\end_inset
+
+
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+przewodów łączeniowych o rezystancji 
+\emph on
+R
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+k
+\end_layout
+
+\end_inset
+
+
+\emph default
+ i pojemności 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+k
+\end_layout
+
+\end_inset
+
+
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+wzmacniacza pomiarowego o rezystancji wejściowej 
+\emph on
+R
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+o
+\end_layout
+
+\end_inset
+
+
+\emph default
+ i pojemności wejściowej 
+\emph on
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+o
+\end_layout
+
+\end_inset
+
+
+\emph default
+,
+\end_layout
+
+\begin_layout Itemize
+przetwornika piezoelektrycznego pełniącego rolę generatora ładunku.
+\end_layout
+
+\begin_layout Standard
+Dla obwodów z rysunku [rysunek] można napisać następujące zależności:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C=C_{c}+C_{k}+C_{o}\label{eq:pojemnosc_zastepcza_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{R}=\frac{1}{R_{c}}+\frac{1}{R_{k}}+\frac{1}{R_{o}}\label{eq:rezystancja_zastepcza_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i=i_{C}+i_{R}\label{eq:prad_wypadkowy_w_torze}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dQ}{dt}=C\frac{du}{dt}+\frac{u}{R}\label{eq:rownanie_pradow_w_torze}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ostatnie równanie można zapisać w postaci operatorowej (zakładamy zerowe
+ warunki początkowe):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+sQ\left(s\right)=sCU\left(s\right)+\frac{1}{R}U\left(s\right)\label{eq:rownanie_pradow_operatorowo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Traktując 
+\emph on
+Q(t)
+\emph default
+ jako sygnał wejściowy, zaś napięcie 
+\emph on
+u(t)
+\emph default
+ jako sygnał wyjściowy, możemy wyznaczyć transmitancję 
+\emph on
+K
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+p
+\end_layout
+
+\end_inset
+
+(s)
+\emph default
+ operatorową toru:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K_{p}\left(s\right)=\frac{Rs}{RCs+1}\label{eq:transmitancja_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transmitancja widmowa ma postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K_{p}\left(j\omega\right)=\frac{jR\omega}{jRC\omega+1}\label{eq:transmitancja_widmowa_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na tej podstawie wyznaczamy charakterystykę amplitudową:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left|K_{p}\left(j\omega\right)\right|=\frac{R\omega}{\sqrt{1+\left(RC\omega\right)^{2}}}\label{eq:chka_amplitudowa_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+oraz fazową:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\phi\left(\omega\right)=arg\left\{ K_{p}\left(j\omega\right)\right\} =arg\left\{ \frac{jR\omega}{jRC\omega+1}\right\} \label{eq:chka_fazowa_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/piezoel_charakterystyki.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Charakterystyki amplitudowe toru pomiarowego z przetwornikiem piezoelektrycznym
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Charakterystyki-amplitudowe-toru"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obie charakterystyki pokazano na rysunku [rysunek].
+ Jak widać układ nie przenosi niskich częstotliwości.
+ W szczególności nie jest możliwy pomiar sygnałów stałych.
+ Wynika to z tego, że gromadzony na powierzchni piezoelektryka ładunek,
+ rozładowuje się przez skończoną rezystancję toru pomiarowego.
+ Dolna pulsacja graniczna toru wynosi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega_{d}=\frac{1}{RC}\label{eq:dolna_pulsacja_gr_toru}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+i rośnie ze wzrostem rezystancji 
+\emph on
+R
+\emph default
+ i pojemności 
+\emph on
+C
+\emph default
+.
+ Aby poszerzyć pasmo przenoszenia, omawiana częstość musi być jak najmniejsza.
+ Zwiększanie pojemności układu jest niekorzystne ze względu na spadek czułości
+ napięciowej 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:czulosc_napieciowa_piezoelektryka"
+
+\end_inset
+
+ oraz wartości napięcia 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:napiecie_piezoelektryk"
+
+\end_inset
+
+.
+ Należy więc zapewnić jak największą wartość rezystancji zastępczej 
+\emph on
+R
+\emph default
+, co nakłada duże wymagania jakościowe na wzmacniacz pomiarowy oraz przewody
+ łączące go z czujnikiem piezoelektrycznym.
+ Zwykle rezystancja kwarcowego przetwornika piezoelektrycznego osiąga wartości
+ rzędu 10
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Omega$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Akcelerometr piezoelektryczny
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/akcelerometry/piezoelektryczny.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Model akcelerometru piezoelektrycznego (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Model-akcelerometru-piezoelektry"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zasada działania akcelerometru piezoelektrycznego polega na wytwarzaniu
+ ładunku elektrycznego na powierzchni piezoelektryka, w wyniku oddziaływania
+ masy sejsmicznej poddawanej działaniu siły bezwładności.
+ Wartość ładunku zależy od wartości siły, zaś znak od tego czy kryształ
+ jest ściskany czy rozciągany.
+\end_layout
+
+\begin_layout Standard
+Na rysunku [rysunek] pokazano model akcelerometru piezoelektrycznego.
+ Oddziaływanie z płytką piezoelektryka zachodzi wzdłuż jego osi elektrycznej,
+ zaś ładunek generowany jest na powierzchniach prostopadłych do niej.
+ Sprężyna wywiera wstępny nacisk masy, którego wartość zmienia się w zależności
+ od mierzonego przyspieszenia.
+\end_layout
+
+\begin_layout Standard
+Siłę bezwładności, z jaką masa sejsmiczna działa na przetwornik, może być
+ wyznaczona z zależności:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{b}=mu''\label{eq:sila_bezwladnosci}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uwzględniając zależność 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ladunek_piezoelektryk"
+
+\end_inset
+
+ łączącą siłę z ładunkiem, można napisać że:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+mu''=\frac{1}{k_{p}}Q\label{eq:sila_bezwl_ladunek}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Przy założeniu zerowych warunków początkowych, transformata napięcia 
+\emph on
+u(t)
+\emph default
+ ma postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U\left(s\right)=\frac{1}{k_{p}ms^{2}}Q\left(s\right)\label{eq:napiecie_ladunek_operatorowo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Równanie ruchu masy można zapisać jako:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+mu''+cy'+ky=0\label{eq:rownanie_ruchu_piezo_1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+co po uwzględnieniu zależności między przemieszczeniami prowadzi do związku:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+mu''+cu'+ku=cx'+kx\label{eq:rownanie_ruchu_piezo_2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mając na uwadze podstawienia 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pulsacja_drgan_wlasnych"
+
+\end_inset
+
+ i 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:tlumienie_wzgledne"
+
+\end_inset
+
+, można powyższą zależność zapisać operatorowo w następujący sposób:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right)\label{eq:rownanie_ruchu_piezo_operatorowo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transmitancja operatorowa, wiążąca bezwzględne przemieszczenie masy 
+\emph on
+u
+\emph default
+ z bezwzględnym przemieszczeniem 
+\emph on
+x
+\emph default
+ obiektu ma postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G_{U}\left(s\right)=\frac{U\left(s\right)}{X\left(s\right)}=\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_napieciowa_piezo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Jeśli za sygnał wyjściowy przyjmiemy nie napięcie lecz ładunek, wówczas
+ transmitancja przyjmie postać:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G_{Q}\left(s\right)=mk_{p}s^{2}\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_ladunkowa_piezo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ponieważ w akcelerometrach piezoelektrycznych pulsacja drgań własnych ma
+ dużą wartość (mała masa sejsmiczna i duża sztywność sprężyny) a tłumienie
+ niewielką (ok.
+ 0.01) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+, więc ostatnie równanie może być zapisane w prostszy sposób:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G_{Q}\left(s\right)=mk_{p}s^{2}\label{eq:transmitancja_ladunkowa_piezo_uproszczona}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+z czego wynika, że w dziedzinie czasu zachodzi relacja:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Q=mk_{p}x''\label{eq:uproszczone_rown_ruchu_piezo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a zatem generowany ładunek jest proporcjonalny do przyspieszenia drgającego
+ obiektu.
+\end_layout
+
+\end_body
+\end_document

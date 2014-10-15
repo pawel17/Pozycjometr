@@ -1,0 +1,819 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass aghdpl
+\use_default_options true
+\maintain_unincluded_children false
+\language polish
+\language_package default
+\inputencoding latin2
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Żyroskopy i ich zastosowanie w elektronice użytkowej
+\end_layout
+
+\begin_layout Section
+Budowa i zasada działania
+\end_layout
+
+\begin_layout Standard
+Żyroskop jest urządzeniem służącym do pomiaru lub utrzymywania położenia
+ kątowego.
+ Działa w oparciu o zasadę zachowania momentu pędu.
+ Zwykle jego zasadniczym elementem jest ruchomy krążek, który wprawiony
+ w szybki ruch obrotowy zachowuje położenie swojej osi obrotu, z niewielkimi
+ ruchami precesyjnymi, które mogą zostać wyeliminowane dzięki zastosowaniu
+ tłumienia.
+ Aby poprawna praca żyroskopu była możliwa, konieczne jest zapewnienie szybkiej
+ prędkości obrotowej krążka oraz dobrych warunków łożyskowania.
+ Wymagają one zminimalizowania tarcia, co można osiągnąć poprzez poprzez
+ łożyskowanie na strumieniu powietrza, lub zawieszeniu w polu elektrostatycznym
+ (lub magnetycznym) w próżni.
+ Przedmiotem znanym z życia codziennego, który wprawiony w szybki ruch obrotowy
+ zachowuje się jak żyroskop jest bąk.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/zyroskop.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Jedna z możliwych konstrukcji żyroskopu (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zyro_wiki"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:zyroskop"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:zyroskop"
+
+\end_inset
+
+ pokazano przykładową konstrukcję żyroskopu.
+ W jego centralnym miejscu znajduje się krążek zawieszony na podwójnej ramce.
+ Jeśli nadamy mu dużą prędkość obrotową, to zachowa on położenie osi obrotu,
+ choż możliwe będzie wystąpienie ruchów precesyjnych.
+\end_layout
+
+\begin_layout Standard
+Dla ruchu obrotowego prawdziwa jest zależność:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\overrightarrow{M}=I\overrightarrow{\varepsilon}\label{eq:kret-II-zasada}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\overrightarrow{M}$
+\end_inset
+
+ - wektor momentu siły przyłożonego do bryły,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+I
+\emph default
+ - moment bezwładności bryły sztywnej,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\overrightarrow{\varepsilon}$
+\end_inset
+
+ - wektor przyspieszenia kątowego (bryły).
+\end_layout
+
+\begin_layout Standard
+Moment siły powoduje zmianę momentu pędu:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\overrightarrow{M}=\frac{d\overrightarrow{L}}{dt}\label{eq:moment-sily-moment-pedu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+ jest wektorem momentu pędu.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/zyroskop2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Inna konstrukcja żyroskopu (
+\emph on
+Źródło: 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zyro_am_gdynia"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:zyroskop2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wielkość 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+ wyznacza się z następującego wzoru:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\overrightarrow{L}=I\overrightarrow{\omega}\label{eq:moment_pedu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\begin_inset Formula $\overrightarrow{\omega}$
+\end_inset
+
+ jest prędkością kątową bryły sztywnej.
+\end_layout
+
+\begin_layout Standard
+Zjawisko precesji występujące w żyroskopach można opisać na przykładzie
+ konstrukcji z rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:zyroskop2"
+
+\end_inset
+
+.
+ Jeżeli ciężar moment siły pochądzący od ciężaru 
+\emph on
+Q
+\emph default
+ równoważy moment siły pochodzący od ciężaru krążka, wówczas żyroskop wykouje
+ ruch obrotowy wokół swojej osi (prostej prostopadłej do płaszczyzny krążka
+ i przechodzącej przez jego środek).
+ Jeśli zwiększymy ciężar 
+\emph on
+Q
+\emph default
+ (lub przesuniemy ciężarek w lewo lub prawo), pojawi się dodatkowy moment
+ siły działający prostopadle do 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+.
+ Spowoduje on, że dotychczasowa oś obrotu krążka zacznie się obracać wokół
+ dotychczasowego położenia, zakreślając przy tym powierzchnię boczną stożka.
+ Ruch ten nazywa się precesyjnym, zaś częstość precesji jest wprost proporcjonal
+na do momentu, który ją wywołuje i odwrotnie proporcjonalna do momentu bezwładno
+ści i częstości ruchu obrotowego krążka:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f_{p}=\frac{M_{p}}{4\pi^{2}If_{r}}\label{eq:czest-precesji}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ - częstotliwość precesji,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $M_{p}$
+\end_inset
+
+ - moment siły powodujący wystąpienie precesji (prostopadły do pierwotnego
+ momentu pędu 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+I
+\emph default
+ - moment bezwładności,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f_{r}$
+\end_inset
+
+ - częstość ruchu oobrotowego krążka.
+\end_layout
+
+\begin_layout Standard
+Opisane zjawisko określa się mianem precesji wymuszonej, gdyż wywołana jest
+ przez moment 
+\begin_inset Formula $\overrightarrow{M_{p}}$
+\end_inset
+
+.
+ Prócz tego możliwa jest także precesja swobodna, występująca gdy oś wokół
+ której obraca się swobodnie bryła, nie pokrywa się z żadną z osi głównych
+ tensora momentu bezwładności tej bryły.
+\end_layout
+
+\begin_layout Section
+Podział żyroskopów
+\end_layout
+
+\begin_layout Standard
+Żyroskopy można podzielić na dwie grupy - kierunkowe oraz prędkościowe.
+ W przypadku tych pierwszych, zasadniczym elementem jest szybko wirujący
+ obiekt, mający zwykle postać dysku, zawieszony w konstrukcji pozwalającej
+ na swobodny obrót wokół układu odniesienia (np.
+ ciała do którego umocowany jest żyroskop).
+ Można to uzyskać dzięki zastosowaniu odpowiednich przegubów o osi obrotu
+ prostopadłej do osi obrotu wirującej bryły.
+ Takie rozwiązanie zmniejsza wpływ obrotów ciała na żyroskop, który dąży
+ do zachowania stałego położenia.
+\end_layout
+
+\begin_layout Standard
+Przeznaczeniem żyroskopów prędkościowych jest wskazywanie prędkości kątowej
+ obiektu, na którym są umiejscowione.
+ Zaliczamy do nich konstrukcje mechaniczne (których wadą jest ograniczona
+ swoboda w ruchu obrotowym) a także żyroskopy optyczne (laserowe i światłowodowe
+) oraz konstrukcje wykorzystujące zjawisko Coriolisa.
+\end_layout
+
+\begin_layout Section
+Żyroskopy w elektronice użytkowej
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/zyroskop_coriolis.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Żyroskop MEMS (
+\emph on
+Źródło: 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:zyroskop-MEMS"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Żyroskopy są elementem wielu urządzeń elektrycznych, w których należy mierzyć
+ lub rejestrować zmiany położenia (np.
+ wskaźniki komputerowe, myszki, smartfony).
+ Mogą być one wytwarzane w technologii MEMS (o ktorej wspomniano w rozdziale
+ o akcelerometrach), przy czym dotyczy to głównie żyroskopów prędkościowych.
+ Konstrukcje takie wykorzystują efekt Coriolisa, a ich poglądowy schemat
+ pokazano na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:zyroskop-MEMS"
+
+\end_inset
+
+.
+ Zasadniczym elementem jest masa, wytrawiana w polikrzemie i przytwierdzona
+ do krzemowej ramy tak, aby mogła wykonywać ruchy tylko w jednym kierunku.
+ Mają one postać drgań możliwych, dzięki zawieszeniu masy na sprężynach.
+ Całość jest umieszczona na platformie wykonującej ruch obrotowy.
+ Gdy masa porusza się w kierunku brzegu tarczy, działa na nią siła skierowana
+ w prawo.
+ Jednocześnie sama masa oddziałuje na ramę siłą skierowana w lewo.
+ W trakcie przemieszczania się w przeciwnym kierunku, tj.
+ ku środkowi tarczy, siła oddziaływania masy na ramę zmienia zwrot na przeciwny.
+ Aby pozwolić na pomiar przyspieszenia Coriolisa, ramę wiesza się na sprężynach
+ pod kątem prostym do kierunku przemieszczania się masy (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:zyroskop-wibr-mems"
+
+\end_inset
+
+).
+ Rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:kond-grzebien"
+
+\end_inset
+
+ pokazuje czujnik z kondensatorem grzebieniowym , którego część elektrod
+ jest związana z ruchomą ramą a pozostała część z nieruchomym podłożem.
+ Wskutek siły wywieranej przez masę, dochodzi do zmiany odległości między
+ elektrodami i w konsekwencji do zmiany pojemności kondensatora.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/kondensator_grzebieniowy.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Czujnik z kondensatorem grzebieniowym (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:kond-grzebien"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/zyro_coriolis2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Żyroskop wibracyjny MEMS z kondensatorem grzebieniowym (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:zyroskop-wibr-mems"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Żyroskopy wieloosiowe
+\end_layout
+
+\begin_layout Standard
+Na rysnku dostępne są czujniki mierzące prędkość obrotową wokół dwóch lub
+ trzech osi.
+ Wcześniej chcąc uzyskać taki efekt należało zastosować kilka niezależnych
+ żyroskopów jednoosiowych.
+ W wielu zastosowaniach takie podejście się sprawdzało, lecz mogło nie być
+ optymalne biorąc pod uwagę koszty oraz miejsce zajmowane przez cały układ
+ pomiarowy.
+ Dziś problem ten rozwiązują żyroskopy wieloosiowe.
+ Przykładowy schematu blokowy takiego czujnika pokazano na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:czujnik-zyro-dwuosiowy"
+
+\end_inset
+
+.
+ Prócz właściwych żyroskopów zawiera on także:
+\end_layout
+
+\begin_layout Itemize
+oscylatory, odpowiedzialne za wprawienie masy w ruch drgający,
+\end_layout
+
+\begin_layout Itemize
+układ regulacji amplitudy drgań masy,
+\end_layout
+
+\begin_layout Itemize
+demodulator synchroniczny,
+\end_layout
+
+\begin_layout Itemize
+filtr dolnoprzepustowy,
+\end_layout
+
+\begin_layout Itemize
+pompa ładunkowa odpowiedzialna za wytworzenie wysokiego napięcia potrzebnego
+ do zasilenia układu rezonatora pobudzającego masę do drgań.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/zyro_wieloosiowy_schemat.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schemat blokowy dwuosiowego czujnika żyroskopowego (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:czujnik-zyro-dwuosiowy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Zastosowania
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/zyroskopy/zyrokompas.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Żyrokompas (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zyro_wiki"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Poniżej wymieniono niektóre z praktycznych zastosowań żyroskopów:
+\end_layout
+
+\begin_layout Itemize
+wskaźniki komputerowe, myszki, itp.,
+\end_layout
+
+\begin_layout Itemize
+żyrokompasy używane w nawigacji morskiej,
+\end_layout
+
+\begin_layout Itemize
+systemy autopilotażu samolotów,
+\end_layout
+
+\begin_layout Itemize
+układy utrzymywania orientacji satelitów,
+\end_layout
+
+\begin_layout Itemize
+kontrolery gier,
+\end_layout
+
+\begin_layout Itemize
+układy stabilizacji jednostek pływających,
+\end_layout
+
+\begin_layout Itemize
+układy detekcji położenia i orientacji w smartfonach i tabletach.
+\end_layout
+
+\end_body
+\end_document

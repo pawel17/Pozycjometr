@@ -1,0 +1,502 @@
+
+\chapter{Interfejs SPI}
+
+
+\section{Wspó³praca mikrokontrolerów z urz±dzeniami zewnêtrznymi.}
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/wspolpraca_z_urz_zew}
+\par\end{centering}
+
+\caption{Wspó³praca mikrokontrolera z urz±dzeniem zewnêtrznym (\emph{¬ród³o:}
+\cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+Wspó³praca mikrokomputerów z urz±dzeniami peryferyjnymi odbywa siê
+za pomoc± tzw. interfejsów. Przez interfejs rozumie siê urz±dzenie,
+które pozwala na komunikacjê i wymianê danych pomiêdzy dwoma innymi
+urz±dzeniami. Istniej± ró¿ne kryteria podzia³u interfejsów:
+\begin{itemize}
+\item ze wzglêdu na istnienie fizycznego po³±cznia miêdzy komunikujacymi
+siê urz±dzeniami:
+
+\begin{itemize}
+\item przewodowe (np. UART, I2C, FireWire (IEEE 1394), RS-232), w których
+rolê sygna³ów pe³ni± napiêcie lub pr±d, za¶ rolê medium przewody,
+\item bezprzewodowe (np. Bluetooth, IrDA, WiFi) , w których sygna³ami s±
+fale elektromagnetyczne, za¶ medium najczê¶ciej powietrze,
+\end{itemize}
+\item ze wzglêdu na ilo¶æ danych (bitów) przesy³anych w trakcie elementarnego
+cyklu transmisji:
+
+\begin{itemize}
+\item szeregowe (np. SPI, UART, I2C), w których dane s± transmitowane bit
+po bicie,
+\item równoleg³e (np. GPIB, SCSI, ATA oraz u¿ywany kiedy¶ w drukarkach interfejs
+Centronics),
+\end{itemize}
+\item charakter sygna³ów:
+
+\begin{itemize}
+\item analogowe (np. Jack, S-Video),
+\item cyfrowe (np. SPI, I2C, USB).
+\end{itemize}
+\end{itemize}
+Pod pojêciem interfejsu przewodowego rozumie siê z³±cza oraz przewody
+³±cz±ce urz±dzenie zewnêtrzne z mikrokomputerem wraz z ich specyfikacj±
+mechaniczn± (kszta³t, rozmiar, ilo¶æ) oraz charakterystykami elektrycznymi
+sygna³ów (poziomy napiêæ i pr±dów, relacje czasowe). Aby przesy³ sygna³ów
+by³ mo¿liwy, zwi±zany z nimi obwód elektryczny musi byæ zamkniêty.,
+dlatego sk³ada siê z dwóch przewodów tworz±cych liniê. Istniej± linie
+symetryczne i niesymetryczne. Schemat obu pokazano na rysunku {[}rysunek{]}.
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/linie}
+\par\end{centering}
+
+\caption{Linie transmisyjne: a) niesymetryczna, b) symetryczna (\emph{¬ród³o:}
+\cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+Linia niesymetryczna sk³ada siê z przewodu sygna³owego (zwanego tak¿e
+gor±cym) oraz masowego, stanowi±cego odniesienie dla sygna³u po obu
+stronach toru transmisyjnego. W przypadku wiêkszej liczby sygna³ów
+mo¿liwe jest zastosowanie wspólnego przewodu powrotnego {[}¼ród³o{]}.
+Najwiêksz± wad± linii niesymetrycznej jest jej podatno¶æ na wp³yw
+obcych pól elektromagnetycznych. Powoduj± one indukowanie siê zak³óceñ
+w przewodzie sygna³owym i powrotnym, które dodaj± siê lub odejmuj±
+od w³a¶ciwego sygna³u na wej¶ciu odbiornika. Z tego powodu linie tego
+typu stosuje siê do przesy³u informacji na niedu¿e odleg³o¶ci. W celu
+zmniejszenia wp³ywu zewnêtrznych pól, stosuje siê nastêpuj±ce zabiegi:
+\begin{itemize}
+\item skrêcanie przewodów,
+\item ekranowanie linii.
+\end{itemize}
+Rysunek {[}rysunek{]} pokazuje schemat linii symetrycznej. Sk³ada
+siê ona z dwóch przewiodów wiod±cych sygna³y znajduj±ce siê w przeciwfazie
+oraz odbiornika z wej¶ciem ró¿nicowym. Dziêki temu, sygna³y o takich
+samych przebiegach indukowane w poszczególnych przewodach znosz± siê
+po odjêciu na wej¶ciu wzmacniacza. W celu zapewnienia lepszej ochrony
+przed zak³óceniami mo¿liwe jest równie¿ skrêcanie przewodów. Zasiêg
+linii symetrycznych jest du¿o wiêkszy ni¿ w przypadku linii niesymetrycznych
+i osiaga rz±d 1 km {[}¼ród³o{]}.
+
+Najbardziej odpornym na zak³ócenia elektromagnetyczne medium jest
+¶wiat³owód. Pozwala on na transmisjê na bardzo du¿e odleg³o¶ci (od
+kilku do klikudziesiêciu kilometrów). Tor ¶wiat³owodowy wymaga zastosowania
+nadajnika przekszta³caj±cego sygna³ elektryczny na impulsy ¶wietlne,
+w³a¶ciwego ¶wiat³owodu (wykonanego zwykle z w³ókna szklanego) oraz
+odbiornika realizuj±cego odwrotn± konwersjê sygna³ów.
+
+
+\subsection{Transmisja szeregowa i równoleg³a}
+
+Transmisja szeregowa polega na przesy³aniu informacji bit po bicie.
+Oznacza to, ¿e w elementarnym cyklu transmisji nadajnik wysy³a jeden
+bit, za¶ odbiornik go odbiera. Zalet± takiego rozwi±zania jest stosunkowo
+niewielka ilo¶æ u¿ytych przewodów. Liczba ta jest wiêksza w przypadku
+transmisji równoleg³ej, w której na raz mo¿liwe jest przesy³anie wiêkszej
+ilo¶ci bitów (ka¿dy swoim torem). Teoretycznie przyspiesza to szybko¶æ
+transferu danych, jednak w praktyce jest ona ograniczona ze wzglêdu
+na zak³ócanie sygna³ów przez pola pochodz±ce od s±siednich linii danych.
+Inn± wad± tego typu komunikacji jest tak¿e stosunkowo skomplikowana
+budowa (a co zatym idzie wiêkszy koszt) interfejsów równoleg³ych.
+Omawiana fakty uzasadniaj± dlaczego wiêkszo¶æ wspó³czesnych urz±dzeñ
+cyfrowych wykorzystuje interfejsy i transmisjê szeregow±.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/transmisja_szeregowa}
+\par\end{centering}
+
+\caption{Uk³ad transmisji szeregowej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+\end{figure}
+
+
+Rysunek {[}rysunek{]} przedstawia uproszczony schemat uk³adu transmisji
+szeregowej. Dziêki obecno¶ci dwóch przewodów sygna³owych, mo¿liwa
+jest komunikacja w trybie dupleks (ang. \emph{full duplex}), pozwalaj±ca
+na jednoczesn± wymianê danych przez komunikuj±ce siê urz±dzenia. Sygna³
+nadawany (TxD) wysy³any jest do portu odbieraj±cego dane (RxD). Urz±dzenia
+uczestnicz±ce w komunikacji wyposa¿one s± zarówno w nadajnik jak i
+odbiornik.
+
+Prócz transmisji dupleksowej, w uk³adach cyfrowych mo¿liwe s± równie¿
+jeszcze dwa inne tryby wymiany danych:
+\begin{itemize}
+\item pó³dupleks (ang. \emph{half duplex}) - pozwalaj±cy na obustronn±,
+lecz nie jednoczesn± wymianê danych,
+\item simpleks (ang. \emph{simplex}) - pozwalaj±cy na przesy³ danych tylko
+w jednym kierunku.
+\end{itemize}
+Dane wysy³ane szeregowo s± czêsto przechowywane w rejestrach. Aby
+umo¿liwiæ transmisjê bit po bicie stosuje siê rejestry przesuwne lub
+multipleksery. W obu przypadkach nale¿y okre¶liæ czas trwania bitu
+(tzw. odcinek bitowy) {[}¼ród³o{]}. S³u¿y do tego sygna³ zegarowy
+nadajnika. Odbiornik okre¶la warto¶æ przesy³anych bitów w ¶rodkach
+poszczególnych odcinków bitowych. Tak¿e w tym przypadku u¿ywany jest
+sygna³ zegarowy (zegar odbiornika). Istniej± dwa rodzaje transmisji
+szeregowej, ró¿ni±ce siê zale¿no¶ciami sygna³ów zegarowych nadajnika
+i odbiornika:
+\begin{itemize}
+\item transmisja asynchroniczna,
+\item transmisja synchroniczna.
+\end{itemize}
+
+\subsection{Transmisja asynchroniczna i synchroniczna}
+
+W przypadku transmishi asynchronicznej zegary nadajnika i odbiornika
+nie s± synchronizowane. Dane nie musz± byæ przesy³ane w sposób ci±g³y,
+tzn. miêdzy kolejnymi transmisjami, linia danych znajduje siê w stanie
+spoczynku przez tzw. czas martwy. Dane przesy³ane nosz± w literaturze
+nazwê znaku i sk³adaj± siê zwykle od piêciu do o¶miu bitów. Aby odbiornik
+móg³ wykryæ pocz±tek oraz koniec nadawania danych, ka¿dy znak poprzedzony
+jest tzw. bitem startu oraz zakoñczony tzw. bitami stopu (od jednego
+do dwóch). Dodatkowo w celu zapewnienia poprawno¶ci transmisji stosuje
+siê równie¿ tzw. bit parzysto¶ci. Wad± transmisji asynchronicznej
+jest istnienie czasu martwego, zmniejszaj±cego efektywno¶æ przesy³u
+danych. Suma liczby jedynek tworzacych znak wraz z bitem parzysto¶ci
+powinna tworzyæ liczbê parzyst±.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/transmisja_szeregowa_asynchroniczna}
+\par\end{centering}
+
+\caption{Przebieg sygna³u w transmisji szeregowej asynchronicznej (\emph{¬ród³o:}
+\cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+Przed w³a¶ciw± komunikacj± nale¿y ustaliæ jej nastêpuj±ce parametry:
+\begin{itemize}
+\item czêstotliwo¶æ zegarów,
+\item d³ugo¶æ znaku,
+\item bit parzysto¶ci (obecny, nieobecny lub zanegowany),
+\item ilo¶æ bitów stopu.
+\end{itemize}
+W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
+(st±d nazwa), dziêki czemu nie s± konieczne bity startu i stopu. Dane
+przesy³ane grupowane s± w bloki zwane ramkami (ang. \emph{frame}).
+Ka¿d± ramkê rozpoczyna nag³ówek (rysunek {[}rysunek{]}), zawieraj±cy
+bajty synchronizacji potrzebne do zsynchronizowania zegarów nadajnika
+i odbiornika. W celu zapewnienia poprawnego transferu, synchronizacja
+ta powinna byæ utrzymywana podczas ca³ego procesu komunikacji. Prócz
+wspomnianych bajtów, nag³ówek zawiera tak¿e dodatkowe informacje,
+np. ilo¶æ przesy³anych danych. Blok danych zawiera w³a¶ciwe dane zgrupowane
+jeden za drugim. W celu zapewnienia poprawno¶ci transmisji, s± one
+zakoñczone tzw. bajtami kontrolnymi i wewntualnymi bajtami korekcyjnymi
+pozwalaj±cymi na naprawê uszkodzonych danych.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/ramka_transmisji_szeregowej_synchronicznej}
+\par\end{centering}
+
+\caption{Ramka transmisji szeregowej synchronicznej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+
+\subsection{Transmisja równoleg³a}
+
+W transmisji równoleg³ej grupy bitów wysy³ane s± w tym samym czasie
+niezale¿nymi liniami danych. Mo¿na powiedzieæ, ¿e w tym przypadku
+przesy³ane s± szeregowo grupy bitów (zwykle bajty lub tzw. s³owa).
+Dane wysy³ane s± w takt sygna³u zegarowego, zwanego sygna³em strobuj±cym.
+Odbiornik wykorzystuje ten sygna³ do zapisu odbieranych danych. Zwykle
+transmisja tego typu jest realizowana jednokierunkowo {[}¼ród³o{]}.
+W przypadku powolnych odbiorników (np. drukarki) stosuje siê dodatkowe
+bufory uniezale¿niaj±ce transmisjê od czasu przetwarzania. Aby jednak
+dane mog³y byæ przesy³ane, odbiornik musi zasygnalizowaæ nadajnikowi
+gotowo¶æ do ich odbioru przy pomocy sygna³u gotowo¶ci (ryzunek {[}rysunek{]}).
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/transmisja_rownolegla}
+\par\end{centering}
+
+\caption{Uk³ad transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+Na rysunku {[}rysunek{]} pokazano przebiegi sygnalów towarzysz±cych
+transmisji równoleg³ej. Sygna³ strobu (aktywny poziomem niskim) jest
+ustawiany w sytuacji aktywnego sygna³u gotowo¶ci oraz po ustabilizowaniu
+siê stanu magistrali danych. Urz±dzenie zewnêtrzne (odbiornik) wykorzystuje
+jego zbocze opadaj±ce do zapisu odbieranych danych. W istniej±cych
+interfejsach, zarówno szeregowych jak i równoleg³ych wykorzystuje
+siê tak¿e inne sygna³y sterujace komunikacj±.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/przebiegi_transmisja_rownolegla}
+\par\end{centering}
+
+\caption{Przbiegi sygna³ów w transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+
+\section{Interfejs SPI}
+
+Interfejs SPI (ang. \emph{Serial Peripheral Interface}) zosta³ zaprojektowany
+i po raz pierwszy zastosowany przez firmê Motorola. Jest jednym z
+najczê¶ciej u¿ywanych interfejsów komunikacyjnych miêdzy uk³adami
+mikroprocesorowymi a peryferiami takimi jak przetworniki ADC/DAC,
+uk³ady RTC, pamiêci EEPROM, pamiêci flash, karty MMC/SD, sterowniki
+ekranów dotykowych itp. W ¶wietle omówionych wcze¶niej cech interfejsów,
+SPI mo¿e byæ scharaktryzowany jako:
+\begin{itemize}
+\item szeregowy,
+\item synchroniczny,
+\item komunikuj±cy siê w trybie \emph{full duplex},
+\item przewodowy.
+\end{itemize}
+Komunikacja z urz±dzeniami wykonywana jest w oparciu o model wymiany
+danych master/slave. Do przesy³u danych wykorzystywane s± zwykle 4
+przewody, choæ interfejs mo¿e równie¿ funkcjonowaæ w postaci trójprzewodowej.
+SPI jest standardem \emph{de facto}, tzn. jest powszechnie stosowany
+przez wielu producentów sprzêtu elektronicznego, lecz w przeciwieñstwie
+do standardu \emph{de jure} nie istnieje jego formalna specyfikacja
+zaakceptowana przez komitety standaryzacyjne typu IEEE, ANSI lub ISO.
+Interfejs SPI jest te¿ czasem okre¶lany jako czteroprzewodowa magistrala
+szeregowa lub SSI (ang. \emph{Synchronous Serial Interface}).
+
+Omawiany interfejs obejmuje cztery sygna³y:
+\begin{itemize}
+\item sygna³ zegarowy SCLK (wyj¶cie urz±dzenia\emph{ master}),
+\item sygna³ MOSI (ang. \emph{Master Output Slave Input}) -wyj¶cie urz±dzenia
+\emph{master} i wej¶cie urz±dzenia \emph{slave},
+\item sygna³ MISO (ang. \emph{Master Input Slave Output}) - wej¶cie urz±dzenia
+\emph{master} i wyj¶cie urz±dzenia \emph{slave},
+\item sygna³ CS (ang. \emph{Chip Select}) lub SS (ang. \emph{Slave Select})
+- sygna³ wyboru urz±dzenia (wyj¶cie urz±dzenia \emph{master}).
+\end{itemize}
+Wymienione powy¿ej sygna³y posiadaj± tak¿e alternatywne nazwy:
+\begin{itemize}
+\item SCLK - SCK, CLK,
+\item MOSI - SIMO, SDO, DO,
+\item MISO - SOMI, SDI, DI,
+\item CS - nCS, nSS, CSB, STE.
+\end{itemize}
+Z pojedynczym uk³adem \emph{master} mo¿e wspó³pracowaæ jeden lub wiêcej
+uk³adów typu \emph{slave}. W ostatnim przypadku nale¿y zapewniæ odpowiedni±
+(równa liczbie urz±dzeñ \emph{slave}) ilo¶æ niezale¿nych sygna³ów
+wyboru p³ytki (CS). Poniewa¿ uk³ad transmisji SPI wykorzystuje rejestr
+przesuwny, innym rozwi±zaniem mo¿e okazaæ siê tak¿e po³±czenie uk³adów
+podrzêdnych, tak aby utworzy³y jeden rejestr przesuwny. Ponadto wspó³praca
+z wieloma urz±dzeniami \emph{slave} wymaga, aby w trakcie ich nieaktywno¶ci
+ich wyj¶cia MISO wchodzi³y w stan wysokiej impedancji.
+
+
+\subsection{Przesy³ danych}
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/spi_rejestry_przesuwne}
+\par\end{centering}
+
+\caption{Typowa realizacja transmisji SPI przy pomocy cyklicznego rejestru
+przesuwnego (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+
+
+\end{figure}
+
+
+Przed dokonaniem transmisji danych, urz±dzenie \emph{master} musi
+okre¶liæ odpowiedni± czêstotliwo¶æ sygna³u zegarowego. Nie mo¿e byæ
+ona wiêksza od ¿adnej z maksymalnych dopuszczalnych czêstotliwo¶æi
+wspieranych przez urz±dzenia \emph{slave}. Nastêpnie sygna³ wyboru
+urz±dzenia (CS) przechodzi w stan aktywny (zwykle logiczne 0). Je¶li
+nale¿y poczekaæ, aby wspó³pracuj±ce urz±dzenie podrzêdne dokona³o
+przetwarzania danych (tak jest np. w przypadku przetworników analogowo-cyfrowych),
+urz±dzenie nadrzêdne musi wstrzymaæ siê z generacj± sygna³u zegarowego.
+
+Z ka¿dym taktem zegara zwi±zany jest cykl komunikacji \emph{full duplex}:
+\begin{itemize}
+\item urz±dzenie master wysy³a lini± MOSI kolejny bit, za¶ slave go odbiera,
+\item urz±dzenie slave wysy³a klejny bit danych lini± MISO, za¶ master go
+odbiera.
+\end{itemize}
+W transmisji wykorzystywane s± zwykle dwa rejestry przesuwne (po jednym
+dla urz±dzenia master i slave) po³±czone ze sob± tworz±c rejestr cykliczny
+({[}rysunek{]}). Zwykle wysy³any jest najbardziej znacz±cy bit MSB
+(ang. \emph{most significant bit}) a odbierany najmniej znacz±cy LSB
+(ang. \emph{least significant bit}). Po wype³nieniu rejestrów nastêpuje
+obróbka zawartych w nich danych, tj. zapis do pamiêci, przetwarzanie
+itp. W celu wymiany wiêkszej ilo¶ci informacji, wspomniany proces
+siê powtarza. W trakcie pojedynczego cyklu komunikacji przesy³any
+jest zwykle bajt danych (8 bitów), choæ nie jest to regu³±; istniej±
+uk³ady w których przesyla siê 12, 16 lub 24 bity. Niektóre urz±dzenia
+\emph{slave} nie pozwalaj± na odbieranie danych w ci±gu wiêkszej od
+zadanej liczby taktów sygna³u zegarowego; w innych rozwi±zaniach konstrukcyjnych
+dane nadmiarowe s± ignorowane.
+
+Oprócz wymienionych sygna³ów steruj±cych komunikacj±, w urz±dzeniu
+\emph{slave} mo¿liwe jest równie¿ wyprowadzenie sygna³u przerwania.
+Przyk³adowo mo¿e to byæ sygna³ informuj±cy o dotkniêciu ekranu dotykowego,
+sygna³ alarmowy generowany przez czujnik temperatury lub zegar czasu
+rzeczywistego. Standard SPI nie przewiduje u¿ycia przerwañ, wiêc przeznaczanie
+dla nich oddzielnego pinu w urz±dzeniu \emph{slave} nie jest ani zakazane
+ani obowi±zkowe.
+
+Ka¿de z urz±dzeñ \emph{slave}, które nie zosta³o aktywowane sygna³em
+CS nie powinno reagowaæ na sygna³ taktuj±cy ani sterowaæ wspóln± magistral±.
+Urz±dzenie \emph{master}, wybiera za¶ do wymiany informacji tylko
+jedno urz±dzenie podrzêdne.
+
+
+\subsection{Faza i polaryzacja sygna³u zegarowego}
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/spi_pol_faza}
+\par\end{centering}
+
+\caption{Przebiegi czasowe odpowiadaj±ce ró¿nym polaryzacjom i fazom sygna³u
+taktuj±cego (\emph{¬ród³o:} \cite{spi_pol_ph})}
+
+
+\end{figure}
+
+
+Poza okre¶leniem czêstotliwo¶ci sygna³u taktujacego, urz±dzenie nadrzêdne
+musi tak¿e zdefiniowaæ polaryzacjê i fazê tego sygna³u. Zwykle jest
+to zwi±zane z wpisaniem do odpowiednich rejestrów konfiguracyjnych
+warto¶ci 0 lub 1 na odpowiednich pozycjach. Bity na tych pozycjach
+zwykle nazywane s± CPOL (dla okre¶lenia polaryzacji) oraz CPHA (dla
+okre¶lenia fazy); ich znaczenie jest nastêpuj±ce:
+\begin{itemize}
+\item je¶li CPOL = 0, to stanem nieaktywnym sygna³u zegara jest stan niski
+oraz:
+
+\begin{itemize}
+\item je¶li CPHA = 0, to dane zapisywane s± przy zboczu narastaj±cym zegara,
+za¶ przesy³ane przy opadaj±cym,
+\item je¶li CPHA = 1, to dane zapisywane s± przy zboczu opadaj±cym zegara,
+za¶ przesy³ane przy narastaj±cym,
+\end{itemize}
+\item je¶li CPOL = 1, to stanem nieaktywnym sygna³u taktuj±cego jest stan
+wysoki oraz:
+
+\begin{itemize}
+\item je¶li CPHA = 0, to dane zapisywane s± przy zboczu opadaj±cym zegara,
+za¶ przesy³ane przy narastaj±cym,
+\item je¶li CPHA = 1, to dane zapisywane s± przy zboczu narastaj±cym zegara,
+za¶ przesy³ane przy opadaj±cym.
+\end{itemize}
+\end{itemize}
+
+\subsection{Wspó³praca z kilkoma urz±dzeniami podrzêdnymi}
+
+Jak wspomniano wcze¶niej, interfejs SPI pozwala na wspó³pracê jednego
+urz±dzenia nadrzêdnego z kilkoma urz±dzeniami \emph{slave}. Jednym
+ze sposobów zorganizowania takiego uk³adu transmisji danych jest zastosowanie
+niezale¿nych sygna³ów CS dla ka¿dego z urz±dzeñ podrzêdnych. Przyk³ad
+takiego rozwi±zania pokazano na rysunku {[}rysunek{]}. Poniewa¿ wszystkie
+wyj¶cia MISO uk³adów \emph{slave} s± po³±czone do wspólnej linii,
+powinny byæ one wyjsciami trójstanowymi.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/spi_independent_slaves}
+\par\end{centering}
+
+\caption{Typowa realizacja komunikacji przy pomocy interfejsu SPI z wieloma
+urz±dzeniami \emph{slave} (\emph{¬ród³o:} )}
+
+
+\end{figure}
+
+
+Niektóre urz±dzenia wspieraj±ce SPI s± zaprojektowane z my¶l± o zastosowaniu
+po³±czenia ³añcuchowego (znanego w literaturze anglojêzycznej jako
+\emph{daisy chain}). W takiej konfiguracji wyj¶cie jednego z urz±dzeñ
+\emph{slave} jest po³±czone do wej¶cia drugiego \emph{slave'a} itd.
+Port SPI takiego urz±dzenia podrzêdnego w danym cyklu transmisji odbiera
+dane od poprzedniego urz±dzenia, które te same dane odebra³o w poprzednim
+cyklu. Ca³a kaskada dzia³a jak jeden du¿y rejestr przesuwny. Zalet±
+takiego rozwi±zania jest to, ¿e urz±dzenie typu \emph{master} mo¿e
+wykorzystywaæ tylko jeden sygna³ CS.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/spi_daisy_chain}
+\par\end{centering}
+
+\caption{Komunikacja przy pomocy interfejsu SPI w konfiguracji \emph{daisy
+chain} (\emph{¬ród³o:} )}
+
+
+\end{figure}
+
+
+
+\subsection{Zalety i wady interfejsu SPI}
+
+Do zalet interfejsu SPI mo¿emy zaliczyæ:
+\begin{itemize}
+\item komunikacja w trybie \emph{full duplex},
+\item ilo¶æ przesy³anych danych nie jest ograniczona do 8 bitów,
+\item prosty do zrozumienia i implementacji protokó³,
+\item stosunkowo prosta budowa:
+
+\begin{itemize}
+\item relatywnie ma³o skomplikowane obwody elektryczne, mniejsze zu¿ycie
+energii,
+\item urz±dzenia \emph{slave} u¿ywaj± wspólnego sygna³u zegarowego generowanego
+przez uk³ad \emph{master} (dodatkowe precyzyjne oscylatory i pêtle
+PLL s± niepotrzebne),
+\item urz±dzenia slave nie wymagaj± unikalnych adresów (w przeciwieñstwie
+do I2C, GPIB czy SCSI),
+\item nie s± wymagane transceivery,
+\end{itemize}
+\item wystarczaj± tylko 4 piny,
+\item wiêkszo¶æ linii sygna³owych mo¿e byæ wspó³dzielonych przez ró¿ne urz±dzenia
+\emph{slave}.
+\end{itemize}
+W¶ród wad interfejsu SPI mo¿na wymieniæ:
+\begin{itemize}
+\item wiêksz± w porównaniu do I2C ilo¶æ pinów obudowy IC,
+\item brak sprzêtowej kontroli przep³ywu danych przez urz±dzenia \emph{slave},
+\item brak sprzêtowego potwierdzania obecno¶ci urz±dzenia \emph{slave} (\emph{master}
+mo¿e ``rozmawiaæ'' z niczym),
+\item brak wsparcia dla architektury multi-master,
+\item brak oficjalnego standardu,
+\item brak protoko³u obs³ugi b³êdów,
+\item brak wsparcia dla dynamicznego pod³±czania urz±dzeñ \emph{slave},
+\item dzia³anie na stosunkowo niedu¿e odleg³o¶ci.
+\end{itemize}
+
+\subsection{Zastosowania}
+
+Du¿o mniejsza w porównaniu z interfejsami równoleg³ymi liczba niezbêdnych
+pinów powoduje, ¿e SPI jest bardzo czêsto wykorzystywany w systemach
+wbudowanych. Jest on elementem wielu mikrokontrolerów z rodziny ARM,
+AVR, PIC oraz MSP. Niektóre mikrokontrolery AVR mog± byæ programowane
+z u¿yciem interfejsu SPI. Czêsto u¿ywa siê go tak¿e do komunikacji
+z takimi uk³adami peryferyjnymi jak:
+\begin{itemize}
+\item czujniki temperatury, ci¶nienia, przyspieszenia,
+\item przetworniki ADC oraz DAC,
+\item kontrolery ekranów dotykowych oraz gier,
+\item pamiêci flash oraz EEPROM,
+\item zegary RTC,
+\item karty MMC oraz SD.\end{itemize}
+
