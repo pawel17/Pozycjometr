@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 1.7.4" name="test">
+  <Target name="test" isCurrent="1">
+    <Device manufacturerId="7" manufacturerName="NXP" chipId="165" chipName="LPC1768" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Includepaths/>
+        <DefinedSymbols>
+          <Define name="LPC1768"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="1"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value="-lm"/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00080000" startValue="0x00000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00008000" startValue="0x10000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="0x00008000" startValue="0x2007C000"/>
+        </MemoryAreas>
+        <LocateLinkFile path="../../configuration/programdata/test/arm-gcc-link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="test"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="J-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="JTAG"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLinkARM_V475d\JLinkGDBServerCL.exe"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="LPC17xx_512.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./">
+    <Component id="50" name="CMSIS core" path="" type="2"/>
+    <Component id="253" name="CMSIS_boot" path="" type="2"/>
+    <Component id="254" name="Common_Header" path="" type="2"/>
+    <Component id="255" name="CLKPWR" path="" type="2"/>
+    <Component id="257" name="GPIO" path="" type="2"/>
+    <Component id="258" name="PINSEL" path="" type="2"/>
+    <Component id="270" name="ADC" path="" type="2"/>
+    <Component id="271" name="DAC" path="" type="2"/>
+  </Components>
+  <Files>
+    <File name="LED.c" path="../../../../Users/Lukasz/Documents/keil/tm/LED.c" type="1"/>
+    <File name="ADXL345/ADXL345.c" path="../../../../Users/Lukasz/Documents/inz/ADXL345.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_libcfg_default.c" path="lpc17xx_lib/source/lpc17xx_libcfg_default.c" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
+    <File name="lpc17xx_lib/include/LPC17xx_utils.h" path="../../../../Users/Lukasz/Documents/keil/tm/LPC17xx_utils.h" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="lpc17xx_lib/include/lpc17xx_adc.h" path="lpc17xx_lib/include/lpc17xx_adc.h" type="1"/>
+    <File name="lpc17xx_lib/source/LPC17xx_utils.c" path="../../../../Users/Lukasz/Documents/keil/tm/LPC17xx_utils.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_adc.c" path="lpc17xx_lib/source/lpc17xx_adc.c" type="1"/>
+    <File name="L3G4200D/L3G4200D.c" path="../../../../Users/Lukasz/Documents/keil/tm/L3G4200D.c" type="1"/>
+    <File name="spi_mems.h" path="../../../../Users/Lukasz/Documents/keil/tm/spi_mems.h" type="1"/>
+    <File name="lpc17xx_lib" path="" type="2"/>
+    <File name="lpc17xx_lib/source/lpc17xx_dac.c" path="lpc17xx_lib/source/lpc17xx_dac.c" type="1"/>
+    <File name="i2chal.h" path="../../../../Users/Lukasz/Documents/keil/tm/i2chal.h" type="1"/>
+    <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_pinsel.c" path="lpc17xx_lib/source/lpc17xx_pinsel.c" type="1"/>
+    <File name="L3G4200D/l3g4200d_driver.c" path="../../../../Users/Lukasz/Documents/inz/stsw-mems001/L3G4200D_Driver__Example_v1.1/l3g4200d_driver.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_ssp.c" path="../../../../Users/Lukasz/Documents/LPC1768/lpc175x_6x_cmsis_driver_library_0/lpc175x_6x_cmsis_driver_library/Drivers/source/lpc17xx_ssp.c" type="1"/>
+    <File name="cmsis_boot/startup/startup_LPC17xx.c" path="cmsis_boot/startup/startup_LPC17xx.c" type="1"/>
+    <File name="lpc17xx_lib/source" path="" type="2"/>
+    <File name="lpc17xx_lib/source/lpc17xx_gpio.c" path="lpc17xx_lib/source/lpc17xx_gpio.c" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_ssp.h" path="../../../../Users/Lukasz/Documents/LPC1768/lpc175x_6x_cmsis_driver_library_0/lpc175x_6x_cmsis_driver_library/Drivers/include/lpc17xx_ssp.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_dac.h" path="lpc17xx_lib/include/lpc17xx_dac.h" type="1"/>
+    <File name="L3G4200D/L3G4200D.h" path="../../../../Users/Lukasz/Documents/keil/tm/L3G4200D.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_clkpwr.h" path="lpc17xx_lib/include/lpc17xx_clkpwr.h" type="1"/>
+    <File name="ADXL345/ADXL345Add.h" path="../../../../Users/Lukasz/Documents/keil/tm/ADXL345Add.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_pinsel.h" path="lpc17xx_lib/include/lpc17xx_pinsel.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
+    <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
+    <File name="L3G4200D/l3g4200d_driver.h" path="../../../../Users/Lukasz/Documents/inz/stsw-mems001/L3G4200D_Driver__Example_v1.1/l3g4200d_driver.h" type="1"/>
+    <File name="spihal_ssp.c" path="../../../../Users/Lukasz/Documents/keil/tm/spihal_ssp.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
+    <File name="lpc17xx_lib/include/core_cmInstr.h" path="lpc17xx_lib/include/core_cmInstr.h" type="1"/>
+    <File name="cmsis_boot/system_LPC17xx.c" path="cmsis_boot/system_LPC17xx.c" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_gpio.h" path="lpc17xx_lib/include/lpc17xx_gpio.h" type="1"/>
+    <File name="Communication.h" path="../../../../Users/Lukasz/Documents/inz/Communication.h" type="1"/>
+    <File name="spi_mems.c" path="../../../../Users/Lukasz/Documents/keil/tm/spi_mems.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_timer.c" path="../../../../Users/Lukasz/Documents/lpc175x_6x_cmsis_driver_library_0/lpc175x_6x_cmsis_driver_library/Drivers/source/lpc17xx_timer.c" type="1"/>
+    <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_timer.h" path="../../../../Users/Lukasz/Documents/lpc175x_6x_cmsis_driver_library_0/lpc175x_6x_cmsis_driver_library/Drivers/include/lpc17xx_timer.h" type="1"/>
+    <File name="ADXL345/ADXL345Add.c" path="../../../../Users/Lukasz/Documents/keil/tm/ADXL345Add.c" type="1"/>
+    <File name="cmsis" path="" type="2"/>
+    <File name="spihal_ssp.h" path="../../../../Users/Lukasz/Documents/keil/tm/spihal_ssp.h" type="1"/>
+    <File name="cmsis_boot/system_LPC17xx.h" path="cmsis_boot/system_LPC17xx.h" type="1"/>
+    <File name="ADXL345" path="" type="2"/>
+    <File name="lpc17xx_lib/include" path="" type="2"/>
+    <File name="ADXL345/ADXL345.h" path="../../../../Users/Lukasz/Documents/inz/ADXL345.h" type="1"/>
+    <File name="lpc17xx_lib/include/core_cm3.h" path="lpc17xx_lib/include/core_cm3.h" type="1"/>
+    <File name="lpc17xx_lib/include/core_cmFunc.h" path="lpc17xx_lib/include/core_cmFunc.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc_types.h" path="lpc17xx_lib/include/lpc_types.h" type="1"/>
+    <File name="L3G4200D" path="" type="2"/>
+    <File name="main.c" path="../../../../Users/Lukasz/Documents/keil/tm/main.c" type="1"/>
+    <File name="i2chal.c" path="../../../../Users/Lukasz/Documents/keil/tm/i2chal.c" type="1"/>
+    <File name="LED.h" path="../../../../Users/Lukasz/Documents/keil/tm/LED.h" type="1"/>
+  </Files>
+</Project>
