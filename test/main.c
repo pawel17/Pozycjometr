@@ -5,6 +5,7 @@
 #include <lpc17xx_timer.h>
 #include <lpc17xx_clkpwr.h>
 #include <math.h>
+#include <stdio.h>
 #include "string.h"
 //#include "LED.h"
 
@@ -13,7 +14,8 @@
 #define TIMER_PRIORITY					30u
 #define ACC_SAMPLES_PER_MEASURE	0x040
 #define GYRO_SAMPLES_PER_MEASURE	0x040
-//TODO: a bit to high (mayby different vals for each axis ???)
+//TODO: a bit to high (maybe different vals for each axis ???)
+#define UART_DATA_BUFFER 				30
 #define ACC_NOISE_TRESHOLD		20
 #define ACC_SAMPLES_HISTORY_LEN	2
 #define GYRO_NOISE_TRESHOLD		70
@@ -37,6 +39,7 @@ void getPosition(void);
 void getPosition2(void);
 void getAngle(void);
 void checkIfMotionEnded(void);
+void clearData(char* buffer, unsigned int bufferSize);
 uint8_t tick;
 
 typedef struct{
@@ -112,6 +115,7 @@ int main(void){
 	float gx = 0.0f, gy = 0.0f, gz = 0.0f, temp;
 	char initSuccess;
 	unsigned char dataBuffer[BUFF_LEN] = {129};
+	char measurementResults[UART_DATA_BUFFER];
 	int tickCnt = 0;
 	float rawAccToG = 0.0f;
 	uint8_t sampleFreqInHz = 1u;
@@ -121,6 +125,9 @@ int main(void){
 	AxesRaw_t axesRaw;
 
 	//LEDInit();
+	//UART0_Init();
+
+	UART2_Init();
 	initSuccess = ADXL345_Init(ADXL345_SPI_COMM);
 	ADXL345_SetPowerMode(ADXL345_MEASURE_MODE);
 	timerInit(sampleFreqInHz);
@@ -150,6 +157,16 @@ int main(void){
 			getAngle();
 
 			ADXL345_GetGxyz(&gx, &gy, &gz);
+
+			clearData(measurementResults, UART_DATA_BUFFER);
+			sprintf(measurementResults, "ACL %f %f %f", posF.x, posF.y, posF.z);
+			UART2_SendString(measurementResults);
+			Delay(10);
+
+			clearData(measurementResults, UART_DATA_BUFFER);
+			sprintf(measurementResults, "ACL %f %f %f", angF.x, angF.y, angF.z);
+			UART2_SendString(measurementResults);
+			Delay(10);
 
 			tick = 0u;
 //			++tickCnt;
@@ -399,3 +416,11 @@ void TIMER1_IRQHandler(void){
 
 	TIM_ClearIntPending(LPC_TIM1, TIM_MR0_INT);
 }
+
+void clearData(char* buffer, unsigned int bufferSize) {
+	unsigned int i;
+	for(i = 0; i<bufferSize; ++i) {
+		buffer[i] = ' ';
+	}
+}
+

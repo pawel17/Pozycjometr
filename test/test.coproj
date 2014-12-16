@@ -29,7 +29,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="0x00008000" startValue="0x2007C000"/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../../coocox/coide/configuration/programdata/test/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="c:/coocox/coide/configuration/programdata/test/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -83,38 +83,40 @@
     <File name="cmsis_boot" path="" type="2"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis/core_cmFunc.h" path="core_cmFunc.h" type="1"/>
+    <File name="uart.c" path="uart.c" type="1"/>
     <File name="L3G4200D/L3G4200D.c" path="L3G4200D.c" type="1"/>
-    <File name="lpc17xx_lib" path="" type="2"/>
     <File name="spi_mems.h" path="spi_mems.h" type="1"/>
-    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
+    <File name="lpc17xx_lib" path="" type="2"/>
     <File name="i2chal.h" path="i2chal.h" type="1"/>
-    <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
+    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_nvic.c" path="lpc17xx_lib/source/lpc17xx_nvic.c" type="1"/>
+    <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_pinsel.c" path="lpc17xx_lib/source/lpc17xx_pinsel.c" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_ssp.c" path="lpc17xx_lib/source/lpc17xx_ssp.c" type="1"/>
     <File name="L3G4200D/l3g4200d_driver.c" path="l3g4200d_driver.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_ssp.c" path="lpc17xx_lib/source/lpc17xx_ssp.c" type="1"/>
     <File name="cmsis_boot/startup/startup_LPC17xx.c" path="cmsis_boot/startup/startup_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/source" path="" type="2"/>
     <File name="lpc17xx_lib/source/lpc17xx_gpio.c" path="lpc17xx_lib/source/lpc17xx_gpio.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_ssp.h" path="lpc17xx_lib/include/lpc17xx_ssp.h" type="1"/>
+    <File name="uart.h" path="uart.h" type="1"/>
     <File name="L3G4200D/L3G4200D.h" path="L3G4200D.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_clkpwr.h" path="lpc17xx_lib/include/lpc17xx_clkpwr.h" type="1"/>
     <File name="ADXL345/ADXL345Add.h" path="ADXL345Add.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_pinsel.h" path="lpc17xx_lib/include/lpc17xx_pinsel.h" type="1"/>
     <File name="LPC17xx_utils.h" path="LPC17xx_utils.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="core_cmInstr.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
     <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
     <File name="L3G4200D/l3g4200d_driver.h" path="l3g4200d_driver.h" type="1"/>
-    <File name="spihal_ssp.c" path="spihal_ssp.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
+    <File name="spihal_ssp.c" path="spihal_ssp.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_spi.h" path="lpc17xx_lib/include/lpc17xx_spi.h" type="1"/>
     <File name="cmsis_boot/system_LPC17xx.c" path="cmsis_boot/system_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_gpio.h" path="lpc17xx_lib/include/lpc17xx_gpio.h" type="1"/>
     <File name="Communication.h" path="Communication.h" type="1"/>
-    <File name="spi_mems.c" path="spi_mems.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_timer.c" path="lpc17xx_lib/source/lpc17xx_timer.c" type="1"/>
+    <File name="spi_mems.c" path="spi_mems.c" type="1"/>
     <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_timer.h" path="lpc17xx_lib/include/lpc17xx_timer.h" type="1"/>
     <File name="ADXL345/ADXL345Add.c" path="ADXL345Add.c" type="1"/>
@@ -127,8 +129,8 @@
     <File name="ADXL345/ADXL345.h" path="ADXL345.h" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_spi.c" path="lpc17xx_lib/source/lpc17xx_spi.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc_types.h" path="lpc17xx_lib/include/lpc_types.h" type="1"/>
-    <File name="main.c" path="main.c" type="1"/>
     <File name="L3G4200D" path="" type="2"/>
+    <File name="main.c" path="main.c" type="1"/>
     <File name="LPC17xx_utils.c" path="LPC17xx_utils.c" type="1"/>
     <File name="i2chal.c" path="i2chal.c" type="1"/>
   </Files>
