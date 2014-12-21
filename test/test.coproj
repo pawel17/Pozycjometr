@@ -44,11 +44,11 @@
       </User>
     </BuildOption>
     <DebugOption>
-      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ColinkEx"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="J-Link"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
       <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLinkARM_V475d\JLinkGDBServerCL.exe"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLinkARM_V481e\JLinkGDBServerCL.exe"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
       <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
@@ -56,7 +56,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
@@ -85,8 +85,8 @@
     <File name="cmsis/core_cmFunc.h" path="core_cmFunc.h" type="1"/>
     <File name="uart.c" path="uart.c" type="1"/>
     <File name="L3G4200D/L3G4200D.c" path="L3G4200D.c" type="1"/>
-    <File name="spi_mems.h" path="spi_mems.h" type="1"/>
     <File name="lpc17xx_lib" path="" type="2"/>
+    <File name="spi_mems.h" path="spi_mems.h" type="1"/>
     <File name="i2chal.h" path="i2chal.h" type="1"/>
     <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_nvic.c" path="lpc17xx_lib/source/lpc17xx_nvic.c" type="1"/>
@@ -105,18 +105,18 @@
     <File name="lpc17xx_lib/include/lpc17xx_pinsel.h" path="lpc17xx_lib/include/lpc17xx_pinsel.h" type="1"/>
     <File name="LPC17xx_utils.h" path="LPC17xx_utils.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="core_cmInstr.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
     <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
     <File name="L3G4200D/l3g4200d_driver.h" path="l3g4200d_driver.h" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
     <File name="spihal_ssp.c" path="spihal_ssp.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_spi.h" path="lpc17xx_lib/include/lpc17xx_spi.h" type="1"/>
     <File name="cmsis_boot/system_LPC17xx.c" path="cmsis_boot/system_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_gpio.h" path="lpc17xx_lib/include/lpc17xx_gpio.h" type="1"/>
     <File name="Communication.h" path="Communication.h" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_timer.c" path="lpc17xx_lib/source/lpc17xx_timer.c" type="1"/>
     <File name="spi_mems.c" path="spi_mems.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_timer.c" path="lpc17xx_lib/source/lpc17xx_timer.c" type="1"/>
     <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_timer.h" path="lpc17xx_lib/include/lpc17xx_timer.h" type="1"/>
     <File name="ADXL345/ADXL345Add.c" path="ADXL345Add.c" type="1"/>
