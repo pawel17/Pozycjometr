@@ -17,25 +17,60 @@ namespace UserInterface
     {
         private DataVisualisation.MainWindow visualisation;
         private ElementHost visualisationHost;
-        
+        private COMPortManager serialPortManager;
+        private bool startAnimationFlag = false;
+
         public ApplicationWindow()
         {
             InitializeComponent();
+            SerialPortCommunicationInit();
         }
 
-        private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs e)
+        private void SerialPortCommunicationInit()
         {
+            serialPortManager = new COMPortManager();
+            serialPortManager.ReceivedData += new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived);
+        }
+
+        private void NewSerialDataReceived(object sender, ReceivedDataEventArgs args)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived), new object[] { sender, args });
+            }
+
+            string message = Convert.ToBase64String(args.Data);
+            string[] elements = message.Split(' ');
+
+            if(startAnimationFlag)
+            {
+                if (elements[0] == "ACL")
+                {
+                    accelerationX.Text = elements[1];
+                    accelerationY.Text = elements[2];
+                    accelerationZ.Text = elements[3];
+
+                    visualisation.ApplyAcceleration(float.Parse(elements[1]), float.Parse(elements[2]), float.Parse(elements[3]));
+                }
+                else if (elements[0] == "GYR")
+                {
+                    angleX.Text = elements[1];
+                    angleY.Text = elements[2];
+                    angleZ.Text = elements[3];
+
+                    visualisation.ApplyRotation(float.Parse(elements[1]), float.Parse(elements[2]), float.Parse(elements[3]));
+                }
+            }
+        }
+
+        private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
+        {
+            serialPortManager.Dispose();
             System.Windows.Forms.Application.Exit();
         }
 
         private void ApplicationWindow_Load(object sender, EventArgs e)
         {
-            /*ElementHost visualisationHost = new ElementHost();
-            visualisationHost.Dock = DockStyle.Fill;
-            HostingWpfUserControlInWf.UserControl1 uc1 = new HostingWpfUserControlInWf.UserControl1();            
-            visualisationHost.Child = uc1;
-            mainPanel.Controls.Add(visualisationHost);*/
-
             visualisationHost = new ElementHost();
             visualisationHost.Dock = DockStyle.Fill;
             visualisation = new DataVisualisation.MainWindow();
@@ -45,7 +80,7 @@ namespace UserInterface
 
         private void connectionSettings_Click(object sender, EventArgs e)
         {
-            ConnectionOptions.Options options = new ConnectionOptions.Options();
+            UserInterface.Options options = new UserInterface.Options();
             options.Show();
         }
 
@@ -53,6 +88,25 @@ namespace UserInterface
         {
             string text = "Autorzy: Łukasz Cisowski, Paweł Mazik\nPromotor: dr inż. Krzysztof Świentek\nIV rok Informatyka Stosowana Wydział Fizyki i Informatyki Stosowanej\nAkademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie";
             System.Windows.Forms.MessageBox.Show(text, "O programie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            if (!serialPortManager.StartCommunication())
+            {
+                System.Windows.Forms.MessageBox.Show("Nie nawiązano połączenia z portem COM,\n proszę sprawdzić ustawienia", "O programie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                startAnimationFlag = false;
+            }
+            else
+            {
+                startAnimationFlag = true;
+            }
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            serialPortManager.StopCommunication();
+            startAnimationFlag = false;
         }
     }
 }

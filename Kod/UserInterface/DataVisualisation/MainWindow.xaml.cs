@@ -22,6 +22,14 @@ namespace DataVisualisation
     public partial class MainWindow : UserControl
     {
         private ModelVisual3D mCube;
+        private Point3D p1 = new Point3D(-4, 4, -4);
+        private Point3D p2 = new Point3D(-4, 4, 4);
+        private Point3D p3 = new Point3D(4, 4, 4);
+        private Point3D p4 = new Point3D(4, 4, -4);
+        private Point3D p5 = new Point3D(-4, -4, -4);
+        private Point3D p6 = new Point3D(-4, -4, 4);
+        private Point3D p7 = new Point3D(4, -4, 4);
+        private Point3D p8 = new Point3D(4, -4, -4);
 
         public MainWindow()
         {
@@ -68,14 +76,6 @@ namespace DataVisualisation
             mCube = new ModelVisual3D();
 
             Model3DGroup cubeGroup = new Model3DGroup();
-            Point3D p1 = new Point3D(-4, 4, -4);
-            Point3D p2 = new Point3D(-4, 4, 4);
-            Point3D p3 = new Point3D(4, 4, 4);
-            Point3D p4 = new Point3D(4, 4, -4);
-            Point3D p5 = new Point3D(-4, -4, -4);
-            Point3D p6 = new Point3D(-4, -4, 4);
-            Point3D p7 = new Point3D(4, -4, 4);
-            Point3D p8 = new Point3D(4, -4, -4);
 
             //top side
             cubeGroup.Children.Add(meshTriangle(p1, p2, p3));
@@ -127,6 +127,32 @@ namespace DataVisualisation
             mainView.Children.Add(xLine);
             mainView.Children.Add(yLine);
             mainView.Children.Add(zLine);
+        }
+
+        
+
+        public void ApplyAcceleration(float accelerationX, float accelerationY, float accelerationZ)
+        {
+            p1.X = -4 + accelerationX;  p1.Y = 4 + accelerationY;   p1.Z = -4 + accelerationZ;
+            p2.X = -4 + accelerationX;  p2.Y = 4 + accelerationY;   p2.Z = 4 + accelerationZ;
+            p3.X = 4 + accelerationX;   p3.Y = 4 + accelerationY;   p3.Z = 4 + accelerationZ;
+            p4.X = 4 + accelerationX;   p4.Y = 4 + accelerationY;   p4.Z = -4 + accelerationZ;
+            p5.X = -4 + accelerationX;  p5.Y = -4 + accelerationY;  p5.Z = -4 + accelerationZ;
+            p6.X = -4 + accelerationX;  p6.Y = -4 + accelerationY;  p6.Z = 4 + accelerationZ;
+            p7.X = 4 + accelerationX;   p7.Y = -4 + accelerationY;  p7.Z = 4 + accelerationZ;
+            p8.X = 4 + accelerationX;   p8.Y = -4 + accelerationY;  p8.Z = -4 + accelerationZ;
+        }
+
+        public void ApplyRotation(float angleX, float angleY, float angleZ)
+        {
+            p1.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p1.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p1.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p2.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p2.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p2.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p3.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p3.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p3.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p4.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p4.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p4.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p5.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p5.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p5.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p6.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p6.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p6.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p7.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p7.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p7.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
+            p8.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p8.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p8.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
         }
     }
 }

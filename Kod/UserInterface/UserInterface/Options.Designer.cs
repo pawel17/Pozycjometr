@@ -1,4 +1,4 @@
-﻿namespace ConnectionOptions
+﻿namespace UserInterface
 {
     partial class Options
     {
@@ -41,7 +41,6 @@
             this.baudRateCombo = new System.Windows.Forms.ComboBox();
             this.dataBitsCombo = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.connectionParameters.SuspendLayout();
@@ -148,7 +147,7 @@
             // portNameCombo
             // 
             this.portNameCombo.FormattingEnabled = true;
-            this.portNameCombo.Location = new System.Drawing.Point(115, 25);
+            this.portNameCombo.Location = new System.Drawing.Point(115, 20);
             this.portNameCombo.Name = "portNameCombo";
             this.portNameCombo.Size = new System.Drawing.Size(208, 21);
             this.portNameCombo.TabIndex = 1;
@@ -156,7 +155,7 @@
             // baudRateCombo
             // 
             this.baudRateCombo.FormattingEnabled = true;
-            this.baudRateCombo.Location = new System.Drawing.Point(118, 68);
+            this.baudRateCombo.Location = new System.Drawing.Point(115, 63);
             this.baudRateCombo.Name = "baudRateCombo";
             this.baudRateCombo.Size = new System.Drawing.Size(208, 21);
             this.baudRateCombo.TabIndex = 6;
@@ -164,7 +163,7 @@
             // dataBitsCombo
             // 
             this.dataBitsCombo.FormattingEnabled = true;
-            this.dataBitsCombo.Location = new System.Drawing.Point(118, 111);
+            this.dataBitsCombo.Location = new System.Drawing.Point(115, 111);
             this.dataBitsCombo.Name = "dataBitsCombo";
             this.dataBitsCombo.Size = new System.Drawing.Size(208, 21);
             this.dataBitsCombo.TabIndex = 7;
@@ -179,18 +178,9 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.connectPutton_Click);
             // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(115, 3);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(80, 35);
-            this.clearButton.TabIndex = 2;
-            this.clearButton.Text = "Domyślne ustawienia";
-            this.clearButton.UseVisualStyleBackColor = true;
-            // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(217, 3);
+            this.backButton.Location = new System.Drawing.Point(166, 3);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(80, 35);
             this.backButton.TabIndex = 3;
@@ -200,13 +190,11 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Controls.Add(this.saveButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.backButton, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.clearButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.backButton, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 282);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -250,7 +238,6 @@
         private System.Windows.Forms.ComboBox stopBitsCombo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }

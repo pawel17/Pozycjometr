@@ -62,13 +62,16 @@
     <Compile Include="ApplicationWindow.Designer.cs">
       <DependentUpon>ApplicationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommunicationParameters.cs" />
     <Compile Include="COMPortManager.cs" />
+    <Compile Include="MovementParameters.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReceivedDataEventArgs.cs" />
     <Compile Include="WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>

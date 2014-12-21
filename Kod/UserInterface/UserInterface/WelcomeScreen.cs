@@ -22,7 +22,7 @@ namespace UserInterface
         private void WelcomeScreen_Shown(object sender, EventArgs e)
         {
             timer = new Timer();
-            timer.Interval = 5000;
+            timer.Interval = 500;
             timer.Start();
             timer.Tick += onTimeElapsedEvent;
         }
