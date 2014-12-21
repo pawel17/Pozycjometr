@@ -35,25 +35,18 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3941" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="i2chal.c" partName="i2chal.c" path="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/i2chal.c" title="i2chal.c" tooltip="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/i2chal.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/i2chal.c"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ADXL345.c" partName="ADXL345.c" title="ADXL345.c" tooltip="C:\Users\Lukasz\Documents\Pozycjometr\test\ADXL345.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/Lukasz/Documents/Pozycjometr/test/ADXL345.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="6812" selectionTopPixel="2085"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="i2chal.h" partName="i2chal.h" path="C:/Users/Lukasz/Documents/Pozycjometr/test/i2chal.h" title="i2chal.h" tooltip="C:/Users/Lukasz/Documents/Pozycjometr/test/i2chal.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/i2chal.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" partName="uart.c" path="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/uart.c" title="uart.c" tooltip="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/uart.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/uart.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6477" selectionTopPixel="1488"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" partName="uart.h" path="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/uart.h" title="uart.h" tooltip="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/uart.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/uart.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="350" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Communication.h" partName="Communication.h" path="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/Communication.h" title="Communication.h" tooltip="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/Communication.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/Communication.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="131" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm3.c" partName="core_cm3.c" path="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/cmsis/core_cm3.c" title="core_cm3.c" tooltip="D:/Studia/Informatyka Stosowana/4 rok/Semestr VII/Praca inżynierska/Praca/test/cmsis/core_cm3.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/cmsis/core_cm3.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="16937" selectionTopPixel="11073"/>
+<editor id="org.coocox.builder.ui.editors.ConfigEditor" name="" partName="Configuration" title="Configuration" tooltip="" workbook="DefaultEditorWorkbook">
+<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="2" verticalPosition="160"/>
+</input>
 </editor>
 </editors>
 <views>
@@ -70,10 +63,9 @@
 <element path="/test/cmsis_boot"/>
 <element path="/test/L3G4200D"/>
 <element path="/test/lpc17xx_lib"/>
-<element path="/test/syscalls"/>
 </expanded>
 <selection>
-<element path="/test/cmsis/core_cm3.c"/>
+<element path="/test"/>
 </selection>
 </viewState>
 </view>
@@ -150,7 +142,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@55d443" ratio="0.7" ratioLeft="469" ratioRight="201" relationship="4" relative="org.eclipse.ui.internal.ViewStack@d1b1">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e7508c" ratio="0.7" ratioLeft="469" ratioRight="201" relationship="4" relative="org.eclipse.ui.internal.ViewStack@d1b1">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -308,42 +300,30 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/c:/program%20files%20(x86)/gnu%20tools%20arm%20embedded/4.8%202013q4/arm-none-eabi/include/stdio.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/cmsis/core_cm3.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/i2chal.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/syscalls/syscalls.c"/>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="261" subPageIndex="2" verticalPosition="199"/>
+</editor>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/C:/Users/Lukasz/Documents/Pozycjometr/test/ADXL345.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/i2chal.h"/>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="2" verticalPosition="160"/>
+</editor>
 </editors>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="data_conversion.h" index="4">
-<position info="not_deleted" x="182" y="0"/>
-</item>
-<item historyLabel="data_conversion.h" index="4">
-<position/>
-</item>
-<item historyLabel="data_conversion.h" index="4">
-<position/>
-</item>
-<item historyLabel="data_conversion.h" index="4">
-<position/>
-</item>
-<item historyLabel="data_conversion.h" index="4">
-<position/>
+<position info="not_deleted" x="7026" y="0"/>
 </item>
 <item historyLabel="data_conversion.h" index="4">
 <position/>
 </item>
 <item historyLabel="main.c" index="0">
+<position info="not_deleted" x="7026" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
 <position/>
 </item>
 <item historyLabel="data_conversion.h" index="4">
-<position/>
-</item>
-<item historyLabel="Communication.h" index="3">
-<position info="not_deleted" x="131" y="0"/>
-</item>
-<item historyLabel="uart.h" index="2">
-<position info="not_deleted" x="369" y="0"/>
-</item>
-<item historyLabel="uart.c" index="1">
-<position info="not_deleted" x="6608" y="0"/>
+<position info="not_deleted" x="7026" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position/>
@@ -373,25 +353,7 @@
 <position/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="stdio.h" index="5">
-<position info="not_deleted" x="6685" y="48"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3050" y="0"/>
-</item>
-<item historyLabel="uart.c" index="1">
-<position info="not_deleted" x="6608" y="0"/>
+<position info="not_deleted" x="6998" y="0"/>
 </item>
 <item historyLabel="uart.h" index="2">
 <position info="not_deleted" x="369" y="0"/>
@@ -447,17 +409,45 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3941" y="0"/>
 </item>
-<item historyLabel="uart.h" index="2">
-<position info="not_deleted" x="350" y="0"/>
-</item>
-<item historyLabel="uart.c" index="1">
-<position info="not_deleted" x="6477" y="0"/>
-</item>
-<item historyLabel="i2chal.c" index="7">
+<item historyLabel="Configuration" index="1"/>
+<item historyLabel="welcome" index="2"/>
+<item historyLabel="Repository" index="3"/>
+<item historyLabel="welcome" index="2"/>
+<item historyLabel="main.c" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="3941" y="0"/>
+<item historyLabel="syscalls.c" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="194" y="0"/>
+</item>
+<item historyLabel="Repository" index="6"/>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="194" y="0"/>
+</item>
+<item historyLabel="Repository" index="6"/>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="194" y="0"/>
+</item>
+<item historyLabel="ADXL345.c" index="7">
+<position info="not_deleted" x="6557" y="0"/>
+</item>
+<item historyLabel="i2chal.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ADXL345.c" index="7">
+<position info="not_deleted" x="6557" y="0"/>
+</item>
+<item historyLabel="ADXL345.c" index="7">
+<position info="not_deleted" x="6812" y="12"/>
+</item>
+<item historyLabel="Configuration" index="9"/>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="194" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="4">
+<position info="not_deleted" x="2660" y="15"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -466,11 +456,22 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm3.c" tooltip="test/cmsis/core_cm3.c">
-<persistable path="/test/cmsis/core_cm3.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="2" verticalPosition="160"/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" tooltip="c:\program files (x86)\gnu tools arm embedded\4.8 2013q4\arm-none-eabi\include\stdio.h">
-<persistable uri="file:/c:/program%20files%20(x86)/gnu%20tools%20arm%20embedded/4.8%202013q4/arm-none-eabi/include/stdio.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2chal.h" tooltip="test/i2chal.h">
+<persistable path="/test/i2chal.h"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADXL345.c" tooltip="C:\Users\Lukasz\Documents\Pozycjometr\test\ADXL345.c">
+<persistable uri="file:/C:/Users/Lukasz/Documents/Pozycjometr/test/ADXL345.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="syscalls.c" tooltip="test/syscalls/syscalls.c">
+<persistable path="/test/syscalls/syscalls.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lpc17xx_gpio.c" tooltip="test/lpc17xx_lib/source/lpc17xx_gpio.c">
+<persistable path="/test/lpc17xx_lib/source/lpc17xx_gpio.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataConverter.h" tooltip="test/DataConverter.h">
 <persistable path="/test/DataConverter.h"/>
