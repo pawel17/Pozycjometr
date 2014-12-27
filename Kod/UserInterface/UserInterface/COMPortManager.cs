@@ -38,7 +38,6 @@ namespace UserInterface
 
             serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPortDataReceived);
             serialPort.Open();
-
             return serialPort.IsOpen;
         }
 
@@ -51,6 +50,7 @@ namespace UserInterface
         {
             int dataLength = serialPort.BytesToRead;
             byte[] data = new byte[dataLength];
+            
             int dataQuantity = serialPort.Read(data, 0, dataLength);
             if (dataQuantity == 0)
             {

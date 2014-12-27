@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Forms.Integration;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 
 namespace UserInterface
 {
@@ -18,8 +19,8 @@ namespace UserInterface
         private DataVisualisation.MainWindow visualisation;
         private ElementHost visualisationHost;
         private COMPortManager serialPortManager;
-        private bool startAnimationFlag = false;
-
+        public delegate void InvokeDelegate(string accelerometer, string gyroscope);
+        
         public ApplicationWindow()
         {
             InitializeComponent();
@@ -39,33 +40,69 @@ namespace UserInterface
                 this.BeginInvoke(new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived), new object[] { sender, args });
             }
 
-            string message = Convert.ToBase64String(args.Data);
-            string[] elements = message.Split(' ');
+            string message = Encoding.ASCII.GetString(args.Data);
+            string gyroscopeString = string.Empty;
+            string accelerometerString = string.Empty;
 
-            if(startAnimationFlag)
+            if ((message.IndexOf("GYR") != -1) && (message.IndexOf("ACL") != -1))
             {
-                if (elements[0] == "ACL")
-                {
-                    accelerationX.Text = elements[1];
-                    accelerationY.Text = elements[2];
-                    accelerationZ.Text = elements[3];
+                accelerometerString = message.Substring(0, message.IndexOf("GYR") - 1);
+                gyroscopeString = message.Substring(message.IndexOf("GYR"));
+            }
+            else if (message.IndexOf("ACL") != -1)
+            {
+                accelerometerString = message;
+            }
+            else
+            {
+                gyroscopeString = message;
+            }
 
-                    visualisation.ApplyAcceleration(float.Parse(elements[1]), float.Parse(elements[2]), float.Parse(elements[3]));
+            if (accelerometerString.Length > 0)
+            {                
+                string[] accelerometerData = accelerometerString.Split(' ');
+
+                if(accelerationX.InvokeRequired) {
+                    accelerationX.Invoke(new MethodInvoker(delegate { accelerationX.Text = accelerometerData[1]; })); 
                 }
-                else if (elements[0] == "GYR")
-                {
-                    angleX.Text = elements[1];
-                    angleY.Text = elements[2];
-                    angleZ.Text = elements[3];
 
-                    visualisation.ApplyRotation(float.Parse(elements[1]), float.Parse(elements[2]), float.Parse(elements[3]));
+                if(accelerationY.InvokeRequired) {
+                    accelerationY.Invoke(new MethodInvoker(delegate { accelerationY.Text = accelerometerData[2]; })); 
+                }
+
+                if(accelerationZ.InvokeRequired) {
+                    accelerationZ.Invoke(new MethodInvoker(delegate { accelerationZ.Text = accelerometerData[3]; })); 
                 }
             }
+
+            if (gyroscopeString.Length > 0)
+            {
+                string[] gyroscopeData = gyroscopeString.Split(' ');
+
+                if(angleX.InvokeRequired) {
+                    angleX.Invoke(new MethodInvoker(delegate { angleX.Text = gyroscopeData[1]; })); 
+                }
+
+                if(angleY.InvokeRequired) {
+                    angleY.Invoke(new MethodInvoker(delegate { angleY.Text = gyroscopeData[2]; })); 
+                }
+
+                if(angleZ.InvokeRequired) {
+                    angleZ.Invoke(new MethodInvoker(delegate { angleZ.Text = gyroscopeData[3]; })); 
+                }
+            }       
+
+            visualisation.Dispatcher.Invoke(() => ApplyMovement(accelerometerString, gyroscopeString));            
+        }
+
+        public void ApplyMovement(string accelerometer, string gyroscope)
+        {
+            visualisation.ApplyTransformation();
         }
 
         private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
         {
-            serialPortManager.Dispose();
+            //serialPortManager.Dispose();
             System.Windows.Forms.Application.Exit();
         }
 
@@ -92,21 +129,26 @@ namespace UserInterface
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            if (!serialPortManager.StartCommunication())
+            try
             {
-                System.Windows.Forms.MessageBox.Show("Nie nawiązano połączenia z portem COM,\n proszę sprawdzić ustawienia", "O programie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                startAnimationFlag = false;
+                if (CommunicationParameters.AvailableBaudRates.Length == 0)
+                {
+                    System.Windows.Forms.MessageBox.Show("Nie nawiązano połączenia z portem COM,\n proszę sprawdzić ustawienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    serialPortManager.StartCommunication();
+                }
             }
-            else
+            catch (Exception exc)
             {
-                startAnimationFlag = true;
+                System.Windows.Forms.MessageBox.Show("Brak połączenia z portem COM. \nProszę ustawić odpowiednie paremetry portu.", "Brak połączenia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             serialPortManager.StopCommunication();
-            startAnimationFlag = false;
         }
     }
 }

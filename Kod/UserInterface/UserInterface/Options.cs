@@ -24,24 +24,25 @@ namespace UserInterface
         {
             portNameCombo.DataSource = CommunicationParameters.AvailablePortNames;
             baudRateCombo.DataSource = CommunicationParameters.AvailableBaudRates;
-            dataBitsCombo.DataSource = CommunicationParameters.DataBits;
+            dataBitsCombo.DataSource = CommunicationParameters.AvailableDataBits;
             parityCombo.DataSource = Enum.GetValues(typeof(Parity));
             stopBitsCombo.DataSource = Enum.GetValues(typeof(StopBits));
 
-            portNameCombo.DisplayMember = CommunicationParameters.PortName;
-            baudRateCombo.DisplayMember = CommunicationParameters.BaudRate.ToString();
-            dataBitsCombo.DisplayMember = CommunicationParameters.DataBits.ToString();
-            parityCombo.DisplayMember = CommunicationParameters.ParityBits.ToString();
-            stopBitsCombo.DisplayMember = CommunicationParameters.StopBit.ToString();
+            portNameCombo.SelectedItem = CommunicationParameters.PortName;
+            baudRateCombo.SelectedItem = CommunicationParameters.BaudRate;
+            dataBitsCombo.SelectedItem = CommunicationParameters.DataBits;
+            parityCombo.SelectedItem = CommunicationParameters.ParityBits;
+            stopBitsCombo.SelectedItem = CommunicationParameters.StopBit;
         }
 
-        private void connectPutton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            CommunicationParameters.PortName = portNameCombo.DisplayMember;
-            CommunicationParameters.BaudRate = Int32.Parse(baudRateCombo.DisplayMember);
-            CommunicationParameters.DataBits = Int32.Parse(dataBitsCombo.DisplayMember);
+            CommunicationParameters.PortName = (string)portNameCombo.SelectedItem;
+            CommunicationParameters.BaudRate = (int)baudRateCombo.SelectedItem;
+            CommunicationParameters.DataBits = (int)dataBitsCombo.SelectedItem;
             CommunicationParameters.ParityBits = (Parity)parityCombo.SelectedIndex;
             CommunicationParameters.StopBit = (StopBits)stopBitsCombo.SelectedIndex;
+            Close();
         }
 
         private void backButton_Click(object sender, EventArgs e)

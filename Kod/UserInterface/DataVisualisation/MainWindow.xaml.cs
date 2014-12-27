@@ -30,11 +30,72 @@ namespace DataVisualisation
         private Point3D p6 = new Point3D(-4, -4, 4);
         private Point3D p7 = new Point3D(4, -4, 4);
         private Point3D p8 = new Point3D(4, -4, -4);
-
+        
         public MainWindow()
         {
             InitializeComponent();
             BuildScene();
+        }
+
+        public Point3D Point1
+        {
+            get { return p1; }
+            set { p1 = value; }
+        }
+
+        public Point3D Point2
+        {
+            get { return p2; }
+            set { p2 = value; }
+        }
+
+        public Point3D Point3
+        {
+            get { return p3; }
+            set { p3 = value; }
+        }
+
+        public Point3D Point4
+        {
+            get { return p4; }
+            set { p4 = value; }
+        }
+
+        public Point3D Point5
+        {
+            get { return p5; }
+            set { p5 = value; }
+        }
+
+        public Point3D Point6
+        {
+            get { return p6; }
+            set { p6 = value; }
+        }
+
+        public Point3D Point7
+        {
+            get { return p7; }
+            set { p7 = value; }
+        }
+
+        public Point3D Point8
+        {
+            get { return p8; }
+            set { p8 = value; }
+        }
+
+        public void ApplyTransformation()
+        {
+            /*Transform3DGroup group = mCube.Transform as Transform3DGroup;
+
+            AxisAngleRotation3D a = new AxisAngleRotation3D();
+            a.Axis = new Vector3D(4,4,4);
+            a.Angle = 0.01 * (180 / Math.PI);
+
+            RotateTransform3D r1 = new RotateTransform3D(a);
+
+            group.Children.Add(r1);*/
         }
 
         private Model3DGroup meshTriangle(Point3D p0, Point3D p1, Point3D p2)
@@ -74,7 +135,7 @@ namespace DataVisualisation
         private void BuildScene()
         {
             mCube = new ModelVisual3D();
-
+            
             Model3DGroup cubeGroup = new Model3DGroup();
 
             //top side
@@ -127,32 +188,6 @@ namespace DataVisualisation
             mainView.Children.Add(xLine);
             mainView.Children.Add(yLine);
             mainView.Children.Add(zLine);
-        }
-
-        
-
-        public void ApplyAcceleration(float accelerationX, float accelerationY, float accelerationZ)
-        {
-            p1.X = -4 + accelerationX;  p1.Y = 4 + accelerationY;   p1.Z = -4 + accelerationZ;
-            p2.X = -4 + accelerationX;  p2.Y = 4 + accelerationY;   p2.Z = 4 + accelerationZ;
-            p3.X = 4 + accelerationX;   p3.Y = 4 + accelerationY;   p3.Z = 4 + accelerationZ;
-            p4.X = 4 + accelerationX;   p4.Y = 4 + accelerationY;   p4.Z = -4 + accelerationZ;
-            p5.X = -4 + accelerationX;  p5.Y = -4 + accelerationY;  p5.Z = -4 + accelerationZ;
-            p6.X = -4 + accelerationX;  p6.Y = -4 + accelerationY;  p6.Z = 4 + accelerationZ;
-            p7.X = 4 + accelerationX;   p7.Y = -4 + accelerationY;  p7.Z = 4 + accelerationZ;
-            p8.X = 4 + accelerationX;   p8.Y = -4 + accelerationY;  p8.Z = -4 + accelerationZ;
-        }
-
-        public void ApplyRotation(float angleX, float angleY, float angleZ)
-        {
-            p1.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p1.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p1.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p2.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p2.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p2.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p3.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p3.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p3.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p4.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p4.Y = 4 + Math.Cos(angleX) + Math.Sin(angleZ);     p4.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p5.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p5.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p5.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p6.X = -4 + Math.Cos(angleY) + Math.Sin(angleZ);    p6.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p6.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p7.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p7.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p7.Z = 4 + Math.Cos(angleX) + Math.Sin(angleY);
-            p8.X = 4 + Math.Cos(angleY) + Math.Sin(angleZ);     p8.Y = -4 + Math.Cos(angleX) + Math.Sin(angleZ);    p8.Z = -4 + Math.Cos(angleX) + Math.Sin(angleY);
         }
     }
 }
