@@ -30,6 +30,7 @@ namespace DataVisualisation
         private Point3D p6 = new Point3D(-4, -4, 4);
         private Point3D p7 = new Point3D(4, -4, 4);
         private Point3D p8 = new Point3D(4, -4, -4);
+        private float accX, accY, accZ, angX, angY, angZ;
         
         public MainWindow()
         {
@@ -37,52 +38,40 @@ namespace DataVisualisation
             BuildScene();
         }
 
-        public Point3D Point1
+        public float AccelerationX
         {
-            get { return p1; }
-            set { p1 = value; }
+            get { return accX; }
+            set { accX = value; }
         }
 
-        public Point3D Point2
+        public float AccelerationY
         {
-            get { return p2; }
-            set { p2 = value; }
+            get { return accY; }
+            set { accY = value; }
         }
 
-        public Point3D Point3
+        public float AccelerationZ
         {
-            get { return p3; }
-            set { p3 = value; }
+            get { return accZ; }
+            set { accZ = value; }
         }
 
-        public Point3D Point4
+        public float AngleX
         {
-            get { return p4; }
-            set { p4 = value; }
+            get { return angX; }
+            set { angX = value; }
         }
 
-        public Point3D Point5
+        public float AngleY
         {
-            get { return p5; }
-            set { p5 = value; }
+            get { return angY; }
+            set { angY = value; }
         }
 
-        public Point3D Point6
+        public float AngleZ
         {
-            get { return p6; }
-            set { p6 = value; }
-        }
-
-        public Point3D Point7
-        {
-            get { return p7; }
-            set { p7 = value; }
-        }
-
-        public Point3D Point8
-        {
-            get { return p8; }
-            set { p8 = value; }
+            get { return angZ; }
+            set { angZ = value; }
         }
 
         public void ApplyTransformation()

@@ -19,7 +19,6 @@ namespace UserInterface
         private DataVisualisation.MainWindow visualisation;
         private ElementHost visualisationHost;
         private COMPortManager serialPortManager;
-        public delegate void InvokeDelegate(string accelerometer, string gyroscope);
         
         public ApplicationWindow()
         {
@@ -97,6 +96,21 @@ namespace UserInterface
 
         public void ApplyMovement(string accelerometer, string gyroscope)
         {
+            if(accelerometer.Length > 0)
+            {
+                string[] data = accelerometer.Split(' ');
+                visualisation.AccelerationX = float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationX = float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationX = float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+            if(gyroscope.Length > 0)
+            {
+                string[] data = gyroscope.Split(' ');
+                visualisation.AngleX = float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleY = float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleZ = float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture); ;
+            }
             visualisation.ApplyTransformation();
         }
 
@@ -140,7 +154,7 @@ namespace UserInterface
                     serialPortManager.StartCommunication();
                 }
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 System.Windows.Forms.MessageBox.Show("Brak połączenia z portem COM. \nProszę ustawić odpowiednie paremetry portu.", "Brak połączenia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
