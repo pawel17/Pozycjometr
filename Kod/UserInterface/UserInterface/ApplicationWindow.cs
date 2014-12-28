@@ -148,16 +148,6 @@ namespace UserInterface
             visualisation.ApplyTransformation();
         }
 
-        /*private void ResetPreviousSettings() {
-            visualisation.AccelerationX = 0F;
-            visualisation.AccelerationY = 0F;
-            visualisation.AccelerationZ = 0F;
-            visualisation.AngleX = 0F;
-            visualisation.AngleY = 0F;
-            visualisation.AngleZ = 0F;
-            visualisation.BuildScene();
-        }*/
-
         private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
         {
             serialPortManager.Dispose();
@@ -176,6 +166,7 @@ namespace UserInterface
         private void connectionSettings_Click(object sender, EventArgs e)
         {
             UserInterface.Options options = new UserInterface.Options();
+            serialPortManager.RefreshAvailablePorts();
             options.Show();
         }
 
@@ -196,7 +187,6 @@ namespace UserInterface
                 else
                 {
                     serialPortManager.StartCommunication();
-                    //visualisation.Dispatcher.Invoke(() => ResetPreviousSettings());
                 }
             }
             catch (Exception)

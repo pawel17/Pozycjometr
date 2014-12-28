@@ -36,7 +36,7 @@ namespace UserInterface
                                         CommunicationParameters.DataBits,
                                         CommunicationParameters.StopBit);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPortDataReceived);
+            serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialPortDataReceived);
             serialPort.Open();
             return serialPort.IsOpen;
         }
@@ -46,7 +46,12 @@ namespace UserInterface
             serialPort.Close();
         }
 
-        void serialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
+        public void RefreshAvailablePorts()
+        {
+            CommunicationParameters.AvailablePortNames = SerialPort.GetPortNames();
+        }
+
+        private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             int dataLength = serialPort.BytesToRead;
             byte[] data = new byte[dataLength];
@@ -70,7 +75,7 @@ namespace UserInterface
         {
             if (disposing)
             {
-                serialPort.DataReceived -= new SerialDataReceivedEventHandler(serialPortDataReceived);
+                serialPort.DataReceived -= new SerialDataReceivedEventHandler(SerialPortDataReceived);
             }
 
             if (serialPort != null)
