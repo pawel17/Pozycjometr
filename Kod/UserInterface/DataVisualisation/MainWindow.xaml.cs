@@ -76,15 +76,33 @@ namespace DataVisualisation
 
         public void ApplyTransformation()
         {
-            /*Transform3DGroup group = mCube.Transform as Transform3DGroup;
+            Transform3DGroup group = mCube.Transform as Transform3DGroup;
 
-            AxisAngleRotation3D a = new AxisAngleRotation3D();
-            a.Axis = new Vector3D(4,4,4);
-            a.Angle = 0.01 * (180 / Math.PI);
+            AxisAngleRotation3D aX = new AxisAngleRotation3D();
+            aX.Axis = new Vector3D(3, 0, 0);
+            aX.Angle = angX;
+            RotateTransform3D r1 = new RotateTransform3D(aX);
 
-            RotateTransform3D r1 = new RotateTransform3D(a);
+            AxisAngleRotation3D aY = new AxisAngleRotation3D();
+            aY.Axis = new Vector3D(0, 3, 0);
+            aY.Angle = angY;
+            RotateTransform3D r2 = new RotateTransform3D(aY);
 
-            group.Children.Add(r1);*/
+            AxisAngleRotation3D aZ= new AxisAngleRotation3D();
+            aZ.Axis = new Vector3D(0, 0, 3);
+            aZ.Angle = angZ;
+            RotateTransform3D r3 = new RotateTransform3D(aZ);
+
+            TranslateTransform3D t1 = new TranslateTransform3D(accX, 0, 0);
+            TranslateTransform3D t2 = new TranslateTransform3D(0, accY, 0);
+            TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accZ);
+
+            group.Children.Add(r1);
+            group.Children.Add(r2);
+            group.Children.Add(r3);
+            group.Children.Add(t1);
+            group.Children.Add(t2);
+            group.Children.Add(t3);
         }
 
         private Model3DGroup meshTriangle(Point3D p0, Point3D p1, Point3D p2)

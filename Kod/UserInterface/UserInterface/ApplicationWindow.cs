@@ -19,7 +19,9 @@ namespace UserInterface
         private DataVisualisation.MainWindow visualisation;
         private ElementHost visualisationHost;
         private COMPortManager serialPortManager;
-        
+        private bool accelerometerMeasurementBegun = false;
+        private bool gyroscopeMeasurementBegun = false;
+
         public ApplicationWindow()
         {
             InitializeComponent();
@@ -42,6 +44,11 @@ namespace UserInterface
             string message = Encoding.ASCII.GetString(args.Data);
             string gyroscopeString = string.Empty;
             string accelerometerString = string.Empty;
+
+            if ((message.IndexOf("ACL") != message.LastIndexOf("ACL")) || (message.IndexOf("GYR") != message.LastIndexOf("GYR")))
+            {
+                return;
+            }
 
             if ((message.IndexOf("GYR") != -1) && (message.IndexOf("ACL") != -1))
             {
@@ -99,17 +106,17 @@ namespace UserInterface
             if(accelerometer.Length > 0)
             {
                 string[] data = accelerometer.Split(' ');
-                visualisation.AccelerationX = float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AccelerationX = float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AccelerationX = float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationX -= float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationY -= float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationZ -= float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
             }
 
             if(gyroscope.Length > 0)
             {
                 string[] data = gyroscope.Split(' ');
-                visualisation.AngleX = float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AngleY = float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AngleZ = float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture); ;
+                visualisation.AngleX -= float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleY -= float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleZ -= float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture); ;
             }
             visualisation.ApplyTransformation();
         }
