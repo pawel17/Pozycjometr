@@ -19,8 +19,8 @@ namespace UserInterface
         private DataVisualisation.MainWindow visualisation;
         private ElementHost visualisationHost;
         private COMPortManager serialPortManager;
-        private bool accelerometerMeasurementBegun = false;
-        private bool gyroscopeMeasurementBegun = false;
+        private bool accelerometerMeasurementBegan = false;
+        private bool gyroscopeMeasurementBegan = false;
 
         public ApplicationWindow()
         {
@@ -52,7 +52,15 @@ namespace UserInterface
 
             if ((message.IndexOf("GYR") != -1) && (message.IndexOf("ACL") != -1))
             {
-                accelerometerString = message.Substring(0, message.IndexOf("GYR") - 1);
+                if (message.IndexOf("GYR") == 0)            //in case "GYR" in the first part of the message
+                {
+                    accelerometerString = message;
+                }
+                else
+                {
+                    accelerometerString = message.Substring(0, message.IndexOf("GYR") - 1);
+                }
+
                 gyroscopeString = message.Substring(message.IndexOf("GYR"));
             }
             else if (message.IndexOf("ACL") != -1)
@@ -103,27 +111,56 @@ namespace UserInterface
 
         public void ApplyMovement(string accelerometer, string gyroscope)
         {
-            if(accelerometer.Length > 0)
+            string[] accelerometerData;
+            string[] gyroscopeData;
+
+            if (!accelerometerMeasurementBegan && accelerometer.Length > 0)
             {
-                string[] data = accelerometer.Split(' ');
-                visualisation.AccelerationX -= float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AccelerationY -= float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AccelerationZ -= float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                accelerometerData = accelerometer.Split(' ');
+                visualisation.AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                accelerometerMeasurementBegan = true;
+            }
+            else if (accelerometer.Length > 0)
+            {
+                accelerometerData = accelerometer.Split(' ');
+                visualisation.AccelerationX -= float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationY -= float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AccelerationZ -= float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
             }
 
-            if(gyroscope.Length > 0)
+            if (!gyroscopeMeasurementBegan && gyroscope.Length > 0)
             {
-                string[] data = gyroscope.Split(' ');
-                visualisation.AngleX -= float.Parse(data[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AngleY -= float.Parse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                visualisation.AngleZ -= float.Parse(data[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture); ;
+                gyroscopeData = gyroscope.Split(' ');
+                visualisation.AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                gyroscopeMeasurementBegan = true;
+            }
+            else if (gyroscope.Length > 0)
+            {
+                gyroscopeData = gyroscope.Split(' ');
+                visualisation.AngleX -= float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleY -= float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                visualisation.AngleZ -= float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
             }
             visualisation.ApplyTransformation();
         }
 
+        /*private void ResetPreviousSettings() {
+            visualisation.AccelerationX = 0F;
+            visualisation.AccelerationY = 0F;
+            visualisation.AccelerationZ = 0F;
+            visualisation.AngleX = 0F;
+            visualisation.AngleY = 0F;
+            visualisation.AngleZ = 0F;
+            visualisation.BuildScene();
+        }*/
+
         private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
         {
-            //serialPortManager.Dispose();
+            serialPortManager.Dispose();
             System.Windows.Forms.Application.Exit();
         }
 
@@ -159,6 +196,7 @@ namespace UserInterface
                 else
                 {
                     serialPortManager.StartCommunication();
+                    //visualisation.Dispatcher.Invoke(() => ResetPreviousSettings());
                 }
             }
             catch (Exception)
