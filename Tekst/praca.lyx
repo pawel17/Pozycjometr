@@ -119,11 +119,7 @@ Paweł Mazik}
 
 \backslash
 shortauthor{Ł.
- Cisowski
-\backslash
-
-\backslash
-P.
+ Cisowski, P.
  Mazik}
 \end_layout
 
@@ -329,6 +325,20 @@ filename "rozdzial3.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "rozdzial4.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "rozdzial6.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "rozdzial7.lyx"
 
 \end_inset
 

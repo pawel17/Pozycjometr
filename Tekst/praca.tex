@@ -12,7 +12,8 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 
@@ -56,8 +57,8 @@
 
 \usepackage{babel}
 \begin{document}
-\author{£ukasz Cisowski}
-\shortauthor{£. Cisowski}
+\author{£ukasz Cisowski\\Pawe³ Mazik}
+\shortauthor{£. Cisowski\\P. Mazik}
 
 \titlePL{Pozycjometr inercyjny}
 \titleEN{Inertial position meter}
@@ -70,7 +71,7 @@
 
 \supervisorPL{dr in¿. Krzysztof ¦wientek}
 \supervisorEN{Dr Eng. Krzysztof ¦wientek}
-\acknowledgements{Serdecznie dziêkujê mojemu promotorowi za pomoc i nieocenione uwagi, które przyczyni³y siê do znacznej poprawy merytorycznej mojej pracy.} 
+\acknowledgements{Serdecznie dziêkujemy promotorowi za pomoc i nieocenione uwagi, które przyczyni³y siê do znacznej poprawy merytorycznej pracy.} 
 
 \facultyPL{Wydzia³ Fizyki i Informatyki Stosowanej}
 \facultyEN{Faculty of Physics and Applied Computer Science}
@@ -78,15 +79,21 @@
 \departmentPL{Katedra Oddzia³ywañ i Detekcji Cz±stek}
 \departmentEN{Department of Particle Interaction and Detection Techniques}
 
-\date{2014}
+\date{2015}
 
 \titlepages   
 
 \tableofcontents{}\clearpage{}
 
-\include{rozdzial1} \include{rozdzial2} 
+\include{rozdzial1}
+
+\include{rozdzial2}
+
+\include{rozdzial5}
 
 \include{rozdzial3}
+
+\include{rozdzial4}\include{rozdzial6}\include{rozdzial7}\include{wnioski}
 
 \bibliography{bibliografia}
 

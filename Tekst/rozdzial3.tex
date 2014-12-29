@@ -1,8 +1,8 @@
 
-\chapter{Interfejs SPI}
+\chapter{Wspó³praca mikrokontrolerów z urz±dzeniami zewnêtrznymi}
 
 
-\section{Wspó³praca mikrokontrolerów z urz±dzeniami zewnêtrznymi.}
+\section{Wiadomo¶ci ogólne}
 
 \begin{figure}
 \begin{centering}
@@ -52,14 +52,14 @@ mechaniczn± (kszta³t, rozmiar, ilo¶æ) oraz charakterystykami elektrycznymi
 sygna³ów (poziomy napiêæ i pr±dów, relacje czasowe). Aby przesy³ sygna³ów
 by³ mo¿liwy, zwi±zany z nimi obwód elektryczny musi byæ zamkniêty.,
 dlatego sk³ada siê z dwóch przewodów tworz±cych liniê. Istniej± linie
-symetryczne i niesymetryczne. Schemat obu pokazano na rysunku {[}rysunek{]}.
+symetryczne i niesymetryczne. Schemat obu pokazano na rysunku \ref{fig:Linie-transmisyjne}.
 \begin{figure}
 \begin{centering}
 \includegraphics{rys/interfejsy/linie}
 \par\end{centering}
 
 \caption{Linie transmisyjne: a) niesymetryczna, b) symetryczna (\emph{¬ród³o:}
-\cite{Krzyzanowski207})}
+\cite{Krzyzanowski207}) \label{fig:Linie-transmisyjne}}
 
 
 \end{figure}
@@ -68,7 +68,7 @@ symetryczne i niesymetryczne. Schemat obu pokazano na rysunku {[}rysunek{]}.
 Linia niesymetryczna sk³ada siê z przewodu sygna³owego (zwanego tak¿e
 gor±cym) oraz masowego, stanowi±cego odniesienie dla sygna³u po obu
 stronach toru transmisyjnego. W przypadku wiêkszej liczby sygna³ów
-mo¿liwe jest zastosowanie wspólnego przewodu powrotnego {[}¼ród³o{]}.
+mo¿liwe jest zastosowanie wspólnego przewodu powrotnego \cite{Krzyzanowski207}.
 Najwiêksz± wad± linii niesymetrycznej jest jej podatno¶æ na wp³yw
 obcych pól elektromagnetycznych. Powoduj± one indukowanie siê zak³óceñ
 w przewodzie sygna³owym i powrotnym, które dodaj± siê lub odejmuj±
@@ -79,14 +79,13 @@ zmniejszenia wp³ywu zewnêtrznych pól, stosuje siê nastêpuj±ce zabiegi:
 \item skrêcanie przewodów,
 \item ekranowanie linii.
 \end{itemize}
-Rysunek {[}rysunek{]} pokazuje schemat linii symetrycznej. Sk³ada
-siê ona z dwóch przewiodów wiod±cych sygna³y znajduj±ce siê w przeciwfazie
-oraz odbiornika z wej¶ciem ró¿nicowym. Dziêki temu, sygna³y o takich
-samych przebiegach indukowane w poszczególnych przewodach znosz± siê
-po odjêciu na wej¶ciu wzmacniacza. W celu zapewnienia lepszej ochrony
-przed zak³óceniami mo¿liwe jest równie¿ skrêcanie przewodów. Zasiêg
-linii symetrycznych jest du¿o wiêkszy ni¿ w przypadku linii niesymetrycznych
-i osiaga rz±d 1 km {[}¼ród³o{]}.
+Linia symetryczna sk³ada siê z dwóch przewiodów wiod±cych sygna³y
+znajduj±ce siê w przeciwfazie oraz odbiornika z wej¶ciem ró¿nicowym.
+Dziêki temu, sygna³y o takich samych przebiegach indukowane w poszczególnych
+przewodach znosz± siê po odjêciu na wej¶ciu wzmacniacza. W celu zapewnienia
+lepszej ochrony przed zak³óceniami mo¿liwe jest równie¿ skrêcanie
+przewodów. Zasiêg linii symetrycznych jest du¿o wiêkszy ni¿ w przypadku
+linii niesymetrycznych i osiaga rz±d 1 km \cite{Krzyzanowski207}.
 
 Najbardziej odpornym na zak³ócenia elektromagnetyczne medium jest
 ¶wiat³owód. Pozwala on na transmisjê na bardzo du¿e odleg³o¶ci (od
@@ -116,17 +115,18 @@ cyfrowych wykorzystuje interfejsy i transmisjê szeregow±.
 \includegraphics{rys/interfejsy/transmisja_szeregowa}
 \par\end{centering}
 
-\caption{Uk³ad transmisji szeregowej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+\caption{Uk³ad transmisji szeregowej (\emph{¬ród³o:} \cite{Krzyzanowski207})
+\label{fig:Uklad-transmisji-szeregowej}}
 \end{figure}
 
 
-Rysunek {[}rysunek{]} przedstawia uproszczony schemat uk³adu transmisji
-szeregowej. Dziêki obecno¶ci dwóch przewodów sygna³owych, mo¿liwa
-jest komunikacja w trybie dupleks (ang. \emph{full duplex}), pozwalaj±ca
-na jednoczesn± wymianê danych przez komunikuj±ce siê urz±dzenia. Sygna³
-nadawany (TxD) wysy³any jest do portu odbieraj±cego dane (RxD). Urz±dzenia
-uczestnicz±ce w komunikacji wyposa¿one s± zarówno w nadajnik jak i
-odbiornik.
+Rysunek \ref{fig:Uklad-transmisji-szeregowej} przedstawia uproszczony
+schemat uk³adu transmisji szeregowej. Dziêki obecno¶ci dwóch przewodów
+sygna³owych, mo¿liwa jest komunikacja w trybie dupleks (ang. \emph{full
+duplex}), pozwalaj±ca na jednoczesn± wymianê danych przez komunikuj±ce
+siê urz±dzenia. Sygna³ nadawany (TxD) wysy³any jest do portu odbieraj±cego
+dane (RxD). Urz±dzenia uczestnicz±ce w komunikacji wyposa¿one s± zarówno
+w nadajnik jak i odbiornik.
 
 Prócz transmisji dupleksowej, w uk³adach cyfrowych mo¿liwe s± równie¿
 jeszcze dwa inne tryby wymiany danych:
@@ -139,10 +139,10 @@ w jednym kierunku.
 Dane wysy³ane szeregowo s± czêsto przechowywane w rejestrach. Aby
 umo¿liwiæ transmisjê bit po bicie stosuje siê rejestry przesuwne lub
 multipleksery. W obu przypadkach nale¿y okre¶liæ czas trwania bitu
-(tzw. odcinek bitowy) {[}¼ród³o{]}. S³u¿y do tego sygna³ zegarowy
-nadajnika. Odbiornik okre¶la warto¶æ przesy³anych bitów w ¶rodkach
-poszczególnych odcinków bitowych. Tak¿e w tym przypadku u¿ywany jest
-sygna³ zegarowy (zegar odbiornika). Istniej± dwa rodzaje transmisji
+(tzw. odcinek bitowy) \cite{Krzyzanowski207}. S³u¿y do tego sygna³
+zegarowy nadajnika. Odbiornik okre¶la warto¶æ przesy³anych bitów w
+¶rodkach poszczególnych odcinków bitowych. Tak¿e w tym przypadku u¿ywany
+jest sygna³ zegarowy (zegar odbiornika). Istniej± dwa rodzaje transmisji
 szeregowej, ró¿ni±ce siê zale¿no¶ciami sygna³ów zegarowych nadajnika
 i odbiornika:
 \begin{itemize}
@@ -187,9 +187,9 @@ Przed w³a¶ciw± komunikacj± nale¿y ustaliæ jej nastêpuj±ce parametry:
 W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
 (st±d nazwa), dziêki czemu nie s± konieczne bity startu i stopu. Dane
 przesy³ane grupowane s± w bloki zwane ramkami (ang. \emph{frame}).
-Ka¿d± ramkê rozpoczyna nag³ówek (rysunek {[}rysunek{]}), zawieraj±cy
-bajty synchronizacji potrzebne do zsynchronizowania zegarów nadajnika
-i odbiornika. W celu zapewnienia poprawnego transferu, synchronizacja
+Ka¿d± ramkê rozpoczyna nag³ówek (rysunek \ref{fig:Ramka-transmisji-szeregowej-synchr}),
+zawieraj±cy bajty synchronizacji potrzebne do zsynchronizowania zegarów
+nadajnika i odbiornika. W celu zapewnienia poprawnego transferu, synchronizacja
 ta powinna byæ utrzymywana podczas ca³ego procesu komunikacji. Prócz
 wspomnianych bajtów, nag³ówek zawiera tak¿e dodatkowe informacje,
 np. ilo¶æ przesy³anych danych. Blok danych zawiera w³a¶ciwe dane zgrupowane
@@ -202,7 +202,8 @@ pozwalaj±cymi na naprawê uszkodzonych danych.
 \includegraphics{rys/interfejsy/ramka_transmisji_szeregowej_synchronicznej}
 \par\end{centering}
 
-\caption{Ramka transmisji szeregowej synchronicznej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+\caption{Ramka transmisji szeregowej synchronicznej (\emph{¬ród³o:} \cite{Krzyzanowski207})
+\label{fig:Ramka-transmisji-szeregowej-synchr}}
 
 
 \end{figure}
@@ -216,37 +217,39 @@ niezale¿nymi liniami danych. Mo¿na powiedzieæ, ¿e w tym przypadku
 przesy³ane s± szeregowo grupy bitów (zwykle bajty lub tzw. s³owa).
 Dane wysy³ane s± w takt sygna³u zegarowego, zwanego sygna³em strobuj±cym.
 Odbiornik wykorzystuje ten sygna³ do zapisu odbieranych danych. Zwykle
-transmisja tego typu jest realizowana jednokierunkowo {[}¼ród³o{]}.
+transmisja tego typu jest realizowana jednokierunkowo \cite{Krzyzanowski207}.
 W przypadku powolnych odbiorników (np. drukarki) stosuje siê dodatkowe
 bufory uniezale¿niaj±ce transmisjê od czasu przetwarzania. Aby jednak
 dane mog³y byæ przesy³ane, odbiornik musi zasygnalizowaæ nadajnikowi
-gotowo¶æ do ich odbioru przy pomocy sygna³u gotowo¶ci (ryzunek {[}rysunek{]}).
+gotowo¶æ do ich odbioru przy pomocy sygna³u gotowo¶ci (rysunek \ref{fig:Uklad-transmisji-rownoleglej}).
 
 \begin{figure}
 \begin{centering}
 \includegraphics{rys/interfejsy/transmisja_rownolegla}
 \par\end{centering}
 
-\caption{Uk³ad transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+\caption{Uk³ad transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})
+\label{fig:Uklad-transmisji-rownoleglej}}
 
 
 \end{figure}
 
 
-Na rysunku {[}rysunek{]} pokazano przebiegi sygnalów towarzysz±cych
-transmisji równoleg³ej. Sygna³ strobu (aktywny poziomem niskim) jest
-ustawiany w sytuacji aktywnego sygna³u gotowo¶ci oraz po ustabilizowaniu
-siê stanu magistrali danych. Urz±dzenie zewnêtrzne (odbiornik) wykorzystuje
-jego zbocze opadaj±ce do zapisu odbieranych danych. W istniej±cych
-interfejsach, zarówno szeregowych jak i równoleg³ych wykorzystuje
-siê tak¿e inne sygna³y sterujace komunikacj±.
+Na rysunku \ref{fig:sygnaly-transm-rown} pokazano przebiegi sygnalów
+towarzysz±cych transmisji równoleg³ej. Sygna³ strobu (aktywny poziomem
+niskim) jest ustawiany w sytuacji aktywnego sygna³u gotowo¶ci oraz
+po ustabilizowaniu siê stanu magistrali danych. Urz±dzenie zewnêtrzne
+(odbiornik) wykorzystuje jego zbocze opadaj±ce do zapisu odbieranych
+danych. W istniej±cych interfejsach, zarówno szeregowych jak i równoleg³ych
+wykorzystuje siê tak¿e inne sygna³y sterujace komunikacj±.
 
 \begin{figure}
 \begin{centering}
 \includegraphics{rys/interfejsy/przebiegi_transmisja_rownolegla}
 \par\end{centering}
 
-\caption{Przbiegi sygna³ów w transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+\caption{Przbiegi sygna³ów w transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})
+\label{fig:sygnaly-transm-rown}}
 
 
 \end{figure}
@@ -313,7 +316,7 @@ ich wyj¶cia MISO wchodzi³y w stan wysokiej impedancji.
 \par\end{centering}
 
 \caption{Typowa realizacja transmisji SPI przy pomocy cyklicznego rejestru
-przesuwnego (\emph{¬ród³o:} \cite{Krzyzanowski207})}
+przesuwnego (\emph{¬ród³o:} \cite{Krzyzanowski207}) \label{fig:spi-rej-przesuwny}}
 
 
 \end{figure}
@@ -336,10 +339,10 @@ odbiera.
 \end{itemize}
 W transmisji wykorzystywane s± zwykle dwa rejestry przesuwne (po jednym
 dla urz±dzenia master i slave) po³±czone ze sob± tworz±c rejestr cykliczny
-({[}rysunek{]}). Zwykle wysy³any jest najbardziej znacz±cy bit MSB
-(ang. \emph{most significant bit}) a odbierany najmniej znacz±cy LSB
-(ang. \emph{least significant bit}). Po wype³nieniu rejestrów nastêpuje
-obróbka zawartych w nich danych, tj. zapis do pamiêci, przetwarzanie
+(rysunek \ref{fig:spi-rej-przesuwny}). Zwykle wysy³any jest najbardziej
+znacz±cy bit MSB (ang. \emph{most significant bit}) a odbierany najmniej
+znacz±cy LSB (ang. \emph{least significant bit}). Po wype³nieniu rejestrów
+nastêpuje obróbka zawartych w nich danych, tj. zapis do pamiêci, przetwarzanie
 itp. W celu wymiany wiêkszej ilo¶ci informacji, wspomniany proces
 siê powtarza. W trakcie pojedynczego cyklu komunikacji przesy³any
 jest zwykle bajt danych (8 bitów), choæ nie jest to regu³±; istniej±
@@ -369,8 +372,8 @@ jedno urz±dzenie podrzêdne.
 \includegraphics{rys/interfejsy/spi_pol_faza}
 \par\end{centering}
 
-\caption{Przebiegi czasowe odpowiadaj±ce ró¿nym polaryzacjom i fazom sygna³u
-taktuj±cego (\emph{¬ród³o:} \cite{spi_pol_ph})}
+\caption{Przebiegi odpowiadaj±ce ró¿nym polaryzacjom i fazom sygna³u taktuj±cego
+(\emph{¬ród³o:} \cite{spi_pol_ph})}
 
 
 \end{figure}
@@ -409,9 +412,9 @@ Jak wspomniano wcze¶niej, interfejs SPI pozwala na wspó³pracê jednego
 urz±dzenia nadrzêdnego z kilkoma urz±dzeniami \emph{slave}. Jednym
 ze sposobów zorganizowania takiego uk³adu transmisji danych jest zastosowanie
 niezale¿nych sygna³ów CS dla ka¿dego z urz±dzeñ podrzêdnych. Przyk³ad
-takiego rozwi±zania pokazano na rysunku {[}rysunek{]}. Poniewa¿ wszystkie
-wyj¶cia MISO uk³adów \emph{slave} s± po³±czone do wspólnej linii,
-powinny byæ one wyjsciami trójstanowymi.
+takiego rozwi±zania pokazano na rysunku \ref{fig:spi-independent-slaves}.
+Poniewa¿ wszystkie wyj¶cia MISO uk³adów \emph{slave} s± po³±czone
+do wspólnej linii, powinny byæ one wyjsciami trójstanowymi.
 
 \begin{figure}
 \begin{centering}
@@ -419,7 +422,8 @@ powinny byæ one wyjsciami trójstanowymi.
 \par\end{centering}
 
 \caption{Typowa realizacja komunikacji przy pomocy interfejsu SPI z wieloma
-urz±dzeniami \emph{slave} (\emph{¬ród³o:} )}
+urz±dzeniami \emph{slave} (\emph{¬ród³o:} \cite{spi_independent_slaves})
+\label{fig:spi-independent-slaves}}
 
 
 \end{figure}
@@ -441,7 +445,7 @@ wykorzystywaæ tylko jeden sygna³ CS.
 \par\end{centering}
 
 \caption{Komunikacja przy pomocy interfejsu SPI w konfiguracji \emph{daisy
-chain} (\emph{¬ród³o:} )}
+chain} (\emph{¬ród³o:} \cite{spi_daisy_chain})}
 
 
 \end{figure}
@@ -498,5 +502,170 @@ z takimi uk³adami peryferyjnymi jak:
 \item kontrolery ekranów dotykowych oraz gier,
 \item pamiêci flash oraz EEPROM,
 \item zegary RTC,
-\item karty MMC oraz SD.\end{itemize}
+\item karty MMC oraz SD.
+\end{itemize}
+
+\section{Interfejs UART}
+
+UART (ang. \emph{Universal Asynchronous Receiver and Transmitter})
+jest urz±dzeniem umo¿liwiaj±cym asynchroniczne odbieranie i nadawanie
+informacji przy pomocy portu szeregowego. Sklada siê z trzech zasadniczych
+elementów:
+\begin{itemize}
+\item konwertera równoleg³o-szeregowego (ang. \emph{parallel to serial}),
+pozwalaj±cego na przesy³anie danych z komputera,
+\item konwertera szerogowo-równoleg³ego, umo¿liwiaj±cego odbiór danych pochodz±cych
+z komputera przez urz±dzenie zewnêtrzne,
+\item bufora danych, s³u¿±cego do tymczasowego przechowywania danych w przypadku
+szybkiej transmisji.
+\end{itemize}
+UART u¿ywany jest czêsto w po³aczeniu z takim standardami komunikacyjnymi
+jak RS-232, EIA czy RS-485. Jego uniwersalno¶æ polega na tym, ¿e szybko¶æ
+transmisji oraz format danych s± konfigurowalne. Poziomy elektryczne
+sygna³ów elektrycznych oraz ich postaæ (np. sygnal ró¿nicowy) s± przez
+zewnêtrzny uk³ad sterownika. Omawiane urz±dzenia wyst±puj± jako uk³ady
+scalone (b±d¼ ich komponenty) bêd±ce sk³adnikami mikrokontrolerów.
+Isniej± konstrukcje ³±cz±ce dwa (DUART) lub osiem uk³adów UART w jednej
+obudowie. Istniej± równie¿ chipy pozwalaj±ce na komunikacjê synchroniczn±,
+okreslane w skrócie jako USART (ang. \emph{Universal Synchronous and
+Asynchronous Receiver and Transmitter}).
+
+
+\subsection{Transmisja}
+
+Uniwersalny asynchroniczny odbiornik/nadajnik przesy³a bajty danych
+bit po bicie. UART znajduj±cy siê po drugiej stronie odbiera poszczególne
+bity ³±cz±c je w bajty. Konwersjê z równoleg³ej postaci danych na
+szeregow± uzyskuje siê zwykle przy pomocy rejestrów przesuwnych bêd±cych
+sk³adnikami UARTów. U¿ycie szeregowej transmisji danych zamiast równoleg³ej
+(bardziej naturalnej dla urz±dzeñ cyfrowych) pozwala na zmniejszenie
+kosztów oraz problemów zwi±zanych z zak³óceniami elektromagnetycznymi.
+
+UART zwykle nie generuje ani nie odbiera bezpo¶rednio sygna³ów odpowiedzialnych
+za komunikacjê. W tym celu u¿ywa siê dodatkowych interfejsów, konwertuj±cych
+sygna³y u¿ywane przez UART na w³a¶ciwe przebiegi odpowiadaj±ce za
+transmisjê danych. Czêsto u¿ywanymi standardami s± RS-232, RS-485
+oraz EIA. Komunikacja mo¿e odbywaæ siê w trybie \emph{simplex}, \emph{half
+duplex} oraz \emph{full duplex}.
+
+
+\subsection{Ramka danych}
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/interfejsy/ramka_uart}
+\par\end{centering}
+
+\caption{Ramka danych wysy³ana lub odbierana przez UART \label{fig:Ramka-danych-uart}}
+
+
+\end{figure}
+
+
+Rysunek \ref{fig:Ramka-danych-uart} przedstawia typow± ramkê u¿ywanê
+w trakcie transmisji przy pomocy uk³adu UART. W stanie bezczynno¶ci
+(gdy nie przesy³ane s± ¿adne dane), linia danych jest zwykle w stanie
+wysokim. Wysy³anie w³a¶ciwych danych (zwanych znakiem) sygnalizowane
+jest bitem startu, tj. przej¶ciem linii danych do stanu niskiego.
+Znak sk³ada siê zazwyczaj z 5 - 8 bitów. W celu zapewnienia kontroli
+poprawno¶ci danych, mo¿e byæ zakoñczony tzw. bitem parzysto¶ci. W
+celu zasygnalizowania odbiornikowi zakoñczenia transmisji, przesy³any
+jest bit stopu, który mo¿e byæ zdublowany.
+
+
+\subsection{Odbiór danych}
+
+Wszystkie operacje w ukladzie UART sterowane s± sygna³em zegarowym
+o czêstotliwo¶æi bêd±cej wielokrotno¶ci± czêsto¶ci u¿ywanej do przesy³ania
+danych. Odbiornik próbkuje liniê danych w oczekiwaniu na pojawienie
+siê bitu startu. Je¶li linia danych przejdzie ze stanu spoczynkowego
+do aktywnego na czas wynosz±cy co najmniej po³owê okresu trwania bitu,
+zostanie to zinterpretowane jako bit startu. W przeciwnym wypadku
+zarejestrowany impuls zostanie zignorowany. Nastêpnie po up³ywie niewielkiego
+czasu nastêpuje dalsze próbkowanie linii danych po³±czone z wczytywaniem
+znaku do odbiorczego rejestru przesuwnego. Po wczytaniu okre¶lonej
+liczby bitów, UART ustawia odpowiedni± flagê lub generuje sygna³ przerwania
+informuj±cy mikroprocesor o odebraniu danych.
+
+Komunikuj±ce siê uk³ady UART nie posiadaj± wspólnego sygna³u zegarowego.
+Ka¿dy z nich posiada w³asne zegary, których synchronizacja dokonuje
+siê w oparciu o sygna³ na linii danych. Zwykle synchronizacja ma miejsce
+w chwili zmianu stanu linii danych, o ile zmiana ta mo¿e byæ uznana
+za wa¿n±. Uproszczone uk³ady synchronizuj± siê w momencie detekcji
+opadaj±cego zbocza bitu startu, za¶ odczyt kolejnych bitów nastêpuje
+w po³owach czasów ich trwania. Takie rozwi±zanie dzia³a poprawnie,
+o ile szybko¶æ transmisji pozwala na poprawny odczyt bitów stopu.
+
+Standardow± cech± uk³adów UART jest pobieranie kolejnego znaku, gdy
+poprzedni zosta³ zapisany w rejestrze. Zastosowane w ten sposób podwójne
+buforowanie pozwala mikroprocesorowi na odczyt poprzedniego znaku,
+przed odebraniem nastêpnego. Je¶li centralna jednostka przetwarzaj±ca
+po stronie odbiornika potrzebuje jeszcze wiêcej czasu na odbiór, mo¿na
+zastosowaæ buforowanie danych z u¿yciem kolejek FIFO.
+
+
+\subsection{Nadawanie danych}
+
+Po umieszczeniu znaku w rejestrze przesuwnym nadajnika, UART wysy³a
+na liniê danych bit startu, kolejne bity danych, bit parzysto¶ci (je¶li
+jest u¿ywany) oraz bit (lub dwa bity) stopu. Poniewa¿ transmisja pojedynczego
+znaku zajmuje pewien czas, uk³ad nadawczy ustawia odpowiedni± flagê
+zajêto¶ci, która informuje mikroprocesor, ¿eby nie umieszcza³ kolejnego
+znaku w rejestrze przesuwnym. Zamiast flagi mo¿e byæ wygenerowane
+odpowiednie przerwanie. W przypadku trybu \emph{full duplex} oba uk³ady
+UART u¿ywaj± dwóch rejestrów przesuwnych.
+
+
+\subsection{W³asno¶ci}
+
+Oba uk³ady UART, zarówno nadawczy jak i odbiorczy musz± mieæ zgodne
+nastêpuj±ce parametry:
+\begin{itemize}
+\item szybko¶æ transmisji danych,
+\item ilo¶æ bitów danych,
+\item obecno¶æ (lub jej brak) bitu parzysto¶ci,
+\item ilo¶æ bitów stopu.
+\end{itemize}
+W przypadku niezgodno¶ci ww. parametrów, uk³ad odbiorczy mo¿e ustawiæ
+odpowiedni± flagê b³êdu. Typowo porty szeregowe komputerów wykorzystuj±
+osiem bitów danych, bit parzysto¶ci i jeden bit stopu.
+
+
+\subsection{Transmisja w trybie synchronicznym}
+
+Jak wspomniano wcze¶niej istniej± uk³ady typu USART potrafi±ce tak¿e
+pracowaæ w trybie transmisji synchronicznej. W tym wypadku przebieg
+sygna³u zegarowego jest pozyskiwany na podstawie sygna³u na linii
+danych. Dziêki obecno¶ci sygna³u synchronizacyjnego niepotrzebne staj±
+siê bity startu i stopu, co pozwala na lepsze wykorzystanie linii
+danych i w efekcie bardziej efektywn± komunikacjê. W przypadku trybu
+asynchronicznego, gdy nie ma danych do przes³ania, linia danych znajduje
+siê w stanie spoczynku. W trybie transmisji synchronicznej konieczne
+jest przesy³anie specjalnych znaków w celu utrzymania synchronizacji.
+
+
+\subsection{Stany b³êdne}
+
+Poni¿ej opisano mo¿liwe b³êdy towarzysz±ce komunikacji z wykorzystaniem
+urz±dzeñ UART.
+\begin{itemize}
+\item B³±d przepe³nienia (ang. \emph{overrun error}) - wystepuje, gdy odbiorca
+danych nie mo¿e przetworzyæ danej przed pojawieniem siê kolejne. Ró¿ne
+urz±dzenia dysponuj± ró¿nymi pojemno¶ciami buforów s³u¿±cych do przechowywania
+odebranych danych. Jednostka przetwarzaj±ca dane musi to robiæ na
+tyle szybko, aby zwolniæ miejsce dla kolejnych znaków - w przeciwnym
+razie dochodzi do nadpisania nie przetworzonych jeszcze informacji.
+\item B³±d niedope³nienia (ang. \emph{underrun error}) - ma miejsce, gdy
+po wys³aniu danych przez nadajnik, bufor nadawczy jest pusty. W trybie
+asynchronicznym sytuacja taka traktowana jest raczej jako brak danych
+do wys³ania ni¿ stan b³êdny. W trybie synchronicznym jest to powa¿ny
+b³±d.
+\item B³±d ramki (ang. \emph{framing error}) - pojawia siê, gdy bity startu
+i stopu nie s± wykrywane. Bit startu sygnalizuj±cy pocz±tek znaku
+stanowi odniesienie dla pozosta³ych bitów. Je¶li linia danych nie
+znajdzie siê we w³a¶ciwym stanie, gdy spodziewany jest bit stopu sygnalizowany
+jest b³±d ramki.
+\item B³±d parzysto¶ci (ang. \emph{parity error}) - wystepuje, gdy liczba
+jedynek w przesy³anym znaku wraz z bitem parzysto¶ci jest liczb± parzyst±.
+Istnienie omawianego bitu w ramce jest opcjonalne.\end{itemize}
 
