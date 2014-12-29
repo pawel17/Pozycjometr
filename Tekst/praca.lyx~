@@ -107,7 +107,11 @@ status open
 
 
 \backslash
-author{Łukasz Cisowski}
+author{Łukasz Cisowski
+\backslash
+
+\backslash
+Paweł Mazik}
 \end_layout
 
 \begin_layout Plain Layout
@@ -115,7 +119,12 @@ author{Łukasz Cisowski}
 
 \backslash
 shortauthor{Ł.
- Cisowski}
+ Cisowski
+\backslash
+
+\backslash
+P.
+ Mazik}
 \end_layout
 
 \begin_layout Plain Layout
@@ -196,9 +205,8 @@ supervisorEN{Dr Eng.
 
 
 \backslash
-acknowledgements{Serdecznie dziękuję mojemu promotorowi za pomoc i nieocenione
- uwagi, które przyczyniły się do znacznej poprawy merytorycznej mojej pracy.}
- 
+acknowledgements{Serdecznie dziękujemy promotorowi za pomoc i nieocenione
+ uwagi, które przyczyniły się do znacznej poprawy merytorycznej pracy.} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -300,6 +308,16 @@ filename "rozdzial2.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "rozdzial5.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "rozdzial3.lyx"
 
 \end_inset
@@ -311,16 +329,6 @@ filename "rozdzial3.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "rozdzial4.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "rozdzial5.lyx"
 
 \end_inset
 

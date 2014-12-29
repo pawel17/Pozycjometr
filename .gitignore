@@ -63,6 +63,7 @@ dlldata.c
 *.cogui
 *.coproj
 *.comarker
+*.pdf
 # Chutzpah Test files
 _Chutzpah*
 # Visual C++ cache files

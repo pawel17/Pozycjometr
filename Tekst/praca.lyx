@@ -107,7 +107,11 @@ status open
 
 
 \backslash
-author{Łukasz Cisowski}
+author{Łukasz Cisowski
+\backslash
+
+\backslash
+Paweł Mazik}
 \end_layout
 
 \begin_layout Plain Layout
@@ -115,7 +119,12 @@ author{Łukasz Cisowski}
 
 \backslash
 shortauthor{Ł.
- Cisowski}
+ Cisowski
+\backslash
+
+\backslash
+P.
+ Mazik}
 \end_layout
 
 \begin_layout Plain Layout
@@ -196,9 +205,8 @@ supervisorEN{Dr Eng.
 
 
 \backslash
-acknowledgements{Serdecznie dziękuję mojemu promotorowi za pomoc i nieocenione
- uwagi, które przyczyniły się do znacznej poprawy merytorycznej mojej pracy.}
- 
+acknowledgements{Serdecznie dziękujemy promotorowi za pomoc i nieocenione
+ uwagi, które przyczyniły się do znacznej poprawy merytorycznej pracy.} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -245,7 +253,7 @@ departmentEN{Department of Particle Interaction and Detection Techniques}
 
 
 \backslash
-date{2014}
+date{2015}
 \end_layout
 
 \begin_layout Plain Layout

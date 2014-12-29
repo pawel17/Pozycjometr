@@ -94,14 +94,14 @@ im. Stanis\l{}awa Staszica w Krakowie}}}
 
 \begin{flushright}
 \begin{minipage}[!h]{12cm}
-\mbox{\large{\scshape \textbf{O\'SWIADCZENIE AUTORA PRACY}}}\\[3mm] 
-{\scshape O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze niniejsz\k{a} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie, i nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}\\
+\mbox{\large{\scshape \textbf{O\'SWIADCZENIE AUTOR\'OW PRACY}}}\\[3mm] 
+{\scshape O\'swiadczamy, \'swiadomi odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze niniejsz\k{a} prac\k{e} dyplomow\k{a} wykonali\'smy osobi\'scie i samodzielnie, i nie korzystali\'smy ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}\\
 \end{minipage}
 
 \vspace{2cm}
 
 \makebox[6cm][s]{\dotfill}\par
-\makebox[6cm][c]{\small PODPIS}
+\makebox[6cm][c]{\small PODPISY}
 
 \end{flushright}
 

@@ -123,21 +123,20 @@ namespace DataVisualisation
             modelGroup = new Model3DGroup();
             modelGroup.Children.Add(new GeometryModel3D(meshGeometry, new DiffuseMaterial(new SolidColorBrush(Colors.LawnGreen))));
 
-            /*Vector3D normal = CalculateNormalVector(p0, p1, p2);
+            Vector3D normal = CalculateNormalVector(p0, p1, p2);
             meshGeometry.Normals.Add(normal);
             meshGeometry.Normals.Add(normal);
-            meshGeometry.Normals.Add(normal);*/
-
+            meshGeometry.Normals.Add(normal);
             return modelGroup;
         }
 
-        /*private Vector3D CalculateNormalVector(Point3D p1, Point3D p2, Point3D p3)
+        private Vector3D CalculateNormalVector(Point3D p1, Point3D p2, Point3D p3)
         {
             Vector3D vec1 = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
             Vector3D vec2 = new Vector3D(p3.X - p2.X, p3.Y - p2.Y, p3.Z - p2.Z);
 
             return Vector3D.CrossProduct(vec1, vec2);
-        }*/
+        }
 
         public void BuildScene()
         {
