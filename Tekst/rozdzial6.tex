@@ -1,2 +1,102 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[polish,pdflatex]{aghdpl}
+\usepackage[T1]{fontenc}
+\usepackage[latin2]{inputenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{babel}
+\begin{document}
 
-\chapter{Zaprogramowanie mikrokontrolera}
+\chapter{Pomiar}
+
+
+\section{Uk³ady elektroniczne}
+
+Wyznaczenie pozycji w przestrzeni wymaga³o harmonijnego wspó³dzia³ania
+trzech zastosowanych w niniejszej pracy uk³adów elektronicznych. Najwa¿niejszym
+elementem, by³ zestaw uruchomieniowy LandTiger, zawieraj±cy mikrokontroler
+LPC1768 opartym o rdzeñ ARM Cortex-M3. Mikrokontroler odpowiada³ za
+odczyt, przetwarzanie i przesy³anie danych pomiarowych zgromadzonych
+przez dwa urz±dzenia firmy Digilent: PmodACL i PmodGYRO. Pierwszy
+z tych uk³adów to trójosiowy, cyfrowy akcelerometr pracuj±cy na akcelerometrze
+ADXL345 firmy AnalogDevices. PmodGYRO oparty jest na uk³adzie L3G4200D
+firmy ST Microelectronics.
+
+ADXL345 to niewielki akcelerometr posiadaj±cy wysok± rodzielczo¶æ
+wykonywanych pomiarów (13-bitów) i wykonuj±cy pomiary w zakresie \textpm{}16g.
+Urz±dzenie to dokonuje pomiaru zarówno dynamicznego przy¶pieszenia
+bêd±cego rezultatem ruchu, jak równie¿ przy¶pieszenia statyczne takie
+jak grawitacja, która pozwalaj± pracowaæ jako czujniki przeci±¿enia.
+Czujnik ten jest przy¶pieszeniomerzem pojemno¶ciowym, którego zasada
+dzia³ania zosta³a ju¿ opisana wcze¶niej.
+
+L3G4200D to trójosiowy czujnik przy¶pieszenia k±towego o rozdzielczo¶ci
+16 bitów, zapewniaj±cy niewielki dryft zera oraz wysok± czu³o¶æ, niezale¿n±
+od czasu i temperatury. Uk³ad ten posiada trzy zakresy pomiarowowe:
+\textpm{}250/\textpm{}500/\textpm{}2000 dps oraz jest zdolny do wykonywania
+pomiarów w pa¶mie wybranym przez u¿ytkownika. ¯yroskopy firmy ST Microelectronics
+maj± lepsz± stabilno¶æ i czu³o¶æ w funkcji temperatury oraz odporno¶ci
+na uszkodzenia mechaniczne. Przewaga wynika z innego sposobu monta¿u
+struktury uk³adu pomiarowego. W zastosowanym urz±dzeniu, jest on zamontowany
+w jednym, centralnym punkcie, zamiast w kilku, jak ma to miejsce w
+innych rozwi±zaniach. Dziêki temu si³y wynikaj±ce ze zmian temperatury,
+naprê¿eñ mechanicznych przenosz± siê na uk³ad pomiarowy w znacznie
+miejszym stopniu. Dodatkowo wykorzystany ¿yroskop bazuje na jednej
+masie pomiarowej dla wszystkich trzech osi, co znacz±co poprawia symetriê
+sygna³ów wyj¶ciowych i skutkuje mniejszymi rezonansami.
+
+
+\section{Po³±czenie uk³adów}
+
+Posiadaj±c trzy osobne uk³ady wymienione w poprzednim paragrafie,
+konieczne by³o odpowiednie po³±czenie ich ze sob±. Wykonano w tym
+celu prost± p³ytkê, do której zamontowano gniazdo 34-pinowe, dwurzêdowe
+¿eñskie i dwa z³±cza k±towe dwurzêdowe 12-pinowe. Schemat wykonanego
+uk³adu przedstawiono na rysunku:
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.6]{rys/p³ytka}
+\par\end{centering}
+
+\caption{Schemat po³±czenia mikrokontrolera z urz±dzeniami pomiarowymi}
+\end{figure}
+
+
+Przedstawiony na rysunku schemat przygotowano na zwyk³ej p³ytce uniwersalnej.
+Do po³±czenia z zestawem uruchomieniowym wykorzystano z³±cze 34-pinowe
+s³u¿±ce domy¶lnie do po³±czenia z ekranem LCD. Zawiera³o ono wszystkie
+piny konieczne do zapewnienia poprawnej pracy obu urz±dzeñ pomiarowych.
+Dodatkowo na p³ytce zamontowano dwa z³±cza 12-pinowe, do których wpiêto
+p³ytki PmodACL i PmodGYRO. Wykorzystanie wspomnianego z³±cza z zestawu
+uruchmieniowego pozwala³o na stabilne przy³±czenie akcelerometra i
+¿yroskopu. Dziêki takiemu rozwi±zaniu, pomiar dotyczy ca³ego uk³adu
+LandTiger zapewniaj±c poprawno¶æ po³±czenia pomiêdzy wszystkimi p³ytkami
+drukowanymi sk³adaj±cymi siê na zestaw pomiarowy.
+
+
+\section{Komunikacja}
+
+Ostatnim elementem pomiaru, który obs³ugiwany jest przez mikroprocesor
+jest wys³anie zmierzonych danych do komputera. W tym celu wybrano
+interfejs UART, który umo¿liwia asynchroniczne odbieranie i nadawnie
+unformacji przy pomocy portu szeregowego (opisany w rozdziale 4.3).
+Zdecydowano siê na wysy³anie danych za pomoc± c-stringów w dwóch rodzajach:
+pierwszy z nich zawiera³ warto¶ci przyspieszenia dla ka¿dej z osi
+uk³adu wspó³rzêdnych i by³ poprzedzony przedrostkiem ``ACL''. Drugi,
+rozpoczynaj±cy siê od przedrostka ``GYR'' zawiera³ warto¶ci k±ta
+obrotu wokó³ ka¿dej z trzech osi uk³adu. Przedrostki zastosowano dla
+rozró¿nienia typu danych przychodz±cych do komputera. Dziêki temu,
+mo¿na rozpoznaæ, jakimi parametrami s± trzy kolejne cyfry znajduj±ce
+siê w ³añcuchu.
+
+Zgromadzone dane wysy³ane by³y poprzez szeregowy interfejs UART. Odbiór
+i dalsze wy¶wietlanie nastêpowa³o w komputerze przeno¶nym, niewyposa¿onym
+w z³±cze szeregowe. Z tego wzglêdu konieczne by³o zakupienie konwertera
+RS-232 na USB. Wykorzystano w tym celu przej¶ciówkê UAS-DB9M-01 firmy
+Gembird, w której wykorzystano na chipset PL2303HX. Po zainstalowaniu
+odpowiednich sterowników, port COM stawa³ siê widoczny w systemie.
+Dziêki temu mo¿liwe by³o odbieranie danych pomiarowych i wy¶wietlanie
+ich w dowolnym programie obs³uguj±cym komunikacjê szeregow±.
+\end{document}

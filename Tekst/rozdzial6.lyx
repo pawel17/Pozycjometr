@@ -62,7 +62,178 @@
 \begin_body
 
 \begin_layout Chapter
-Zaprogramowanie mikrokontrolera
+Pomiar
+\end_layout
+
+\begin_layout Section
+Układy elektroniczne
+\end_layout
+
+\begin_layout Standard
+Wyznaczenie pozycji w przestrzeni wymagało harmonijnego współdziałania trzech
+ zastosowanych w niniejszej pracy układów elektronicznych.
+ Najważniejszym elementem, był zestaw uruchomieniowy LandTiger, zawierający
+ mikrokontroler LPC1768 opartym o rdzeń ARM Cortex-M3.
+ Mikrokontroler odpowiadał za odczyt, przetwarzanie i przesyłanie danych
+ pomiarowych zgromadzonych przez dwa urządzenia firmy Digilent: PmodACL
+ i PmodGYRO.
+ Pierwszy z tych układów to trójosiowy, cyfrowy akcelerometr pracujący na
+ akcelerometrze ADXL345 firmy AnalogDevices.
+ PmodGYRO oparty jest na układzie L3G4200D firmy ST Microelectronics.
+\end_layout
+
+\begin_layout Standard
+ADXL345 to niewielki akcelerometr posiadający wysoką rodzielczość wykonywanych
+ pomiarów (13-bitów) i wykonujący pomiary w zakresie ±16g.
+ Urządzenie to dokonuje pomiaru zarówno dynamicznego przyśpieszenia będącego
+ rezultatem ruchu, jak również przyśpieszenia statyczne takie jak grawitacja,
+ która pozwalają pracować jako czujniki przeciążenia.
+ Czujnik ten jest przyśpieszeniomerzem pojemnościowym, którego zasada działania
+ została już opisana wcześniej.
+\end_layout
+
+\begin_layout Standard
+L3G4200D to trójosiowy czujnik przyśpieszenia kątowego o rozdzielczości
+ 16 bitów, zapewniający niewielki dryft zera oraz wysoką czułość, niezależną
+ od czasu i temperatury.
+ Układ ten posiada trzy zakresy pomiarowowe: ±250/±500/±2000 dps oraz jest
+ zdolny do wykonywania pomiarów w paśmie wybranym przez użytkownika.
+ Żyroskopy firmy ST Microelectronics mają lepszą stabilność i czułość w
+ funkcji temperatury oraz odporności na uszkodzenia mechaniczne.
+ Przewaga wynika z innego sposobu montażu struktury układu pomiarowego.
+ W zastosowanym urządzeniu, jest on zamontowany w jednym, centralnym punkcie,
+ zamiast w kilku, jak ma to miejsce w innych rozwiązaniach.
+ Dzięki temu siły wynikające ze zmian temperatury, naprężeń mechanicznych
+ przenoszą się na układ pomiarowy w znacznie miejszym stopniu.
+ Dodatkowo wykorzystany żyroskop bazuje na jednej masie pomiarowej dla wszystkic
+h trzech osi, co znacząco poprawia symetrię sygnałów wyjściowych i skutkuje
+ mniejszymi rezonansami.
+\end_layout
+
+\begin_layout Section
+Połączenie układów
+\end_layout
+
+\begin_layout Standard
+Posiadając trzy osobne układy wymienione w poprzednim paragrafie, konieczne
+ było odpowiednie połączenie ich ze sobą.
+ Wykonano w tym celu płytkę, w której zamontowano gniazdo 34-pinowe, dwurzędowe
+ żeńskie i dwa złącza kątowe dwurzędowe 12-pinowe.
+ Schemat wykonanego układu przedstawiono na rysunku:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/płytka.png
+	lyxscale 70
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schemat połączenia mikrokontrolera z urządzeniami pomiarowymi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Przedstawiony na rysunku schemat przygotowano na zwykłej płytce uniwersalnej.
+ Do połączenia z zestawem uruchomieniowym wykorzystano złącze 34-pinowe
+ służące domyślnie do połączenia z ekranem LCD.
+ Zawierało ono wszystkie piny konieczne do zapewnienia poprawnej pracy obu
+ urządzeń pomiarowych.
+ Dodatkowo na płytce zamontowano dwa złącza 12-pinowe, do których wpięto
+ układy PmodACL i PmodGYRO.
+ Wykorzystanie wspomnianego złącza z zestawu uruchmieniowego pozwalało na
+ stabilne przyłączenie akcelerometra i żyroskopu.
+ Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger zapewniając
+ niezawodność połączenia pomiędzy wszystkimi płytkami drukowanymi wchodzącymi
+ w skład zestawu pomiarowego.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tutaj opisz wszystkie czynności, które wykonywałeś przy pisaniu programu
+ do zbierania danych i ich przetworzenia.
+ (moja propozycja)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Komunikacja
+\end_layout
+
+\begin_layout Standard
+Ostatnim elementem pomiaru, który obsługiwany jest przez mikroprocesor jest
+ wysłanie zmierzonych danych do komputera.
+ W tym celu wybrano interfejs UART, który umożliwia asynchroniczne odbieranie
+ i nadawnie unformacji przy pomocy portu szeregowego (opisany w rozdziale
+ 4.3).
+ Zdecydowano się na wysyłanie danych za pomocą c-stringów w dwóch rodzajach:
+ pierwszy z nich zawierał wartości przyspieszenia dla każdej z osi układu
+ współrzędnych i był poprzedzony przedrostkiem 
+\begin_inset Quotes eld
+\end_inset
+
+ACL
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Drugi, rozpoczynający się od przedrostka 
+\begin_inset Quotes eld
+\end_inset
+
+GYR
+\begin_inset Quotes erd
+\end_inset
+
+ zawierał wartości kąta obrotu wokół każdej z trzech osi układu.
+ Przedrostki zastosowano dla rozróżnienia typu danych przychodzących do
+ komputera.
+ Dzięki temu, można rozpoznać, jakimi parametrami są trzy kolejne cyfry
+ znajdujące się w łańcuchu.
+\end_layout
+
+\begin_layout Standard
+Zgromadzone dane wysyłane były poprzez szeregowy interfejs UART.
+ Odbiór i dalsze wyświetlanie następowało w komputerze przenośnym, niewyposażony
+m w złącze szeregowe.
+ Z tego względu konieczne było zakupienie konwertera RS-232 na USB.
+ Wykorzystano w tym celu przejściówkę UAS-DB9M-01 firmy Gembird, w której
+ wykorzystano na chipset PL2303HX.
+ Po zainstalowaniu odpowiednich sterowników, port COM stawał się widoczny
+ w systemie.
+ Dzięki temu możliwe było odbieranie danych pomiarowych i wyświetlanie ich
+ w dowolnym programie obsługującym komunikację szeregową.
 \end_layout
 
 \end_body

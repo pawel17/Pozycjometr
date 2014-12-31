@@ -64,5 +64,24 @@
 Interfejs użytkownika
 \end_layout
 
+\begin_layout Standard
+W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
+ dokonania pomiaru przyśpieszenia i kąta obrotu układu.
+ Dane przesłane do komputera nie mogą być jedynie wyświetlone po stronie
+ komputera w postaci ciągu znaków, gdyż to praktycznie uniemożliwiałoby
+ analizę otrzymywanych danych.
+ Z tego względu konieczne jest odpowiednie przekształcenie otrzymanych danych
+ w sposób, który umożliwi zobrazowanie zmierzonych przyspieszeń bądź obrotów.
+ W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
+ w formie graficznej wyników.
+ Wykorzystano do tego platformę .NET i język C#.
+ Powodem wyboru tej technologii była względna prostota i mnogość klas i
+ technik, które umożliwiały osiągnięcie postawionego celu.
+\end_layout
+
+\begin_layout Section
+Odebranie danych z portu szeregowego
+\end_layout
+
 \end_body
 \end_document
