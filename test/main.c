@@ -159,12 +159,12 @@ int main(void){
 			ADXL345_GetGxyz(&gx, &gy, &gz);
 
 			clearData(measurementResults, UART_DATA_BUFFER);
-			sprintf(measurementResults, "ACL %f %f %f", posF.x, posF.y, posF.z);
+			sprintf(measurementResults, "ACL %f %f %f\n\r", posF.x, posF.y, posF.z);
 			UART2_SendString(measurementResults);
 			Delay(10);
 
 			clearData(measurementResults, UART_DATA_BUFFER);
-			sprintf(measurementResults, "ACL %f %f %f", angF.x, angF.y, angF.z);
+			sprintf(measurementResults, "GYR %f %f %f\n\r", angF.x, angF.y, angF.z);
 			UART2_SendString(measurementResults);
 			Delay(10);
 
