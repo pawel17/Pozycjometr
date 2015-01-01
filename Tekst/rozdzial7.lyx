@@ -83,5 +83,13 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
 Odebranie danych z portu szeregowego
 \end_layout
 
+\begin_layout Standard
+Pierwszym zadaniem, jakie było konieczne do zrealizowania wymagało odebrania
+ danych pomiarowych otrzymanych z mikroprocesora za pośrednictwem portu
+ szeregowego.
+ Połączenie zrealizowano z wykorzystaniem klasy SerialPort.
+ 
+\end_layout
+
 \end_body
 \end_document
