@@ -96,7 +96,7 @@ namespace DataVisualisation
             TranslateTransform3D t1 = new TranslateTransform3D(accX, 0, 0);
             TranslateTransform3D t2 = new TranslateTransform3D(0, accY, 0);
             TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accZ);
-
+            
             group.Children.Add(r1);
             group.Children.Add(r2);
             group.Children.Add(r3);
@@ -104,7 +104,7 @@ namespace DataVisualisation
             group.Children.Add(t2);
             group.Children.Add(t3);
         }
-
+        
         private Model3DGroup meshTriangle(Point3D p0, Point3D p1, Point3D p2)
         {
             Model3DGroup modelGroup;
