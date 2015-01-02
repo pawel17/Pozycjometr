@@ -16,7 +16,7 @@
 #define GYRO_SAMPLES_PER_MEASURE	0x040
 //TODO: a bit to high (maybe different vals for each axis ???)
 #define UART_DATA_BUFFER 				30
-#define ACC_NOISE_TRESHOLD		20
+#define ACC_NOISE_TRESHOLD		30
 #define ACC_SAMPLES_HISTORY_LEN	2
 #define GYRO_NOISE_TRESHOLD		70
 #define GYRO_SAMPLES_HISTORY_LEN	2
@@ -337,17 +337,22 @@ void getAngle(void){
 
 	ang.y[1] = ang.y[0] + rate.y[0] + ( (rate.y[1] - rate.y[0]) / 2);
 
+	ang.z[1] = ang.z[0] + rate.z[0] + ( (rate.z[1] - rate.z[0]) / 2);
+
 	rate.x[0] = rate.x[1];
 	rate.y[0] = rate.y[1];
+	rate.z[0] = rate.z[1];
 
 	//TODO: equivalent ???
 	//checkIfMotionEnded();
 
 	ang.x[0] = ang.x[1];
 	ang.y[0] = ang.y[1];
+	ang.z[0] = ang.z[1];
 
 	angF.x = angRatio * ang.x[1];
 	angF.y = angRatio * ang.y[1];
+	angF.z = angRatio * ang.z[1];
 
 	getFilteredAcc();
 
