@@ -71,6 +71,7 @@
     <Compile Include="Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrientationCalculator.cs" />
     <Compile Include="ReceivedDataEventArgs.cs" />
     <Compile Include="WelcomeScreen.cs">
       <SubType>Form</SubType>
