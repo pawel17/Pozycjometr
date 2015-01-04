@@ -78,6 +78,7 @@
     <Component id="273" name="TIMER" path="" type="2"/>
   </Components>
   <Files>
+    <File name="LED.c" path="LED.c" type="1"/>
     <File name="ADXL345/ADXL345.c" path="ADXL345.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_libcfg_default.c" path="lpc17xx_lib/source/lpc17xx_libcfg_default.c" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
@@ -89,8 +90,8 @@
     <File name="spi_mems.h" path="spi_mems.h" type="1"/>
     <File name="i2chal.h" path="i2chal.h" type="1"/>
     <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_nvic.c" path="lpc17xx_lib/source/lpc17xx_nvic.c" type="1"/>
     <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_nvic.c" path="lpc17xx_lib/source/lpc17xx_nvic.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_pinsel.c" path="lpc17xx_lib/source/lpc17xx_pinsel.c" type="1"/>
     <File name="L3G4200D/l3g4200d_driver.c" path="l3g4200d_driver.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_ssp.c" path="lpc17xx_lib/source/lpc17xx_ssp.c" type="1"/>
@@ -105,18 +106,18 @@
     <File name="lpc17xx_lib/include/lpc17xx_pinsel.h" path="lpc17xx_lib/include/lpc17xx_pinsel.h" type="1"/>
     <File name="LPC17xx_utils.h" path="LPC17xx_utils.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="core_cmInstr.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
     <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
     <File name="L3G4200D/l3g4200d_driver.h" path="l3g4200d_driver.h" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
     <File name="spihal_ssp.c" path="spihal_ssp.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_spi.h" path="lpc17xx_lib/include/lpc17xx_spi.h" type="1"/>
     <File name="cmsis_boot/system_LPC17xx.c" path="cmsis_boot/system_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_gpio.h" path="lpc17xx_lib/include/lpc17xx_gpio.h" type="1"/>
     <File name="Communication.h" path="Communication.h" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_timer.c" path="lpc17xx_lib/source/lpc17xx_timer.c" type="1"/>
     <File name="spi_mems.c" path="spi_mems.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_timer.c" path="lpc17xx_lib/source/lpc17xx_timer.c" type="1"/>
     <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_timer.h" path="lpc17xx_lib/include/lpc17xx_timer.h" type="1"/>
     <File name="ADXL345/ADXL345Add.c" path="ADXL345Add.c" type="1"/>
@@ -133,5 +134,6 @@
     <File name="main.c" path="main.c" type="1"/>
     <File name="LPC17xx_utils.c" path="LPC17xx_utils.c" type="1"/>
     <File name="i2chal.c" path="i2chal.c" type="1"/>
+    <File name="LED.h" path="LED.h" type="1"/>
   </Files>
 </Project>
