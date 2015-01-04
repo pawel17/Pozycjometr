@@ -4,6 +4,7 @@
 #include "L3G4200D.h"
 #include <lpc17xx_timer.h>
 #include <lpc17xx_clkpwr.h>
+#include <inttypes.h>
 #include <math.h>
 #include <stdio.h>
 #include "string.h"
@@ -154,12 +155,12 @@ int main(void){
 			getAngle();
 
 			clearData(measurementResults, UART_DATA_BUFFER);
-			sprintf(measurementResults, "ACL %f %f %f\n\r", posF.x, posF.y, posF.z);
+			sprintf(measurementResults, "ACL "PRIi32 " " PRIi32 " " PRIi32"\n\r", acc.x[1], acc.y[1], acc.z[1]);
 			UART2_SendString(measurementResults);
 			Delay(10);
 
 			clearData(measurementResults, UART_DATA_BUFFER);
-			sprintf(measurementResults, "GYR %f %f %f\n\r", angF.x, angF.y, angF.z);
+			sprintf(measurementResults, "GYR "PRIi32 " " PRIi32 " " PRIi32"\n\r", rate.x[1], rate.y[1], rate.z[1]);
 			UART2_SendString(measurementResults);
 			Delay(10);
 
