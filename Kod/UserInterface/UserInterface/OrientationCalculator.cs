@@ -25,7 +25,7 @@ namespace UserInterface
         int zeroAccXCnt;
         int zeroAccYCnt;
 
-        private OrientationCalculator()
+        public OrientationCalculator()
         {
             acc = new ThreeAxisMeasurmentData(ACC_MEASURMENT_HISTORY);
             vel = new ThreeAxisMeasurmentData(ACC_MEASURMENT_HISTORY);
@@ -41,12 +41,12 @@ namespace UserInterface
 
         public float[] position
         {
-            get { return new float[]{pos.x[1], pos.y[1], pos.z[1]}; }
+            get { return new float[]{ posF.x, posF.y, posF.z}; }
         }
 
         public float[] angle
         {
-            get { return new float[] { ang.x[1], ang.y[1], ang.z[1] }; }
+            get { return new float[] { angF.x, angF.y, angF.z }; }
         }
 
         private float posRatio
@@ -66,7 +66,9 @@ namespace UserInterface
 
         public void countOrientationForSensorData(int[] accData, int[] gyroData)
         {
+            getPosition(accData, gyroData);
 
+            getAngle(accData, gyroData);
         }
 
         private void getPosition(int[] accData, int[] gyroData)
