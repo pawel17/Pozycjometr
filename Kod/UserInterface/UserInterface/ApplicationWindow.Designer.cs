@@ -54,10 +54,6 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.startButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.fullRadioButton = new System.Windows.Forms.RadioButton();
-            this.translationRadioButton = new System.Windows.Forms.RadioButton();
-            this.rotationRadioButton = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -65,7 +61,6 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label8
@@ -115,7 +110,7 @@
             // 
             // infoButton
             // 
-            this.infoButton.Location = new System.Drawing.Point(599, 640);
+            this.infoButton.Location = new System.Drawing.Point(599, 647);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(75, 40);
             this.infoButton.TabIndex = 11;
@@ -289,7 +284,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(12, 541);
+            this.startButton.Location = new System.Drawing.Point(199, 541);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(115, 35);
             this.startButton.TabIndex = 13;
@@ -300,8 +295,7 @@
             // 
             // stopButton
             // 
-            this.stopButton.Enabled = false;
-            this.stopButton.Location = new System.Drawing.Point(147, 541);
+            this.stopButton.Location = new System.Drawing.Point(356, 541);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(115, 35);
             this.stopButton.TabIndex = 14;
@@ -309,59 +303,11 @@
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.fullRadioButton);
-            this.groupBox1.Controls.Add(this.translationRadioButton);
-            this.groupBox1.Controls.Add(this.rotationRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(280, 535);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(394, 41);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tryby pracy";
-            // 
-            // fullRadioButton
-            // 
-            this.fullRadioButton.AutoSize = true;
-            this.fullRadioButton.Checked = true;
-            this.fullRadioButton.Location = new System.Drawing.Point(276, 15);
-            this.fullRadioButton.Name = "fullRadioButton";
-            this.fullRadioButton.Size = new System.Drawing.Size(118, 17);
-            this.fullRadioButton.TabIndex = 2;
-            this.fullRadioButton.TabStop = true;
-            this.fullRadioButton.Text = "Obrót i przesunięcie";
-            this.fullRadioButton.UseVisualStyleBackColor = true;
-            this.fullRadioButton.CheckedChanged += new System.EventHandler(this.fullRadioButton_CheckedChanged);
-            // 
-            // translationRadioButton
-            // 
-            this.translationRadioButton.AutoSize = true;
-            this.translationRadioButton.Location = new System.Drawing.Point(135, 15);
-            this.translationRadioButton.Name = "translationRadioButton";
-            this.translationRadioButton.Size = new System.Drawing.Size(85, 17);
-            this.translationRadioButton.TabIndex = 1;
-            this.translationRadioButton.Text = "Przesunięcie";
-            this.translationRadioButton.UseVisualStyleBackColor = true;
-            this.translationRadioButton.CheckedChanged += new System.EventHandler(this.translationRadioButton_CheckedChanged);
-            // 
-            // rotationRadioButton
-            // 
-            this.rotationRadioButton.AutoSize = true;
-            this.rotationRadioButton.Location = new System.Drawing.Point(7, 15);
-            this.rotationRadioButton.Name = "rotationRadioButton";
-            this.rotationRadioButton.Size = new System.Drawing.Size(51, 17);
-            this.rotationRadioButton.TabIndex = 0;
-            this.rotationRadioButton.Text = "Obrót";
-            this.rotationRadioButton.UseVisualStyleBackColor = true;
-            this.rotationRadioButton.CheckedChanged += new System.EventHandler(this.rotationRadioButton_CheckedChanged);
-            // 
             // ApplicationWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 691);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.label8);
@@ -388,8 +334,6 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,10 +367,6 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button stopButton;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton translationRadioButton;
-        private System.Windows.Forms.RadioButton rotationRadioButton;
-        private System.Windows.Forms.RadioButton fullRadioButton;
 
     }
 }
