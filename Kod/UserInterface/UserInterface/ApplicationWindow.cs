@@ -23,11 +23,14 @@ namespace UserInterface
         private bool accelerationMeasurementStarted = false;
         private float AngleX = 0, AngleY = 0, AngleZ = 0;
         private float AccelerationX = 0, AccelerationY = 0, AccelerationZ = 0;
+        private OrientationCalculator orientationCalc;
 
         public ApplicationWindow()
         {
             InitializeComponent();
             SerialPortCommunicationInit();
+
+            orientationCalc = new OrientationCalculator();
         }
 
         private void SerialPortCommunicationInit()
@@ -74,9 +77,11 @@ namespace UserInterface
                 gyroscopeString = message;
             }
 
+            string[] accelerometerData = new string[]{};
+
             if (accelerometerString.Length > 0)
             {                
-                string[] accelerometerData = accelerometerString.Split(' ');
+                accelerometerData = accelerometerString.Split(' ');
 
                 if(accelerationX.InvokeRequired) {
                     accelerationX.Invoke(new MethodInvoker(delegate { accelerationX.Text = accelerometerData[1]; })); 
@@ -91,9 +96,11 @@ namespace UserInterface
                 }
             }
 
+            string[] gyroscopeData = new string[] { };
+
             if (gyroscopeString.Length > 0)
             {
-                string[] gyroscopeData = gyroscopeString.Split(' ');
+                gyroscopeData = gyroscopeString.Split(' ');
 
                 if(angleX.InvokeRequired) {
                     angleX.Invoke(new MethodInvoker(delegate { angleX.Text = gyroscopeData[1]; })); 
@@ -106,9 +113,41 @@ namespace UserInterface
                 if(angleZ.InvokeRequired) {
                     angleZ.Invoke(new MethodInvoker(delegate { angleZ.Text = gyroscopeData[3]; })); 
                 }
-            }       
+            }
 
-            visualisation.Dispatcher.Invoke(() => ApplyMovement(accelerometerString, gyroscopeString));            
+            int valuesNum = 3;
+            string positionString = "";
+            string angleString = "";
+
+            if(accelerometerString.Length > 0) {
+
+                int[] accData = new int[]{0, 0, 0};
+                int[] gyroData = new int[]{ 0, 0, 0 };
+
+                for (int valuesCnt = 0; valuesCnt < valuesNum; ++valuesCnt )
+                {
+                    accData[valuesCnt] = int.Parse(accelerometerData[valuesCnt]);
+                    gyroData[valuesCnt] = int.Parse(gyroscopeData[valuesCnt]);
+                }
+
+                orientationCalc.countOrientationForSensorData(accData, gyroData);
+
+                float[] position = orientationCalc.position;
+                float[] angles = orientationCalc.angle;
+                StringBuilder strBuilder = new StringBuilder();
+
+                strBuilder.Append(position[0].ToString()).Append(" ").Append(position[1].ToString()).Append(" ").Append( position[2].ToString() );
+
+                positionString = strBuilder.ToString();
+
+                strBuilder.Clear();
+
+                strBuilder.Append(angles[0].ToString()).Append(" ").Append(angles[1].ToString()).Append(" ").Append(angles[2].ToString());
+
+                angleString = strBuilder.ToString();
+            }
+
+            visualisation.Dispatcher.Invoke(() => ApplyMovement(positionString, angleString));            
         }
 
         public void ApplyMovement(string accelerometer, string gyroscope)
