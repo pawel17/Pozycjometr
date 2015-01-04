@@ -19,9 +19,14 @@ namespace DataVisualisation
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
+    
+    public enum VisualisationMode { RotationMode, TranslationMode, FullPositionMode };
+
     public partial class MainWindow : UserControl
     {
         private ModelVisual3D mCube;
+        private VisualisationMode mode;
+
         private Point3D p1 = new Point3D(-4, 4, -4);
         private Point3D p2 = new Point3D(-4, 4, 4);
         private Point3D p3 = new Point3D(4, 4, 4);
@@ -36,6 +41,12 @@ namespace DataVisualisation
         {
             InitializeComponent();
             BuildScene();
+        }
+
+        public VisualisationMode WindowMode
+        {
+            get { return mode; }
+            set { mode = value; }
         }
 
         public float AccelerationX
@@ -96,13 +107,20 @@ namespace DataVisualisation
             TranslateTransform3D t1 = new TranslateTransform3D(accX, 0, 0);
             TranslateTransform3D t2 = new TranslateTransform3D(0, accY, 0);
             TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accZ);
-            
-            group.Children.Add(r1);
-            group.Children.Add(r2);
-            group.Children.Add(r3);
-            group.Children.Add(t1);
-            group.Children.Add(t2);
-            group.Children.Add(t3);
+
+            if (mode != VisualisationMode.TranslationMode)
+            {
+                group.Children.Add(r1);
+                group.Children.Add(r2);
+                group.Children.Add(r3);
+            }
+
+            if (mode != VisualisationMode.RotationMode)
+            {
+                group.Children.Add(t1);
+                group.Children.Add(t2);
+                group.Children.Add(t3);
+            }
         }
         
         private Model3DGroup meshTriangle(Point3D p0, Point3D p1, Point3D p2)
