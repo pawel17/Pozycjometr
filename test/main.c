@@ -26,9 +26,6 @@
 #define ANG_UNITS_RATIO(FREQ)	(1.0f / (FREQ))
 #define RADIANS_TO_DEG_COEF		57.29578f	// 180.0f / M_PI
 
-//Byte_t dummy[DLEN] = {0x96, /*0xE2, 0xC0, 0x31*/}; // 10010110 11100010
-//Byte_t read[DLEN];
-
 void timerInit(uint32_t freqHz);
 void TIMER1_IRQHandler(void);
 void getFilteredAcc(void);
@@ -156,8 +153,6 @@ int main(void){
 			//LEDToggle();
 			getAngle();
 
-			ADXL345_GetGxyz(&gx, &gy, &gz);
-
 			clearData(measurementResults, UART_DATA_BUFFER);
 			sprintf(measurementResults, "ACL %f %f %f\n\r", posF.x, posF.y, posF.z);
 			UART2_SendString(measurementResults);
@@ -177,8 +172,6 @@ int main(void){
 //				tickCnt = 0;
 //			}
 		}
-
-		gyroStatus = L3G4200D_GetAngRateRaw(&axesRaw);
 	}
 
 	return 0;
@@ -211,10 +204,6 @@ void getFilteredAcc(void){
 	acc.x[1] = removeAccNoise( acc.x[1] );
 	acc.y[1] = removeAccNoise( acc.y[1] );
 	acc.z[1] = removeAccNoise( acc.z[1] );
-
-//	acc.x[1] = 1;
-//	acc.y[1] = 1;
-//	acc.z[1] = 1;
 }
 
 void getFilteredRate(void){
@@ -264,9 +253,6 @@ void getPosition(void){
 
 	pos.x[0] = pos.x[1];
 	pos.y[0] = pos.y[1];
-
-//	ADXL345_RawAccToG(pos.x[1], &posF.x);
-//	ADXL345_RawAccToG(pos.y[1], &posF.y);
 
 	posF.x = posRatio * pos.x[1];
 	posF.y = posRatio * pos.y[1];
