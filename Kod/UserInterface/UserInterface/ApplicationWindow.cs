@@ -23,13 +23,14 @@ namespace UserInterface
         private bool accelerationMeasurementStarted = false;
         private float AngleX = 0, AngleY = 0, AngleZ = 0;
         private float AccelerationX = 0, AccelerationY = 0, AccelerationZ = 0;
+        private DataVisualisation.VisualisationMode graphicWindowMode;
         private OrientationCalculator orientationCalc;
 
         public ApplicationWindow()
         {
             InitializeComponent();
             SerialPortCommunicationInit();
-
+            graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
             orientationCalc = new OrientationCalculator();
         }
 
@@ -147,7 +148,7 @@ namespace UserInterface
                 angleString = strBuilder.ToString();
             }
 
-            visualisation.Dispatcher.Invoke(() => ApplyMovement(positionString, angleString));            
+            visualisation.Dispatcher.Invoke(() => ApplyMovement(positionString, angleString));
         }
 
         public void ApplyMovement(string accelerometer, string gyroscope)
@@ -160,9 +161,9 @@ namespace UserInterface
                 if (accelerometer.Length > 0)
                 {
                     accelerometerData = accelerometer.Split(' ');
-                    visualisation.AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/100;
-                    visualisation.AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/100;
-                    visualisation.AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/100;
+                    visualisation.AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
                     AccelerationX = visualisation.AccelerationX;
                     AccelerationY = visualisation.AccelerationY;
                     AccelerationZ = visualisation.AccelerationZ;
@@ -174,12 +175,12 @@ namespace UserInterface
                 if (accelerometer.Length > 0)
                 {
                     accelerometerData = accelerometer.Split(' ');
-                    visualisation.AccelerationX = AccelerationX - float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/100;
-                    visualisation.AccelerationY = AccelerationY - float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/100;
-                    visualisation.AccelerationZ = AccelerationZ - float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/100;
-                    AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 100;
-                    AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 100;
-                    AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 100;
+                    visualisation.AccelerationX = AccelerationX - float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationY = AccelerationY - float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationZ = AccelerationZ - float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
                 }
             }
             if (!angleMeasuremetStarted)
@@ -187,9 +188,9 @@ namespace UserInterface
                 if (gyroscope.Length > 0)
                 {
                     gyroscopeData = gyroscope.Split(' ');
-                    AngleX = visualisation.AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleY = visualisation.AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleZ = visualisation.AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
                     AngleX = visualisation.AngleX;
                     AngleY = visualisation.AngleY;
                     AngleZ = visualisation.AngleZ;
@@ -212,9 +213,24 @@ namespace UserInterface
             visualisation.ApplyTransformation();
         }
 
+        public void ResetMovement()
+        {
+            visualisation.WindowMode = graphicWindowMode;
+
+            visualisation.AccelerationX = -AccelerationX;
+            visualisation.AccelerationY = -AccelerationY;
+            visualisation.AccelerationZ = -AccelerationZ;
+
+            visualisation.AngleX = -AngleX;
+            visualisation.AngleY = -AngleY;
+            visualisation.AngleZ = -AngleZ;
+
+            visualisation.ApplyTransformation();
+        }
+
         private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
         {
-            //serialPortManager.Dispose();
+            serialPortManager.Dispose();
             System.Windows.Forms.Application.Exit();
         }
 
@@ -257,11 +273,48 @@ namespace UserInterface
             {
                 System.Windows.Forms.MessageBox.Show("Brak połączenia z portem COM. \nProszę ustawić odpowiednie paremetry portu.", "Brak połączenia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            startButton.Enabled = false;
+            stopButton.Enabled = true;
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             serialPortManager.StopCommunication();
+            startButton.Enabled = true;
+            stopButton.Enabled = false;
+        }
+
+        private void rotationRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rotationRadioButton.Checked == true)
+            {
+                graphicWindowMode = DataVisualisation.VisualisationMode.RotationMode;
+                visualisation.Dispatcher.Invoke(() => ResetMovement());
+                angleMeasuremetStarted = false;
+                accelerationMeasurementStarted = false;
+            }         
+        }
+
+        private void translationRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (translationRadioButton.Checked == true)
+            {
+                graphicWindowMode = DataVisualisation.VisualisationMode.TranslationMode;
+                visualisation.Dispatcher.Invoke(() => ResetMovement());
+                angleMeasuremetStarted = false;
+                accelerationMeasurementStarted = false; 
+            }         
+        }
+
+        private void fullRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fullRadioButton.Checked == true)
+            {
+                graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
+                visualisation.Dispatcher.Invoke(() => ResetMovement());
+                angleMeasuremetStarted = false;
+                accelerationMeasurementStarted = false;
+            }
         }
     }
 }
