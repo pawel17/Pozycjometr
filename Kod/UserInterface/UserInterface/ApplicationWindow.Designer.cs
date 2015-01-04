@@ -115,7 +115,7 @@
             // 
             // infoButton
             // 
-            this.infoButton.Location = new System.Drawing.Point(599, 647);
+            this.infoButton.Location = new System.Drawing.Point(599, 640);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(75, 40);
             this.infoButton.TabIndex = 11;
@@ -300,6 +300,7 @@
             // 
             // stopButton
             // 
+            this.stopButton.Enabled = false;
             this.stopButton.Location = new System.Drawing.Point(147, 541);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(115, 35);

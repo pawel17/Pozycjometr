@@ -29,6 +29,7 @@ namespace UserInterface
         {
             InitializeComponent();
             SerialPortCommunicationInit();
+            graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
         }
 
         private void SerialPortCommunicationInit()
@@ -139,9 +140,9 @@ namespace UserInterface
                     visualisation.AccelerationX = AccelerationX - float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
                     visualisation.AccelerationY = AccelerationY - float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
                     visualisation.AccelerationZ = AccelerationZ - float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
-                    AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/ 10;
-                    AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/  10;
-                    AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/ 10;
+                    AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
                 }
             }
             if (!angleMeasuremetStarted)
@@ -149,9 +150,9 @@ namespace UserInterface
                 if (gyroscope.Length > 0)
                 {
                     gyroscopeData = gyroscope.Split(' ');
-                    AngleX = visualisation.AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleY = visualisation.AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleZ = visualisation.AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
                     AngleX = visualisation.AngleX;
                     AngleY = visualisation.AngleY;
                     AngleZ = visualisation.AngleZ;
@@ -234,11 +235,15 @@ namespace UserInterface
             {
                 System.Windows.Forms.MessageBox.Show("Brak połączenia z portem COM. \nProszę ustawić odpowiednie paremetry portu.", "Brak połączenia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            startButton.Enabled = false;
+            stopButton.Enabled = true;
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             serialPortManager.StopCommunication();
+            startButton.Enabled = true;
+            stopButton.Enabled = false;
         }
 
         private void rotationRadioButton_CheckedChanged(object sender, EventArgs e)
