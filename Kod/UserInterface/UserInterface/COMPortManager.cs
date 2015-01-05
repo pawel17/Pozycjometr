@@ -46,6 +46,11 @@ namespace UserInterface
             serialPort.Close();
         }
 
+        public void ClearMicroprocessorVariables()
+        {
+            serialPort.Write("RESET");
+        }
+
         public void RefreshAvailablePorts()
         {
             CommunicationParameters.AvailablePortNames = SerialPort.GetPortNames();
