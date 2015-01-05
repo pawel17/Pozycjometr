@@ -80,8 +80,9 @@ void UART_IntReceive(void) {
 		}
 // no more data
 		else {
-			if(strcmp("RESET", (const char *)rb.rx) == 0) {
+			if(!strcmp(rb.rx, "RESET")) {
 				ResetData();
+				strcpy(rb.rx, "");
 			}
 		}
 	}
