@@ -246,7 +246,7 @@ namespace UserInterface
 
         private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
         {
-            serialPortManager.Dispose();
+            //serialPortManager.Dispose();
             System.Windows.Forms.Application.Exit();
         }
 
