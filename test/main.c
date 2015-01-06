@@ -7,7 +7,6 @@
 #include <inttypes.h>
 #include <math.h>
 #include <stdio.h>
-#include "string.h"
 #include "LED.h"
 
 #define DLEN										1u
@@ -39,7 +38,9 @@ void getPosition2(void);
 void getAngle(void);
 void checkIfMotionEnded(void);
 void clearData(char* buffer, unsigned int bufferSize);
+void resetMeasurement();
 uint8_t tick;
+extern void (*ResetData)(void);
 
 typedef struct{
 
@@ -125,7 +126,7 @@ int main(void){
 
 	//LEDInit();
 	//UART0_Init();
-
+	ResetData = &resetMeasurement;
 	UART2_Init();
 	initSuccess = ADXL345_Init(ADXL345_SPI_COMM);
 	ADXL345_SetPowerMode(ADXL345_MEASURE_MODE);
@@ -156,13 +157,17 @@ int main(void){
 			getAngle();
 
 			clearData(measurementResults, UART_DATA_BUFFER);
+			
 			sprintf(measurementResults, "ACL "PRI32F " " PRI32F " " PRI32F"\n\r", acc.x[1], acc.y[1], acc.z[1]);
-			UART2_SendString(measurementResults);
+			
+			UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurementResults, strlen((const char*)measurementResults));
 			Delay(10);
 
 			clearData(measurementResults, UART_DATA_BUFFER);
+			
 			sprintf(measurementResults, "GYR "PRI32F " " PRI32F " " PRI32F"\n\r", rate.x[1], rate.y[1], rate.z[1]);
-			UART2_SendString(measurementResults);
+			
+			UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurementResults, strlen((const char*)measurementResults));
 			Delay(10);
 
 			tick = 0u;
@@ -175,7 +180,7 @@ int main(void){
 //			}
 		}
 	}
-
+	UART_DeInit((LPC_UART_TypeDef *) LPC_UART2);
 	return 0;
 }
 
@@ -417,3 +422,7 @@ void clearData(char* buffer, unsigned int bufferSize) {
 	}
 }
 
+void resetMeasurement() {
+	acc.x[1] = 0; acc.y[1] = 0; acc.z[1] = 0;
+	rate.x[1] = 0; rate.y[1] = 0; rate.z[1] = 0;
+}

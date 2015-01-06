@@ -232,6 +232,18 @@ namespace UserInterface
             visualisation.ApplyTransformation();
         }
 
+        private void ClearVisualisation()
+        {
+            visualisation.Dispatcher.Invoke(() => ResetMovement());
+            serialPortManager.ClearMicroprocessorVariables();
+            accelerationX.Text = "";
+            accelerationY.Text = "";
+            accelerationZ.Text = "";
+            angleX.Text = "";
+            angleY.Text = "";
+            angleZ.Text = "";
+        }
+
         private void ApplicationWindow_FormClosed(object sender, FormClosedEventArgs args)
         {
             serialPortManager.Dispose();
@@ -282,6 +294,7 @@ namespace UserInterface
         private void stopButton_Click(object sender, EventArgs e)
         {
             serialPortManager.StopCommunication();
+            ClearVisualisation();
         }
 
         private void rotationRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -289,7 +302,7 @@ namespace UserInterface
             if (rotationRadioButton.Checked == true)
             {
                 graphicWindowMode = DataVisualisation.VisualisationMode.RotationMode;
-                visualisation.Dispatcher.Invoke(() => ResetMovement());
+                ClearVisualisation();
                 angleMeasuremetStarted = false;
                 accelerationMeasurementStarted = false;
             }
@@ -300,7 +313,7 @@ namespace UserInterface
             if (translationRadioButton.Checked == true)
             {
                 graphicWindowMode = DataVisualisation.VisualisationMode.TranslationMode;
-                visualisation.Dispatcher.Invoke(() => ResetMovement());
+                ClearVisualisation();
                 angleMeasuremetStarted = false;
                 accelerationMeasurementStarted = false;
             }
@@ -311,7 +324,7 @@ namespace UserInterface
             if (fullRadioButton.Checked == true)
             {
                 graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
-                visualisation.Dispatcher.Invoke(() => ResetMovement());
+                ClearVisualisation();
                 angleMeasuremetStarted = false;
                 accelerationMeasurementStarted = false;
             }
