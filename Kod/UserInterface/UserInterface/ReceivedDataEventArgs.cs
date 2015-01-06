@@ -8,14 +8,14 @@ namespace UserInterface
 {
     public class ReceivedDataEventArgs : EventArgs
     {
-        private byte[] data;
+        private string data;
 
-        public ReceivedDataEventArgs(byte[] dataToSave)
+        public ReceivedDataEventArgs(string dataToSave)
         {
             data = dataToSave;
         }
 
-        public byte[] Data
+        public string Data
         {
             get { return data; }
             set { data = value; }

@@ -53,17 +53,21 @@ namespace UserInterface
 
         private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            int dataLength = serialPort.BytesToRead;
-            byte[] data = new byte[dataLength];
+            //int dataLength = serialPort.BytesToRead;
+            //byte[] data = new byte[dataLength];
             
-            int dataQuantity = serialPort.Read(data, 0, dataLength);
-            if (dataQuantity == 0)
-            {
-                return;
-            }
+            //int dataQuantity = serialPort.Read(data, 0, dataLength);
+            //if (dataQuantity == 0)
+            //{
+            //    return;
+            //}
+
+            string accData = serialPort.ReadLine();
+            string gyroData = serialPort.ReadLine();
+            string all = accData + " " + gyroData;
 
             if (ReceivedData != null)
-                ReceivedData(this, new ReceivedDataEventArgs(data));
+                ReceivedData(this, new ReceivedDataEventArgs(all));
         }
 
         public void Dispose()

@@ -44,116 +44,120 @@ namespace UserInterface
         {
             if (this.InvokeRequired)
             {
-                this.BeginInvoke(new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived), new object[] { sender, args });
-            }
-
-            string message = Encoding.ASCII.GetString(args.Data);
-            string gyroscopeString = string.Empty;
-            string accelerometerString = string.Empty;
-
-            if ((message.IndexOf("ACL") != message.LastIndexOf("ACL")) || (message.IndexOf("GYR") != message.LastIndexOf("GYR")))
-            {
-                return;
-            }
-
-            if ((message.IndexOf("GYR") != -1) && (message.IndexOf("ACL") != -1))
-            {
-                if (message.IndexOf("GYR") == 0)            //in case "GYR" in the first part of the message
-                {
-                    accelerometerString = "";
-                }
-                else
-                {
-                    accelerometerString = message.Substring(0, message.IndexOf("GYR") - 1);
-                }
-
-                gyroscopeString = message.Substring(message.IndexOf("GYR"));
-            }
-            else if (message.IndexOf("ACL") != -1)
-            {
-                accelerometerString = message;
+                this.Invoke(new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived), new object[] { sender, args });
             }
             else
             {
-                gyroscopeString = message;
-            }
+                string message = args.Data;
+                string gyroscopeString = string.Empty;
+                string accelerometerString = string.Empty;
 
-            string[] accelerometerData = new string[]{};
-
-            if (accelerometerString.Length > 0)
-            {                
-                accelerometerData = accelerometerString.Split(' ');
-
-                if(accelerationX.InvokeRequired) {
-                    accelerationX.Invoke(new MethodInvoker(delegate { accelerationX.Text = accelerometerData[1]; })); 
-                }
-
-                if(accelerationY.InvokeRequired) {
-                    accelerationY.Invoke(new MethodInvoker(delegate { accelerationY.Text = accelerometerData[2]; })); 
-                }
-
-                if(accelerationZ.InvokeRequired) {
-                    accelerationZ.Invoke(new MethodInvoker(delegate { accelerationZ.Text = accelerometerData[3]; })); 
-                }
-            }
-
-            string[] gyroscopeData = new string[] { };
-
-            if (gyroscopeString.Length > 0)
-            {
-                gyroscopeData = gyroscopeString.Split(' ');
-
-                if(angleX.InvokeRequired) {
-                    angleX.Invoke(new MethodInvoker(delegate { angleX.Text = gyroscopeData[1]; })); 
-                }
-
-                if(angleY.InvokeRequired) {
-                    angleY.Invoke(new MethodInvoker(delegate { angleY.Text = gyroscopeData[2]; })); 
-                }
-
-                if(angleZ.InvokeRequired) {
-                    angleZ.Invoke(new MethodInvoker(delegate { angleZ.Text = gyroscopeData[3]; })); 
-                }
-            }
-
-            int valuesNum = 3;
-            string positionString = "";
-            string angleString = "";
-
-            if(accelerometerString.Length > 0) {
-
-                int[] accData = new int[]{0, 0, 0};
-                int[] gyroData = new int[]{ 0, 0, 0 };
-
-                for (int valuesCnt = 0; valuesCnt < valuesNum; ++valuesCnt )
+                if ((message.IndexOf("ACL") != message.LastIndexOf("ACL")) || (message.IndexOf("GYR") != message.LastIndexOf("GYR")))
                 {
-                    accData[valuesCnt] = int.Parse(accelerometerData[valuesCnt]);
-                    gyroData[valuesCnt] = int.Parse(gyroscopeData[valuesCnt]);
+                    return;
                 }
 
-                orientationCalc.countOrientationForSensorData(accData, gyroData);
+                if ((message.IndexOf("GYR") != -1) && (message.IndexOf("ACL") != -1))
+                {
+                    if (message.IndexOf("GYR") == 0)            //in case "GYR" in the first part of the message
+                    {
+                        accelerometerString = "";
+                    }
+                    else
+                    {
+                        accelerometerString = message.Substring(0, message.IndexOf("GYR") - 1);
+                    }
 
-                float[] position = orientationCalc.position;
-                float[] angles = orientationCalc.angle;
-                StringBuilder strBuilder = new StringBuilder();
+                    gyroscopeString = message.Substring(message.IndexOf("GYR"));
+                }
+                else if (message.IndexOf("ACL") != -1)
+                {
+                    accelerometerString = message;
+                }
+                else
+                {
+                    gyroscopeString = message;
+                }
 
-                strBuilder.Append(position[0].ToString()).Append(" ").Append(position[1].ToString()).Append(" ").Append( position[2].ToString() );
+                string[] accelerometerData = new string[3];
 
-                positionString = strBuilder.ToString();
+                if (accelerometerString.Length > 0)
+                {
+                    Array.Copy(accelerometerString.Split(' '), 1, accelerometerData, 0, 3);
 
-                strBuilder.Clear();
+                    if(accelerationX.InvokeRequired) {
+                        accelerationX.Invoke(new MethodInvoker(delegate { accelerationX.Text = accelerometerData[0]; })); 
+                    }
 
-                strBuilder.Append(angles[0].ToString()).Append(" ").Append(angles[1].ToString()).Append(" ").Append(angles[2].ToString());
+                    if(accelerationY.InvokeRequired) {
+                        accelerationY.Invoke(new MethodInvoker(delegate { accelerationY.Text = accelerometerData[1]; })); 
+                    }
 
-                angleString = strBuilder.ToString();
-            }
+                    if(accelerationZ.InvokeRequired) {
+                        accelerationZ.Invoke(new MethodInvoker(delegate { accelerationZ.Text = accelerometerData[2]; })); 
+                    }
+                }
 
-            visualisation.Dispatcher.Invoke(() => ApplyMovement(positionString, angleString));            
+                string[] gyroscopeData = new string[3];
+
+                if (gyroscopeString.Length > 0)
+                {
+                    Array.Copy(gyroscopeString.Split(' '), 1, gyroscopeData, 0, 3);
+
+                    if(angleX.InvokeRequired) {
+                        angleX.Invoke(new MethodInvoker(delegate { angleX.Text = gyroscopeData[0]; })); 
+                    }
+
+                    if(angleY.InvokeRequired) {
+                        angleY.Invoke(new MethodInvoker(delegate { angleY.Text = gyroscopeData[1]; })); 
+                    }
+
+                    if(angleZ.InvokeRequired) {
+                        angleZ.Invoke(new MethodInvoker(delegate { angleZ.Text = gyroscopeData[2]; })); 
+                    }
+                }
+
+                int valuesNum = 3;
+                string positionString = "";
+                string angleString = "";
+
+                if(accelerometerString.Length > 0) {
+
+                    int[] accData = new int[]{0, 0, 0};
+                    int[] gyroData = new int[]{ 0, 0, 0 };
+
+                    for (int valuesCnt = 0; valuesCnt < valuesNum; ++valuesCnt )
+                    {
+                        accData[valuesCnt] = int.Parse(accelerometerData[valuesCnt]);
+                        gyroData[valuesCnt] = int.Parse(gyroscopeData[valuesCnt]);
+                    }
+
+                    orientationCalc.countOrientationForSensorData(accData, gyroData);
+
+                    float[] position = orientationCalc.position;
+                    float[] angles = orientationCalc.angle;
+                    StringBuilder strBuilder = new StringBuilder();
+
+                    strBuilder.Append(position[0].ToString()).Append(" ").Append(position[1].ToString()).Append(" ").Append( position[2].ToString() );
+
+                    positionString = strBuilder.ToString();
+
+                    strBuilder.Clear();
+
+                    strBuilder.Append(angles[0].ToString()).Append(" ").Append(angles[1].ToString()).Append(" ").Append(angles[2].ToString());
+
+                    angleString = strBuilder.ToString();
+                }
+
+                visualisation.Dispatcher.Invoke(() => ApplyMovement(positionString, angleString));
+            }            
         }
 
         public void ApplyMovement(string accelerometer, string gyroscope)
         {
-            string[] accelerometerData;
+            Console.WriteLine("ACCELEROMETER:" + accelerometer);
+            Console.WriteLine("GYROSCOPE: " + gyroscope);
+            /*string[] accelerometerData;
             string[] gyroscopeData;
 
             if (!accelerationMeasurementStarted)
@@ -161,9 +165,9 @@ namespace UserInterface
                 if (accelerometer.Length > 0)
                 {
                     accelerometerData = accelerometer.Split(' ');
-                    visualisation.AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
-                    visualisation.AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
-                    visualisation.AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationX = float.Parse(accelerometerData[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationY = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationZ = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
                     AccelerationX = visualisation.AccelerationX;
                     AccelerationY = visualisation.AccelerationY;
                     AccelerationZ = visualisation.AccelerationZ;
@@ -175,12 +179,12 @@ namespace UserInterface
                 if (accelerometer.Length > 0)
                 {
                     accelerometerData = accelerometer.Split(' ');
-                    visualisation.AccelerationX = AccelerationX - float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
-                    visualisation.AccelerationY = AccelerationY - float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
-                    visualisation.AccelerationZ = AccelerationZ - float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
-                    AccelerationX = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 10;
-                    AccelerationY = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 10;
-                    AccelerationZ = float.Parse(accelerometerData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 10;
+                    visualisation.AccelerationX = AccelerationX - float.Parse(accelerometerData[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationY = AccelerationY - float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    visualisation.AccelerationZ = AccelerationZ - float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture)/10;
+                    AccelerationX = float.Parse(accelerometerData[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 10;
+                    AccelerationY = float.Parse(accelerometerData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 10;
+                    AccelerationZ = float.Parse(accelerometerData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture) / 10;
                 }
             }
             if (!angleMeasuremetStarted)
@@ -188,9 +192,9 @@ namespace UserInterface
                 if (gyroscope.Length > 0)
                 {
                     gyroscopeData = gyroscope.Split(' ');
-                    AngleX = visualisation.AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleY = visualisation.AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleZ = visualisation.AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    AngleX = visualisation.AngleX = float.Parse(gyroscopeData[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    AngleY = visualisation.AngleY = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    AngleZ = visualisation.AngleZ = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
                     AngleX = visualisation.AngleX;
                     AngleY = visualisation.AngleY;
                     AngleZ = visualisation.AngleZ;
@@ -202,15 +206,15 @@ namespace UserInterface
                 if (gyroscope.Length > 0)
                 {
                     gyroscopeData = gyroscope.Split(' ');
-                    visualisation.AngleX = AngleX - float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    visualisation.AngleY = AngleY - float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    visualisation.AngleZ = AngleZ - float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleX = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleY = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-                    AngleZ = float.Parse(gyroscopeData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleX = AngleX - float.Parse(gyroscopeData[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleY = AngleY - float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    visualisation.AngleZ = AngleZ - float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    AngleX = float.Parse(gyroscopeData[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    AngleY = float.Parse(gyroscopeData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                    AngleZ = float.Parse(gyroscopeData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
                 }
             }
-            visualisation.ApplyTransformation();
+            visualisation.ApplyTransformation();*/
         }
 
         private void ResetMovement()
