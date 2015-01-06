@@ -96,8 +96,8 @@ namespace DataVisualisation
             RotateTransform3D r3 = new RotateTransform3D(aZ);
 
             TranslateTransform3D t1 = new TranslateTransform3D(accX, 0, 0);
-            TranslateTransform3D t2 = new TranslateTransform3D(0, accY, 0);
-            TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accZ);
+            TranslateTransform3D t2 = new TranslateTransform3D(0, accZ, 0);
+            TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accY);
 
             if (mode != VisualisationMode.TranslationMode)
             {
