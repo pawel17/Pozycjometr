@@ -38,7 +38,7 @@ void getPosition2(void);
 void getAngle(void);
 void checkIfMotionEnded(void);
 void clearData(char* buffer, unsigned int bufferSize);
-void resetMeasurement();
+void resetMeasurement(void);
 uint8_t tick;
 extern void (*ResetData)(void);
 
@@ -422,7 +422,7 @@ void clearData(char* buffer, unsigned int bufferSize) {
 	}
 }
 
-void resetMeasurement() {
+void resetMeasurement(void) {
 	acc.x[1] = 0; acc.y[1] = 0; acc.z[1] = 0;
 	rate.x[1] = 0; rate.y[1] = 0; rate.z[1] = 0;
 }
