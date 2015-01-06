@@ -167,78 +167,78 @@ namespace UserInterface
                     angleString = String.Join(" ", angleStrings);
                // }
 
-                visualisation.Dispatcher.Invoke(() => ApplyMovement(positionString, angleString));
+                visualisation.Dispatcher.Invoke(() => ApplyMovement(position, angles));
             }            
         }
 
-        public void ApplyMovement(string accelerometer, string gyroscope)
+        public void ApplyMovement(float[] accelerometerData, float[] gyroscopeData)
         {
             //Console.WriteLine("ACCELEROMETER:" + accelerometer);
             //Console.WriteLine("GYROSCOPE: " + gyroscope);
-            string[] accelerometerData;
-            string[] gyroscopeData;
+            //string[] accelerometerData;
+            //string[] gyroscopeData;
 
-            accelerometerData = accelerometer.Split(' ');
-            gyroscopeData = gyroscope.Split(' ');
+            //accelerometerData = accelerometer.Split(' ');
+            //gyroscopeData = gyroscope.Split(' ');
 
-            float accX = float.Parse(accelerometerData[0], System.Globalization.CultureInfo.CurrentCulture)/10;
-            float accY = float.Parse(accelerometerData[1], System.Globalization.CultureInfo.CurrentCulture) / 10;
-            float accZ = float.Parse(accelerometerData[2], System.Globalization.CultureInfo.CurrentCulture) / 10;
+            float accX = accelerometerData[0];//float.Parse(accelerometerData[0], System.Globalization.CultureInfo.CurrentCulture)/10;
+            float accY = accelerometerData[1];// float.Parse(accelerometerData[1], System.Globalization.CultureInfo.CurrentCulture) / 10;
+            float accZ = accelerometerData[2];//float.Parse(accelerometerData[2], System.Globalization.CultureInfo.CurrentCulture) / 10;
 
-            float angX = float.Parse(gyroscopeData[0], System.Globalization.CultureInfo.CurrentCulture);
-            float angY = float.Parse(gyroscopeData[1], System.Globalization.CultureInfo.CurrentCulture);
-            float angZ = float.Parse(gyroscopeData[2], System.Globalization.CultureInfo.CurrentCulture);
+            float angX = gyroscopeData[0];// float.Parse(gyroscopeData[0], System.Globalization.CultureInfo.CurrentCulture);
+            float angY = gyroscopeData[1];// float.Parse(gyroscopeData[1], System.Globalization.CultureInfo.CurrentCulture);
+            float angZ = gyroscopeData[2];// float.Parse(gyroscopeData[2], System.Globalization.CultureInfo.CurrentCulture);
 
             if (!accelerationMeasurementStarted)
             {
-                if (accelerometer.Length > 0)
-                {
+                //if (accelerometer.Length > 0)
+                //{
                     visualisation.AccelerationX = accX;
                     visualisation.AccelerationY = accY;
                     visualisation.AccelerationZ = accZ;
                     AccelerationX = visualisation.AccelerationX;
                     AccelerationY = visualisation.AccelerationY;
                     AccelerationZ = visualisation.AccelerationZ;
-                }
+                //}
                 accelerationMeasurementStarted = true;
             }
             else
             {
-                if (accelerometer.Length > 0)
-                {
+                //if (accelerometer.Length > 0)
+                //{
                     visualisation.AccelerationX = AccelerationX - accX;
                     visualisation.AccelerationY = AccelerationY - accY;
                     visualisation.AccelerationZ = AccelerationZ - accZ;
                     AccelerationX = accX;
                     AccelerationY = accY;
                     AccelerationZ = accZ;
-                }
+                //}
             }
             if (!angleMeasuremetStarted)
             {
-                if (gyroscope.Length > 0)
-                {
+                //if (gyroscope.Length > 0)
+                //{
                     AngleX = visualisation.AngleX = angX;
                     AngleY = visualisation.AngleY = angY;
                     AngleZ = visualisation.AngleZ = angZ;
                     AngleX = visualisation.AngleX;
                     AngleY = visualisation.AngleY;
                     AngleZ = visualisation.AngleZ;
-                }
+                //}
                 angleMeasuremetStarted = true;
             }
             else
             {
-                if (gyroscope.Length > 0)
-                {
-                    gyroscopeData = gyroscope.Split(' ');
+                //if (gyroscope.Length > 0)
+                //{
+                    //gyroscopeData = gyroscope.Split(' ');
                     visualisation.AngleX = AngleX - angX;
                     visualisation.AngleY = AngleY - angY;
                     visualisation.AngleZ = AngleZ - angZ;
                     AngleX = angX;
                     AngleY = angY;
                     AngleZ = angZ;
-                }
+                //}
             }
             visualisation.ApplyTransformation();
         }
