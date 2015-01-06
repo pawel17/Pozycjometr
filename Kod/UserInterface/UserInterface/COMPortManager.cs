@@ -67,9 +67,9 @@ namespace UserInterface
             //    return;
             //}
 
-            string accData = serialPort.ReadLine();
-            string gyroData = serialPort.ReadLine();
-            string all = accData + " " + gyroData;
+            //string accData = serialPort.ReadLine();
+            //string gyroData = serialPort.ReadLine();
+            string all = serialPort.ReadLine();//accData + " " + gyroData;
 
             if (ReceivedData != null)
                 ReceivedData(this, new ReceivedDataEventArgs(all));

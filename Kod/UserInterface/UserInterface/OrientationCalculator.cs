@@ -12,8 +12,9 @@ namespace UserInterface
         private static readonly int GYR_MEASURMENT_HISTORY = 3;
         private static readonly float RAW_ACC_TO_G = 0.0039f;
         private static readonly float GYRO_SENSITIVITY = 8.75e-3f;
-        private static readonly float SAMP_PERIOD = 0.02f;
+        private static readonly float SAMP_PERIOD = 0.05f;
         private static readonly float RADIANS_TO_DEG_COEF = (float)(Math.PI) / 180.0f;
+        private static readonly float COMPLEMENTARY_FILTER_GYRO_WEIGHT = 0.95f;
         private ThreeAxisMeasurmentData acc;
         private ThreeAxisMeasurmentData vel;
         private ThreeAxisMeasurmentData pos;
@@ -22,6 +23,7 @@ namespace UserInterface
         private ThreeCoordinateValue posF;
         private ThreeCoordinateValue velF;
         private ThreeCoordinateValue angF;
+        private ThreeCoordinateValue angF2;
         int zeroAccXCnt;
         int zeroAccYCnt;
 
@@ -37,6 +39,7 @@ namespace UserInterface
             posF = new ThreeCoordinateValue();
             velF = new ThreeCoordinateValue();
             angF = new ThreeCoordinateValue();
+            angF2 = new ThreeCoordinateValue();
         }
 
         public float[] position
@@ -180,9 +183,12 @@ namespace UserInterface
 	        angF.x = angRatio * ang.x[1];
 	        angF.y = angRatio * ang.y[1];
             angF.z = angRatio * ang.z[1];
+            
+            angF2.x = (float)Math.Atan2(accData[1], accData[2]) * RADIANS_TO_DEG_COEF;
+            angF2.y = (float)Math.Atan2(-accData[0], Math.Sqrt(accData[1] * accData[1] + accData[2] * accData[2])) * RADIANS_TO_DEG_COEF;
 
-            //angF2.x = atan2( acc.y[1], acc.z[1] ) * RADIANS_TO_DEG_COEF;
-            //angF2.y = atan2(-acc.x[1], hypot(acc.y[1], acc.z[1]) ) * RADIANS_TO_DEG_COEF;
+            angF.x = COMPLEMENTARY_FILTER_GYRO_WEIGHT * angF.x + (1.0f - COMPLEMENTARY_FILTER_GYRO_WEIGHT) * angF2.x;
+            angF.y = COMPLEMENTARY_FILTER_GYRO_WEIGHT * angF.y + (1.0f - COMPLEMENTARY_FILTER_GYRO_WEIGHT) * angF2.y;
         }
     }
 
