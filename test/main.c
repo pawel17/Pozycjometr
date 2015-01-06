@@ -39,6 +39,7 @@ void getAngle(void);
 void checkIfMotionEnded(void);
 void clearData(char* buffer, unsigned int bufferSize);
 void resetMeasurement(void);
+void sendMeasurments(char measurments[], int16_t len);
 uint8_t tick;
 extern void (*ResetData)(void);
 
@@ -118,7 +119,7 @@ int main(void){
 	char measurementResults[UART_DATA_BUFFER];
 	int tickCnt = 0;
 	float rawAccToG = 0.0f;
-	uint8_t sampleFreqInHz = 1u;
+	uint8_t sampleFreqInHz = 20u;
 	L3G4200D_Fullscale_t l3g4200dFullScale = L3G4200D_FULLSCALE_250;
 
 	status_t gyroStatus;
@@ -156,20 +157,22 @@ int main(void){
 			//LEDToggle();
 			getAngle();
 
-			clearData(measurementResults, UART_DATA_BUFFER);
-			
-			sprintf(measurementResults, "ACL "PRI32F " " PRI32F " " PRI32F"\n\r", acc.x[1], acc.y[1], acc.z[1]);
-			
-			UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurementResults, strlen((const char*)measurementResults));
-			Delay(10);
+//			clearData(measurementResults, UART_DATA_BUFFER);
+//
+//			sprintf(measurementResults, "ACL "PRI32F " " PRI32F " " PRI32F"\n\r", acc.x[1], acc.y[1], acc.z[1]);
+//
+//			UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurementResults, strlen((const char*)measurementResults));
+//			Delay(10);
 
-			clearData(measurementResults, UART_DATA_BUFFER);
-			
-			sprintf(measurementResults, "GYR "PRI32F " " PRI32F " " PRI32F"\n\r", rate.x[1], rate.y[1], rate.z[1]);
-			
-			UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurementResults, strlen((const char*)measurementResults));
-			Delay(10);
+//			clearData(measurementResults, UART_DATA_BUFFER);
+//
+//			sprintf(measurementResults, "GYR "PRI32F " " PRI32F " " PRI32F"\n\r", rate.x[1], rate.y[1], rate.z[1]);
+//
+//			UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurementResults, strlen((const char*)measurementResults));
+//			Delay(10);
 
+			sendMeasurments(measurementResults, UART_DATA_BUFFER);
+			
 			tick = 0u;
 //			++tickCnt;
 //
@@ -182,6 +185,16 @@ int main(void){
 	}
 	UART_DeInit((LPC_UART_TypeDef *) LPC_UART2);
 	return 0;
+}
+
+void sendMeasurments(char measurments[], int16_t len){
+
+	clearData(measurments, len);
+
+	sprintf(measurments, PRI32F " " PRI32F " " PRI32F " " PRI32F " " PRI32F " " PRI32F"\n\r", acc.x[1], acc.y[1], acc.z[1], rate.x[1], rate.y[1], rate.z[1]);
+
+	UARTSend((LPC_UART_TypeDef *) LPC_UART2, measurments, strlen((const char*)measurments));
+	Delay(10);
 }
 
 void getFilteredAcc(void){
@@ -418,7 +431,9 @@ void TIMER1_IRQHandler(void){
 void clearData(char* buffer, unsigned int bufferSize) {
 	unsigned int i;
 	for(i = 0; i<bufferSize; ++i) {
-		buffer[i] = ' ';
+		// czyszczenie wpisuje znak nul (koniec stringa)
+		// dzieki temu nie jest wysylana cala tablica (jak to bylo ze spacjami)
+		buffer[i] = '\0';
 	}
 }
 
