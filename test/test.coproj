@@ -130,8 +130,8 @@
     <File name="ADXL345/ADXL345.h" path="ADXL345.h" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_spi.c" path="lpc17xx_lib/source/lpc17xx_spi.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc_types.h" path="lpc17xx_lib/include/lpc_types.h" type="1"/>
-    <File name="L3G4200D" path="" type="2"/>
     <File name="main.c" path="main.c" type="1"/>
+    <File name="L3G4200D" path="" type="2"/>
     <File name="LPC17xx_utils.c" path="LPC17xx_utils.c" type="1"/>
     <File name="i2chal.c" path="i2chal.c" type="1"/>
     <File name="LED.h" path="LED.h" type="1"/>

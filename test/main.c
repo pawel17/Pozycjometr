@@ -26,6 +26,7 @@
 #define POS_UNITS_RATIO(FREQ)	( G_ACC / (FREQ) / (FREQ) )
 #define ANG_UNITS_RATIO(FREQ)	(1.0f / (FREQ))
 #define RADIANS_TO_DEG_COEF		57.29578f	// 180.0f / M_PI
+#define PRI32F					"%"PRIi32
 
 void timerInit(uint32_t freqHz);
 void TIMER1_IRQHandler(void);
@@ -155,12 +156,12 @@ int main(void){
 			getAngle();
 
 			clearData(measurementResults, UART_DATA_BUFFER);
-			sprintf(measurementResults, "ACL "PRIi32 " " PRIi32 " " PRIi32"\n\r", acc.x[1], acc.y[1], acc.z[1]);
+			sprintf(measurementResults, "ACL "PRI32F " " PRI32F " " PRI32F"\n\r", acc.x[1], acc.y[1], acc.z[1]);
 			UART2_SendString(measurementResults);
 			Delay(10);
 
 			clearData(measurementResults, UART_DATA_BUFFER);
-			sprintf(measurementResults, "GYR "PRIi32 " " PRIi32 " " PRIi32"\n\r", rate.x[1], rate.y[1], rate.z[1]);
+			sprintf(measurementResults, "GYR "PRI32F " " PRI32F " " PRI32F"\n\r", rate.x[1], rate.y[1], rate.z[1]);
 			UART2_SendString(measurementResults);
 			Delay(10);
 
