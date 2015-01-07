@@ -114,7 +114,7 @@ namespace DataVisualisation
             }
         }
         
-        private Model3DGroup MeshTriangle(Point3D p0, Point3D p1, Point3D p2)
+        private Model3DGroup MeshTriangle(Point3D p0, Point3D p1, Point3D p2, Color color)
         {
             Model3DGroup modelGroup;
             MeshGeometry3D meshGeometry;
@@ -130,7 +130,7 @@ namespace DataVisualisation
             meshGeometry.TriangleIndices.Add(2);
 
             modelGroup = new Model3DGroup();
-            modelGroup.Children.Add(new GeometryModel3D(meshGeometry, new DiffuseMaterial(new SolidColorBrush(Colors.LawnGreen))));
+            modelGroup.Children.Add(new GeometryModel3D(meshGeometry, new DiffuseMaterial(new SolidColorBrush(color))));
 
             return modelGroup;
         }
@@ -152,28 +152,34 @@ namespace DataVisualisation
             Model3DGroup cubeGroup = new Model3DGroup();
 
             //front side
-            cubeGroup.Children.Add(MeshTriangle(p4, p3, p7));
-            cubeGroup.Children.Add(MeshTriangle(p4, p7, p8));
+            Color red = Colors.OrangeRed;
+            cubeGroup.Children.Add(MeshTriangle(p4, p3, p7, red));
+            cubeGroup.Children.Add(MeshTriangle(p4, p7, p8, red));
 
             //right side 
-            cubeGroup.Children.Add(MeshTriangle(p3, p2, p6));
-            cubeGroup.Children.Add(MeshTriangle(p3, p6, p7));
+            Color blue = Colors.CornflowerBlue;
+            cubeGroup.Children.Add(MeshTriangle(p3, p2, p6, blue));
+            cubeGroup.Children.Add(MeshTriangle(p3, p6, p7, blue));
 
             //back side
-            cubeGroup.Children.Add(MeshTriangle(p2, p1, p5));
-            cubeGroup.Children.Add(MeshTriangle(p2, p5, p6));
+            Color darkRed = Colors.DarkRed;
+            cubeGroup.Children.Add(MeshTriangle(p2, p1, p5, darkRed));
+            cubeGroup.Children.Add(MeshTriangle(p2, p5, p6, darkRed));
 
             //left side
-            cubeGroup.Children.Add(MeshTriangle(p1, p4, p8));
-            cubeGroup.Children.Add(MeshTriangle(p1, p8, p5));
+            Color darkBLue = Colors.DarkSlateBlue;
+            cubeGroup.Children.Add(MeshTriangle(p1, p4, p8, darkBLue));
+            cubeGroup.Children.Add(MeshTriangle(p1, p8, p5, darkBLue));
 
             //top side
-            cubeGroup.Children.Add(MeshTriangle(p8, p7, p6));
-            cubeGroup.Children.Add(MeshTriangle(p8, p6, p5));
+            Color green = Colors.LawnGreen;
+            cubeGroup.Children.Add(MeshTriangle(p8, p7, p6, green));
+            cubeGroup.Children.Add(MeshTriangle(p8, p6, p5, green));
 
             //bottom side
-            cubeGroup.Children.Add(MeshTriangle(p3, p4, p1));
-            cubeGroup.Children.Add(MeshTriangle(p3, p1, p2));
+            Color darkGreen = Colors.DarkSeaGreen;
+            cubeGroup.Children.Add(MeshTriangle(p3, p4, p1, darkGreen));
+            cubeGroup.Children.Add(MeshTriangle(p3, p1, p2, darkGreen));
 
             mCube.Content = cubeGroup;
             mCube.Transform = new Transform3DGroup();
