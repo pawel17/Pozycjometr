@@ -315,12 +315,16 @@ namespace UserInterface
             {
                 System.Windows.Forms.MessageBox.Show("Brak połączenia z portem COM. \nProszę ustawić odpowiednie paremetry portu.", "Brak połączenia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            startButton.Enabled = false;
+            stopButton.Enabled = true;
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             serialPortManager.StopCommunication();
             ClearVisualisation();
+            startButton.Enabled = true;
+            stopButton.Enabled = false;
         }
 
         private void rotationRadioButton_CheckedChanged(object sender, EventArgs e)

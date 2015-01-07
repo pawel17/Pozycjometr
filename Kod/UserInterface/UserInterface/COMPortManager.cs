@@ -48,7 +48,10 @@ namespace UserInterface
 
         public void ClearMicroprocessorVariables()
         {
-            serialPort.Write("RESET");
+            if (serialPort.IsOpen)
+            {
+                serialPort.Write("RESET");
+            }
         }
 
         public void RefreshAvailablePorts()

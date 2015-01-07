@@ -55,9 +55,9 @@
             this.startButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rotationRadioButton = new System.Windows.Forms.RadioButton();
-            this.translationRadioButton = new System.Windows.Forms.RadioButton();
             this.fullRadioButton = new System.Windows.Forms.RadioButton();
+            this.translationRadioButton = new System.Windows.Forms.RadioButton();
+            this.rotationRadioButton = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -99,8 +99,10 @@
             // 
             // accelerationX
             // 
+            this.accelerationX.BackColor = System.Drawing.SystemColors.Window;
             this.accelerationX.Location = new System.Drawing.Point(51, 11);
             this.accelerationX.Name = "accelerationX";
+            this.accelerationX.ReadOnly = true;
             this.accelerationX.Size = new System.Drawing.Size(100, 20);
             this.accelerationX.TabIndex = 1;
             // 
@@ -165,8 +167,10 @@
             // 
             // angleZ
             // 
+            this.angleZ.BackColor = System.Drawing.SystemColors.Window;
             this.angleZ.Location = new System.Drawing.Point(51, 11);
             this.angleZ.Name = "angleZ";
+            this.angleZ.ReadOnly = true;
             this.angleZ.Size = new System.Drawing.Size(100, 20);
             this.angleZ.TabIndex = 1;
             // 
@@ -190,8 +194,10 @@
             // 
             // angleY
             // 
+            this.angleY.BackColor = System.Drawing.SystemColors.Window;
             this.angleY.Location = new System.Drawing.Point(51, 11);
             this.angleY.Name = "angleY";
+            this.angleY.ReadOnly = true;
             this.angleY.Size = new System.Drawing.Size(100, 20);
             this.angleY.TabIndex = 1;
             // 
@@ -215,8 +221,10 @@
             // 
             // angleX
             // 
+            this.angleX.BackColor = System.Drawing.SystemColors.Window;
             this.angleX.Location = new System.Drawing.Point(51, 11);
             this.angleX.Name = "angleX";
+            this.angleX.ReadOnly = true;
             this.angleX.Size = new System.Drawing.Size(100, 20);
             this.angleX.TabIndex = 1;
             // 
@@ -240,8 +248,10 @@
             // 
             // accelerationZ
             // 
+            this.accelerationZ.BackColor = System.Drawing.SystemColors.Window;
             this.accelerationZ.Location = new System.Drawing.Point(51, 11);
             this.accelerationZ.Name = "accelerationZ";
+            this.accelerationZ.ReadOnly = true;
             this.accelerationZ.Size = new System.Drawing.Size(100, 20);
             this.accelerationZ.TabIndex = 1;
             // 
@@ -265,8 +275,10 @@
             // 
             // accelerationY
             // 
+            this.accelerationY.BackColor = System.Drawing.SystemColors.Window;
             this.accelerationY.Location = new System.Drawing.Point(51, 11);
             this.accelerationY.Name = "accelerationY";
+            this.accelerationY.ReadOnly = true;
             this.accelerationY.Size = new System.Drawing.Size(100, 20);
             this.accelerationY.TabIndex = 1;
             // 
@@ -300,6 +312,7 @@
             // 
             // stopButton
             // 
+            this.stopButton.Enabled = false;
             this.stopButton.Location = new System.Drawing.Point(147, 544);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(115, 35);
@@ -320,17 +333,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tryb pomiaru";
             // 
-            // rotationRadioButton
+            // fullRadioButton
             // 
-            this.rotationRadioButton.AutoSize = true;
-            this.rotationRadioButton.Location = new System.Drawing.Point(7, 17);
-            this.rotationRadioButton.Name = "rotationRadioButton";
-            this.rotationRadioButton.Size = new System.Drawing.Size(51, 17);
-            this.rotationRadioButton.TabIndex = 0;
-            this.rotationRadioButton.TabStop = true;
-            this.rotationRadioButton.Text = "Obrót";
-            this.rotationRadioButton.UseVisualStyleBackColor = true;
-            this.rotationRadioButton.CheckedChanged += new System.EventHandler(this.rotationRadioButton_CheckedChanged);
+            this.fullRadioButton.AutoSize = true;
+            this.fullRadioButton.Checked = true;
+            this.fullRadioButton.Location = new System.Drawing.Point(267, 17);
+            this.fullRadioButton.Name = "fullRadioButton";
+            this.fullRadioButton.Size = new System.Drawing.Size(127, 17);
+            this.fullRadioButton.TabIndex = 2;
+            this.fullRadioButton.TabStop = true;
+            this.fullRadioButton.Text = "Obrót i przyśpieszenie";
+            this.fullRadioButton.UseVisualStyleBackColor = true;
+            this.fullRadioButton.CheckedChanged += new System.EventHandler(this.fullRadioButton_CheckedChanged);
             // 
             // translationRadioButton
             // 
@@ -344,18 +358,17 @@
             this.translationRadioButton.UseVisualStyleBackColor = true;
             this.translationRadioButton.CheckedChanged += new System.EventHandler(this.translationRadioButton_CheckedChanged);
             // 
-            // fullRadioButton
+            // rotationRadioButton
             // 
-            this.fullRadioButton.AutoSize = true;
-            this.fullRadioButton.Checked = true;
-            this.fullRadioButton.Location = new System.Drawing.Point(267, 17);
-            this.fullRadioButton.Name = "fullRadioButton";
-            this.fullRadioButton.Size = new System.Drawing.Size(127, 17);
-            this.fullRadioButton.TabIndex = 2;
-            this.fullRadioButton.TabStop = true;
-            this.fullRadioButton.Text = "Obrót i przyśpieszenie";
-            this.fullRadioButton.UseVisualStyleBackColor = true;
-            this.fullRadioButton.CheckedChanged += new System.EventHandler(this.fullRadioButton_CheckedChanged);
+            this.rotationRadioButton.AutoSize = true;
+            this.rotationRadioButton.Location = new System.Drawing.Point(7, 17);
+            this.rotationRadioButton.Name = "rotationRadioButton";
+            this.rotationRadioButton.Size = new System.Drawing.Size(51, 17);
+            this.rotationRadioButton.TabIndex = 0;
+            this.rotationRadioButton.TabStop = true;
+            this.rotationRadioButton.Text = "Obrót";
+            this.rotationRadioButton.UseVisualStyleBackColor = true;
+            this.rotationRadioButton.CheckedChanged += new System.EventHandler(this.rotationRadioButton_CheckedChanged);
             // 
             // ApplicationWindow
             // 
