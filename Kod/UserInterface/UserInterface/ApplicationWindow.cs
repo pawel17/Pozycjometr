@@ -127,8 +127,8 @@ namespace UserInterface
                 //}
 
                 int valuesNum = 3;
-                string positionString = "";
-                string angleString = "";
+                //string positionString = "";
+                //string angleString = "";
 
                 //if(accelerometerString.Length > 0) {
 
@@ -162,9 +162,9 @@ namespace UserInterface
                     angleY.Text = angleStrings[1];
                     angleZ.Text = angleStrings[2];
 
-                    positionString = String.Join(" ", positionStrings);
+                    //positionString = String.Join(" ", positionStrings);
 
-                    angleString = String.Join(" ", angleStrings);
+                    //angleString = String.Join(" ", angleStrings);
                // }
 
                 visualisation.Dispatcher.Invoke(() => ApplyMovement(position, angles));
