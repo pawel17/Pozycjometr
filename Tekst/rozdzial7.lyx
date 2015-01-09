@@ -76,7 +76,118 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  w formie graficznej wyników.
  Wykorzystano do tego platformę .NET i język C#.
  Powodem wyboru tej technologii była względna prostota i mnogość klas i
- technik, które umożliwiały osiągnięcie postawionego celu.
+ technik, które umożliwiały osiągnięcie postawionego celu na systemie Windows.
+ 
+\end_layout
+
+\begin_layout Section
+Okno główne aplikacji
+\end_layout
+
+\begin_layout Standard
+Okno główne zrealizowanego programu przedstawia się następująco:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tutaj wrzucić screena okna aplikacji i opisać poszczególne elementy okna
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Okno główne programu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Okno ustawień
+\end_layout
+
+\begin_layout Standard
+Okno ustawień parametrów transmisji szeregowej przedstawiono na poniższej
+ ilustracji.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Opcje programu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Kluczową klasą, która służy do przechowywania parametrów połączenia dostępnych
+ i wybranych jest klasa statyczna CommunicationParameters.
+ Klasa ta zapamiętuje wybrane parametry transmisji danych i tablice danych
+ wyświetlanych w listach rozwijanych.
+ Nazwy portów szeregowych dostępnych w danym komputerze otrzymano korzystając
+ z klasy SerialPort znajdującej się w przestrzeni nazw System.Port.IO, wykorzystyw
+anej w aplikacji do komunikacji z mikroprocesorem.
+ Aby rozpocząć pomiar konieczne jest jedynie wybranie odpowiedniej nazwy
+ portu.
+ Reszta parametrów domyślnie ustawiona jest na wartości, które wybrano już
+ w momencie konfiguracji komunikacji poprzez interfejs UART w mikroprocesorze.
+ W przypadku zmiany tych parametrów, konieczne jest wybranie odpowiednich
+ wartości w oknie opcji.
+ Kliknięcie przycisku Zapisz powoduje zapamiętanie wybranych parametrów
+ i powrót do okna głownego.
 \end_layout
 
 \begin_layout Section
@@ -87,7 +198,16 @@ Odebranie danych z portu szeregowego
 Pierwszym zadaniem, jakie było konieczne do zrealizowania wymagało odebrania
  danych pomiarowych otrzymanych z mikroprocesora za pośrednictwem portu
  szeregowego.
- Połączenie zrealizowano z wykorzystaniem klasy SerialPort.
+ Połączenie zrealizowano z wykorzystaniem klasy SerialPort, o której wspomniano
+ już wcześniej.
+ Klasa ta umożliwia kontrolę portów szeregowych komputera.
+ Zapewnia ona komunikację synchroniczną, sterowaną zdarzeniami wspierające
+ szereg typów kodowania: ASCII, UTF8, Unicode i UTF32.
+\end_layout
+
+\begin_layout Standard
+W aplikacji za komunikację z portem szeregowym odpowiedzialna jest klasa
+ COMPortManager.
  
 \end_layout
 

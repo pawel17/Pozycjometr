@@ -178,7 +178,7 @@ status open
 
 \begin_layout Plain Layout
 Tutaj opisz wszystkie czynności, które wykonywałeś przy pisaniu programu
- do zbierania danych i ich przetworzenia.
+ do zbierania danych.
  (moja propozycja)
 \end_layout
 
@@ -197,43 +197,44 @@ Ostatnim elementem pomiaru, który obsługiwany jest przez mikroprocesor jest
  W tym celu wybrano interfejs UART, który umożliwia asynchroniczne odbieranie
  i nadawnie unformacji przy pomocy portu szeregowego (opisany w rozdziale
  4.3).
- Zdecydowano się na wysyłanie danych za pomocą c-stringów w dwóch rodzajach:
- pierwszy z nich zawierał wartości przyspieszenia dla każdej z osi układu
- współrzędnych i był poprzedzony przedrostkiem 
+ Odbiór i dalsze przetwarzanie następowało w komputerze przenośnym, niewyposażon
+ym w złącze szeregowe.
+ Z tego względu konieczne było zakupienie konwertera RS-232 na USB.
+ Wykorzystano w tym celu przejściówkę opartą na chipsecie PL2303HX.
+ Po zainstalowaniu odpowiednich sterowników, port COM stawał się widoczny
+ w systemie.
+ Dzięki temu możliwe było odbieranie danych pomiarowych, przeliczenie i
+ wyświetlanie ich w aplikacji.
+\end_layout
+
+\begin_layout Standard
+W nieniejszej pracy wykorzystano wysyłanie i odbieranie danych za pośrednictwem
+ interfejsu UART.
+ Zarówno wysyłanie, jak i odbieranie danych oparto na przerwaniach.
+ Przerwania były generowane w momencie pojawienia się danych bądź to w buforze
+ wejściowym, bądź też w buforze wyjściowym.
+ Oba te typy były obsługiwane przez jedną procedurę obsługi przerwania.
+ W zależności od typu bufora, który otrzymał dane, przeprowadzano odczyt
+ lub zapis danych.
+ Mikroprocesor otrzymywał z komputera tylko jeden typ danych: był to ciąg
+ tekstowy 
 \begin_inset Quotes eld
 \end_inset
 
-ACL
+RESET
 \begin_inset Quotes erd
 \end_inset
 
 .
- Drugi, rozpoczynający się od przedrostka 
-\begin_inset Quotes eld
-\end_inset
-
-GYR
-\begin_inset Quotes erd
-\end_inset
-
- zawierał wartości kąta obrotu wokół każdej z trzech osi układu.
- Przedrostki zastosowano dla rozróżnienia typu danych przychodzących do
- komputera.
- Dzięki temu, można rozpoznać, jakimi parametrami są trzy kolejne cyfry
- znajdujące się w łańcuchu.
-\end_layout
-
-\begin_layout Standard
-Zgromadzone dane wysyłane były poprzez szeregowy interfejs UART.
- Odbiór i dalsze wyświetlanie następowało w komputerze przenośnym, niewyposażony
-m w złącze szeregowe.
- Z tego względu konieczne było zakupienie konwertera RS-232 na USB.
- Wykorzystano w tym celu przejściówkę UAS-DB9M-01 firmy Gembird, w której
- wykorzystano na chipset PL2303HX.
- Po zainstalowaniu odpowiednich sterowników, port COM stawał się widoczny
- w systemie.
- Dzięki temu możliwe było odbieranie danych pomiarowych i wyświetlanie ich
- w dowolnym programie obsługującym komunikację szeregową.
+ Po jego otrzymaniu następowało wyzerowanie zmiennych przechowujących wyniki
+ dotychczasowych pomiarów kąta obrotu i przyspieszenia.
+ Poprzez interfejs UART wysyłano łańcuchy znakowe zawierające wyniki.
+ Dane pomiarowe były zapisywane w postaci C-stringa składającego się z sześciu
+ liczb całkowitych oddzielonych znakami spacji.
+ Trzy pierwsze liczby były wynikami odczytanymi z akcelerometru dla osi
+ X, Y i Z, a trzy kolejne to dane z żyroskopu dla każdej z osi.
+ Tak przygotowany łańcuch przesyłany był do komputera, gdzie następowała
+ jego obróbka mająca na celu uzyskanie wartości liczbowych.
 \end_layout
 
 \end_body
