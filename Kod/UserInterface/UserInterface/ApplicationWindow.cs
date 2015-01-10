@@ -39,6 +39,8 @@ namespace UserInterface
             serialPortManager = new COMPortManager();
             serialPortManager.ReceivedData += new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived);
             graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
+            fullRadioButton.Checked = true;
+            this.fullRadioButton.CheckedChanged += new System.EventHandler(this.fullRadioButton_CheckedChanged);
         }
 
         private void NewSerialDataReceived(object sender, ReceivedDataEventArgs args)
