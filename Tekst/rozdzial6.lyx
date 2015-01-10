@@ -167,9 +167,9 @@ Przedstawiony na rysunku schemat przygotowano na zwykłej płytce uniwersalnej.
  układy PmodACL i PmodGYRO.
  Wykorzystanie wspomnianego złącza z zestawu uruchmieniowego pozwalało na
  stabilne przyłączenie akcelerometra i żyroskopu.
- Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger zapewniając
- niezawodność połączenia pomiędzy wszystkimi płytkami drukowanymi wchodzącymi
- w skład zestawu pomiarowego.
+ Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger oczywiście
+ wraz z mikroprocesorem zapewniając niezawodność połączenia pomiędzy wszystkimi
+ płytkami drukowanymi wchodzącymi w skład zestawu pomiarowego.
 \end_layout
 
 \begin_layout Standard
@@ -195,12 +195,12 @@ Komunikacja
 Ostatnim elementem pomiaru, który obsługiwany jest przez mikroprocesor jest
  wysłanie zmierzonych danych do komputera.
  W tym celu wybrano interfejs UART, który umożliwia asynchroniczne odbieranie
- i nadawnie unformacji przy pomocy portu szeregowego (opisany w rozdziale
+ i nadawanie unformacji przy pomocy portu szeregowego (opisany w rozdziale
  4.3).
- Odbiór i dalsze przetwarzanie następowało w komputerze przenośnym, niewyposażon
-ym w złącze szeregowe.
+ Odbiór i dalsze przetwarzanie danych następowało w komputerze przenośnym,
+ niewyposażonym w złącze szeregowe.
  Z tego względu konieczne było zakupienie konwertera RS-232 na USB.
- Wykorzystano w tym celu przejściówkę opartą na chipsecie PL2303HX.
+ Wykorzystano w tym celu układ oparty na chipsecie PL2303HX.
  Po zainstalowaniu odpowiednich sterowników, port COM stawał się widoczny
  w systemie.
  Dzięki temu możliwe było odbieranie danych pomiarowych, przeliczenie i
@@ -208,14 +208,14 @@ ym w złącze szeregowe.
 \end_layout
 
 \begin_layout Standard
-W nieniejszej pracy wykorzystano wysyłanie i odbieranie danych za pośrednictwem
- interfejsu UART.
+Tak jak już wspomniano, w nieniejszej pracy wykorzystano wysyłanie i odbieranie
+ danych za pośrednictwem interfejsu UART.
  Zarówno wysyłanie, jak i odbieranie danych oparto na przerwaniach.
  Przerwania były generowane w momencie pojawienia się danych bądź to w buforze
  wejściowym, bądź też w buforze wyjściowym.
  Oba te typy były obsługiwane przez jedną procedurę obsługi przerwania.
  W zależności od typu bufora, który otrzymał dane, przeprowadzano odczyt
- lub zapis danych.
+ lub zapis danych do interfejsu.
  Mikroprocesor otrzymywał z komputera tylko jeden typ danych: był to ciąg
  tekstowy 
 \begin_inset Quotes eld
