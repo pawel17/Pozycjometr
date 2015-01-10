@@ -61,10 +61,17 @@ namespace UserInterface
 
         private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string all = serialPort.ReadLine();
+            try
+            {
+                string all = serialPort.ReadLine();
 
-            if (ReceivedData != null)
-                ReceivedData(this, new ReceivedDataEventArgs(all));
+                if (ReceivedData != null)
+                    ReceivedData(this, new ReceivedDataEventArgs(all));
+            }
+            catch(Exception exc)
+            {
+
+            }
         }
 
         public void Dispose()
