@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="CommunicationParameters.cs" />
     <Compile Include="COMPortManager.cs" />
-    <Compile Include="MovementParameters.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>

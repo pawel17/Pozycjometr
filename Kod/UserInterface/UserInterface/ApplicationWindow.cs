@@ -149,17 +149,18 @@ namespace UserInterface
 
         private void ResetMovement()
         {
-            visualisation.WindowMode = graphicWindowMode;
+            /*visualisation.WindowMode = graphicWindowMode;
+            
+            visualisation.AccelerationX = -orientationCalc.position[0];
+            visualisation.AccelerationY = -orientationCalc.position[1];
+            visualisation.AccelerationZ = -orientationCalc.position[2];
 
-            visualisation.AccelerationX = -AccelerationX;
-            visualisation.AccelerationY = -AccelerationY;
-            visualisation.AccelerationZ = -AccelerationZ;
+            visualisation.AngleX = -orientationCalc.angle[0];
+            visualisation.AngleY = -orientationCalc.angle[1];
+            visualisation.AngleZ = -orientationCalc.angle[2];
 
-            visualisation.AngleX = -AngleX;
-            visualisation.AngleY = -AngleY;
-            visualisation.AngleZ = -AngleZ;
-
-            visualisation.ApplyTransformation();
+            visualisation.ApplyTransformation();*/
+            visualisation.RemoveAllTransformation();
         }
 
         private void ClearVisualisation()

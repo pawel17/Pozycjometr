@@ -113,6 +113,17 @@ namespace DataVisualisation
                 group.Children.Add(t3);
             }
         }
+
+        public void RemoveAllTransformation()
+        {
+            Transform3DGroup group = mCube.Transform as Transform3DGroup;
+            Transform3D groupChildren;
+            for (int i = group.Children.Count - 1; i >= 0; i--)
+            {
+                groupChildren = (Transform3D)group.Children[i];
+                group.Children.RemoveAt(i);
+            }
+        }
         
         private Model3DGroup MeshTriangle(Point3D p0, Point3D p1, Point3D p2, Color color)
         {

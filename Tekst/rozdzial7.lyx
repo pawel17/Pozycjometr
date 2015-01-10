@@ -76,19 +76,239 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  w formie graficznej wyników.
  Wykorzystano do tego platformę .NET i język C#.
  Powodem wyboru tej technologii była względna prostota i mnogość klas i
- technik, które umożliwiały osiągnięcie postawionego celu.
+ technik, które umożliwiały osiągnięcie postawionego celu na systemie Windows.
+ 
 \end_layout
 
 \begin_layout Section
-Odebranie danych z portu szeregowego
+Okno główne aplikacji
+\end_layout
+
+\begin_layout Standard
+Okno główne zrealizowanego programu przedstawiono na rysunku 7.1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/aplikacja/okno_glowne.png
+	lyxscale 70
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Okno główne programu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otrzymane wyniki pomiaru przyśpieszenia i kąta obrotu wypisane są w odpowiednich
+ polach, dla każdej z osi osobno.
+ Jednakże najważniejszym elementem aplikacji jest okno wyświetlania wyników
+ pomiaru w formie graficznej.
+ Sześcian symbolizuje układ pomiarowy, dodatkowo przedstawiono osie układu
+ współrzędnych: oś X jest koloru niebieskiego, oś Y - żółtego a oś Z jest
+ czerwona.
+ Dzięki temu można łatwiej zaobserwować wszelkie przemieszczenia i zmiany
+ kąta względem położenia początkowego.
+ Poniżej okna wizualizacji umieszczono trzy przełączniki zgrupowane w panelu
+ Tryb pomiaru.
+ Umożliwiają one przełączanie się pomiędzy trzema różnymi trybami wizualizacji.
+ Obrót umożliwia obserwację jedynie wyników pracy żyroskopu, Przemieszczenie
+ wyłącza wizualizację obrotów bryły pozostawiając przemieszczenie, a ostatni
+ przełącznik pozwala na pełny podgląd wyników pomiarów.
+ Przycisk Ustawienia pozwala na ustawienie parametrów połączenia w osobnym
+ oknie.
+ Zostanie ono szczegółowo opisane w kolejnej części.
+ Wciśnięcie przycisku O programie wyświetla szczegółową informację o zrealizowan
+ej pracy inżynierskiej.
+ Za rozpoczęcie i zakończenie pomiarów odpowiadają przyciski Rozpocznij
+ pomiar i Zakończ pomiar.
+ W jednej chwili tylko jeden z przycisków jest aktywny, dzięki czemu nie
+ ma możliwości wielokrotnego zainicjalizowania/zakończenia połączenia z
+ wykorzystaniem interfejsu szeregowego.
+ W przypadku próby nawiązania połączenia bez odpowiednio skonfigurowanych
+ parametrów połączenia wyświetlony zostanie odpowiedni komunikat informujący
+ o konieczności poprawienia wprowadzonych danych.
+\end_layout
+
+\begin_layout Section
+Okno ustawień
+\end_layout
+
+\begin_layout Standard
+Okno ustawień parametrów transmisji szeregowej przedstawiono na poniższej
+ ilustracji.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/aplikacja/opcje.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Opcje programu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Kluczową klasą, która służy do przechowywania parametrów połączenia dostępnych
+ i wybranych jest klasa statyczna CommunicationParameters.
+ Klasa ta zapamiętuje wybrane parametry transmisji danych i tablice danych
+ wyświetlanych w listach rozwijanych.
+ Nazwy portów szeregowych dostępnych w danym komputerze otrzymano korzystając
+ z metody GetPortNames klasy SerialPort znajdującej się w przestrzeni nazw
+ System.Port.IO, wykorzystywanej w aplikacji do komunikacji z mikroprocesorem.
+ Aby rozpocząć pomiar konieczne jest jedynie wybranie odpowiedniej nazwy
+ portu.
+ Reszta parametrów domyślnie ustawiona jest na wartości, które wybrano już
+ w momencie konfiguracji komunikacji poprzez interfejs UART w mikroprocesorze.
+ W przypadku zmiany tych parametrów, konieczne jest wybranie odpowiednich
+ wartości w oknie opcji.
+ Kliknięcie przycisku Zapisz powoduje zapamiętanie wybranych parametrów
+ i powrót do okna głownego.
+\end_layout
+
+\begin_layout Section
+Komunikacja z portem szeregowym
 \end_layout
 
 \begin_layout Standard
 Pierwszym zadaniem, jakie było konieczne do zrealizowania wymagało odebrania
  danych pomiarowych otrzymanych z mikroprocesora za pośrednictwem portu
  szeregowego.
- Połączenie zrealizowano z wykorzystaniem klasy SerialPort.
+ Za komunikację z tym mikroprocesorem za pośrednictwem tego portu odpowiedzialna
+ jest klasa COMPortManager.
+ Wykorzystano w tym celu klasę SerialPort, o której wspomniano już wcześniej.
+ Klasa ta umożliwia kontrolę portów szeregowych komputera.
+ Zapewnia ona komunikację synchroniczną, sterowaną zdarzeniami wspierającą
+ szereg typów kodowania: ASCII, UTF8, Unicode i UTF32.
  
+\end_layout
+
+\begin_layout Standard
+Komunikacja z portem szeregowym odbywa się w puli wątków, dzięki czemu wykonywan
+a jest ona w tle.
+ W przypadku, gdy za pomocą tego portu otrzymane zostaną dane, wywoływane
+ jest zdarzenie obsługiwane przez metodę SerialPortDataRecieved.
+ Odczytuje ona dane otrzymane z portu szeregowego i zapisuje je w postaci
+ stringu.
+ Następnie dane te są opakowane w klasę ReceivedDataEventArgs, która odpowiada
+ za przechowywanie danych zdarzenia.
+ Potem wywoływane jest zdarzenie z uzyskanymi wynikami, które przekazuje
+ je do głównego okna aplikacji.
+ W klasie COMPortManager jest również zaimplementowana metoda, której zadaniem
+ jest wysyłanie do mikroprocesora komunikatu o treści 
+\begin_inset Quotes eld
+\end_inset
+
+RESET
+\begin_inset Quotes erd
+\end_inset
+
+, który powoduje wyzerowanie dotychczasowych wyników pomiarów.
+\end_layout
+
+\begin_layout Section
+Przeliczenie otrzymanych wyników
+\end_layout
+
+\begin_layout Standard
+Klasa ApplicationWindow, wyświetlająca główne okno aplikacji odbiera dane
+ z klasy COMPortManager w procedurze obsługi zdarzenia.
+ Dodatkowo metoda ta rozpoczyna się od spradzenia, czy wywoływanie nie jest
+ wykonywane spoza bieżącego wątku.
+ Jeśli taka sytuacja ma miejsce, metoda ta zapisywana jest jako delegat,
+ który zostaje wykonany asynchronicznie z argumentami otrzymanymi z klasy
+ obsługującej komunikację z portem szeregowym.
+ 
+\end_layout
+
+\begin_layout Standard
+String zawierający dane odczytane z akcelerometru i żyroskopu zostaje następnie
+ rozdzielony na poszczególne dane.
+ Trzy pierwsze stringi zawierają dane pomiarowe dotyczące przyspieszenia
+ zostają, kolejne trzy to wyniki pomiarów żyroskopu.
+ Zostają one zapisane do dwóch tablic łańcuchów znakowych, a następnie zostają
+ przekształcone do postaci liczb całokowitych, które posłużą do dalszych
+ przeliczeń.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tutaj proponowałbym opisanie obliczeń
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otrzymane wyniki zapisywane są do odpowiednich pól tekstowych w oknie głównym
+ aplikacji.
+ Ze względu na fakt, iż wyliczone wartości nie mogą być bezpośrednio zapisane
+ do klasy działającej w innym wątku, konieczne było zastosowanie metody
+ Invoke klasy Dispatcher na obiekcie okna wizualizacji.
+ Klasa Dispatcher umożliwia zarządzenia kolejką elementów roboczych dla
+ danego wątku, w tym wypadku okna wizualizacji.
+ Metoda Invoke jako argument przyjmuje delegat do metody, która zostanie
+ na tym wątku wykonana.
+\end_layout
+
+\begin_layout Section
+Wizualizacja danych
 \end_layout
 
 \end_body
