@@ -15,7 +15,7 @@
 
             <ModelVisual3D>
                 <ModelVisual3D.Content>
-                    <DirectionalLight Color="White" Direction="-5,-8,-9" />
+                    <DirectionalLight Color="White" Direction="-4,6,-5" />
                 </ModelVisual3D.Content>
             </ModelVisual3D>
         </Viewport3D>

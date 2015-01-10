@@ -68,9 +68,9 @@ namespace UserInterface
                 if (ReceivedData != null)
                     ReceivedData(this, new ReceivedDataEventArgs(all));
             }
-            catch(Exception exc)
+            catch(Exception)
             {
-
+                return;
             }
         }
 

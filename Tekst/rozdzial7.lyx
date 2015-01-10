@@ -75,7 +75,7 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
  w formie graficznej wyników.
  Wykorzystano do tego platformę .NET i język C# z wykorzystaniem Windows
- Forms.
+ Forms dla stworzenia interfejsu.
  Powodem wyboru tej technologii była względna prostota i mnogość klas i
  technik, które umożliwiały osiągnięcie postawionego celu na systemie Windows.
  
@@ -175,10 +175,6 @@ Okno informacji o programie
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -214,7 +210,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Okno błędu
+Okno błędu połączenia z portem COM
 \end_layout
 
 \end_inset

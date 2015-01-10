@@ -38,6 +38,7 @@ namespace UserInterface
         {
             serialPortManager = new COMPortManager();
             serialPortManager.ReceivedData += new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived);
+            graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
         }
 
         private void NewSerialDataReceived(object sender, ReceivedDataEventArgs args)
@@ -144,6 +145,7 @@ namespace UserInterface
                 AngleY = angY;
                 AngleZ = angZ;
             }
+            visualisation.WindowMode = graphicWindowMode;
             visualisation.ApplyTransformation();
         }
 
