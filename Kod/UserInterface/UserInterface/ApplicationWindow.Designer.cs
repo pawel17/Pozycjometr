@@ -331,7 +331,7 @@
             this.groupBox1.Size = new System.Drawing.Size(394, 40);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tryb pomiaru";
+            this.groupBox1.Text = "Tryb wizualizacji";
             // 
             // fullRadioButton
             // 

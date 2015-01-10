@@ -75,20 +75,26 @@ Ostatnim elementem pomiaru, który obs³ugiwany jest przez mikroprocesor
 jest wys³anie zmierzonych danych do komputera. W tym celu wybrano
 interfejs UART, który umo¿liwia asynchroniczne odbieranie i nadawnie
 unformacji przy pomocy portu szeregowego (opisany w rozdziale 4.3).
-Zdecydowano siê na wysy³anie danych za pomoc± c-stringów w dwóch rodzajach:
-pierwszy z nich zawiera³ warto¶ci przyspieszenia dla ka¿dej z osi
-uk³adu wspó³rzêdnych i by³ poprzedzony przedrostkiem ``ACL''. Drugi,
-rozpoczynaj±cy siê od przedrostka ``GYR'' zawiera³ warto¶ci k±ta
-obrotu wokó³ ka¿dej z trzech osi uk³adu. Przedrostki zastosowano dla
-rozró¿nienia typu danych przychodz±cych do komputera. Dziêki temu,
-mo¿na rozpoznaæ, jakimi parametrami s± trzy kolejne cyfry znajduj±ce
-siê w ³añcuchu.
+Odbiór i dalsze przetwarzanie nastêpowa³o w komputerze przeno¶nym,
+niewyposa¿onym w z³±cze szeregowe. Z tego wzglêdu konieczne by³o zakupienie
+konwertera RS-232 na USB. Wykorzystano w tym celu przej¶ciówkê opart±
+na chipsecie PL2303HX. Po zainstalowaniu odpowiednich sterowników,
+port COM stawa³ siê widoczny w systemie. Dziêki temu mo¿liwe by³o
+odbieranie danych pomiarowych, przeliczenie i wy¶wietlanie ich w aplikacji.
 
-Zgromadzone dane wysy³ane by³y poprzez szeregowy interfejs UART. Odbiór
-i dalsze wy¶wietlanie nastêpowa³o w komputerze przeno¶nym, niewyposa¿onym
-w z³±cze szeregowe. Z tego wzglêdu konieczne by³o zakupienie konwertera
-RS-232 na USB. Wykorzystano w tym celu przej¶ciówkê UAS-DB9M-01 firmy
-Gembird, w której wykorzystano na chipset PL2303HX. Po zainstalowaniu
-odpowiednich sterowników, port COM stawa³ siê widoczny w systemie.
-Dziêki temu mo¿liwe by³o odbieranie danych pomiarowych i wy¶wietlanie
-ich w dowolnym programie obs³uguj±cym komunikacjê szeregow±.
+W nieniejszej pracy wykorzystano wysy³anie i odbieranie danych za
+po¶rednictwem interfejsu UART. Zarówno wysy³anie, jak i odbieranie
+danych oparto na przerwaniach. Przerwania by³y generowane w momencie
+pojawienia siê danych b±d¼ to w buforze wej¶ciowym, b±d¼ te¿ w buforze
+wyj¶ciowym. Oba te typy by³y obs³ugiwane przez jedn± procedurê obs³ugi
+przerwania. W zale¿no¶ci od typu bufora, który otrzyma³ dane, przeprowadzano
+odczyt lub zapis danych. Mikroprocesor otrzymywa³ z komputera tylko
+jeden typ danych: by³ to ci±g tekstowy ``RESET''. Po jego otrzymaniu
+nastêpowa³o wyzerowanie zmiennych przechowuj±cych wyniki dotychczasowych
+pomiarów k±ta obrotu i przyspieszenia. Poprzez interfejs UART wysy³ano
+³añcuchy znakowe zawieraj±ce wyniki. Dane pomiarowe by³y zapisywane
+w postaci C-stringa sk³adaj±cego siê z sze¶ciu liczb ca³kowitych oddzielonych
+znakami spacji. Trzy pierwsze liczby by³y wynikami odczytanymi z akcelerometru
+dla osi X, Y i Z, a trzy kolejne to dane z ¿yroskopu dla ka¿dej z
+osi. Tak przygotowany ³añcuch przesy³any by³ do komputera, gdzie nastêpowa³a
+jego obróbka maj±ca na celu uzyskanie warto¶ci liczbowych.

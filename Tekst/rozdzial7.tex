@@ -11,7 +11,67 @@ przyspieszeñ b±d¼ obrotów. W tym celu przygotowano aplikacjê, której
 zadaniem jest odbiór i wy¶wietlenie w formie graficznej wyników. Wykorzystano
 do tego platformê .NET i jêzyk C\#. Powodem wyboru tej technologii
 by³a wzglêdna prostota i mnogo¶æ klas i technik, które umo¿liwia³y
-osi±gniêcie postawionego celu.
+osi±gniêcie postawionego celu na systemie Windows. 
+
+
+\section{Okno g³ówne aplikacji}
+
+Okno g³ówne zrealizowanego programu przedstawiono na rysunku 7.1
+
+
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.5]{rys/aplikacja/okno_glowne}
+\par\end{centering}
+
+\caption{Okno g³ówne programu}
+\end{figure}
+
+
+Najwa¿niejszym elementem aplikacji jest okno wy¶wietlania wyników
+pomiaru. Sze¶cian symbolizuje uk³ad pomiarowy, a wszelkie przemieszczenia
+i zmiany k±ta zost
+
+
+\section{Okno ustawieñ}
+
+Okno ustawieñ parametrów transmisji szeregowej przedstawiono na poni¿szej
+ilustracji.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.7]{rys/aplikacja/opcje}\caption{Opcje programu}
+
+\par\end{centering}
+
+\end{figure}
+
+
+Kluczow± klas±, która s³u¿y do przechowywania parametrów po³±czenia
+dostêpnych i wybranych jest klasa statyczna CommunicationParameters.
+Klasa ta zapamiêtuje wybrane parametry transmisji danych i tablice
+danych wy¶wietlanych w listach rozwijanych. Nazwy portów szeregowych
+dostêpnych w danym komputerze otrzymano korzystaj±c z klasy SerialPort
+znajduj±cej siê w przestrzeni nazw System.Port.IO, wykorzystywanej
+w aplikacji do komunikacji z mikroprocesorem. Aby rozpocz±æ pomiar
+konieczne jest jedynie wybranie odpowiedniej nazwy portu. Reszta parametrów
+domy¶lnie ustawiona jest na warto¶ci, które wybrano ju¿ w momencie
+konfiguracji komunikacji poprzez interfejs UART w mikroprocesorze.
+W przypadku zmiany tych parametrów, konieczne jest wybranie odpowiednich
+warto¶ci w oknie opcji. Klikniêcie przycisku Zapisz powoduje zapamiêtanie
+wybranych parametrów i powrót do okna g³ownego.
 
 
 \section{Odebranie danych z portu szeregowego}
+
+Pierwszym zadaniem, jakie by³o konieczne do zrealizowania wymaga³o
+odebrania danych pomiarowych otrzymanych z mikroprocesora za po¶rednictwem
+portu szeregowego. Po³±czenie zrealizowano z wykorzystaniem klasy
+SerialPort, o której wspomniano ju¿ wcze¶niej. Klasa ta umo¿liwia
+kontrolê portów szeregowych komputera. Zapewnia ona komunikacjê synchroniczn±,
+sterowan± zdarzeniami wspieraj±ce szereg typów kodowania: ASCII, UTF8,
+Unicode i UTF32.
+
+W aplikacji za komunikacjê z portem szeregowym odpowiedzialna jest
+klasa COMPortManager. Odpowiada ona za ca³o¶æ komunikacji z mikroprocesorem.
