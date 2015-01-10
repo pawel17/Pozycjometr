@@ -160,7 +160,7 @@ namespace UserInterface
             visualisation.AngleZ = -orientationCalc.angle[2];
 
             visualisation.ApplyTransformation();*/
-            visualisation.RemoveAllTransformation();
+            visualisation.RemoveAllTransformations();
         }
 
         private void ClearVisualisation()
