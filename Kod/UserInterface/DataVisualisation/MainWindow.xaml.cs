@@ -86,18 +86,18 @@ namespace DataVisualisation
             RotateTransform3D r1 = new RotateTransform3D(aX);
 
             AxisAngleRotation3D aY = new AxisAngleRotation3D();
-            aY.Axis = new Vector3D(0, 0, 1);
+            aY.Axis = new Vector3D(0, 1, 0);
             aY.Angle = angY;
             RotateTransform3D r2 = new RotateTransform3D(aY);
 
             AxisAngleRotation3D aZ= new AxisAngleRotation3D();
-            aZ.Axis = new Vector3D(0, 1, 0);
+            aZ.Axis = new Vector3D(0, 0, 1);
             aZ.Angle = angZ;
             RotateTransform3D r3 = new RotateTransform3D(aZ);
 
             TranslateTransform3D t1 = new TranslateTransform3D(accX, 0, 0);
-            TranslateTransform3D t2 = new TranslateTransform3D(0, accY, 0);
-            TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accZ);
+            TranslateTransform3D t2 = new TranslateTransform3D(0, accZ, 0);
+            TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accY);
 
             if (mode != VisualisationMode.TranslationMode)
             {

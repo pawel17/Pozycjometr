@@ -8,8 +8,8 @@
     <Grid Background="Black">
         <Viewport3D x:Name="mainView">
             <Viewport3D.Camera>
-                <PerspectiveCamera x:Name="camera" FarPlaneDistance="100" LookDirection="-9,-8,-21"
-					UpDirection="0,1,0" NearPlaneDistance="1" Position="9,8,21"
+                <PerspectiveCamera x:Name="camera" FarPlaneDistance="100" LookDirection="-9,21,-8"
+					UpDirection="0,0,1" NearPlaneDistance="1" Position="9,-21,8"
 					FieldOfView="70" />
             </Viewport3D.Camera>
 
