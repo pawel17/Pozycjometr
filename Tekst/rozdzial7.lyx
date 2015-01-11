@@ -74,7 +74,8 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  w sposób, który umożliwi zobrazowanie zmierzonych przyspieszeń bądź obrotów.
  W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
  w formie graficznej wyników.
- Wykorzystano do tego platformę .NET i język C#.
+ Wykorzystano do tego platformę .NET i język C# z wykorzystaniem Windows
+ Forms dla stworzenia interfejsu.
  Powodem wyboru tej technologii była względna prostota i mnogość klas i
  technik, które umożliwiały osiągnięcie postawionego celu na systemie Windows.
  
@@ -143,15 +144,87 @@ Otrzymane wyniki pomiaru przyśpieszenia i kąta obrotu wypisane są w odpowiedn
  oknie.
  Zostanie ono szczegółowo opisane w kolejnej części.
  Wciśnięcie przycisku O programie wyświetla szczegółową informację o zrealizowan
-ej pracy inżynierskiej.
- Za rozpoczęcie i zakończenie pomiarów odpowiadają przyciski Rozpocznij
- pomiar i Zakończ pomiar.
+ej pracy inżynierskiej (Rysunek 7.3).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/aplikacja/info.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Okno informacji o programie
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Za rozpoczęcie i zakończenie pomiarów odpowiadają przyciski Rozpocznij pomiar
+ i Zakończ pomiar.
  W jednej chwili tylko jeden z przycisków jest aktywny, dzięki czemu nie
  ma możliwości wielokrotnego zainicjalizowania/zakończenia połączenia z
  wykorzystaniem interfejsu szeregowego.
  W przypadku próby nawiązania połączenia bez odpowiednio skonfigurowanych
  parametrów połączenia wyświetlony zostanie odpowiedni komunikat informujący
- o konieczności poprawienia wprowadzonych danych.
+ o konieczności poprawienia wprowadzonych danych (Rysunek.7.4).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/aplikacja/blad.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Okno błędu połączenia z portem COM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -303,12 +376,107 @@ Otrzymane wyniki zapisywane są do odpowiednich pól tekstowych w oknie główny
  Invoke klasy Dispatcher na obiekcie okna wizualizacji.
  Klasa Dispatcher umożliwia zarządzenia kolejką elementów roboczych dla
  danego wątku, w tym wypadku okna wizualizacji.
- Metoda Invoke jako argument przyjmuje delegat do metody, która zostanie
+ Metoda Invoke jako argument przyjmuje delegat do funkcji, która zostanie
  na tym wątku wykonana.
+ Tą funkcją jest metoda klasy ApplicationWindow o nazwie ApplyMovement,
+ która jako argumenty przyjmuje dwie tablice danych z wynikami z obu urządzeń
+ pomiarowych.
+ Wartości te są przypisywane do odpowiednich zmiennych Należy tutaj zaznaczyć,
+ że w przypadku, gdy metoda ta wywoływana jest po raz pierwszy, wyniki pomiaru
+ przesunięcia/obrotu są bezpośrednio wpisywane do odpowiednich zmiennych
+ w obiekcie okna wizualizacji, a ich wartości zapamiętywane w odpowiedniej
+ zmiennej w klasie ApplicationWindow.
+ Każdy kolejny pomiar skutkuje zapisaniem do okna liczby będącej różnicą
+ poprzedniej i obecnej.
+ Dzięki temu, aktualizacja pozycji sześcianu skutkuje jego przesunięciem
+ jedynie o wartość będącą różnicą pomiędzy dwoma kolejnymi pomiarami.
+ Po zapisaniu wartości zmiennych, wywoływana jest w oknie metoda, której
+ zadaniem jest wykonanie wszytkich transformacji na sześcianie.
+ 
+\end_layout
+
+\begin_layout Standard
+Metoda powodująca usunięcie wszystkich transformacji również jest wywoływana
+ z wykorzystaniem metody Invoke klasy Dispatcher.
+ Dzięki niej można przywrócić domyślne położenie sześcianiu i rozpocząć
+ pomiar od początku, określając bieżące położenie układu jako domyślne.
+ Metoda ta jest wywoływana każdorazowo przy przełączaniu trybu wizualizacji,
+ jak również po zakończeniu pomiaru.
 \end_layout
 
 \begin_layout Section
 Wizualizacja danych
+\end_layout
+
+\begin_layout Standard
+Biorąc pod uwagę założenia przyjęte przed realizacją pracy, był to najważniejszy
+ etap w tworzeniu interfejsu użytkownika.
+ Konieczny był wybór takiej technologii, która dobrze współgrała z resztą
+ programu napisaną w języku C# a jednocześnie zapewniałaby duże możliwości
+ wizualizacji danych w postaci obiektów trójwymiarowych.
+ Z tego względu zdecydowano się skorzystać z Windows Presentation Foundation.
+ Jest to silnik graficzny oparty o grafikę wektorową, który pozwala na szerokie
+ możliwości tworzenia aplikacji.
+ API w WPF opiera się na języku XML, a dokładniej wykorzystuje jego implementacj
+ę o nazwie XAML.
+ Zapewnia on powiązanie pomiędzy interfejsem a logiką i umożliwia tworzenie
+ zaawansowanych kontrolek, grafiki 2D i 3D, animacji, dokumentów, multimediów
+ czy też tekstu.
+ Dodatkową zaletą jest fakt, iż Windows Presentation Foundation jest zawarta
+ w Microsoft .NET Framework, co czyni ją łatwodostępną i zdolną do pracy
+ z innymi elementami biblioteki .NET Framework.
+\end_layout
+
+\begin_layout Standard
+Okno wizualizacji zbudowane zostało jako biblioteka łączona dynamicznie.
+ Takie rozwiązanie jest konieczne ze względu na fakt, iż okno stworzone
+ w WPF będzie umieszczone w interfejsie stworzonym za pomocą Windows Forms.
+ Dodatkowo konieczne było podłączenie kilku bibliotek, które są konieczne
+ w poprawnym działaniu aplikacji.
+ 
+\end_layout
+
+\begin_layout Standard
+Podstawowym elementem tworzącym grafikę 3D jest trójkąt.
+ Stworzenie za pomocą trójkątów sześcianu nie jest szczególnie trudnym wyzwaniem.
+ Problemem okazało się narysowanie za pomocą trójkąta linii, które oznaczały
+ osie układu współrzędnych.
+ Teoretycznie linię można narysować z wykorzystaniem odpowiednio przeskalowanego
+ prostokąta, lecz w takim wypadku pojawia się problem z zapewnieniem odpowiednie
+go oświetlenia i ustawienia kamery.
+ Ze względu na znaczen trudności, jakie mogła nieść ze sobą implementacja
+ tego rozwiązania, zdecydowano się na wykorzytanie biblioteki 3D Tools przygotow
+anej przez Microsoft.
+ Zawiera ona klasę ScreenSpaceLines3D, które pozwalają na proste kreślenie
+ linii.
+\end_layout
+
+\begin_layout Standard
+Jak już wspomniano w poprzednim paragrafie, dwie metody klasy ApplicationWindow
+ operują bezpośrednio na danych klasy MainWindow, odpowiadającej za wizualizację
+ wyników pomiaru.
+ Najważniejszą z metod w tej klasie jest metoda ApplyTransformation, która
+ na podstawie danych zapisanych przez metodę ApplyMovement z interfejsu
+ wykonuje odpowiednie transformacje na sześcianie.
+ W tym celu wykorzystywane są dwie klasy: AxisAngleRotation3D i TranslateTransfo
+rm3D.
+ Klasa AxisAngleRotation3D służy do obracania danego obiektu.
+ Do jej poprawnej pracy konieczne jest podanie osi obrotu i kąta, o jaki
+ należy obrócić obiekt.
+ TranslateTransform3D przesuwa obiekt o dany wektor.
+ Współrzędne wektora to wartości otrzymane z akcelerometru.
+ Przyspieszenie obrazuje przesunięcie obiektu od środka układu współrzędnych.
+ Tak przygotowane obiekty tych klas dodaje się do kolekcji transformacji
+ przypisanych do obiektu, w tym przypadku sześcianu.
+\end_layout
+
+\begin_layout Standard
+Powrót do stanu początkowego realizowany jest w metodzie RemoveAllTransformation
+s.
+ Odczytywana jest kolekcja transformacji, które wykonano na obiekcie, a
+ następnie są one usuwane w kolejności odwrotnej do dodania.
+ Dzięki temu mamy pewność, że wszystkie przesunięcia i obroty zostaną poprawnie
+ usunięte i obiekt powróci do domyślego położenia.
 \end_layout
 
 \end_body

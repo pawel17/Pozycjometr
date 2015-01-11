@@ -336,15 +336,12 @@
             // fullRadioButton
             // 
             this.fullRadioButton.AutoSize = true;
-            this.fullRadioButton.Checked = true;
             this.fullRadioButton.Location = new System.Drawing.Point(267, 17);
             this.fullRadioButton.Name = "fullRadioButton";
             this.fullRadioButton.Size = new System.Drawing.Size(127, 17);
             this.fullRadioButton.TabIndex = 2;
-            this.fullRadioButton.TabStop = true;
             this.fullRadioButton.Text = "Obrót i przyśpieszenie";
             this.fullRadioButton.UseVisualStyleBackColor = true;
-            this.fullRadioButton.CheckedChanged += new System.EventHandler(this.fullRadioButton_CheckedChanged);
             // 
             // translationRadioButton
             // 
@@ -353,7 +350,6 @@
             this.translationRadioButton.Name = "translationRadioButton";
             this.translationRadioButton.Size = new System.Drawing.Size(94, 17);
             this.translationRadioButton.TabIndex = 1;
-            this.translationRadioButton.TabStop = true;
             this.translationRadioButton.Text = "Przyśpieszenie";
             this.translationRadioButton.UseVisualStyleBackColor = true;
             this.translationRadioButton.CheckedChanged += new System.EventHandler(this.translationRadioButton_CheckedChanged);
@@ -366,7 +362,6 @@
             this.rotationRadioButton.Name = "rotationRadioButton";
             this.rotationRadioButton.Size = new System.Drawing.Size(51, 17);
             this.rotationRadioButton.TabIndex = 0;
-            this.rotationRadioButton.TabStop = true;
             this.rotationRadioButton.Text = "Obrót";
             this.rotationRadioButton.UseVisualStyleBackColor = true;
             this.rotationRadioButton.CheckedChanged += new System.EventHandler(this.rotationRadioButton_CheckedChanged);

@@ -95,9 +95,7 @@ namespace DataVisualisation
             aZ.Angle = angZ;
             RotateTransform3D r3 = new RotateTransform3D(aZ);
 
-            TranslateTransform3D t1 = new TranslateTransform3D(accX, 0, 0);
-            TranslateTransform3D t2 = new TranslateTransform3D(0, accZ, 0);
-            TranslateTransform3D t3 = new TranslateTransform3D(0, 0, accY);
+            TranslateTransform3D t = new TranslateTransform3D(accX, accZ, accY);
 
             if (mode != VisualisationMode.TranslationMode)
             {
@@ -108,13 +106,11 @@ namespace DataVisualisation
 
             if (mode != VisualisationMode.RotationMode)
             {
-                group.Children.Add(t1);
-                group.Children.Add(t2);
-                group.Children.Add(t3);
+                group.Children.Add(t);
             }
         }
 
-        public void RemoveAllTransformation()
+        public void RemoveAllTransformations()
         {
             Transform3DGroup group = mCube.Transform as Transform3DGroup;
             Transform3D groupChildren;

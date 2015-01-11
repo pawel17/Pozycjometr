@@ -38,6 +38,9 @@ namespace UserInterface
         {
             serialPortManager = new COMPortManager();
             serialPortManager.ReceivedData += new EventHandler<ReceivedDataEventArgs>(NewSerialDataReceived);
+            graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
+            fullRadioButton.Checked = true;
+            this.fullRadioButton.CheckedChanged += new System.EventHandler(this.fullRadioButton_CheckedChanged);
         }
 
         private void NewSerialDataReceived(object sender, ReceivedDataEventArgs args)
@@ -144,6 +147,7 @@ namespace UserInterface
                 AngleY = angY;
                 AngleZ = angZ;
             }
+            visualisation.WindowMode = graphicWindowMode;
             visualisation.ApplyTransformation();
         }
 
@@ -160,7 +164,7 @@ namespace UserInterface
             visualisation.AngleZ = -orientationCalc.angle[2];
 
             visualisation.ApplyTransformation();*/
-            visualisation.RemoveAllTransformation();
+            visualisation.RemoveAllTransformations();
         }
 
         private void ClearVisualisation()
