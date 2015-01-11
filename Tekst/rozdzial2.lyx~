@@ -76,7 +76,7 @@ Plik \LaTeX owy jest plikiem tekstowym, który oprócz tekstu zawiera polecenia 
 \paragraph_separation indent
 \paragraph_indentation default
 \quotes_language polish
-\papercolumns 1
+\papercolumns 2
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
@@ -489,7 +489,7 @@ C).
 \begin_layout Standard
 Istotnym aspektem odróżniającym akcelerometry jest wykorzystywane w nich
  zjawisko fizyczne, pozwalające na pomiar przyspieszenia.
- W dalszej części omówiono najczęściej spotykane rodzaje akcelerometrów
+ W dalszej części omówiono najczęściej spotykane rodzaje przyspieszeniomierzy
  oraz zasadę ich działania.
 \end_layout
 

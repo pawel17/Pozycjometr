@@ -49,7 +49,7 @@
 \paragraph_separation indent
 \paragraph_indentation default
 \quotes_language english
-\papercolumns 1
+\papercolumns 2
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
@@ -1662,7 +1662,7 @@ ADDS.N R0, #5 ;Jawne użycie rozkazu 16-bitowego (N = Narrow)
 
 \begin_layout Plain Layout
 
-ADDS.W R0, #5 ;Jawne użycie rozkazu 32-bitowego Thumb–2 (W = Wide)
+ADDS.W R0, #5 ;Jawne użycie rozkazu 32-bitowego Thumb-2 (W = Wide)
 \end_layout
 
 \end_inset

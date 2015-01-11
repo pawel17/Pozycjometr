@@ -49,7 +49,7 @@
 \paragraph_separation indent
 \paragraph_indentation default
 \quotes_language polish
-\papercolumns 1
+\papercolumns 2
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
@@ -97,7 +97,7 @@ obrócenie
  jest za pomocą zmiany kąta położenia telefonu względem poziomu (np.
  w grach wyścigowych).
  Tak więc każdego dnia używamy pozycjometru wbudowanego w smartfon, nie
- zawsze zdając sobie sprawę z jego obecności.
+ zawsze zdając sobie sprawy z jego obecności.
 \end_layout
 
 \begin_layout Standard
@@ -109,9 +109,9 @@ Oczywiście wykorzystanie akcelerometrów i żyroskopów nie ogranicza się jedy
  Żyroskopy wykorzystuje się głównie w układach pomiarowych kątów obrotu,
  oscylatorach, układach regulacji amplitudy drgań czy też w demodulatorach
  synchronicznych.
- Duża ilością przyrządów, wykorzystujących w swoim działaniu różne zjawiska
- fizyczne i ich znaczna rozpiętość cenowa sprawiły, że urządzenia te stały
- się bardzo popularne i powszechnie wykorzystywane w technice.
+ Duża ilością akcelerometrów i żyroskopów, wykorzystujących w swoim działaniu
+ różne zjawiska fizyczne i ich znaczna rozpiętość cenowa sprawiły, że urządzenia
+ te stały się bardzo popularne i powszechnie wykorzystywane w technice.
 \end_layout
 
 \begin_layout Standard

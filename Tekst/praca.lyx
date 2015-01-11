@@ -87,8 +87,8 @@
 \paragraph_separation indent
 \paragraph_indentation default
 \quotes_language polish
-\papercolumns 1
-\papersides 1
+\papercolumns 2
+\papersides 2
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
@@ -101,7 +101,7 @@
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
