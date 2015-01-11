@@ -104,6 +104,13 @@
 
 \end{flushright}
 
+\clearpage \titlepage
+\vspace*{15cm} \vfill
+\begin{flushright}
+\begin{minipage}[!h]{10cm}
+{\Large \@acknowledgements}
+\end{minipage}
+\end{flushright}
 \clearpage
 
 \setcounter{page}{5}
