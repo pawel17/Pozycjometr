@@ -356,6 +356,7 @@
             // 
             // rotationRadioButton
             // 
+            this.rotationRadioButton.AutoCheck = false;
             this.rotationRadioButton.AutoSize = true;
             this.rotationRadioButton.Location = new System.Drawing.Point(7, 17);
             this.rotationRadioButton.Name = "rotationRadioButton";

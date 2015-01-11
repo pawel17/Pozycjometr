@@ -119,7 +119,7 @@ int main(void){
 	char measurementResults[UART_DATA_BUFFER];
 	int tickCnt = 0;
 	float rawAccToG = 0.0f;
-	uint8_t sampleFreqInHz = 20u;
+	uint8_t sampleFreqInHz = 50u;
 	L3G4200D_Fullscale_t l3g4200dFullScale = L3G4200D_FULLSCALE_250;
 
 	status_t gyroStatus;
@@ -150,12 +150,12 @@ int main(void){
 
 		if(tick){
 
-			//getFilteredAcc();
+			getFilteredAcc();
 			getFilteredRate();
 			//getPosition();
-			getPosition2();
+			//getPosition2();
 			//LEDToggle();
-			getAngle();
+			//getAngle();
 
 //			clearData(measurementResults, UART_DATA_BUFFER);
 //

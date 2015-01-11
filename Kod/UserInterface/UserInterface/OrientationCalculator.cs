@@ -12,7 +12,7 @@ namespace UserInterface
         private static readonly int GYR_MEASURMENT_HISTORY = 3;
         private static readonly float RAW_ACC_TO_G = 0.0039f;
         private static readonly float GYRO_SENSITIVITY = 8.75e-3f;
-        private static readonly float SAMP_PERIOD = 0.05f;
+        private static readonly float SAMP_PERIOD = 0.02f;
         private static readonly float RADIANS_TO_DEG_COEF = 180.0f / (float)(Math.PI);
         private static readonly float COMPLEMENTARY_FILTER_GYRO_WEIGHT = 0.95f;
         private ThreeAxisMeasurmentData acc;
@@ -80,7 +80,7 @@ namespace UserInterface
             acc.y[1] = accData[1];
             acc.z[1] = accData[2];
 
-            Console.WriteLine("{0} {1} {2}", acc.x[1] * RAW_ACC_TO_G, acc.y[1] * RAW_ACC_TO_G, acc.z[1] * RAW_ACC_TO_G);
+            //Console.WriteLine("{0} {1} {2}", acc.x[1] * RAW_ACC_TO_G, acc.y[1] * RAW_ACC_TO_G, acc.z[1] * RAW_ACC_TO_G);
 
 	        vel.x[1] = vel.x[0]+ acc.x[0]+ ( (acc.x[1] - acc.x[0]) / 2);
 	        pos.x[1] = pos.x[0] + vel.x[0] + ( (vel.x[1] - vel.x[0]) / 2);
@@ -103,6 +103,8 @@ namespace UserInterface
 	        posF.y = posRatio * pos.y[1];
 	        velF.x = velRatio * vel.x[1];
 	        velF.y = velRatio * vel.y[1];
+
+            Console.WriteLine("{0} {1} {2}", pos.x[1], pos.y[1], pos.z[1]);
         }
 
         private void checkIfMotionEnded()
