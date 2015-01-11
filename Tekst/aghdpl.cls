@@ -75,7 +75,7 @@
 % --------------------------- IMIE I NAZWISKO -------------------------------
 {\bf\Large\textsf{\@author}}\\
 \vspace{3ex}
-{\sf \small kierunek studi\'ow:} {\bf\small\textsf{Informatyka stosowana}}\\
+{\sf \small kierunek studi\'ow:} {\bf\small\textsf{Informatyka Stosowana}}\\
 \vspace{15ex}
 %% ------------------------ TYTUL PRACY --------------------------------------
 {\bf\huge\textsf{\@titlePL}}\\

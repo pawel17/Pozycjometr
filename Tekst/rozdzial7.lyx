@@ -76,8 +76,9 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  w formie graficznej wyników.
  Wykorzystano do tego platformę .NET i język C# z wykorzystaniem Windows
  Forms dla stworzenia interfejsu.
- Powodem wyboru tej technologii była względna prostota i mnogość klas i
- technik, które umożliwiały osiągnięcie postawionego celu na systemie Windows.
+ Powodem wyboru tej technologii była względna prostota oraz mnogość klas
+ i technik, które umożliwiały osiągnięcie postawionego celu na systemie
+ Windows.
  
 \end_layout
 
@@ -477,6 +478,23 @@ s.
  następnie są one usuwane w kolejności odwrotnej do dodania.
  Dzięki temu mamy pewność, że wszystkie przesunięcia i obroty zostaną poprawnie
  usunięte i obiekt powróci do domyślego położenia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand nocite
+key "3Dtools,draw_cube,net_class_library,serial_port,transformations,uart_interupt,wpf3D_in_wf,wpf_in_wf"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand nocite
+key "wpf_lines"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
