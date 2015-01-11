@@ -4,7 +4,7 @@
 %          
 % Author:  Marcin Szpyrka     (mszpyrka@agh.edu.pl)
 %          Grzegorz J. Nalepa (gjn@agh.edu.pl)
-%          AGH University of Science and Technology, Krak體, POLAND
+%          AGH University of Science and Technology, Krak锟絯, POLAND
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -26,6 +26,7 @@
 \RequirePackage{url}
 \RequirePackage{titlesec}
 \RequirePackage{tocloft}
+\usepackage[T1]{polski}
 
 \geometry{lmargin=30mm, rmargin=20mm, tmargin=25mm, bmargin=25mm, foot=10mm, head=10mm}
 \definecolor{Green}{rgb}{0.1,0.5,0.1}
@@ -59,36 +60,34 @@
 
 \newpage \titlepage 
 
+%-----------------------------------------------------------------------------
+%% ------------------------ NAGLOWEK STRONY ---------------------------------
+\includegraphics[height=37.5mm]{agh}\\
+\rule{30mm}{0pt}
+{\large\textsf{\@facultyPL}}\\
+\rule{\textwidth}{3pt}\\
+\rule[2ex]
+{\textwidth}{1pt}\\
+\vspace{7ex}
 \begin{center}
-
-{\sffamily{\Large{\bfseries{\textsc Akademia G\'{o}rniczo-Hutnicza\\[2mm]
-im. Stanis\l{}awa Staszica w Krakowie}}}
-
-\vspace*{1mm}\rule{\textwidth}{1mm}\vspace*{1mm}
-
-{\large \@facultyPL}}\\\vspace*{2mm}
-{\large\textsc{\@departmentPL}}\vspace*{1cm}
-
-\ifpdflatex\includegraphics[scale=0.3]{agh}
-\else\includegraphics[scale=0.7]{agh}
-\fi
-\vspace*{1cm}
-
-{\huge\scshape \@thesistypePL}\\\vspace*{2cm}
-
-{\LARGE\scshape \@author}\\\vspace*{2cm}
-
-{\LARGE{\bfseries\scshape \@titlePL}}\\\vspace*{3cm}
-
-\begin{flushright}
-\begin{minipage}[!h]{6cm} 
-\large{\scshape Promotor:}\\ \@supervisorPL
-\end{minipage}
-\end{flushright}
-
-\vfill{\Large Krak\'{o}w \@date}
-
+{\bf\LARGE\textsf{Praca in\.zynierska}}\\
+\vspace{13ex}
+% --------------------------- IMIE I NAZWISKO -------------------------------
+{\bf\Large\textsf{\@author}}\\
+\vspace{3ex}
+{\sf \small kierunek studi\'ow:} {\bf\small\textsf{Informatyka stosowana}}\\
+\vspace{15ex}
+%% ------------------------ TYTUL PRACY --------------------------------------
+{\bf\huge\textsf{\@titlePL}}\\
+\vspace{14ex}
+%% ------------------------ OPIEKUN PRACY ------------------------------------
+{\sf \Large Opiekun:} {\bf\Large\textsf{\@supervisorPL}}\\
+\vspace{22ex}
+\textsf{\bf\large\textsf{Krak\'ow, stycze\'n 2015}}
 \end{center}
+%% =====  STRONA TYTU艁OWA PRACY IN呕YNIERSKIEJ  ====
+%-----------------------------------------------------------------------------
+
 
 \clearpage \titlepage \vspace*{15cm} \vfill
 
@@ -106,47 +105,12 @@ im. Stanis\l{}awa Staszica w Krakowie}}}
 \end{flushright}
 
 \clearpage \titlepage
-
-\begin{center}
-
-{\sffamily{\Large{\bfseries{\textsc AGH\\[2mm]
-University of Science and Technology in Krakow}}}
-
-\vspace*{1mm}\rule{\textwidth}{1mm}\vspace*{1mm}
-
-{\large \@facultyEN}}\\\vspace*{2mm}
-{\large\textsc{\@departmentEN}}\vspace*{1cm}
-
-\ifpdflatex\includegraphics[scale=0.3]{agh}
-\else\includegraphics[scale=0.7]{agh}
-\fi
-\vspace*{1cm}
-
-{\huge\scshape \@thesistypeEN}\\\vspace*{2cm}
-
-{\LARGE\scshape \@author}\\\vspace*{2cm}
-
-{\LARGE{\bfseries\scshape \@titleEN}}\\\vspace*{3cm}
-
-\begin{flushright}
-\begin{minipage}[!h]{6cm} 
-\large{\scshape Supervisor:}\\ \@supervisorEN
-\end{minipage}
-\end{flushright}
-
-\vfill{\Large Krakow \@date}
-
-\end{center}
-
-\clearpage \titlepage
-
 \vspace*{15cm} \vfill
-\begin{flushright} 
-\begin{minipage}[!h]{8cm}
+\begin{flushright}
+\begin{minipage}[!h]{10cm}
 {\Large \@acknowledgements}
 \end{minipage}
 \end{flushright}
-
 \clearpage
 
 \setcounter{page}{5}
@@ -184,13 +148,13 @@ University of Science and Technology in Krakow}}}
 \flushbottom
 
 %---------------------------------------------------------------------------
-% Ustawienia parametr體 dla tytu丑w rozdzia丑w, podrozdzia丑w, itd.
+% Ustawienia parametr贸w dla tytu艂贸w rozdzia艂贸w, podrozdzia艂贸w, itd.
 %---------------------------------------------------------------------------
 
 
 \titleformat{\chapter}[block]
 {\bfseries\LARGE}{\filright \LARGE \makebox[6.7mm][l]{\thechapter.}}{0ex}{}
-%odst阷y: lewy, g髍a, d蟪
+%odst臋py: lewy, g贸ra, d贸艂
 \titlespacing{\chapter}{0pt}{17mm}{19mm}
 \titleformat{\section}[block]
 {\bfseries\Large}{\filright \Large\thesection. }{0ex}{}
@@ -203,7 +167,7 @@ University of Science and Technology in Krakow}}}
 \titlespacing{\subsubsection}{7mm}{3mm}{1.5mm}
 
 %---------------------------------------------------------------------------
-% Ustawienia parametr體 generowania spisu tre禼i i spisu rysunk體
+% Ustawienia parametr贸w generowania spisu tre艣ci i spisu rysunk贸w
 %---------------------------------------------------------------------------
 
 \renewcommand{\cfttoctitlefont}{\bfseries\Large}
