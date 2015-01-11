@@ -19,12 +19,12 @@ namespace UserInterface
         private DataVisualisation.MainWindow visualisation;
         private ElementHost visualisationHost;
         private COMPortManager serialPortManager;
-        private bool angleMeasuremetStarted = false;
+        private bool angleMeasurementStarted = false;
         private bool accelerationMeasurementStarted = false;
         private float AngleX = 0, AngleY = 0, AngleZ = 0;
         private float AccelerationX = 0, AccelerationY = 0, AccelerationZ = 0;
         private OrientationCalculator orientationCalc;
-        private DataVisualisation.VisualisationMode graphicWindowMode;
+        private DataVisualisation.VisualisationMode graphicWindowMode;        
 
         public ApplicationWindow()
         {
@@ -127,7 +127,7 @@ namespace UserInterface
                 AccelerationY = accY;
                 AccelerationZ = accZ;
             }
-            if (!angleMeasuremetStarted)
+            if (!angleMeasurementStarted)
             {
                 AngleX = visualisation.AngleX = angX;
                 AngleY = visualisation.AngleY = angY;
@@ -136,7 +136,7 @@ namespace UserInterface
                 AngleY = visualisation.AngleY;
                 AngleZ = visualisation.AngleZ;
 
-                angleMeasuremetStarted = true;
+                angleMeasurementStarted = true;
             }
             else
             {
@@ -241,9 +241,13 @@ namespace UserInterface
             if (rotationRadioButton.Checked == true)
             {
                 graphicWindowMode = DataVisualisation.VisualisationMode.RotationMode;
-                ClearVisualisation();
-                angleMeasuremetStarted = false;
-                accelerationMeasurementStarted = false;
+
+                if (angleMeasurementStarted && accelerationMeasurementStarted)
+                {
+                    ClearVisualisation();
+                    angleMeasurementStarted = false;
+                    accelerationMeasurementStarted = false;
+                }
             }
         }
 
@@ -252,9 +256,13 @@ namespace UserInterface
             if (translationRadioButton.Checked == true)
             {
                 graphicWindowMode = DataVisualisation.VisualisationMode.TranslationMode;
-                ClearVisualisation();
-                angleMeasuremetStarted = false;
-                accelerationMeasurementStarted = false;
+
+                if (angleMeasurementStarted && accelerationMeasurementStarted)
+                {
+                    ClearVisualisation();
+                    angleMeasurementStarted = false;
+                    accelerationMeasurementStarted = false;
+                }
             }
         }
 
@@ -263,9 +271,13 @@ namespace UserInterface
             if (fullRadioButton.Checked == true)
             {
                 graphicWindowMode = DataVisualisation.VisualisationMode.FullPositionMode;
-                ClearVisualisation();
-                angleMeasuremetStarted = false;
-                accelerationMeasurementStarted = false;
+
+                if (angleMeasurementStarted && accelerationMeasurementStarted)
+                {
+                    ClearVisualisation();
+                    angleMeasurementStarted = false;
+                    accelerationMeasurementStarted = false;
+                }
             }
         }
     }
