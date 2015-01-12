@@ -201,8 +201,252 @@ Tutaj opisz wszystkie czynności, które wykonywałeś przy pisaniu programu
 
 \end_layout
 
+\begin_layout Standard
+Do komunikacji pomiędzy mikrokontrolerem a żyroskopem i akcelerometrem wykorzyst
+ano interfejs SPI.
+ Zarówno w przypadku akcelerometru (ADXL345) oraz żyroskopu (układ L3G4200D)
+ dostępne były sterowniki producentów niezależne od posiadanego mikrokontrolera.
+ Do działania wymagały one napisania w języku C funkcji inicjalizujących,
+ przesyłających oraz odczytujących dane z wykorzystaniem interfejsu SPI.
+ Definicje takich funkcji są zależne od posiadanego mikrokontrolera.
+ Wykorzystując dokumentację ww.
+ urządzeń (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ADXL345_datasheet"
+
+\end_inset
+
+ oraz 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "L3G4200D_datasheet"
+
+\end_inset
+
+), interfejs SPI mikrokontrolera LPC1768 został zainicjalizowany następującymi
+ parametrami:
+\end_layout
+
+\begin_layout Itemize
+częstotliwość zegara 
+\emph on
+f
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+SCLK
+\end_layout
+
+\end_inset
+
+
+\emph default
+ - 4 MHz,
+\end_layout
+
+\begin_layout Itemize
+kolejność przesyłanych bitów - najbardziej znaczący bit jako pierwszy (
+\emph on
+MSB first
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+faza sygnału zegarowego - próbkowanie przy drugim zboczu (
+\emph on
+CPHA = 1
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+polaryzacja sygnału zegarowego - zegar aktywny stanem wysokim (
+\emph on
+CPOL = 1
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Mikrokontroler LPC1768 posiada interfejs SPI oraz dwa interfejsy szeregowe
+ SSP.
+ Te ostatnie mogą pracować w trzech trybach (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LPC1768"
+
+\end_inset
+
+), z których jednym jest tryb SPI.
+ Aby nie ingerować w płytkę z mikrokomputerem, wykorzystano istniejące na
+ niej gniazdo służące do podłączania wyświetlacza LCD (nie używanego).
+ Wymusiło to wykorzystanie interfejsu SSP1 (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "landtiger_um"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "landtiger_sch"
+
+\end_inset
+
+) do komunikacji z sensorami.
+\end_layout
+
+\begin_layout Standard
+Dla uproszczenia realizacji zadania, postanowiono że mikrokontroler posłuży
+ jedynie do odczytu przyspieszeń i prędkości kątowych z czujników.
+ Pomiar ten odbywa się w pętli głównej z częstotliwością próbkowania wynoszącą
+ 20 Hz.
+ Za odmierzanie czasu odpowiada jeden z czasomierzy (ang.
+ 
+\emph on
+timer
+\emph default
+) wbudowanych w układ LPC1768.
+ Współpraca z nim mogłaby się odbywać na zasadzie ciągłego przeglądania
+ jednego z jego rejestrów (ang.
+ 
+\emph on
+pooling
+\emph default
+) lub poprzez odblokowanie i wykorzystanie generowanego przez niego przerwania.
+ W pracy wykorzystano drugi sposób.
+\end_layout
+
+\begin_layout Standard
+W celu zainicjalizowania żyroskopu należało:
+\end_layout
+
+\begin_layout Itemize
+ustawić jego tryb pracy jako normalny (prócz tego istnieje jeszcze tryb
+ wyłączenia oraz uśpienia 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "L3G4200D_datasheet"
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+określić zakres pomiarowy, w naszym przypadku 250 dps (ang.
+ 
+\emph on
+degree per second
+\emph default
+),
+\end_layout
+
+\begin_layout Itemize
+ustawić aktywne osie pomiarowe (X, Y, Z).
+\end_layout
+
+\begin_layout Standard
+Konfiguracja akcelerometru polegała na:
+\end_layout
+
+\begin_layout Itemize
+ustawieniu pomiarowego trybu pracy,
+\end_layout
+
+\begin_layout Itemize
+określeniu zakresu pomiarów - od -2 
+\emph on
+g
+\emph default
+ do 2 
+\emph on
+g
+\emph default
+ (przy czym 
+\emph on
+g
+\emph default
+ jest przyspieszeniem ziemskim).
+\end_layout
+
+\begin_layout Standard
+Ze względu na niewielkie możliwości obliczeniowe mikrokontrolera (np.
+ brak koprocesora arytmetycznego), zdecydowano że najbardziej złożone obliczenia
+ będą przeprowadzane po stronie komputera PC.
+ Program wykonywany przez układ LPC1768 odpowiada zatem za następujące zadania:
+\end_layout
+
+\begin_layout Itemize
+komunikacja z czujnikami i odczyt wartości pomiarowych,
+\end_layout
+
+\begin_layout Itemize
+uśrednienie otrzymanych pomiarów (filtracja dolnoprzepustowa),
+\end_layout
+
+\begin_layout Itemize
+wysłanie otrzymanych wyników do komputera poprzez interfejs UART.
+\end_layout
+
+\begin_layout Standard
+Należy zauważyć, że dane pomiarowe pochodzące z akcelerometru i żyroskopu
+ nie mogą posłużyć do wyznaczania przemieszczeń i co za tym idzie aktualnego
+ położenia.
+ Wynika to ze sposobu obliczania przemieszczeń - dwukrotnego całkowania
+ przyspieszenia mierzonego akcelerometrem.
+ Odczyty z akcelerometru obarczone są błędem, którego dwukrotne całkowanie
+ (w praktyce sumowanie) powoduje jego znaczne narastanie.
+ Uzyskany błąd jest tak spory, że nie pozwala w praktyce na wykorzystanie
+ tej metody do określania położenia.
+ Dało się to również zauważyć w niniejszej pracy.
+ Przy pewnych założeniach, użycie przyspieszeniomierza pozwala jednak na
+ określanie przemieszczeń.
+ Ma to miejsce np.
+ w miernikach zliczających ludzkie kroki.
+\end_layout
+
+\begin_layout Standard
+Użycie akcelerometru w połączeniu z żyroskopem pozwala za to na dość dokładny
+ pomiar kątów.
+ Teoretycznie do okreslenia kąta wystarcza sam żyroskop.
+ Całkując mierzoną przez niego prędkość obrotową można uzyskać kąt obrotu
+ (znając warunki początkowe).
+ W praktyce każdy odczyt wartości prędkości mierzonej żyroskopem obarczony
+ jest błędem.
+ Całkowanie takich danych objawia się tzw.
+ dryftem.
+ Objawia się on tym że po obrocie o pewien kąt, a następnie rotacji o kąt
+ przeciwny całka mierzonych prędkości znacznie różni się od wartości kąta
+ początkowego.
+ W celu eliminacji tego zjawiska, stosuje się dodatkowo akcelerometr, którego
+ odczyty również pozwalają na określenie kąta.
+ Oczywiście pomiar akcelerometrem w takim celu ma sens tylko wtedy, gdy
+ jest on nieruchomy dzięki czemu jedynym mierzonym przez niego przyspieszeniem
+ jest przyspieszenie ziemskie.
+ Jeśli istnieje potrzeba dokładnego pomiaru kątów obrotów wokół trzech osi,
+ należy dodatkowo zastosować trzeci czujnik - magnetometr (kompas)(
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPY"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPY_compas"
+
+\end_inset
+
+).
+\end_layout
+
 \begin_layout Section
-Komunikacja
+Komunikacja z komputerem PC
 \end_layout
 
 \begin_layout Standard
@@ -252,8 +496,9 @@ RESET
  Poprzez interfejs UART wysyłano łańcuchy znakowe zawierające wyniki.
  Dane pomiarowe były zapisywane w postaci C-stringa składającego się z sześciu
  liczb całkowitych oddzielonych znakami spacji.
- Trzy pierwsze liczby były wynikami odczytanymi z akcelerometru dla osi
- X, Y i Z, a trzy kolejne to dane z żyroskopu dla każdej z osi.
+ Trzy pierwsze liczby były uśrednionymi wynikami odczytanymi z akcelerometru
+ dla osi X, Y i Z, a trzy kolejne to analogicznie uzyskane dane z żyroskopu
+ dla każdej z osi.
  Tak przygotowany łańcuch przesyłany był do komputera, gdzie następowała
  jego obróbka mająca na celu uzyskanie wartości liczbowych.
 \end_layout
