@@ -1460,10 +1460,6 @@ name "fig:mems-pojemnosciowy"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1577,9 +1573,9 @@ Zasada działania
 \end_layout
 
 \begin_layout Standard
-Działanie tego typu przetworników polega na wykorzystaniu zjawiska piezoelektryc
-znego.
- Polega ono na pojawianiu się ładunku elektrycznego na powierzchni ładunku
+Działanie przetworników piezoelektrycznych polega na wykorzystaniu zjawiska
+ piezoelektrycznego.
+ Polega ono na pojawianiu się ładunku elektrycznego na powierzchni kryształu
  pod wpływem istniejących naprężeń mechanicznych.
  Kryształy, które cechują się omawianymi własnościami nazywane są piezoelektryka
 mi.
@@ -1606,7 +1602,14 @@ W praktyce jako piezoelektryka najczęściej używa się krzemu (SiO
 \end_layout
 
 \begin_layout Standard
-Na rysunku przedstawiono schematycznie budowę kryształu kwarcu.
+Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ilustracja-efektu-piezoelektrycz"
+
+\end_inset
+
+ przedstawiono schematycznie budowę kryształu kwarcu.
  Jak widać jego komórka elementarna ma postać układu heksagonalnego.
  Przyłożenie do płytki kwarcowej siły powoduje przemieszczenie się jonów
  krzemu i tlenu, co skutkuje pojawieniem się ładunków na jej powierzchni
@@ -1761,7 +1764,7 @@ key "Gawedzki2010"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-q=k_{p}\sigma\label{eq:gestosc_ladunku_piezoelektryk}
+q=k_{p}\sigma,\label{eq:gestosc_ladunku_piezoelektryk}
 \end{equation}
 
 \end_inset
@@ -1789,7 +1792,7 @@ p
 
 
 \emph default
- – stała (tzw.
+ -- stała (tzw.
  moduł piezoelektryczny),
 \end_layout
 
@@ -1797,7 +1800,7 @@ p
 \begin_inset Formula $\sigma$
 \end_inset
 
- - naprężenie powstałe w płytce, w wyniku działania siły 
+ -- naprężenie powstałe w płytce, w wyniku działania siły 
 \emph on
 F
 \emph default
@@ -1812,7 +1815,7 @@ Naprężenie występujące w ostatnim wzorze może być wyznaczone w następują
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\sigma=\frac{F}{A_{x}}\label{eq:naprezenie}
+\sigma=\frac{F}{A_{x}}.\label{eq:naprezenie}
 \end{equation}
 
 \end_inset
@@ -1831,7 +1834,7 @@ Q
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Q=qA_{x}=k_{p}F\label{eq:ladunek_piezoelektryk}
+Q=qA_{x}=k_{p}F,\label{eq:ladunek_piezoelektryk}
 \end{equation}
 
 \end_inset
@@ -1850,7 +1853,7 @@ U
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-U=\frac{Q}{C}\label{eq:napiecie_piezoelektryk}
+U=\frac{Q}{C},\label{eq:napiecie_piezoelektryk}
 \end{equation}
 
 \end_inset
@@ -1877,7 +1880,7 @@ key "Gawedzki2010"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-S_{Q}=\frac{dQ}{dF}=k_{p}\label{eq:czulosc_ladunkowa_piezoelektryka}
+S_{Q}=\frac{dQ}{dF}=k_{p},\label{eq:czulosc_ladunkowa_piezoelektryka}
 \end{equation}
 
 \end_inset
@@ -1892,7 +1895,7 @@ zaś napięciowa:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-S_{U}=\frac{dU}{dF}=\frac{1}{C}S_{Q}=\frac{k_{p}}{C}\label{eq:czulosc_napieciowa_piezoelektryka}
+S_{U}=\frac{dU}{dF}=\frac{1}{C}S_{Q}=\frac{k_{p}}{C}.\label{eq:czulosc_napieciowa_piezoelektryka}
 \end{equation}
 
 \end_inset
@@ -1972,14 +1975,18 @@ Płytka piezoelektryka posiada częstotliwość rezonansową drgań zależną od
 \emph on
 m
 \emph default
-, i sprężystości 
+ i sprężystości 
 \emph on
 k
 \emph default
 .
  Jeśli uwzględnimy, że płytka taka jest obiektem o parametrach rozłożonych,
- a nie skupionych (jak w omawianym poprzednio modelu), to należy pamiętać,
- że będzie ona mogła posiadać kilka częstotliwości rezonansowych.
+ a nie skupionych (jak w
+\begin_inset space ~
+\end_inset
+
+omawianym poprzednio modelu), to należy pamiętać, że będzie ona mogła posiadać
+ kilka częstotliwości rezonansowych.
  Najniższa z nich ogranicza pasmo przetwarzania przetwornika od góry.
  W celu określenia dolnego ograniczenia, można posłużyć się modelem toru
  pomiarowego ukazanego na rysunku 
@@ -2113,7 +2120,7 @@ reference "fig:schemat-toru-pomiarowego"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-C=C_{c}+C_{k}+C_{o}\label{eq:pojemnosc_zastepcza_toru}
+C=C_{c}+C_{k}+C_{o},\label{eq:pojemnosc_zastepcza_toru}
 \end{equation}
 
 \end_inset
@@ -2124,7 +2131,7 @@ C=C_{c}+C_{k}+C_{o}\label{eq:pojemnosc_zastepcza_toru}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{1}{R}=\frac{1}{R_{c}}+\frac{1}{R_{k}}+\frac{1}{R_{o}}\label{eq:rezystancja_zastepcza_toru}
+\frac{1}{R}=\frac{1}{R_{c}}+\frac{1}{R_{k}}+\frac{1}{R_{o}},\label{eq:rezystancja_zastepcza_toru}
 \end{equation}
 
 \end_inset
@@ -2135,7 +2142,7 @@ C=C_{c}+C_{k}+C_{o}\label{eq:pojemnosc_zastepcza_toru}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-i=i_{C}+i_{R}\label{eq:prad_wypadkowy_w_torze}
+i=i_{C}+i_{R},\label{eq:prad_wypadkowy_w_torze}
 \end{equation}
 
 \end_inset
@@ -2146,7 +2153,7 @@ i=i_{C}+i_{R}\label{eq:prad_wypadkowy_w_torze}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{dQ}{dt}=C\frac{du}{dt}+\frac{u}{R}\label{eq:rownanie_pradow_w_torze}
+\frac{dQ}{dt}=C\frac{du}{dt}+\frac{u}{R}.\label{eq:rownanie_pradow_w_torze}
 \end{equation}
 
 \end_inset
@@ -2162,7 +2169,7 @@ Ostatnie równanie można zapisać w postaci operatorowej (zakładamy zerowe
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-sQ\left(s\right)=sCU\left(s\right)+\frac{1}{R}U\left(s\right)\label{eq:rownanie_pradow_operatorowo}
+sQ\left(s\right)=sCU\left(s\right)+\frac{1}{R}U\left(s\right).\label{eq:rownanie_pradow_operatorowo}
 \end{equation}
 
 \end_inset
@@ -2200,7 +2207,7 @@ p
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K_{p}\left(s\right)=\frac{Rs}{RCs+1}\label{eq:transmitancja_toru}
+K_{p}\left(s\right)=\frac{Rs}{RCs+1}.\label{eq:transmitancja_toru}
 \end{equation}
 
 \end_inset
@@ -2215,7 +2222,7 @@ Transmitancja widmowa ma postać:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K_{p}\left(j\omega\right)=\frac{jR\omega}{jRC\omega+1}\label{eq:transmitancja_widmowa_toru}
+K_{p}\left(j\omega\right)=\frac{jR\omega}{jRC\omega+1}.\label{eq:transmitancja_widmowa_toru}
 \end{equation}
 
 \end_inset
@@ -2245,7 +2252,7 @@ oraz fazową:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\phi\left(\omega\right)=arg\left\{ K_{p}\left(j\omega\right)\right\} =arg\left\{ \frac{jR\omega}{jRC\omega+1}\right\} \label{eq:chka_fazowa_toru}
+\phi\left(\omega\right)=arg\left\{ K_{p}\left(j\omega\right)\right\} =arg\left\{ \frac{jR\omega}{jRC\omega+1}\right\} .\label{eq:chka_fazowa_toru}
 \end{equation}
 
 \end_inset
@@ -2479,7 +2486,7 @@ Siłę bezwładności, z jaką masa sejsmiczna działa na przetwornik, może by�
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-F_{b}=mu''\label{eq:sila_bezwladnosci}
+F_{b}=mu''.\label{eq:sila_bezwladnosci}
 \end{equation}
 
 \end_inset
@@ -2501,7 +2508,7 @@ reference "eq:ladunek_piezoelektryk"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-mu''=\frac{1}{k_{p}}Q\label{eq:sila_bezwl_ladunek}
+mu''=\frac{1}{k_{p}}Q.\label{eq:sila_bezwl_ladunek}
 \end{equation}
 
 \end_inset
@@ -2520,7 +2527,7 @@ u(t)
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-U\left(s\right)=\frac{1}{k_{p}ms^{2}}Q\left(s\right)\label{eq:napiecie_ladunek_operatorowo}
+U\left(s\right)=\frac{1}{k_{p}ms^{2}}Q\left(s\right).\label{eq:napiecie_ladunek_operatorowo}
 \end{equation}
 
 \end_inset
@@ -2535,7 +2542,7 @@ Równanie ruchu masy można zapisać jako:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-mu''+cy'+ky=0\label{eq:rownanie_ruchu_piezo_1}
+mu''+cy'+ky=0,\label{eq:rownanie_ruchu_piezo_1}
 \end{equation}
 
 \end_inset
@@ -2550,7 +2557,7 @@ co po uwzględnieniu zależności między przemieszczeniami prowadzi do związku
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-mu''+cu'+ku=cx'+kx\label{eq:rownanie_ruchu_piezo_2}
+mu''+cu'+ku=cx'+kx.\label{eq:rownanie_ruchu_piezo_2}
 \end{equation}
 
 \end_inset
@@ -2579,7 +2586,7 @@ reference "eq:tlumienie_wzgledne"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right)\label{eq:rownanie_ruchu_piezo_operatorowo}
+\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right).\label{eq:rownanie_ruchu_piezo_operatorowo}
 \end{equation}
 
 \end_inset
@@ -2602,7 +2609,7 @@ x
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G_{U}\left(s\right)=\frac{U\left(s\right)}{X\left(s\right)}=\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_napieciowa_piezo}
+G_{U}\left(s\right)=\frac{U\left(s\right)}{X\left(s\right)}=\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}.\label{eq:transmitancja_napieciowa_piezo}
 \end{equation}
 
 \end_inset
@@ -2618,7 +2625,7 @@ Jeśli za sygnał wyjściowy przyjmiemy nie napięcie lecz ładunek, wówczas
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G_{Q}\left(s\right)=mk_{p}s^{2}\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_ladunkowa_piezo}
+G_{Q}\left(s\right)=mk_{p}s^{2}\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}.\label{eq:transmitancja_ladunkowa_piezo}
 \end{equation}
 
 \end_inset
@@ -2658,7 +2665,7 @@ z czego wynika, że w dziedzinie czasu zachodzi relacja:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Q=mk_{p}x''\label{eq:uproszczone_rown_ruchu_piezo}
+Q=mk_{p}x'',\label{eq:uproszczone_rown_ruchu_piezo}
 \end{equation}
 
 \end_inset
