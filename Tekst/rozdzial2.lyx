@@ -106,7 +106,7 @@ Akcelerometr, zwany także przyśpieszeniomierzem, jest czujnikiem służącym
 \paragraph_spacing onehalf
 \begin_inset Formula 
 \begin{equation}
-\mathbf{a}=\frac{d\mathbf{v}}{dt}\label{eq:przyspieszenie_wzor_ogolny}
+\mathbf{a}=\frac{d\mathbf{v}}{dt},\label{eq:przyspieszenie_wzor_ogolny}
 \end{equation}
 
 \end_inset
@@ -123,9 +123,9 @@ gdzie:
 \paragraph_spacing onehalf
 
 \series bold
-a
+a 
 \series default
- - wektor przyspieszenia,
+-- wektor przyspieszenia,
 \end_layout
 
 \begin_layout Itemize
@@ -134,12 +134,12 @@ a
 \series bold
 v
 \series default
- - wektor prędkości,
+ -- wektor prędkości,
 \end_layout
 
 \begin_layout Itemize
 \paragraph_spacing onehalf
-t - czas.
+t -- czas.
 \end_layout
 
 \begin_layout Standard
@@ -217,7 +217,7 @@ reference "eq:przyspieszenie_wzor_ogolny"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\mathcal{\mathcal{\mathbf{a}}}=\frac{dv_{x}}{dt}\mathbf{i}+\frac{dv_{y}}{dt}\mathbf{j}+\frac{dv_{z}}{dt}\mathbf{k}=a_{x}\mathbf{i}+a_{y}\mathbf{j}+a_{z}\mathbf{k}\label{eq:przyspieszenie_rozklad_na_skladowe}
+\mathcal{\mathcal{\mathbf{a}}}=\frac{dv_{x}}{dt}\mathbf{i}+\frac{dv_{y}}{dt}\mathbf{j}+\frac{dv_{z}}{dt}\mathbf{k}=a_{x}\mathbf{i}+a_{y}\mathbf{j}+a_{z}\mathbf{k},\label{eq:przyspieszenie_rozklad_na_skladowe}
 \end{equation}
 
 \end_inset
@@ -275,7 +275,7 @@ z
 
 
 \emph default
- - składowe wektora prędkości wzdłuż odpowiednio osi 
+ -- składowe wektora prędkości wzdłuż odpowiednio osi 
 \emph on
 x
 \emph default
@@ -336,7 +336,7 @@ z
 
 
 \emph default
- - składowe wektora przyspieszenia wzdłuż odpowiednio osi 
+ -- składowe wektora przyspieszenia wzdłuż odpowiednio osi 
 \emph on
 x
 \emph default
@@ -364,7 +364,7 @@ j
 \series bold
 k
 \series default
- - wersory osi (odpowiednio) 
+ -- wersory osi (odpowiednio) 
 \emph on
 x
 \emph default
@@ -487,8 +487,8 @@ C).
 \end_layout
 
 \begin_layout Standard
-Istotnym aspektem odróżniającym akcelerometry jest wykorzystywane w nich
- zjawisko fizyczne, pozwalające na pomiar przyspieszenia.
+Istotnym aspektem odróżniającym różne rodzaje akcelerometrów jest wykorzystywane
+ w nich zjawisko fizyczne, pozwalające na pomiar przyspieszenia.
  W dalszej części omówiono najczęściej spotykane rodzaje przyspieszeniomierzy
  oraz zasadę ich działania.
 \end_layout
@@ -540,10 +540,6 @@ name "fig:Model-przetwornika-sejsmicznego"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -618,7 +614,7 @@ y
 \emph on
 x(t)
 \emph default
- – bezwzględne przemieszczenie obudowy przetwornika,
+ -- bezwzględne przemieszczenie obudowy przetwornika,
 \end_layout
 
 \begin_layout Itemize
@@ -626,7 +622,7 @@ x(t)
 \emph on
 y(t)
 \emph default
- – przemieszczenie masy sejsmicznej względem obudowy,
+ -- przemieszczenie masy sejsmicznej względem obudowy,
 \end_layout
 
 \begin_layout Itemize
@@ -634,7 +630,7 @@ y(t)
 \emph on
 u(t)
 \emph default
- – bezwzględne przemieszczenie masy sejsmicznej.
+ -- bezwzględne przemieszczenie masy sejsmicznej.
 \end_layout
 
 \begin_layout Standard
@@ -644,7 +640,7 @@ Równanie ruchu masy sejsmicznej ma następującą postać:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-mu''=-ky-Dy'\label{eq:rownanie_ruchu_sejsmiczny_1}
+mu''=-ky-Dy'.\label{eq:rownanie_ruchu_sejsmiczny_1}
 \end{equation}
 
 \end_inset
@@ -655,7 +651,7 @@ Ponadto można zauważyć, że:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-u-x=y\label{eq:zwiazek_miedzy_wspolrzednymi}
+u-x=y.\label{eq:zwiazek_miedzy_wspolrzednymi}
 \end{equation}
 
 \end_inset
@@ -666,7 +662,7 @@ Po przekształceniach otrzymujemy zależność:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-my''+Dy'+ky=-mx''\label{eq:rownanie_ruchu_sejsmiczny_2}
+my''+Dy'+ky=-mx''.\label{eq:rownanie_ruchu_sejsmiczny_2}
 \end{equation}
 
 \end_inset
@@ -686,7 +682,7 @@ reference "eq:rownanie_ruchu_sejsmiczny_2"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\omega_{0}=\sqrt{\frac{k}{m}}\label{eq:pulsacja_drgan_wlasnych}
+\omega_{0}=\sqrt{\frac{k}{m}},\label{eq:pulsacja_drgan_wlasnych}
 \end{equation}
 
 \end_inset
@@ -697,7 +693,7 @@ reference "eq:rownanie_ruchu_sejsmiczny_2"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\xi=\frac{D}{2\sqrt{km}}\label{eq:tlumienie_wzgledne}
+\xi=\frac{D}{2\sqrt{km}},\label{eq:tlumienie_wzgledne}
 \end{equation}
 
 \end_inset
@@ -708,7 +704,7 @@ omawiane równanie różniczkowe może być zapisane jako:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}y''+\frac{2\xi}{\omega_{0}}y'+y=-\frac{1}{\omega_{0}^{2}}x''\label{eq:rownanie_ruchu_sejsmiczny_3}
+\frac{1}{\omega_{0}^{2}}y''+\frac{2\xi}{\omega_{0}}y'+y=-\frac{1}{\omega_{0}^{2}}x''.\label{eq:rownanie_ruchu_sejsmiczny_3}
 \end{equation}
 
 \end_inset
@@ -717,8 +713,8 @@ omawiane równanie różniczkowe może być zapisane jako:
 \end_layout
 
 \begin_layout Standard
-W celu wyznaczenia poprawnych warunków warunków pracy przetwornika, należy
- posłużyć się analizą częstotliwościową.
+W celu wyznaczenia poprawnych warunków pracy przetwornika, należy posłużyć
+ się analizą częstotliwościową.
  W tym celu równanie 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -733,7 +729,7 @@ reference "eq:rownanie_ruchu_sejsmiczny_3"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}s^{2}Y+\frac{2\xi}{\omega_{0}}sY+Y=-\frac{1}{\omega_{0}^{2}}s^{2}X\label{eq:rownanie_ruchu_sejsmiczny_operatorowo}
+\frac{1}{\omega_{0}^{2}}s^{2}Y+\frac{2\xi}{\omega_{0}}sY+Y=-\frac{1}{\omega_{0}^{2}}s^{2}X,\label{eq:rownanie_ruchu_sejsmiczny_operatorowo}
 \end{equation}
 
 \end_inset
@@ -764,7 +760,7 @@ y
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-X\left(s\right)=\mathcal{L}\left\{ x\left(t\right)\right\} \label{eq:laplace_x}
+X\left(s\right)=\mathcal{L}\left\{ x\left(t\right)\right\} ,\label{eq:laplace_x}
 \end{equation}
 
 \end_inset
@@ -775,7 +771,7 @@ X\left(s\right)=\mathcal{L}\left\{ x\left(t\right)\right\} \label{eq:laplace_x}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y\left(s\right)=\mathcal{L}\left\{ y\left(t\right)\right\} \label{eq:laplace_y}
+Y\left(s\right)=\mathcal{L}\left\{ y\left(t\right)\right\} ,\label{eq:laplace_y}
 \end{equation}
 
 \end_inset
@@ -798,7 +794,7 @@ f
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-F\left(s\right)=\mathcal{L}\left\{ f\left(t\right)\right\} =\int_{0}^{+\infty}e^{-st}f\left(t\right)dt\label{eq:laplace_definicja}
+F\left(s\right)=\mathcal{L}\left\{ f\left(t\right)\right\} =\int_{0}^{+\infty}e^{-st}f\left(t\right)dt.\label{eq:laplace_definicja}
 \end{equation}
 
 \end_inset
@@ -828,7 +824,7 @@ key "Gawedzki2010"
 
 \end_inset
 
-, opisywane przetwornik sejsmiczny może służyć do pomiaru przemieszczenia
+, opisywany przetwornik sejsmiczny może służyć do pomiaru przemieszczenia
  lub przyspieszenia.
  Jeżeli za jego transmitancje operatorową przyjmiemy iloraz transformaty
  względnego przemieszczenia 
@@ -864,7 +860,7 @@ reference "eq:rownanie_ruchu_sejsmiczny_operatorowo"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G\left(s\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_akcelerometru_sejsmicznego}
+G\left(s\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}.\label{eq:transmitancja_akcelerometru_sejsmicznego}
 \end{equation}
 
 \end_inset
@@ -901,7 +897,7 @@ j
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G\left(j\omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\left(\frac{\omega}{\omega_{0}}\right)^{2}+j2\xi\frac{\omega}{\omega_{0}}+1}\label{eq:transmitancja_widm_akcel_sejsm}
+G\left(j\omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\left(\frac{\omega}{\omega_{0}}\right)^{2}+j2\xi\frac{\omega}{\omega_{0}}+1}.\label{eq:transmitancja_widm_akcel_sejsm}
 \end{equation}
 
 \end_inset
@@ -916,7 +912,7 @@ Wygodniej posłużyć się transmitancją widmową w funkcji pulsacji względnej
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G_{r}\left(j\Omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\Omega{}^{2}+j2\xi\Omega+1}\label{eq:transmitancja_widm_akcel_sejsm_wzgl}
+G_{r}\left(j\Omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\Omega{}^{2}+j2\xi\Omega+1},\label{eq:transmitancja_widm_akcel_sejsm_wzgl}
 \end{equation}
 
 \end_inset
@@ -961,7 +957,7 @@ key "Gawedzki2010"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}^{2}}\frac{1}{\sqrt{\left(1-\Omega^{2}\right)^{2}+4\xi^{2}\Omega^{2}}}\label{eq:chka_ampl_akcel_sejsm}
+A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}^{2}}\frac{1}{\sqrt{\left(1-\Omega^{2}\right)^{2}+4\xi^{2}\Omega^{2}}},\label{eq:chka_ampl_akcel_sejsm}
 \end{equation}
 
 \end_inset
@@ -972,7 +968,7 @@ A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\phi\left(j\Omega\right)=arg\left\{ G_{r}\left(j\Omega\right)\right\} =-arctg\left(\frac{2\xi\Omega}{1-\Omega^{2}}\right)\label{eq:chka_fazowa_akcel_sejsm}
+\phi\left(j\Omega\right)=arg\left\{ G_{r}\left(j\Omega\right)\right\} =-arctg\left(\frac{2\xi\Omega}{1-\Omega^{2}}\right).\label{eq:chka_fazowa_akcel_sejsm}
 \end{equation}
 
 \end_inset
@@ -1026,10 +1022,6 @@ name "fig:Charakterystyki-czestotliwosciow"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1080,7 +1072,7 @@ key "Gawedzki2010"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\xi<\frac{1}{\sqrt{2}}\thickapprox0.707\label{eq:warunek_rezonansu}
+\xi<\frac{1}{\sqrt{2}}\thickapprox0.707.\label{eq:warunek_rezonansu}
 \end{equation}
 
 \end_inset
@@ -1096,7 +1088,7 @@ Maksimum funkcji modułu transmitancji widmowej jest osiągane dla pulsacji
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Omega_{r}=\sqrt{1-2\xi^{2}}
+\Omega_{r}=\sqrt{1-2\xi^{2}}.
 \]
 
 \end_inset
@@ -1142,7 +1134,7 @@ dla tłumienia ograniczonego warunkiem:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\xi\in\left(0.6,0.707\right)\label{eq:tlumienie_dla_niezniekszt_pracy_akcel_sejsm}
+\xi\in\left(0.6,0.707\right).\label{eq:tlumienie_dla_niezniekszt_pracy_akcel_sejsm}
 \end{equation}
 
 \end_inset
@@ -1270,10 +1262,6 @@ name "fig:Akcelerometr-z-piezorezystancyjn"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1372,7 +1360,7 @@ key "Gawedzki2010"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-S_{a}=\frac{\frac{\Delta U_{-g}^{g}}{U_{Z}}}{2g}\label{eq:czulosc_akcel_piezorez}
+S_{a}=\frac{\frac{\Delta U_{-g}^{g}}{U_{Z}}}{2g},\label{eq:czulosc_akcel_piezorez}
 \end{equation}
 
 \end_inset

@@ -87,7 +87,14 @@ Okno główne aplikacji
 \end_layout
 
 \begin_layout Standard
-Okno główne zrealizowanego programu przedstawiono na rysunku 7.1.
+Okno główne zrealizowanego programu przedstawiono na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Okno-główne-programu"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -113,6 +120,13 @@ status open
 
 \begin_layout Plain Layout
 Okno główne programu
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Okno-główne-programu"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -145,7 +159,14 @@ Otrzymane wyniki pomiaru przyśpieszenia i kąta obrotu wypisane są w odpowiedn
  oknie.
  Zostanie ono szczegółowo opisane w kolejnej części.
  Wciśnięcie przycisku O programie wyświetla szczegółową informację o zrealizowan
-ej pracy inżynierskiej (Rysunek 7.3).
+ej pracy inżynierskiej (Rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Okno-informacji-o-programie"
+
+\end_inset
+
+).
  
 \end_layout
 
@@ -169,6 +190,13 @@ status open
 
 \begin_layout Plain Layout
 Okno informacji o programie
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Okno-informacji-o-programie"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -189,7 +217,14 @@ Za rozpoczęcie i zakończenie pomiarów odpowiadają przyciski Rozpocznij pomia
  wykorzystaniem interfejsu szeregowego.
  W przypadku próby nawiązania połączenia bez odpowiednio skonfigurowanych
  parametrów połączenia wyświetlony zostanie odpowiedni komunikat informujący
- o konieczności poprawienia wprowadzonych danych (Rysunek.7.4).
+ o konieczności poprawienia wprowadzonych danych (Rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Okno-błędu-połączenia"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -212,6 +247,13 @@ status open
 
 \begin_layout Plain Layout
 Okno błędu połączenia z portem COM
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Okno-błędu-połączenia"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -257,6 +299,13 @@ status open
 
 \begin_layout Plain Layout
 Opcje programu
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Opcje-programu"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
