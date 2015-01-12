@@ -349,11 +349,10 @@ Klasa ApplicationWindow, wyświetlająca główne okno aplikacji odbiera dane
 \begin_layout Standard
 String zawierający dane odczytane z akcelerometru i żyroskopu zostaje następnie
  rozdzielony na poszczególne dane.
- Trzy pierwsze stringi zawierają dane pomiarowe dotyczące przyspieszenia
- zostają, kolejne trzy to wyniki pomiarów żyroskopu.
- Zostają one zapisane do dwóch tablic łańcuchów znakowych, a następnie zostają
- przekształcone do postaci liczb całokowitych, które posłużą do dalszych
- przeliczeń.
+ Trzy pierwsze stringi zawierają uśrednione przyspieszenia, kolejne trzy
+ to średnie prędkości zmierzone przez żyroskop.
+ Zostają one zapisane do dwóch tablic łańcuchów znakowych, a następnie przekszta
+łcone do postaci liczb całokowitych, które posłużą do dalszych przeliczeń.
 \end_layout
 
 \begin_layout Standard
@@ -367,6 +366,494 @@ Tutaj proponowałbym opisanie obliczeń
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+W celu wyznaczenia przemieszczeń na podstawie uzyskanych przyspieszeń, należy
+ dokonać ich dwukrotnego całkowania (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acl_integrating"
+
+\end_inset
+
+).
+ W tym celu wykorzystano metodę trapezów, znaną także jako metoda Tustina.
+ Jest to metoda numeryczna, polegajaca na zastapieniu krzywej ciągłej (w
+ tym wypadku przebiegu przyspieszenia) łamaną składającą się z odcinków
+ łączących kolejne próbki pomiarowe.
+ Pole pod krzywą (całka oznaczona) przybliża się polem pod łamaną.
+ Korzystając z tej metody, można wyznaczyć składową prędkości w osi X w
+ następujący sposób (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acl_integrating"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+v_{x}^{n+1}=v_{x}^{n}+\left[a_{x}^{n}+\left(\frac{a_{x}^{n+1}-a_{x}^{n}}{2}\right)\right]\Delta t\label{eq:metoda_trapezow}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v_{x}^{n}$
+\end_inset
+
+- wartość prędkości w osi 
+\emph on
+X
+\emph default
+ w 
+\emph on
+n
+\emph default
+-tym kroku obliczeniowym,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a_{x}^{n}$
+\end_inset
+
+- wartość przyspieszenia w osi 
+\emph on
+X
+\emph default
+ w 
+\emph on
+n
+\emph default
+-tym kroku obliczeniowym,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ - krok całkowania (w tym wypadku okres próbkowania).
+\end_layout
+
+\begin_layout Standard
+Analogicznie wyznacza się prędkości i położenia w pozostałych osiach.
+\end_layout
+
+\begin_layout Standard
+W celu wyeliminowania wpływu szumów przy braku przyspieszenia, określono
+ wartości progowe (rys.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:discrimination_win"
+
+\end_inset
+
+), które uznawane są za zakłócenia (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acl_integrating"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/obliczenia/discrimination_window.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Eliminacja szumów przy braku przyspieszenia (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acl_integrating"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:discrimination_win"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Pamiętając, że akcelerometr nie mierzy przyspieszenia w 
+\begin_inset Formula $\frac{m}{s^{2}}$
+\end_inset
+
+, lecz w surowych liczbach (ang.
+ 
+\emph on
+raw data
+\emph default
+), należało dokonać przeliczenia jednostek biorąc pod uwagę czułość sensora.
+\end_layout
+
+\begin_layout Standard
+Analogicznie postąpiono całkując prędkości kątowe mierzone przez żyroskop
+ w celu obliczenia kątów.
+ Jak zostało wcześniej powiedziane, pomiar taki obarczony jest błędem związanym
+ z dryftem i eliminuje się go poprzez uwzględnienie pomiaru kąta akcelerometrem.
+ Ogólnie można zapisać, że
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\alpha=k\alpha_{g}+\left(1-k\right)\alpha_{a}\label{eq:filtr_komplementarny}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha_{g}$
+\end_inset
+
+- kąt obliczony przy pomocy danych pomiarowych z żyroskopu,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha_{a}$
+\end_inset
+
+- kąt obliczony przy pomocy danych pomiarowych z akcelerometru,
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+k
+\emph default
+ - współczynnik z przedziału (0 - 1).
+\end_layout
+
+\begin_layout Standard
+Zależność 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:filtr_komplementarny"
+
+\end_inset
+
+ wyraża znaną w literaturze z dziedziny przetwarzania sygnałów filtrację
+ komplementarną.
+ W omawianym przypadku pozwala on zniwelować błąd dryftu związany z żyroskopem
+ oraz błąd pomiaru kąta przy pomocy akcelerometru, wynikający z obecności
+ przyspieszeń innych niż grawitacyjne.
+ Mozna powiedzieć również, że podana metoda łączy zalety pomiarów żyroskopem
+ i akcelerometrem.
+ Współczynnik 
+\emph on
+k
+\emph default
+ dobiera się empirycznie.
+ Dokładniejsze wyniki, lecz dużo bardzie złożone obliczeniowo, daje filtracja
+ Kallmana, szeroko opisywana w publikacjach z dziedziny przetwarzania sygnałów.
+ W metodzie tej wagi z jakimi brane są wielkości pochodzące od poszczególnych
+ czujników obliczane są na bieżąco.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/obliczenia/rpy.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Kąty 
+\emph on
+roll
+\emph default
+, 
+\emph on
+pitch
+\emph default
+ i 
+\emph on
+yaw
+\emph default
+ (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPY"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:katy_rpy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+W celu wyznaczenia kątów (rys.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:katy_rpy"
+
+\end_inset
+
+) 
+\begin_inset Formula $\phi$
+\end_inset
+
+ oraz 
+\begin_inset Formula $\theta$
+\end_inset
+
+ przy pomocy danych pochodzących z akcelerometru, można posłużyć się następujący
+mi zależnościami (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPY"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+tan\left(\phi\right)=\frac{a_{y}}{a_{z}}\label{eq:roll_equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+tan\left(\theta\right)=\frac{-a_{x}}{\sqrt{a_{z}^{2}+a_{y}^{2}}}\label{eq:pitch_equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gdzie 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+y
+\end_layout
+
+\end_inset
+
+
+\emph default
+, 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+z
+\end_layout
+
+\end_inset
+
+
+\emph default
+ są przyspieszeniami (w naszym przypadku uśrednionymi przyspieszeniami)
+ odpowiednio w osi X, Y i Z.
+\end_layout
+
+\begin_layout Standard
+Jak widać, wzór 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pitch_equation"
+
+\end_inset
+
+ nie pozwala na poprawne określenie ćwiartki układu współrzędnych, w której
+ znajduje się mierzony kąt.
+ Ponadto jeśli składowe przyspieszenia w osiach Y i Z będą równe zeru, niemożliw
+e będzie określenie kąta obrotu wokół osi X.
+ Ma to proste uzasadnienie fizyczne - składowe 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+y
+\end_layout
+
+\end_inset
+
+
+\emph default
+ i 
+\emph on
+a
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\emph on
+z
+\end_layout
+
+\end_inset
+
+
+\emph default
+ będą równe jednocześnie zeru, gdy oś X będzie równoległa do wektora grawitacji.
+ Wówczas obrót wokół osi X jest 
+\begin_inset Quotes eld
+\end_inset
+
+niewidoczny
+\begin_inset Quotes erd
+\end_inset
+
+ dla akcelerometru, gdyż nie rejestruje on żadnych zmian przyspieszenia
+ we wszystkich osiach.
+\end_layout
+
+\begin_layout Standard
+W celu wyznaczenia kąta 
+\begin_inset Formula $\psi$
+\end_inset
+
+ należy zastosować magnetometr (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPY"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPY_compas"
+
+\end_inset
+
+).
+ Jest to przyrząd potrafiący mierzyć wartość ziemskiego pola magnetycznego.
+ Jeśli umieścimy kompas tak, by jego płaszczyzna XY była równoległa do powierzch
+ni ziemi, to obracanie nim wokół osi Z spowoduje, że będzie rejestrował
+ różne wartości pola magnetcznego w osiach X i Y.
+ Składowe te mogą posłużyć do oszacowania kata obrotu.
 \end_layout
 
 \begin_layout Standard
