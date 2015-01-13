@@ -72,16 +72,20 @@ Budowa i zasada działania
 \begin_layout Standard
 Żyroskop jest urządzeniem służącym do pomiaru lub utrzymywania położenia
  kątowego.
- Działa w oparciu o zasadę zachowania momentu pędu.
+ Działa w
+\begin_inset space ~
+\end_inset
+
+oparciu o zasadę zachowania momentu pędu.
  Zwykle jego zasadniczym elementem jest ruchomy krążek, który wprawiony
  w szybki ruch obrotowy zachowuje położenie swojej osi obrotu, z niewielkimi
  ruchami precesyjnymi, które mogą zostać wyeliminowane dzięki zastosowaniu
  tłumienia.
- Aby poprawna praca żyroskopu była możliwa, konieczne jest zapewnienie szybkiej
+ Aby poprawna praca żyroskopu była możliwa, konieczne jest zapewnienie wysokiej
  prędkości obrotowej krążka oraz dobrych warunków łożyskowania.
- Wymagają one zminimalizowania tarcia, co można osiągnąć poprzez poprzez
- łożyskowanie na strumieniu powietrza, lub zawieszeniu w polu elektrostatycznym
- (lub magnetycznym) w próżni.
+ Wymagają one zminimalizowania tarcia, co można osiągnąć poprzez łożyskowanie
+ na strumieniu powietrza, lub zawieszeniu w polu elektrostatycznym (lub
+ magnetycznym) w próżni.
  Przedmiotem znanym z życia codziennego, który wprawiony w szybki ruch obrotowy
  zachowuje się jak żyroskop jest bąk.
 \begin_inset Float figure
@@ -159,7 +163,7 @@ Dla ruchu obrotowego prawdziwa jest zależność:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\overrightarrow{M}=I\overrightarrow{\varepsilon}\label{eq:kret-II-zasada}
+\mathbf{M}=I\mathbf{\mathbf{\varepsilon},}\label{eq:kret-II-zasada}
 \end{equation}
 
 \end_inset
@@ -172,10 +176,10 @@ gdzie:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\overrightarrow{M}$
+\begin_inset Formula $\mathbf{M}$
 \end_inset
 
- - wektor momentu siły przyłożonego do bryły,
+ -- wektor momentu siły przyłożonego do bryły,
 \end_layout
 
 \begin_layout Itemize
@@ -183,14 +187,14 @@ gdzie:
 \emph on
 I
 \emph default
- - moment bezwładności bryły sztywnej,
+ -- moment bezwładności bryły sztywnej,
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\overrightarrow{\varepsilon}$
+\begin_inset Formula $\mathbf{\varepsilon}$
 \end_inset
 
- - wektor przyspieszenia kątowego (bryły).
+ -- wektor przyspieszenia kątowego (bryły).
 \end_layout
 
 \begin_layout Standard
@@ -200,7 +204,7 @@ Moment siły powoduje zmianę momentu pędu:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\overrightarrow{M}=\frac{d\overrightarrow{L}}{dt}\label{eq:moment-sily-moment-pedu}
+\mathbf{M}=\frac{d\mathbf{L}}{dt},\label{eq:moment-sily-moment-pedu}
 \end{equation}
 
 \end_inset
@@ -210,7 +214,7 @@ Moment siły powoduje zmianę momentu pędu:
 
 \begin_layout Standard
 gdzie 
-\begin_inset Formula $\overrightarrow{L}$
+\begin_inset Formula $\mathbf{L}$
 \end_inset
 
  jest wektorem momentu pędu.
@@ -273,7 +277,7 @@ name "fig:zyroskop2"
 
 \begin_layout Standard
 Wielkość 
-\begin_inset Formula $\overrightarrow{L}$
+\begin_inset Formula $\mathbf{L}$
 \end_inset
 
  wyznacza się z następującego wzoru:
@@ -282,7 +286,7 @@ Wielkość
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\overrightarrow{L}=I\overrightarrow{\omega}\label{eq:moment_pedu}
+\mathbf{L}=I\mathbf{\omega,}\label{eq:moment_pedu}
 \end{equation}
 
 \end_inset
@@ -292,7 +296,7 @@ Wielkość
 
 \begin_layout Standard
 gdzie 
-\begin_inset Formula $\overrightarrow{\omega}$
+\begin_inset Formula $\mathbf{\omega}$
 \end_inset
 
  jest prędkością kątową bryły sztywnej.
@@ -308,19 +312,23 @@ reference "fig:zyroskop2"
 \end_inset
 
 .
- Jeżeli ciężar moment siły pochądzący od ciężaru 
+ Jeżeli moment siły pochodzący od ciężaru 
 \emph on
 Q
 \emph default
- równoważy moment siły pochodzący od ciężaru krążka, wówczas żyroskop wykouje
+ równoważy moment siły pochodzący od ciężaru krążka, wówczas żyroskop wykonuje
  ruch obrotowy wokół swojej osi (prostej prostopadłej do płaszczyzny krążka
  i przechodzącej przez jego środek).
  Jeśli zwiększymy ciężar 
 \emph on
 Q
 \emph default
- (lub przesuniemy ciężarek w lewo lub prawo), pojawi się dodatkowy moment
- siły działający prostopadle do 
+ (lub przesuniemy ciężarek w
+\begin_inset space ~
+\end_inset
+
+lewo lub prawo), pojawi się dodatkowy moment siły działający prostopadle
+ do 
 \begin_inset Formula $\overrightarrow{L}$
 \end_inset
 
@@ -329,13 +337,17 @@ Q
  dotychczasowego położenia, zakreślając przy tym powierzchnię boczną stożka.
  Ruch ten nazywa się precesyjnym, zaś częstość precesji jest wprost proporcjonal
 na do momentu, który ją wywołuje i odwrotnie proporcjonalna do momentu bezwładno
-ści i częstości ruchu obrotowego krążka:
+ści i
+\begin_inset space ~
+\end_inset
+
+częstości ruchu obrotowego krążka:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-f_{p}=\frac{M_{p}}{4\pi^{2}If_{r}}\label{eq:czest-precesji}
+f_{p}=\frac{M_{p}}{4\pi^{2}If_{r}},\label{eq:czest-precesji}
 \end{equation}
 
 \end_inset
@@ -351,16 +363,16 @@ gdzie:
 \begin_inset Formula $f_{p}$
 \end_inset
 
- - częstotliwość precesji,
+ -- częstotliwość precesji,
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $M_{p}$
 \end_inset
 
- - moment siły powodujący wystąpienie precesji (prostopadły do pierwotnego
+ -- moment siły powodujący wystąpienie precesji (prostopadły do pierwotnego
  momentu pędu 
-\begin_inset Formula $\overrightarrow{L}$
+\begin_inset Formula $\mathbf{L}$
 \end_inset
 
 ),
@@ -371,26 +383,26 @@ gdzie:
 \emph on
 I
 \emph default
- - moment bezwładności,
+ -- moment bezwładności,
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $f_{r}$
 \end_inset
 
- - częstość ruchu oobrotowego krążka.
+ -- częstość ruchu oobrotowego krążka.
 \end_layout
 
 \begin_layout Standard
 Opisane zjawisko określa się mianem precesji wymuszonej, gdyż wywołana jest
  przez moment 
-\begin_inset Formula $\overrightarrow{M_{p}}$
+\begin_inset Formula $\mathbf{M_{p}}$
 \end_inset
 
 .
- Prócz tego możliwa jest także precesja swobodna, występująca gdy oś wokół
- której obraca się swobodnie bryła, nie pokrywa się z żadną z osi głównych
- tensora momentu bezwładności tej bryły.
+ Prócz tego możliwa jest także precesja swobodna, występująca wtedy, gdy
+ oś wokół której obraca się swobodnie bryła, nie pokrywa się z żadną z osi
+ głównych tensora momentu bezwładności tej bryły.
 \end_layout
 
 \begin_layout Section
@@ -398,7 +410,7 @@ Podział żyroskopów
 \end_layout
 
 \begin_layout Standard
-Żyroskopy można podzielić na dwie grupy - kierunkowe oraz prędkościowe.
+Żyroskopy można podzielić na dwie grupy: kierunkowe oraz prędkościowe.
  W przypadku tych pierwszych, zasadniczym elementem jest szybko wirujący
  obiekt, mający zwykle postać dysku, zawieszony w konstrukcji pozwalającej
  na swobodny obrót wokół układu odniesienia (np.
@@ -493,11 +505,11 @@ reference "fig:zyroskop-MEMS"
 .
  Zasadniczym elementem jest masa, wytrawiana w polikrzemie i przytwierdzona
  do krzemowej ramy tak, aby mogła wykonywać ruchy tylko w jednym kierunku.
- Mają one postać drgań możliwych, dzięki zawieszeniu masy na sprężynach.
+ Ruchy te mają postać drgań możliwych, dzięki zawieszeniu masy na sprężynach.
  Całość jest umieszczona na platformie wykonującej ruch obrotowy.
  Gdy masa porusza się w kierunku brzegu tarczy, działa na nią siła skierowana
  w prawo.
- Jednocześnie sama masa oddziałuje na ramę siłą skierowana w lewo.
+ Jednocześnie sama masa oddziałuje na ramę siłą skierowaną w lewo.
  W trakcie przemieszczania się w przeciwnym kierunku, tj.
  ku środkowi tarczy, siła oddziaływania masy na ramę zmienia zwrot na przeciwny.
  Aby pozwolić na pomiar przyspieszenia Coriolisa, ramę wiesza się na sprężynach
@@ -516,8 +528,12 @@ reference "fig:kond-grzebien"
 
 \end_inset
 
- pokazuje czujnik z kondensatorem grzebieniowym , którego część elektrod
- jest związana z ruchomą ramą a pozostała część z nieruchomym podłożem.
+ pokazuje czujnik z
+\begin_inset space ~
+\end_inset
+
+kondensatorem grzebieniowym, którego część elektrod jest związana z ruchomą
+ ramą a pozostała część z nieruchomym podłożem.
  Wskutek siły wywieranej przez masę, dochodzi do zmiany odległości między
  elektrodami i w konsekwencji do zmiany pojemności kondensatora.
 \end_layout
@@ -637,7 +653,7 @@ name "fig:zyroskop-wibr-mems"
 \end_layout
 
 \begin_layout Standard
-Na rysnku dostępne są czujniki mierzące prędkość obrotową wokół dwóch lub
+Na rynku dostępne są czujniki mierzące prędkość obrotową wokół dwóch lub
  trzech osi.
  Wcześniej chcąc uzyskać taki efekt należało zastosować kilka niezależnych
  żyroskopów jednoosiowych.
@@ -734,54 +750,6 @@ name "fig:czujnik-zyro-dwuosiowy"
 
 \begin_layout Section
 Zastosowania
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename rys/zyroskopy/zyrokompas.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Żyrokompas (
-\emph on
-Źródło:
-\emph default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "zyro_wiki"
-
-\end_inset
-
-)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

@@ -123,7 +123,14 @@ Współpraca mikrokomputerów z urządzeniami peryferyjnymi odbywa się za pomoc
  interfejsów.
  Przez interfejs rozumie się urządzenie, które pozwala na komunikację i
  wymianę danych pomiędzy dwoma innymi urządzeniami.
- Istnieją różne kryteria podziału interfejsów:
+ Istnieją różne kryteria podziału interfejsów 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Itemize
@@ -140,8 +147,8 @@ przewodowe (np.
 
 \begin_layout Itemize
 bezprzewodowe (np.
- Bluetooth, IrDA, WiFi) , w których sygnałami są fale elektromagnetyczne,
- zaś medium najczęściej powietrze,
+ Bluetooth, IrDA, WiFi), w których sygnałami są fale elektromagnetyczne,
+ zaś medium najczęściej powietrze;
 \end_layout
 
 \end_deeper
@@ -158,12 +165,12 @@ szeregowe (np.
 
 \begin_layout Itemize
 równoległe (np.
- GPIB, SCSI, ATA oraz używany kiedyś w drukarkach interfejs Centronics),
+ GPIB, SCSI, ATA oraz używany kiedyś w drukarkach interfejs Centronics);
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-charakter sygnałów:
+ze względu na charakter sygnałów:
 \end_layout
 
 \begin_deeper
@@ -184,7 +191,7 @@ Pod pojęciem interfejsu przewodowego rozumie się złącza oraz przewody łącz
  (kształt, rozmiar, ilość) oraz charakterystykami elektrycznymi sygnałów
  (poziomy napięć i prądów, relacje czasowe).
  Aby przesył sygnałów był możliwy, związany z nimi obwód elektryczny musi
- być zamknięty., dlatego składa się z dwóch przewodów tworzących linię.
+ być zamknięty, dlatego składa się z dwóch przewodów tworzących linię.
  Istnieją linie symetryczne i niesymetryczne.
  Schemat obu pokazano na rysunku 
 \begin_inset CommandInset ref
@@ -280,7 +287,7 @@ ekranowanie linii.
 \end_layout
 
 \begin_layout Standard
-Linia symetryczna składa się z dwóch przewiodów wiodących sygnały znajdujące
+Linia symetryczna składa się z dwóch przewodów wiodących sygnały znajdujące
  się w przeciwfazie oraz odbiornika z wejściem różnicowym.
  Dzięki temu, sygnały o takich samych przebiegach indukowane w poszczególnych
  przewodach znoszą się po odjęciu na wejściu wzmacniacza.
@@ -317,13 +324,13 @@ Transmisja szeregowa polega na przesyłaniu informacji bit po bicie.
  Zaletą takiego rozwiązania jest stosunkowo niewielka ilość użytych przewodów.
  Liczba ta jest większa w przypadku transmisji równoległej, w której na
  raz możliwe jest przesyłanie większej ilości bitów (każdy swoim torem).
- Teoretycznie przyspiesza to szybkość transferu danych, jednak w praktyce
- jest ona ograniczona ze względu na zakłócanie sygnałów przez pola pochodzące
+ Teoretycznie podnosi to szybkość transferu danych, jednak w praktyce jest
+ ona ograniczona ze względu na zakłócanie sygnałów przez pola pochodzące
  od sąsiednich linii danych.
  Inną wadą tego typu komunikacji jest także stosunkowo skomplikowana budowa
- (a co zatym idzie większy koszt) interfejsów równoległych.
- Omawiana fakty uzasadniają dlaczego większość współczesnych urządzeń cyfrowych
- wykorzystuje interfejsy i transmisję szeregową.
+ (a co za tym idzie większy koszt) interfejsów równoległych.
+ Uzasadniają to fakt wykorzystania przez większość współczesnych urządzeń
+ cyfrowych interfejsów i transmisji szeregowych.
 \end_layout
 
 \begin_layout Standard
@@ -455,14 +462,14 @@ Transmisja asynchroniczna i synchroniczna
 \end_layout
 
 \begin_layout Standard
-W przypadku transmishi asynchronicznej zegary nadajnika i odbiornika nie
+W przypadku transmisji asynchronicznej zegary nadajnika i odbiornika nie
  są synchronizowane.
  Dane nie muszą być przesyłane w sposób ciągły, tzn.
  między kolejnymi transmisjami, linia danych znajduje się w stanie spoczynku
  przez tzw.
  czas martwy.
- Dane przesyłane noszą w literaturze nazwę znaku i składają się zwykle od
- pięciu do ośmiu bitów.
+ Dane przesyłane noszą w literaturze nazwę znaku i składają się zwykle z
+ od pięciu do ośmiu bitów.
  Aby odbiornik mógł wykryć początek oraz koniec nadawania danych, każdy
  znak poprzedzony jest tzw.
  bitem startu oraz zakończony tzw.
@@ -547,6 +554,9 @@ ilość bitów stopu.
 \begin_layout Standard
 W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
  (stąd nazwa), dzięki czemu nie są konieczne bity startu i stopu.
+ Dla zapewnienia poprawności synchronizacji, sygnał zegara przesyłany jest
+ dodatkową linią, dzięki czemu zarówno odbiornik jak i nadajnik przesyłają
+ bity w jednakowych odstępach czasu.
  Dane przesyłane grupowane są w bloki zwane ramkami (ang.
  
 \emph on
@@ -560,17 +570,12 @@ reference "fig:Ramka-transmisji-szeregowej-synchr"
 
 \end_inset
 
-), zawierający bajty synchronizacji potrzebne do zsynchronizowania zegarów
- nadajnika i odbiornika.
- W celu zapewnienia poprawnego transferu, synchronizacja ta powinna być
- utrzymywana podczas całego procesu komunikacji.
- Prócz wspomnianych bajtów, nagłówek zawiera także dodatkowe informacje,
- np.
+), zawierający dodatkowe informacje, np.
  ilość przesyłanych danych.
  Blok danych zawiera właściwe dane zgrupowane jeden za drugim.
  W celu zapewnienia poprawności transmisji, są one zakończone tzw.
- bajtami kontrolnymi i wewntualnymi bajtami korekcyjnymi pozwalającymi na
- naprawę uszkodzonych danych.
+ bajtami kontrolnymi i ewentualnymi bajtami korekcyjnymi pozwalającymi na
+ naprawę uszkodzonych danych
 \end_layout
 
 \begin_layout Standard
@@ -629,159 +634,11 @@ name "fig:Ramka-transmisji-szeregowej-synchr"
 \end_layout
 
 \begin_layout Subsection
-Transmisja równoległa
-\end_layout
-
-\begin_layout Standard
-W transmisji równoległej grupy bitów wysyłane są w tym samym czasie niezależnymi
- liniami danych.
- Można powiedzieć, że w tym przypadku przesyłane są szeregowo grupy bitów
- (zwykle bajty lub tzw.
- słowa).
- Dane wysyłane są w takt sygnału zegarowego, zwanego sygnałem strobującym.
- Odbiornik wykorzystuje ten sygnał do zapisu odbieranych danych.
- Zwykle transmisja tego typu jest realizowana jednokierunkowo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Krzyzanowski207"
-
-\end_inset
-
-.
- W przypadku powolnych odbiorników (np.
- drukarki) stosuje się dodatkowe bufory uniezależniające transmisję od czasu
- przetwarzania.
- Aby jednak dane mogły być przesyłane, odbiornik musi zasygnalizować nadajnikowi
- gotowość do ich odbioru przy pomocy sygnału gotowości (rysunek 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Uklad-transmisji-rownoleglej"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename rys/interfejsy/transmisja_rownolegla.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Układ transmisji równoległej (
-\emph on
-Źródło:
-\emph default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Krzyzanowski207"
-
-\end_inset
-
-) 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Uklad-transmisji-rownoleglej"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Na rysunku 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:sygnaly-transm-rown"
-
-\end_inset
-
- pokazano przebiegi sygnalów towarzyszących transmisji równoległej.
- Sygnał strobu (aktywny poziomem niskim) jest ustawiany w sytuacji aktywnego
- sygnału gotowości oraz po ustabilizowaniu się stanu magistrali danych.
- Urządzenie zewnętrzne (odbiornik) wykorzystuje jego zbocze opadające do
- zapisu odbieranych danych.
- W istniejących interfejsach, zarówno szeregowych jak i równoległych wykorzystuj
-e się także inne sygnały sterujace komunikacją.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename rys/interfejsy/przebiegi_transmisja_rownolegla.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Przbiegi sygnałów w transmisji równoległej (
-\emph on
-Źródło:
-\emph default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Krzyzanowski207"
-
-\end_inset
-
-) 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:sygnaly-transm-rown"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
+Świentek sugeruje opisanie interfejsów typu master-slave
 \end_layout
 
 \end_inset
@@ -872,7 +729,7 @@ sygnał MOSI (ang.
 \emph on
 Master Output Slave Input
 \emph default
-) -wyjście urządzenia 
+) -- wyjście urządzenia 
 \emph on
 master
 \emph default
@@ -889,7 +746,7 @@ sygnał MISO (ang.
 \emph on
 Master Input Slave Output
 \emph default
-) - wejście urządzenia 
+) -- wejście urządzenia 
 \emph on
 master
 \emph default
@@ -911,7 +768,7 @@ Chip Select
 \emph on
 Slave Select
 \emph default
-) - sygnał wyboru urządzenia (wyjście urządzenia 
+) -- sygnał wyboru urządzenia (wyjście urządzenia 
 \emph on
 master
 \emph default
@@ -923,46 +780,19 @@ Wymienione powyżej sygnały posiadają także alternatywne nazwy:
 \end_layout
 
 \begin_layout Itemize
-SCLK - SCK, CLK,
+SCLK -- SCK, CLK,
 \end_layout
 
 \begin_layout Itemize
-MOSI - SIMO, SDO, DO,
+MOSI -- SIMO, SDO, DO,
 \end_layout
 
 \begin_layout Itemize
-MISO - SOMI, SDI, DI,
+MISO -- SOMI, SDI, DI,
 \end_layout
 
 \begin_layout Itemize
-CS - nCS, nSS, CSB, STE.
-\end_layout
-
-\begin_layout Standard
-Z pojedynczym układem 
-\emph on
-master
-\emph default
- może współpracować jeden lub więcej układów typu 
-\emph on
-slave
-\emph default
-.
- W ostatnim przypadku należy zapewnić odpowiednią (równa liczbie urządzeń
- 
-\emph on
-slave
-\emph default
-) ilość niezależnych sygnałów wyboru płytki (CS).
- Ponieważ układ transmisji SPI wykorzystuje rejestr przesuwny, innym rozwiązanie
-m może okazać się także połączenie układów podrzędnych, tak aby utworzyły
- jeden rejestr przesuwny.
- Ponadto współpraca z wieloma urządzeniami 
-\emph on
-slave
-\emph default
- wymaga, aby w trakcie ich nieaktywności ich wyjścia MISO wchodziły w stan
- wysokiej impedancji.
+CS -- nCS, nSS, CSB, STE.
 \end_layout
 
 \begin_layout Subsection
@@ -1063,8 +893,11 @@ urządzenie slave wysyła klejny bit danych linią MISO, zaś master go odbiera.
 
 \begin_layout Standard
 W transmisji wykorzystywane są zwykle dwa rejestry przesuwne (po jednym
- dla urządzenia master i slave) połączone ze sobą tworząc rejestr cykliczny
- (rysunek 
+ dla urządzenia master i
+\begin_inset space ~
+\end_inset
+
+slave) połączone ze sobą tworząc rejestr cykliczny (rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:spi-rej-przesuwny"
@@ -1087,7 +920,7 @@ least significant bit
  zapis do pamięci, przetwarzanie itp.
  W celu wymiany większej ilości informacji, wspomniany proces się powtarza.
  W trakcie pojedynczego cyklu komunikacji przesyłany jest zwykle bajt danych
- (8 bitów), choć nie jest to regułą; istnieją układy w których przesyla
+ (8 bitów), choć nie jest to regułą; istnieją układy w których przesyła
  się 12, 16 lub 24 bity.
  Niektóre urządzenia 
 \emph on
@@ -1107,8 +940,12 @@ slave
  Przykładowo może to być sygnał informujący o dotknięciu ekranu dotykowego,
  sygnał alarmowy generowany przez czujnik temperatury lub zegar czasu rzeczywist
 ego.
- Standard SPI nie przewiduje użycia przerwań, więc przeznaczanie dla nich
- oddzielnego pinu w urządzeniu 
+ Standard SPI nie przewiduje użycia przerwań, chociaż przeznaczanie dla
+ nich oddzielnego pinu w
+\begin_inset space ~
+\end_inset
+
+urządzeniu 
 \emph on
 slave
 \emph default
@@ -1116,7 +953,7 @@ slave
 \end_layout
 
 \begin_layout Standard
-Każde z urządzeń 
+Żadne z urządzeń 
 \emph on
 slave
 \emph default
@@ -1249,7 +1086,7 @@ reference "fig:spi-independent-slaves"
 \emph on
 slave
 \emph default
- są połączone do wspólnej linii, powinny być one wyjsciami trójstanowymi.
+ są połączone do wspólnej linii, powinny być one wyjściami trójstanowymi.
 \end_layout
 
 \begin_layout Standard
@@ -1484,11 +1321,7 @@ slave
 \emph on
 master
 \emph default
- może 
-\begin_inset Quotes eld
-\end_inset
-
-rozmawiać
+ może ,,rozmawiać
 \begin_inset Quotes erd
 \end_inset
 
@@ -1575,8 +1408,8 @@ UART (ang.
 \emph on
 Universal Asynchronous Receiver and Transmitter
 \emph default
-) jest urządzeniem umożliwiającym asynchroniczne odbieranie i nadawanie
- informacji przy pomocy portu szeregowego.
+) jest protokołem umożliwiającym asynchroniczne odbieranie i nadawanie informacj
+i przy pomocy portu szeregowego.
  Sklada się z trzech zasadniczych elementów:
 \end_layout
 
@@ -1590,7 +1423,7 @@ parallel to serial
 \end_layout
 
 \begin_layout Itemize
-konwertera szerogowo-równoległego, umożliwiającego odbiór danych pochodzących
+konwertera szeregowo-równoległego, umożliwiającego odbiór danych pochodzących
  z komputera przez urządzenie zewnętrzne,
 \end_layout
 
@@ -1605,7 +1438,7 @@ UART używany jest często w połaczeniu z takim standardami komunikacyjnymi
  Jego uniwersalność polega na tym, że szybkość transmisji oraz format danych
  są konfigurowalne.
  Poziomy elektryczne sygnałów elektrycznych oraz ich postać (np.
- sygnal różnicowy) są przez zewnętrzny układ sterownika.
+ sygnal różnicowy) ustawiane są przez zewnętrzny układ sterownika.
  Omawiane urządzenia wystąpują jako układy scalone (bądź ich komponenty)
  będące składnikami mikrokontrolerów.
  Isnieją konstrukcje łączące dwa (DUART) lub osiem układów UART w jednej
@@ -1719,7 +1552,7 @@ reference "fig:Ramka-danych-uart"
  Wysyłanie właściwych danych (zwanych znakiem) sygnalizowane jest bitem
  startu, tj.
  przejściem linii danych do stanu niskiego.
- Znak składa się zazwyczaj z 5 - 8 bitów.
+ Przesyłany znak składa się zazwyczaj z 5 - 8 bitów.
  W celu zapewnienia kontroli poprawności danych, może być zakończony tzw.
  bitem parzystości.
  W celu zasygnalizowania odbiornikowi zakończenia transmisji, przesyłany
@@ -1731,13 +1564,17 @@ Odbiór danych
 \end_layout
 
 \begin_layout Standard
-Wszystkie operacje w ukladzie UART sterowane są sygnałem zegarowym o częstotliwo
+Wszystkie operacje w układzie UART sterowane są sygnałem zegarowym o częstotliwo
 śći będącej wielokrotnością częstości używanej do przesyłania danych.
  Odbiornik próbkuje linię danych w oczekiwaniu na pojawienie się bitu startu.
  Jeśli linia danych przejdzie ze stanu spoczynkowego do aktywnego na czas
  wynoszący co najmniej połowę okresu trwania bitu, zostanie to zinterpretowane
  jako bit startu.
- W przeciwnym wypadku zarejestrowany impuls zostanie zignorowany.
+ W
+\begin_inset space ~
+\end_inset
+
+przeciwnym wypadku zarejestrowany impuls zostanie zignorowany.
  Następnie po upływie niewielkiego czasu następuje dalsze próbkowanie linii
  danych połączone z wczytywaniem znaku do odbiorczego rejestru przesuwnego.
  Po wczytaniu określonej liczby bitów, UART ustawia odpowiednią flagę lub
@@ -1828,9 +1665,17 @@ Jak wspomniano wcześniej istnieją układy typu USART potrafiące także pracow
  W tym wypadku przebieg sygnału zegarowego jest pozyskiwany na podstawie
  sygnału na linii danych.
  Dzięki obecności sygnału synchronizacyjnego niepotrzebne stają się bity
- startu i stopu, co pozwala na lepsze wykorzystanie linii danych i w efekcie
- bardziej efektywną komunikację.
- W przypadku trybu asynchronicznego, gdy nie ma danych do przesłania, linia
+ startu i
+\begin_inset space ~
+\end_inset
+
+stopu, co pozwala na lepsze wykorzystanie linii danych i w efekcie bardziej
+ efektywną komunikację.
+ W
+\begin_inset space ~
+\end_inset
+
+przypadku trybu asynchronicznego, gdy nie ma danych do przesłania, linia
  danych znajduje się w stanie spoczynku.
  W trybie transmisji synchronicznej konieczne jest przesyłanie specjalnych
  znaków w celu utrzymania synchronizacji.
@@ -1851,12 +1696,12 @@ Błąd przepełnienia (ang.
 \emph on
 overrun error
 \emph default
-) - wystepuje, gdy odbiorca danych nie może przetworzyć danej przed pojawieniem
+) -- wystepuje, gdy odbiorca danych nie może przetworzyć danej przed pojawieniem
  się kolejne.
  Różne urządzenia dysponują różnymi pojemnościami buforów służących do przechowy
 wania odebranych danych.
  Jednostka przetwarzająca dane musi to robić na tyle szybko, aby zwolnić
- miejsce dla kolejnych znaków - w przeciwnym razie dochodzi do nadpisania
+ miejsce dla kolejnych znaków -- w przeciwnym razie dochodzi do nadpisania
  nie przetworzonych jeszcze informacji.
 \end_layout
 
@@ -1866,7 +1711,7 @@ Błąd niedopełnienia (ang.
 \emph on
 underrun error
 \emph default
-) - ma miejsce, gdy po wysłaniu danych przez nadajnik, bufor nadawczy jest
+) -- ma miejsce, gdy po wysłaniu danych przez nadajnik, bufor nadawczy jest
  pusty.
  W trybie asynchronicznym sytuacja taka traktowana jest raczej jako brak
  danych do wysłania niż stan błędny.
@@ -1879,7 +1724,7 @@ Błąd ramki (ang.
 \emph on
 framing error
 \emph default
-) - pojawia się, gdy bity startu i stopu nie są wykrywane.
+) -- pojawia się, gdy bity startu i stopu nie są wykrywane.
  Bit startu sygnalizujący początek znaku stanowi odniesienie dla pozostałych
  bitów.
  Jeśli linia danych nie znajdzie się we właściwym stanie, gdy spodziewany
@@ -1892,8 +1737,11 @@ Błąd parzystości (ang.
 \emph on
 parity error
 \emph default
-) - wystepuje, gdy liczba jedynek w przesyłanym znaku wraz z bitem parzystości
- jest liczbą parzystą.
+) -- wystepuje, gdy liczba jedynek w przesyłanym znaku wraz z
+\begin_inset space ~
+\end_inset
+
+bitem parzystości jest liczbą parzystą.
  Istnienie omawianego bitu w ramce jest opcjonalne.
 \end_layout
 
