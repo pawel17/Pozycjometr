@@ -74,8 +74,11 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  w sposób, który umożliwi zobrazowanie zmierzonych przyspieszeń bądź obrotów.
  W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
  w formie graficznej wyników.
- Wykorzystano do tego platformę .NET i język C# z wykorzystaniem Windows
- Forms dla stworzenia interfejsu.
+ Wykorzystano do tego platformę .NET i język C# z wykorzystaniem 
+\emph on
+Windows Forms
+\emph default
+ dla stworzenia interfejsu.
  Powodem wyboru tej technologii była względna prostota oraz mnogość klas
  i technik, które umożliwiały osiągnięcie postawionego celu na systemie
  Windows.
@@ -145,21 +148,39 @@ Otrzymane wyniki pomiaru przyśpieszenia i kąta obrotu wypisane są w odpowiedn
  Jednakże najważniejszym elementem aplikacji jest okno wyświetlania wyników
  pomiaru w formie graficznej.
  Sześcian symbolizuje układ pomiarowy, dodatkowo przedstawiono osie układu
- współrzędnych: oś X jest koloru niebieskiego, oś Y - żółtego a oś Z jest
- czerwona.
+ współrzędnych: oś X jest koloru niebieskiego, oś Y - czerwonego a oś Z
+ jest żółta.
  Dzięki temu można łatwiej zaobserwować wszelkie przemieszczenia i zmiany
  kąta względem położenia początkowego.
  Poniżej okna wizualizacji umieszczono trzy przełączniki zgrupowane w panelu
- Tryb pomiaru.
+ 
+\emph on
+Tryb pomiaru
+\emph default
+.
  Umożliwiają one przełączanie się pomiędzy trzema różnymi trybami wizualizacji.
- Obrót umożliwia obserwację jedynie wyników pracy żyroskopu, Przemieszczenie
+ 
+\emph on
+Obrót
+\emph default
+ umożliwia obserwację jedynie wyników pracy żyroskopu, 
+\emph on
+Przemieszczenie
+\emph default
  wyłącza wizualizację obrotów bryły pozostawiając przemieszczenie, a ostatni
  przełącznik pozwala na pełny podgląd wyników pomiarów.
- Przycisk Ustawienia pozwala na ustawienie parametrów połączenia w osobnym
- oknie.
+ Przycisk 
+\emph on
+Ustawienia
+\emph default
+ pozwala na zmianę parametrów połączenia w osobnym oknie.
  Zostanie ono szczegółowo opisane w kolejnej części.
- Wciśnięcie przycisku O programie wyświetla szczegółową informację o zrealizowan
-ej pracy inżynierskiej (Rysunek 
+ Wciśnięcie przycisku 
+\emph on
+O programie
+\emph default
+ wyświetla szczegółową informację o zrealizowanej pracy inżynierskiej (rysunek
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Okno-informacji-o-programie"
@@ -210,14 +231,21 @@ name "fig:Okno-informacji-o-programie"
 \end_layout
 
 \begin_layout Standard
-Za rozpoczęcie i zakończenie pomiarów odpowiadają przyciski Rozpocznij pomiar
- i Zakończ pomiar.
- W jednej chwili tylko jeden z przycisków jest aktywny, dzięki czemu nie
+Za rozpoczęcie i zakończenie pomiarów odpowiadają przyciski 
+\emph on
+Rozpocznij pomiar
+\emph default
+ i
+\emph on
+ Zakończ pomiar
+\emph default
+.
+ W danej chwili tylko jeden z przycisków jest aktywny, dzięki czemu nie
  ma możliwości wielokrotnego zainicjalizowania/zakończenia połączenia z
  wykorzystaniem interfejsu szeregowego.
  W przypadku próby nawiązania połączenia bez odpowiednio skonfigurowanych
  parametrów połączenia wyświetlony zostanie odpowiedni komunikat informujący
- o konieczności poprawienia wprowadzonych danych (Rysunek 
+ o konieczności poprawienia wprowadzonych danych (rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Okno-błędu-połączenia"
@@ -275,8 +303,15 @@ Okno ustawień
 \end_layout
 
 \begin_layout Standard
-Okno ustawień parametrów transmisji szeregowej przedstawiono na poniższej
- ilustracji.
+Okno ustawień parametrów transmisji szeregowej przedstawiono na ilustracji
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Opcje-programu"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -324,20 +359,38 @@ name "fig:Opcje-programu"
 
 \begin_layout Standard
 Kluczową klasą, która służy do przechowywania parametrów połączenia dostępnych
- i wybranych jest klasa statyczna CommunicationParameters.
+ i wybranych jest klasa statyczna 
+\emph on
+CommunicationParameters
+\emph default
+.
  Klasa ta zapamiętuje wybrane parametry transmisji danych i tablice danych
  wyświetlanych w listach rozwijanych.
  Nazwy portów szeregowych dostępnych w danym komputerze otrzymano korzystając
- z metody GetPortNames klasy SerialPort znajdującej się w przestrzeni nazw
- System.Port.IO, wykorzystywanej w aplikacji do komunikacji z mikroprocesorem.
+ z metody 
+\emph on
+GetPortNames
+\emph default
+ klasy 
+\emph on
+SerialPort
+\emph default
+ znajdującej się w przestrzeni nazw 
+\emph on
+System.Port.IO
+\emph default
+, wykorzystywanej w aplikacji do komunikacji z mikroprocesorem.
  Aby rozpocząć pomiar konieczne jest jedynie wybranie odpowiedniej nazwy
  portu.
  Reszta parametrów domyślnie ustawiona jest na wartości, które wybrano już
  w momencie konfiguracji komunikacji poprzez interfejs UART w mikroprocesorze.
  W przypadku zmiany tych parametrów, konieczne jest wybranie odpowiednich
  wartości w oknie opcji.
- Kliknięcie przycisku Zapisz powoduje zapamiętanie wybranych parametrów
- i powrót do okna głownego.
+ Kliknięcie przycisku
+\emph on
+ Zapisz
+\emph default
+ powoduje zapamiętanie wybranych parametrów i powrót do okna głownego.
 \end_layout
 
 \begin_layout Section
@@ -349,8 +402,16 @@ Pierwszym zadaniem, jakie było konieczne do zrealizowania wymagało odebrania
  danych pomiarowych otrzymanych z mikroprocesora za pośrednictwem portu
  szeregowego.
  Za komunikację z tym mikroprocesorem za pośrednictwem tego portu odpowiedzialna
- jest klasa COMPortManager.
- Wykorzystano w tym celu klasę SerialPort, o której wspomniano już wcześniej.
+ jest klasa 
+\emph on
+COMPortManager
+\emph default
+.
+ Wykorzystano w tym celu klasę 
+\emph on
+SerialPort
+\emph default
+, o której wspomniano już wcześniej.
  Klasa ta umożliwia kontrolę portów szeregowych komputera.
  Zapewnia ona komunikację synchroniczną, sterowaną zdarzeniami wspierającą
  szereg typów kodowania: ASCII, UTF8, Unicode i UTF32.
@@ -361,15 +422,26 @@ Pierwszym zadaniem, jakie było konieczne do zrealizowania wymagało odebrania
 Komunikacja z portem szeregowym odbywa się w puli wątków, dzięki czemu wykonywan
 a jest ona w tle.
  W przypadku, gdy za pomocą tego portu otrzymane zostaną dane, wywoływane
- jest zdarzenie obsługiwane przez metodę SerialPortDataRecieved.
+ jest zdarzenie obsługiwane przez metodę 
+\emph on
+SerialPortDataRecieved
+\emph default
+.
  Odczytuje ona dane otrzymane z portu szeregowego i zapisuje je w postaci
  stringu.
- Następnie dane te są opakowane w klasę ReceivedDataEventArgs, która odpowiada
- za przechowywanie danych zdarzenia.
+ Następnie dane te są opakowane w klasę 
+\emph on
+ReceivedDataEventArgs
+\emph default
+, która odpowiada za przechowywanie danych zdarzenia.
  Potem wywoływane jest zdarzenie z uzyskanymi wynikami, które przekazuje
  je do głównego okna aplikacji.
- W klasie COMPortManager jest również zaimplementowana metoda, której zadaniem
- jest wysyłanie do mikroprocesora komunikatu o treści 
+ W klasie 
+\emph on
+COMPortManager
+\emph default
+ jest również zaimplementowana metoda, której zadaniem jest wysyłanie do
+ mikroprocesora komunikatu o treści 
 \begin_inset Quotes eld
 \end_inset
 
@@ -385,8 +457,15 @@ Przeliczenie otrzymanych wyników
 \end_layout
 
 \begin_layout Standard
-Klasa ApplicationWindow, wyświetlająca główne okno aplikacji odbiera dane
- z klasy COMPortManager w procedurze obsługi zdarzenia.
+Klasa 
+\emph on
+ApplicationWindow
+\emph default
+, wyświetlająca główne okno aplikacji, odbiera dane z klasy 
+\emph on
+COMPortManager
+\emph default
+ w procedurze obsługi zdarzenia.
  Dodatkowo metoda ta rozpoczyna się od spradzenia, czy wywoływanie nie jest
  wykonywane spoza bieżącego wątku.
  Jeśli taka sytuacja ma miejsce, metoda ta zapisywana jest jako delegat,
@@ -396,25 +475,12 @@ Klasa ApplicationWindow, wyświetlająca główne okno aplikacji odbiera dane
 \end_layout
 
 \begin_layout Standard
-String zawierający dane odczytane z akcelerometru i żyroskopu zostaje następnie
- rozdzielony na poszczególne dane.
+String zawierający wyniki odczytane z akcelerometru i żyroskopu zostaje
+ następnie rozdzielony na poszczególne dane.
  Trzy pierwsze stringi zawierają uśrednione przyspieszenia, kolejne trzy
  to średnie prędkości zmierzone przez żyroskop.
  Zostają one zapisane do dwóch tablic łańcuchów znakowych, a następnie przekszta
 łcone do postaci liczb całokowitych, które posłużą do dalszych przeliczeń.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Tutaj proponowałbym opisanie obliczeń
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -462,7 +528,7 @@ gdzie
 \begin_inset Formula $v_{x}^{n}$
 \end_inset
 
-- wartość prędkości w osi 
+-- wartość prędkości w osi 
 \emph on
 X
 \emph default
@@ -477,7 +543,7 @@ n
 \begin_inset Formula $a_{x}^{n}$
 \end_inset
 
-- wartość przyspieszenia w osi 
+-- wartość przyspieszenia w osi 
 \emph on
 X
 \emph default
@@ -492,7 +558,7 @@ n
 \begin_inset Formula $\Delta t$
 \end_inset
 
- - krok całkowania (w tym wypadku okres próbkowania).
+ -- krok całkowania (w tym wypadku okres próbkowania).
 \end_layout
 
 \begin_layout Standard
@@ -618,14 +684,14 @@ gdzie
 \begin_inset Formula $\alpha_{g}$
 \end_inset
 
-- kąt obliczony przy pomocy danych pomiarowych z żyroskopu,
+-- kąt obliczony przy pomocy danych pomiarowych z żyroskopu,
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $\alpha_{a}$
 \end_inset
 
-- kąt obliczony przy pomocy danych pomiarowych z akcelerometru,
+-- kąt obliczony przy pomocy danych pomiarowych z akcelerometru,
 \end_layout
 
 \begin_layout Itemize
@@ -633,7 +699,7 @@ gdzie
 \emph on
 k
 \emph default
- - współczynnik z przedziału (0 - 1).
+ -- współczynnik z przedziału (0 - 1).
 \end_layout
 
 \begin_layout Standard
@@ -658,7 +724,7 @@ k
  dobiera się empirycznie.
  Dokładniejsze wyniki, lecz dużo bardzie złożone obliczeniowo, daje filtracja
  Kallmana, szeroko opisywana w publikacjach z dziedziny przetwarzania sygnałów.
- W metodzie tej wagi z jakimi brane są wielkości pochodzące od poszczególnych
+ W metodzie tej, wagi z jakimi brane są wielkości pochodzące od poszczególnych
  czujników obliczane są na bieżąco.
 \end_layout
 
@@ -866,11 +932,7 @@ z
 
 \emph default
  będą równe jednocześnie zeru, gdy oś X będzie równoległa do wektora grawitacji.
- Wówczas obrót wokół osi X jest 
-\begin_inset Quotes eld
-\end_inset
-
-niewidoczny
+ Wówczas obrót wokół osi X jest ,,niewidoczny
 \begin_inset Quotes erd
 \end_inset
 
@@ -910,19 +972,46 @@ Otrzymane wyniki zapisywane są do odpowiednich pól tekstowych w oknie główny
  aplikacji.
  Ze względu na fakt, iż wyliczone wartości nie mogą być bezpośrednio zapisane
  do klasy działającej w innym wątku, konieczne było zastosowanie metody
- Invoke klasy Dispatcher na obiekcie okna wizualizacji.
- Klasa Dispatcher umożliwia zarządzenia kolejką elementów roboczych dla
- danego wątku, w tym wypadku okna wizualizacji.
- Metoda Invoke jako argument przyjmuje delegat do funkcji, która zostanie
- na tym wątku wykonana.
- Tą funkcją jest metoda klasy ApplicationWindow o nazwie ApplyMovement,
- która jako argumenty przyjmuje dwie tablice danych z wynikami z obu urządzeń
+ 
+\emph on
+Invoke
+\emph default
+ klasy 
+\emph on
+Dispatcher
+\emph default
+ na obiekcie okna wizualizacji.
+ Klasa 
+\emph on
+Dispatcher
+\emph default
+ umożliwia zarządzenia kolejką elementów roboczych dla danego wątku, w tym
+ wypadku okna wizualizacji.
+ Metoda 
+\emph on
+Invoke
+\emph default
+ jako argument przyjmuje delegat do funkcji, która zostanie na tym wątku
+ wykonana.
+ Tą funkcją jest metoda klasy 
+\emph on
+ApplicationWindow
+\emph default
+ o nazwie 
+\emph on
+ApplyMovement
+\emph default
+, która jako argumenty przyjmuje dwie tablice danych z wynikami z obu urządzeń
  pomiarowych.
- Wartości te są przypisywane do odpowiednich zmiennych Należy tutaj zaznaczyć,
- że w przypadku, gdy metoda ta wywoływana jest po raz pierwszy, wyniki pomiaru
- przesunięcia/obrotu są bezpośrednio wpisywane do odpowiednich zmiennych
- w obiekcie okna wizualizacji, a ich wartości zapamiętywane w odpowiedniej
- zmiennej w klasie ApplicationWindow.
+ Wartości te są przypisywane do odpowiednich zmiennych.
+ Należy tutaj zaznaczyć, że w przypadku, gdy metoda ta wywoływana jest po
+ raz pierwszy, wyniki pomiaru przesunięcia/obrotu są bezpośrednio wpisywane
+ do odpowiednich zmiennych w obiekcie okna wizualizacji, a ich wartości
+ zapamiętywane w odpowiedniej zmiennej w klasie 
+\emph on
+ApplicationWindow
+\emph default
+.
  Każdy kolejny pomiar skutkuje zapisaniem do okna liczby będącej różnicą
  poprzedniej i obecnej.
  Dzięki temu, aktualizacja pozycji sześcianu skutkuje jego przesunięciem
@@ -934,7 +1023,15 @@ Otrzymane wyniki zapisywane są do odpowiednich pól tekstowych w oknie główny
 
 \begin_layout Standard
 Metoda powodująca usunięcie wszystkich transformacji również jest wywoływana
- z wykorzystaniem metody Invoke klasy Dispatcher.
+ z wykorzystaniem metody 
+\emph on
+Invoke
+\emph default
+ klasy 
+\emph on
+Dispatcher
+\emph default
+.
  Dzięki niej można przywrócić domyślne położenie sześcianiu i rozpocząć
  pomiar od początku, określając bieżące położenie układu jako domyślne.
  Metoda ta jest wywoływana każdorazowo przy przełączaniu trybu wizualizacji,
@@ -949,26 +1046,37 @@ Wizualizacja danych
 Biorąc pod uwagę założenia przyjęte przed realizacją pracy, był to najważniejszy
  etap w tworzeniu interfejsu użytkownika.
  Konieczny był wybór takiej technologii, która dobrze współgrała z resztą
- programu napisaną w języku C# a jednocześnie zapewniałaby duże możliwości
+ programu napisaną w języku C#, a jednocześnie zapewniałaby duże możliwości
  wizualizacji danych w postaci obiektów trójwymiarowych.
- Z tego względu zdecydowano się skorzystać z Windows Presentation Foundation.
- Jest to silnik graficzny oparty o grafikę wektorową, który pozwala na szerokie
- możliwości tworzenia aplikacji.
+ Z tego względu zdecydowano się skorzystać z 
+\emph on
+Windows Presentation Foundation
+\emph default
+.
+ Jest to silnik graficzny oparty o grafikę wektorową, który daje duże możliwości
+ tworzenia aplikacji.
  API w WPF opiera się na języku XML, a dokładniej wykorzystuje jego implementacj
 ę o nazwie XAML.
  Zapewnia on powiązanie pomiędzy interfejsem a logiką i umożliwia tworzenie
  zaawansowanych kontrolek, grafiki 2D i 3D, animacji, dokumentów, multimediów
  czy też tekstu.
- Dodatkową zaletą jest fakt, iż Windows Presentation Foundation jest zawarta
- w Microsoft .NET Framework, co czyni ją łatwodostępną i zdolną do pracy
- z innymi elementami biblioteki .NET Framework.
+ Dodatkową zaletą jest fakt, iż 
+\emph on
+Windows Presentation Foundation
+\emph default
+ jest zawarta w Microsoft .NET Framework, co czyni ją łatwodostępną i zdolną
+ do pracy z innymi elementami biblioteki .NET Framework.
 \end_layout
 
 \begin_layout Standard
 Okno wizualizacji zbudowane zostało jako biblioteka łączona dynamicznie.
  Takie rozwiązanie jest konieczne ze względu na fakt, iż okno stworzone
- w WPF będzie umieszczone w interfejsie stworzonym za pomocą Windows Forms.
- Dodatkowo konieczne było podłączenie kilku bibliotek, które są konieczne
+ w WPF będzie umieszczone w interfejsie stworzonym za pomocą 
+\emph on
+Windows Forms
+\emph default
+.
+ Dodatkowo konieczne było podłączenie kilku bibliotek, które są niezbędne
  w poprawnym działaniu aplikacji.
  
 \end_layout
@@ -981,26 +1089,59 @@ Podstawowym elementem tworzącym grafikę 3D jest trójkąt.
  Teoretycznie linię można narysować z wykorzystaniem odpowiednio przeskalowanego
  prostokąta, lecz w takim wypadku pojawia się problem z zapewnieniem odpowiednie
 go oświetlenia i ustawienia kamery.
- Ze względu na znaczen trudności, jakie mogła nieść ze sobą implementacja
- tego rozwiązania, zdecydowano się na wykorzytanie biblioteki 3D Tools przygotow
-anej przez Microsoft.
- Zawiera ona klasę ScreenSpaceLines3D, które pozwalają na proste kreślenie
- linii.
+ Ze względu na znaczne trudności, jakie mogła nieść ze sobą implementacja
+ tego rozwiązania, zdecydowano się na wykorzytanie biblioteki 
+\emph on
+3DTools
+\emph default
+ przygotowanej przez Microsoft.
+ Zawiera ona klasę 
+\emph on
+ScreenSpaceLines3D
+\emph default
+, które pozwalają na proste kreślenie linii.
 \end_layout
 
 \begin_layout Standard
-Jak już wspomniano w poprzednim paragrafie, dwie metody klasy ApplicationWindow
- operują bezpośrednio na danych klasy MainWindow, odpowiadającej za wizualizację
- wyników pomiaru.
- Najważniejszą z metod w tej klasie jest metoda ApplyTransformation, która
- na podstawie danych zapisanych przez metodę ApplyMovement z interfejsu
- wykonuje odpowiednie transformacje na sześcianie.
- W tym celu wykorzystywane są dwie klasy: AxisAngleRotation3D i TranslateTransfo
-rm3D.
- Klasa AxisAngleRotation3D służy do obracania danego obiektu.
+Jak już wspomniano w poprzednim paragrafie, dwie metody klasy 
+\emph on
+ApplicationWindow
+\emph default
+ operują bezpośrednio na danych klasy 
+\emph on
+MainWindow
+\emph default
+, odpowiadającej za wizualizację wyników pomiaru.
+ Najważniejszą z metod w tej klasie jest metoda 
+\emph on
+ApplyTransformation
+\emph default
+, która na podstawie danych zapisanych przez metodę 
+\emph on
+ApplyMovement
+\emph default
+ z interfejsu wykonuje odpowiednie transformacje na sześcianie.
+ W tym celu wykorzystywane są dwie klasy: 
+\emph on
+AxisAngleRotation3D
+\emph default
+ i 
+\emph on
+TranslateTransform3D
+\emph default
+.
+ Klasa 
+\emph on
+AxisAngleRotation3D
+\emph default
+ służy do obracania danego obiektu.
  Do jej poprawnej pracy konieczne jest podanie osi obrotu i kąta, o jaki
  należy obrócić obiekt.
- TranslateTransform3D przesuwa obiekt o dany wektor.
+ 
+\emph on
+TranslateTransform3D
+\emph default
+ przesuwa obiekt o dany wektor.
  Współrzędne wektora to wartości otrzymane z akcelerometru.
  Przyspieszenie obrazuje przesunięcie obiektu od środka układu współrzędnych.
  Tak przygotowane obiekty tych klas dodaje się do kolekcji transformacji
@@ -1008,12 +1149,20 @@ rm3D.
 \end_layout
 
 \begin_layout Standard
-Powrót do stanu początkowego realizowany jest w metodzie RemoveAllTransformation
-s.
+Powrót do stanu początkowego realizowany jest w metodzie 
+\emph on
+RemoveAllTransformations
+\emph default
+.
  Odczytywana jest kolekcja transformacji, które wykonano na obiekcie, a
  następnie są one usuwane w kolejności odwrotnej do dodania.
  Dzięki temu mamy pewność, że wszystkie przesunięcia i obroty zostaną poprawnie
  usunięte i obiekt powróci do domyślego położenia.
+ Niestety w wyniku kolejkowania danych otrzymanych z mikroprocesora może
+ dojść do sytuacji, gdy po usunięciu wszystkich transformacji, dane otrzymane
+ po resecie spowodują przesunięcie sześcianu.
+ Jednakże wartości te nie wpływają znacząco na pogorszenie jakości otrzymanych
+ wyników.
 \end_layout
 
 \begin_layout Standard
