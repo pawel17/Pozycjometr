@@ -84,9 +84,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.Location = new System.Drawing.Point(4, 602);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 15);
+            this.label7.Size = new System.Drawing.Size(90, 15);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Przyśpieszenie";
+            this.label7.Text = "Przesunięcie";
             // 
             // panel2
             // 

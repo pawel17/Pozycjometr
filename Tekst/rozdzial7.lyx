@@ -144,7 +144,7 @@ name "fig:Okno-główne-programu"
 \end_layout
 
 \begin_layout Standard
-Otrzymane wyniki pomiaru przyśpieszenia i kąta obrotu wypisane są w odpowiednich
+Otrzymane wyniki pomiaru przesunięcia i kąta obrotu wypisane są w odpowiednich
  polach, dla każdej z osi osobno.
  Jednakże najważniejszym elementem aplikacji jest okno wyświetlania wyników
  pomiaru w formie graficznej.
@@ -1143,8 +1143,7 @@ AxisAngleRotation3D
 TranslateTransform3D
 \emph default
  przesuwa obiekt o dany wektor.
- Współrzędne wektora to wartości otrzymane z akcelerometru.
- Przyspieszenie obrazuje przesunięcie obiektu od środka układu współrzędnych.
+ Współrzędne tego wektora to wartości otrzymane z akcelerometru.
  Tak przygotowane obiekty tych klas dodaje się do kolekcji transformacji
  przypisanych do obiektu, w tym przypadku sześcianu.
 \end_layout
