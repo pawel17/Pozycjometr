@@ -72,42 +72,49 @@ Układy elektroniczne
 \begin_layout Standard
 Wyznaczenie pozycji w przestrzeni wymagało harmonijnego współdziałania trzech
  zastosowanych w niniejszej pracy układów elektronicznych.
- Najważniejszym elementem, był zestaw uruchomieniowy LandTiger, zawierający
+ Najważniejszym elementem był zestaw uruchomieniowy LandTiger, zawierający
  mikrokontroler LPC1768 opartym o rdzeń ARM Cortex-M3.
  Mikrokontroler odpowiadał za odczyt, przetwarzanie i przesyłanie danych
- pomiarowych zgromadzonych przez dwa urządzenia firmy Digilent: PmodACL
- i PmodGYRO.
- Pierwszy z tych układów to trójosiowy, cyfrowy akcelerometr pracujący na
- akcelerometrze ADXL345 firmy AnalogDevices.
- PmodGYRO oparty jest na układzie L3G4200D firmy ST Microelectronics.
+ pomiarowych zgromadzonych przez dwa układy firmy Digilent: PmodACL i PmodGYRO.
+ Pierwszy z nich to trójosiowy, cyfrowy akcelerometr pracujący na układzie
+ ADXL345 firmy AnalogDevices.
+ PmodGYRO oparty jest na żyroskopie L3G4200D firmy ST Microelectronics.
 \end_layout
 
 \begin_layout Standard
-ADXL345 to niewielki akcelerometr posiadający wysoką rodzielczość wykonywanych
+ADXL345 to niewielki akcelerometr posiadający wysoką rozdzielczość wykonywanych
  pomiarów (13-bitów) i wykonujący pomiary w zakresie ±16g.
  Urządzenie to dokonuje pomiaru zarówno dynamicznego przyśpieszenia będącego
- rezultatem ruchu, jak również przyśpieszenia statyczne takie jak grawitacja,
- która pozwalają pracować jako czujniki przeciążenia.
+ rezultatem ruchu, jak również przyśpieszenia statycznego takiego jak grawitacja
+, co mu pozwala pracować jako czujnik przeciążenia.
  Czujnik ten jest przyśpieszeniomerzem pojemnościowym, którego zasada działania
  została już opisana wcześniej.
 \end_layout
 
 \begin_layout Standard
-L3G4200D to trójosiowy czujnik przyśpieszenia kątowego o rozdzielczości
- 16 bitów, zapewniający niewielki dryft zera oraz wysoką czułość, niezależną
- od czasu i temperatury.
+L3G4200D to trójosiowy czujnik prędkości kątowej o rozdzielczości 16 bitów,
+ zapewniający niewielki dryft zera oraz wysoką czułość, niezależną od czasu
+ i temperatury.
  Układ ten posiada trzy zakresy pomiarowowe: ±250/±500/±2000 dps oraz jest
  zdolny do wykonywania pomiarów w paśmie wybranym przez użytkownika.
- Żyroskopy firmy ST Microelectronics mają lepszą stabilność i czułość w
- funkcji temperatury oraz odporności na uszkodzenia mechaniczne.
- Przewaga wynika z innego sposobu montażu struktury układu pomiarowego.
+ Żyroskopy firmy ST Microelectronics mają bardzo dobrą stabilność i czułość
+ w funkcji temperatury oraz odporność na uszkodzenia mechaniczne.
+ Przewaga nad innymi rozwiązaniami wynika z innego sposobu montażu struktury
+ układu pomiarowego.
  W zastosowanym urządzeniu, jest on zamontowany w jednym, centralnym punkcie,
  zamiast w kilku, jak ma to miejsce w innych rozwiązaniach.
  Dzięki temu siły wynikające ze zmian temperatury, naprężeń mechanicznych
  przenoszą się na układ pomiarowy w znacznie miejszym stopniu.
  Dodatkowo wykorzystany żyroskop bazuje na jednej masie pomiarowej dla wszystkic
 h trzech osi, co znacząco poprawia symetrię sygnałów wyjściowych i skutkuje
- mniejszymi rezonansami.
+ mniejszymi rezonansami [
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MEMS_gyroscope"
+
+\end_inset
+
+].
 \end_layout
 
 \begin_layout Section
@@ -175,30 +182,13 @@ name "fig:Schemat-połączenia-mikrokontrolera"
 Przedstawiony na rysunku schemat przygotowano na zwykłej płytce uniwersalnej.
  Do połączenia z zestawem uruchomieniowym wykorzystano złącze 34-pinowe
  służące domyślnie do połączenia z ekranem LCD.
- Zawierało ono wszystkie piny konieczne do zapewnienia poprawnej pracy obu
- urządzeń pomiarowych.
  Dodatkowo na płytce zamontowano dwa złącza 12-pinowe, do których wpięto
  układy PmodACL i PmodGYRO.
  Wykorzystanie wspomnianego złącza z zestawu uruchmieniowego pozwalało na
  stabilne przyłączenie akcelerometra i żyroskopu.
  Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger oczywiście
- wraz z mikroprocesorem zapewniając niezawodność połączenia pomiędzy wszystkimi
+ wraz z mikroprocesorem, zapewniając niezawodność połączenia pomiędzy wszystkimi
  płytkami drukowanymi wchodzącymi w skład zestawu pomiarowego.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Tutaj opisz wszystkie czynności, które wykonywałeś przy pisaniu programu
- do zbierania danych.
- (moja propozycja)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -242,11 +232,11 @@ SCLK
 
 
 \emph default
- - 4 MHz,
+ -- 4 MHz,
 \end_layout
 
 \begin_layout Itemize
-kolejność przesyłanych bitów - najbardziej znaczący bit jako pierwszy (
+kolejność przesyłanych bitów -- najbardziej znaczący bit jako pierwszy (
 \emph on
 MSB first
 \emph default
@@ -254,7 +244,7 @@ MSB first
 \end_layout
 
 \begin_layout Itemize
-faza sygnału zegarowego - próbkowanie przy drugim zboczu (
+faza sygnału zegarowego -- próbkowanie przy drugim zboczu (
 \emph on
 CPHA = 1
 \emph default
@@ -262,7 +252,7 @@ CPHA = 1
 \end_layout
 
 \begin_layout Itemize
-polaryzacja sygnału zegarowego - zegar aktywny stanem wysokim (
+polaryzacja sygnału zegarowego -- zegar aktywny stanem wysokim (
 \emph on
 CPOL = 1
 \emph default
@@ -358,7 +348,7 @@ ustawieniu pomiarowego trybu pracy,
 \end_layout
 
 \begin_layout Itemize
-określeniu zakresu pomiarów - od -2 
+określeniu zakresu pomiarów -- od -2 
 \emph on
 g
 \emph default
@@ -400,7 +390,7 @@ Należy zauważyć, że dane pomiarowe pochodzące z akcelerometru i żyroskopu
  przyspieszenia mierzonego akcelerometrem.
  Odczyty z akcelerometru obarczone są błędem, którego dwukrotne całkowanie
  (w praktyce sumowanie) powoduje jego znaczne narastanie.
- Uzyskany błąd jest tak spory, że nie pozwala w praktyce na wykorzystanie
+ Uzyskany błąd jest tak znaczący, że nie pozwala w praktyce na wykorzystanie
  tej metody do określania położenia.
  Dało się to również zauważyć w niniejszej pracy.
  Przy pewnych założeniach, użycie przyspieszeniomierza pozwala jednak na
@@ -473,12 +463,12 @@ reference "sec:Interfejs-UART"
 \end_layout
 
 \begin_layout Standard
-Tak jak już wspomniano, w nieniejszej pracy wykorzystano wysyłanie i odbieranie
+Tak jak już wspomniano, w niniejszej pracy wykorzystano wysyłanie i odbieranie
  danych za pośrednictwem interfejsu UART.
  Zarówno wysyłanie, jak i odbieranie danych oparto na przerwaniach.
  Przerwania były generowane w momencie pojawienia się danych bądź to w buforze
  wejściowym, bądź też w buforze wyjściowym.
- Oba te typy były obsługiwane przez jedną procedurę obsługi przerwania.
+ Oba te typy przerwań były obsługiwane przez jedną procedurę obsługi.
  W zależności od typu bufora, który otrzymał dane, przeprowadzano odczyt
  lub zapis danych do interfejsu.
  Mikroprocesor otrzymywał z komputera tylko jeden typ danych: był to ciąg
@@ -492,7 +482,7 @@ RESET
 
 .
  Po jego otrzymaniu następowało wyzerowanie zmiennych przechowujących wyniki
- dotychczasowych pomiarów kąta obrotu i przyspieszenia.
+ dotychczasowych pomiarów.
  Poprzez interfejs UART wysyłano łańcuchy znakowe zawierające wyniki.
  Dane pomiarowe były zapisywane w postaci C-stringa składającego się z sześciu
  liczb całkowitych oddzielonych znakami spacji.

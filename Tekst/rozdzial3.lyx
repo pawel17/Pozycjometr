@@ -634,16 +634,56 @@ name "fig:Ramka-transmisji-szeregowej-synchr"
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Note Note
-status open
+Interfejsy typu 
+\shape italic
+master
+\shape default
+ -- 
+\emph on
+slave
+\emph default
 
-\begin_layout Plain Layout
-Świentek sugeruje opisanie interfejsów typu master-slave
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Interfejsy-typu-master"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Jest to model komunikacji, w którym jedno z kilku urządzeń pełni rolę nadrzędneg
+o w stosunku do pozostałych.
+ Urządzenie nadrzędne nazywane jest 
+\emph on
+master
+\emph default
+'em, podczas gdy pozostałe układy to 
+\emph on
+slave
+\emph default
+'y.
+ Rolą mastera jest kontrola całego procesu komunikacji.
+ Urządzenie nadrzędne inicjalizuje komunikacje ze 
+\emph on
+slave
+\emph default
+'ami i kontroluje ich działanie.
+ Jedynym typem danych przepływającym w odwrotnym kierunku są odpowiedzi
+ urządzeń podrzędnych na otrzymane zapytania.
+ Interfejsy tego typu są powszechnie stosowane w technice ze względu na
+ dużą niezawodność komunikacji i względną prostotę działania.
+ Przykładami tego typu komunikacji mogą być interfejsy takie jak: SPI, I
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+C, 1-Wire, Modbus i wiele innych.
 \end_layout
 
 \begin_layout Section
@@ -686,8 +726,23 @@ przewodowy.
 \end_layout
 
 \begin_layout Standard
-Komunikacja z urządzeniami wykonywana jest w oparciu o model wymiany danych
- master/slave.
+Komunikacja z urządzeniami wykonywana jest w oparciu o opisany w rozdziale
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Interfejsy-typu-master"
+
+\end_inset
+
+ model wymiany danych 
+\emph on
+master
+\emph default
+ - 
+\emph on
+slave
+\emph default
+.
  Do przesyłu danych wykorzystywane są zwykle 4 przewody, choć interfejs
  może również funkcjonować w postaci trójprzewodowej.
  SPI jest standardem 
@@ -1301,7 +1356,16 @@ Wśród wad interfejsu SPI można wymienić:
 \end_layout
 
 \begin_layout Itemize
-większą w porównaniu do I2C ilość pinów obudowy IC,
+większą w porównaniu do I
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+C ilość pinów obudowy IC,
 \end_layout
 
 \begin_layout Itemize
@@ -1443,7 +1507,7 @@ UART używany jest często w połaczeniu z takim standardami komunikacyjnymi
  będące składnikami mikrokontrolerów.
  Isnieją konstrukcje łączące dwa (DUART) lub osiem układów UART w jednej
  obudowie.
- Istnieją również chipy pozwalające na komunikację synchroniczną, okreslane
+ Istnieją również chipy pozwalające na komunikację synchroniczną, określane
  w skrócie jako USART (ang.
  
 \emph on
@@ -1696,8 +1760,8 @@ Błąd przepełnienia (ang.
 \emph on
 overrun error
 \emph default
-) -- wystepuje, gdy odbiorca danych nie może przetworzyć danej przed pojawieniem
- się kolejne.
+) -- wystepuje, gdy odbiorca nie może przetworzyć jednej porcji danych przed
+ pojawieniem się kolejnej.
  Różne urządzenia dysponują różnymi pojemnościami buforów służących do przechowy
 wania odebranych danych.
  Jednostka przetwarzająca dane musi to robić na tyle szybko, aby zwolnić

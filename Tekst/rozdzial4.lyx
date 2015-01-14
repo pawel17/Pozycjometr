@@ -178,7 +178,7 @@ Cortex
 \end_layout
 
 \begin_layout Standard
-Przeglądając dokumentacje konkretnych urządzeń cyfrowych wykorzystujących
+Przeglądając dokumentacje konkretnych mikrokontrolerów wykorzystujących
  rdzenie 
 \emph on
 ARM
@@ -200,7 +200,7 @@ key "Paprocki2009"
 \emph on
 ARM
 \emph default
- odnosi się do nazw architektur (
+ odnosi się do nazw architektur (tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:nazwa-arch-nazwa-rdzenia"
@@ -392,7 +392,7 @@ key "Paprocki2009"
 \emph on
 Cortex-Ax
 \emph default
- - przeznaczona dla aplikacji pracujących pod kontrolą systemów operacyjnych
+ -- przeznaczona dla aplikacji pracujących pod kontrolą systemów operacyjnych
  takich jak 
 \emph on
 Symbian
@@ -406,7 +406,7 @@ Linux
 Windows Embedded
 \emph default
 , wymagających dużych mocy obliczeniowych, układu zarządzania pamięcią (MMU)
- lub implementacji maszyny wirtualnej Javy,
+ lub implementacji maszyny wirtualnej Javy;
 \end_layout
 
 \begin_layout Itemize
@@ -414,9 +414,9 @@ Windows Embedded
 \emph on
 Cortex-Rx
 \emph default
- - przeznaczona dla systemów czasu rzeczywistego, w których krytyczny jest
+ -- przeznaczona dla systemów czasu rzeczywistego, w których krytyczny jest
  czas odpowiedzi na zdarzenia (np.
- układy bezpieczeństwa biernego w samochodach),
+ układy bezpieczeństwa biernego w samochodach);
 \end_layout
 
 \begin_layout Itemize
@@ -424,7 +424,7 @@ Cortex-Rx
 \emph on
 Cortex-Mx
 \emph default
- - przeznaczona dla zastosowań przemysłowych i konsumenckich; stanowi próbę
+ -- przeznaczona dla zastosowań przemysłowych i konsumenckich, stanowi próbę
  osiągnięcia kompromisu między dużą wydajnością i niskimi kosztami.
 \end_layout
 
@@ -441,7 +441,11 @@ Oprócz wspomnianych różnic, rdzenie
 \emph on
 Cortex-Mx
 \emph default
- obsługują wyłącznie rozkazy z listy określanej w literaturze 
+ obsługują wyłącznie rozkazy z listy określanej w
+\begin_inset space ~
+\end_inset
+
+literaturze 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
@@ -469,7 +473,11 @@ M
 M0
 \emph default
 .
- W założeniach miał być jednostką 32 bitową stanowiącą poważna konkurencję
+ W
+\begin_inset space ~
+\end_inset
+
+założeniach miał być jednostką 32 bitową stanowiącą poważną konkurencję
  dla mikrokomputerów ośmio i szesnastobitowych w mniej zaawansowanych zastosowan
 iach.
  Rdzeń 
@@ -481,7 +489,11 @@ Cortex-M1
 \emph on
 M3
 \emph default
- zostanie szczegółowiej opisana w kolejnym paragrafie.
+ zostanie szczegółowo opisana w
+\begin_inset space ~
+\end_inset
+
+kolejnym paragrafie.
  Najsilniejszym, pod względem mocy i możliwości obliczeniowych, przedstawicielem
  podrodziny 
 \emph on
@@ -734,11 +746,14 @@ big endian
  W pierwszym przypadku młodsze bajty zapisywane są pod niższymi adresami,
  zaś starsze pod wyższymi.
  W przypadku big endian jest na odwrót.
- Dzięki temu można dostosować i zoptymalizować projektowaną aplikację pod
- kontem własnych potrzeb.
- Przykładowo wykorzystanie w programie komunikacji sieciowej przy pomocy
- interfejsu Ethernet, nie będzie wymagało zmiany kolejności bajtów na big
- endian.
+ Jednakże wybór sposobu ułożenia następuje na etapie produkcyjnym i jest
+ on zapisany w jednym z rejestrów 
+\emph on
+read only
+\emph default
+.
+ Odczytując zawartość tego rejestru można sprawdzić jaki sposób ułożenia
+ bajtów obsługiwany jest w danym mikroprocesorze.
 \end_layout
 
 \begin_layout Standard
@@ -771,9 +786,10 @@ Dla rdzeni rodziny
 \emph on
 Cortex
 \emph default
- przewidziane są dwa tryby pracy - uprzywilejowany oraz użytkownika.
+ przewidziane są dwa tryby pracy: uprzywilejowany oraz użytkownika.
  W pierwszym z nich aplikacja ma pełny dostęp do wszystkich zasobów rdzenia.
- W trybie użytkownika, niektóre zasoby nie mogą być używane przez aplikacje.
+ Znowuż w trybie użytkownika, niektóre zasoby nie mogą być używane przez
+ aplikacje.
  Takie podejście pozwala na tworzenie bezpiecznych programów, w tym systemów
  operacyjnych, których jądra pracują w trybie uprzywilejowanym, zaś programy
  użytkownika w trybie nieuprzywilejowanym.
@@ -843,8 +859,8 @@ Rdzeń
 \emph on
 Cortex M3
 \emph default
- posiada 16 rejestrów podstawowych (R0 - R15), z których trzynaście (R0
- - R12) stanowią rejestry ogólnego przeznaczenia (rysunek 
+ posiada 16 rejestrów podstawowych (R0 -- R15), z których trzynaście (R0
+ -- R12) stanowią rejestry ogólnego przeznaczenia (rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rejestry"
@@ -852,13 +868,13 @@ reference "fig:rejestry"
 \end_inset
 
 ).
- Większość rozkazów 16-bitowych może używać jedynie rejestrów R0 - R7.
+ Większość rozkazów 16-bitowych może używać jedynie rejestrów R0 -- R7.
  Rejestr R13 pełni funkcje wskażnika stosu SP (ang.
  
 \emph on
 stack pointer
 \emph default
-) i w rzeczywistości sklada się z dwóch rejestrów bankowanych 
+) i w rzeczywistości składa się z dwóch rejestrów bankowanych 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
@@ -874,8 +890,8 @@ głównego wskaźnika stosu MSP (ang.
 \emph on
 main stack pointer
 \emph default
-) - używanego domyślnie przez przerwania i jądra systemów operacyjnych pracujący
-ch w trybie uprzywilejowanym,
+) -- używanego domyślnie przez przerwania i jądro systemu operacyjnego pracujące
+go w trybie uprzywilejowanym,
 \end_layout
 
 \begin_layout Itemize
@@ -884,7 +900,7 @@ procesowego wskaźnika stosu PSP (ang.
 \emph on
 process stack pointer
 \emph default
-) - używanego przez programy użytkownika uruchamiane pod kontrolą systemu
+) -- używanego przez programy użytkownika uruchamiane pod kontrolą systemu
  operacyjnego.
 \end_layout
 
@@ -899,11 +915,11 @@ Pozostałe dwa rejestry podstawowe to:
 \end_layout
 
 \begin_layout Itemize
-R14 - zawierający adres powrotu z podprocedury,
+R14 -- zawierający adres powrotu z podprocedury,
 \end_layout
 
 \begin_layout Itemize
-R15 - licznik programu PC (ang.
+R15 -- licznik programu PC (ang.
  
 \emph on
 program counter
@@ -913,7 +929,7 @@ program counter
 \emph on
 instruction counter
 \emph default
-) - zawiera adres aktualnie wykonywanego rozkazu.
+) -- zawiera adres aktualnie wykonywanego rozkazu.
 \end_layout
 
 \begin_layout Standard
@@ -921,7 +937,7 @@ Oprócz wymienionych rejestrów podstawowych, rdzeń
 \emph on
 Cortex-M3
 \emph default
- zawiera także:
+ zawiera także rejestry specjalne takie jak:
 \end_layout
 
 \begin_layout Itemize
@@ -930,7 +946,7 @@ rejestr stanu (ang.
 \emph on
 program status register
 \emph default
-) - zawierający tzw.
+) -- zawierający tzw.
  flagi,
 \end_layout
 
@@ -953,9 +969,9 @@ control register
 \end_layout
 
 \begin_layout Standard
-Rejestry slużą do sterowania rdzeniem oraz do kontroli przebiegu wykonywania
- programu.
- Moga być modyfikowane jedynie za pomocą specjalnych rozkazów i nie może
+Rejestry specjalne slużą do sterowania rdzeniem oraz do kontroli przebiegu
+ wykonywania programu.
+ Mogą być modyfikowane jedynie za pomocą specjalnych rozkazów i nie może
  to mieć miejsca w trakcie normalnej pracy mikrokontrolera 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1041,7 +1057,7 @@ key "Krzyzanowski207"
  Obejmuje ona tzw.
  segmenty, m.
  in.
- pamięć programu, SRAM, zewnętrzną pamięć RAM.
+ pamięć programu, SRAM i zewnętrzną pamięć RAM.
  Odpowiednią mapę pamięci pokazano na rysunku 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1124,14 +1140,21 @@ Cortex-M3
 \emph on
 bit-band
 \emph default
-) - jeden w regionie pamięci RAM, a drugi w regionie urządzeń peryferyjnych.
+): jeden w regionie pamięci RAM, a drugi w regionie urządzeń peryferyjnych.
  W pierwszym przypadku obszar rozpoczyna się od adresu 0x20000000, zaś drugi
- od 0x40000000 [źródło].
+ od 0x40000000 [
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LPC1768"
+
+\end_inset
+
+].
  Takie rozwiązanie pozwala na optymalną pracę rdzenia.
- Normalnie zaby zmienić jeden bit, należy odczytać wartość z właściwej komórki
+ Normalnie aby zmienić jeden bit, należy odczytać wartość z właściwej komórki
  pamięci, ustawić w niej wartość odpowiedniego bitu, a następnie tak zmodyfikowa
 ną wartość zapisać w pierwotnej komórce.
- Dzięki wykorzystaniu dostępu bitowego, ten sam rezultat mozna uzyskać dzięki
+ Dzięki wykorzystaniu dostępu bitowego, ten sam rezultat można uzyskać dzięki
  dostępowi do właściwej komórki pamięci w obszarze mapowania bitów regionu
  
 \emph on
@@ -1179,7 +1202,7 @@ gdzie:
 \emph on
 bit_word_offset
 \emph default
- - pozycja bitu w obszarze pamięci 
+ -- pozycja bitu w obszarze pamięci 
 \emph on
 bit-band
 \emph default
@@ -1191,7 +1214,7 @@ bit-band
 \emph on
 byte_offset
 \emph default
- - numer bajtu w obszarze 
+ -- numer bajtu w obszarze 
 \emph on
 bit-band
 \emph default
@@ -1203,7 +1226,7 @@ bit-band
 \emph on
 bit_number
 \emph default
- - pozycja bitu w bajcie,
+ -- pozycja bitu w bajcie,
 \end_layout
 
 \begin_layout Itemize
@@ -1211,7 +1234,7 @@ bit_number
 \emph on
 bit_word_addr
 \emph default
- - adres bajtu mapującego żądany bit w obszarze pamięci mapowania bitów
+ -- adres bajtu mapującego żądany bit w obszarze pamięci mapowania bitów
  (
 \emph on
 alias memory region
@@ -1224,7 +1247,7 @@ alias memory region
 \emph on
 bit_band_base
 \emph default
- - adres początku regionu mapowania bitów (dla obszaru pamięci RAM wynosi
+ -- adres początku regionu mapowania bitów (dla obszaru pamięci RAM wynosi
  on 0x22000000 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1253,7 +1276,7 @@ bit_number
 \emph on
 byte_offset
 \emph default
- = 7 (0x20000007 - 0x20000000),
+ = 7 (0x20000007 -- 0x20000000),
 \end_layout
 
 \begin_layout Itemize
@@ -1281,8 +1304,11 @@ bit_word_addr
 \end_layout
 
 \begin_layout Standard
-Aby skasować lub ustawić określony bit w regionie bit-band, należy wpisać
- odpowiednio 0 lub 1 do właściwej komórki w obszarze mapowania.
+Aby skasować lub ustawić określony bit w regionie 
+\emph on
+bit-band
+\emph default
+, należy wpisać odpowiednio 0 lub 1 do właściwej komórki w obszarze mapowania.
 \end_layout
 
 \begin_layout Standard
@@ -1464,7 +1490,7 @@ Możliwości kontrolera
 \emph on
 NVIC
 \emph default
- 
+ można skrótowo opisać w następujących punktach
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
@@ -1475,8 +1501,8 @@ key "Paprocki2009"
 \end_layout
 
 \begin_layout Enumerate
-Obsługa przerwań zagnieżdżonych (zwanych też wielopoziomowymi) - jeśli w
- trakcie procedury obsługi przerwania ISR (ang.
+Obsługa przerwań zagnieżdżonych (zwanych też wielopoziomowymi) -- jeśli
+ w trakcie procedury obsługi przerwania ISR (ang.
  
 \emph on
 interrupt service routine
@@ -1494,21 +1520,21 @@ reference "fig:wielpoz-obsluga-przerwan"
 \end_layout
 
 \begin_layout Enumerate
-Sprzętowa obsługa wektorów przerwań - adres funkcji obsługi przerwania jest
- pobierany z wektora w pamięci i nie potrzeby jego programowego wyznaczania,
- dzięki czemu czas obsługi zdarzenia jest mniejszy.
+Sprzętowa obsługa wektorów przerwań -- adres funkcji obsługi przerwania
+ jest pobierany z wektora w pamięci i nie ma potrzeby jego programowego
+ wyznaczania, dzięki czemu czas obsługi zdarzenia jest mniejszy.
 \end_layout
 
 \begin_layout Enumerate
-Dynamiczna zmiana priorytetów przerwań - pozwala zmieniać programowo priorytet
+Dynamiczna zmiana priorytetów przerwań -- pozwala zmieniać programowo priorytet
  przerwania podczas wykonywania programu.
- Nie mozna jednak zmienić priorytetu przerwania przed wyjściem z procedury
- jego obsługi, dzięki czemu unika sie sytuacji wielokrotnego obsłużenia
+ Nie można jednak zmienić priorytetu przerwania przed wyjściem z procedury
+ jego obsługi, dzięki czemu unika się sytuacji wielokrotnego obsłużenia
  tego samego zdarzenia podczas zmiany priorytetu.
 \end_layout
 
 \begin_layout Enumerate
-Zoptymalizowane opóźnienia czasowe obsługi przerwań - uzyskano to m.
+Zoptymalizowane opóźnienia czasowe obsługi przerwań -- uzyskano to m.
  in.
  dzięki automatycznemu zapisywaniu i odzyskiwaniu tzw.
  kontekstu zadania, czyli wartości kluczowych dla niego rejestrów.
@@ -1603,7 +1629,7 @@ Cortex-M3
 h na danych 16- i 32-bitowych bez konieczności dodatkowych zabiegów (przełączani
 e się między trybami).
  Dzięki temu uzyskuje się zmniejszenie zużycia pamięci programu przy jednoczesny
-m wzroście szybkości wykonywania programu 
+m wzroście szybkości jego wykonywania 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
@@ -1634,7 +1660,11 @@ Zestaw rozkazów
 \emph on
 Thumb-2
 \emph default
- zawiera operacje, które mogą być wykonywane zarówno jako 16- jak i 32-bitowe.
+ zawiera operacje, które mogą być wykonywane zarówno jako 16- jak i
+\begin_inset space ~
+\end_inset
+
+32-bitowe.
  Przykładem jest dodawanie liczby do zawartości rejestru 
 \begin_inset CommandInset citation
 LatexCommand cite
