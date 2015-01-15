@@ -74,23 +74,27 @@ Celem niniejszej pracy było zrealizowanie układu pozycjometru inercyjnego,
 \end_layout
 
 \begin_layout Standard
-Zmontowana płytka elektroniczna, której zadaniem było połączenie układów
- PmodACL i PmodGYRO z mikroprocesorem spowodowała konieczność wykorzystania
- interfejsu SSP.
+Podczas realizacji postawionego zadania konieczne było rozwiązanie kilku
+ istotnych kwestii, które w znaczącym stopniu wpłynęły na sposób dokonania
+ pomairu.
+ Pierwszy wykonany element: zmontowana płytka elektroniczna, której zadaniem
+ było połączenie układów PmodACL i PmodGYRO z mikroprocesorem wymusiła konieczno
+ść wykorzystania interfejsu SSP.
  Przyczyną takiej sytuacji był fakt, iż jedynym złączem, które można było
- wykorzystać do połączenia z mikrokontrolerem było złącze służące do podłączenia
- wyświetlacza ciekłokrystalicznego.
- Użycie innego interfejsu niż założony nie spowodowało żadnego problemu
- w komunikacji, gdyż interfejs SSP może pracować w trybie SPI, dzięki czemu
+ wykorzystać do połączenia z mikrokontrolerem było złącze służące nominalnie
+ do podłączenia wyświetlacza ciekłokrystalicznego.
+ Użycie innego interfejsu niż założony nie spowodowało jednak żadnego problemu
+ w komunikacji, gdyż interfejs SSP mógł pracować w trybie SPI, dzięki czemu
  nie było konieczności modyfikacji oprogramowania.
- Należy dodać, że wykorzytanie gniazda dla wyświetlacza LCD zaowocowało
- uzyskaniem solidnego i stabilnego połączenia pomiędzy wszystkimi układami,
+ Należy dodać, że zaletą wykorzytania gniazda dla wyświetlacza LCD było
+ uzyskanie solidnego i stabilnego połączenia pomiędzy wszystkimi układami,
  co znacząco poprawiło dokładność wykonywanego pomiaru.
  
 \end_layout
 
 \begin_layout Standard
-Poprawne wykonanie pomiaru niosło ze sobą wiele trudności.
+Poprawne wykonanie pomiaru i przeliczenie wyników otrzymanych z urządzeń
+ pomiarowych niosło ze sobą wiele trudności.
 \begin_inset Note Note
 status open
 
@@ -107,8 +111,8 @@ Ja bym tutaj coś więcej opisał o pomiarze i jego ułomnościach - propozycja
 Dzięki wykorzystaniu .NET Framework i języka C#, wykonanie GUI w finalnym
  kształcie nie sprawiło zbyt wielu kłopotów w realizacji.
  Niezwykle dużą pomocą była rozbudowana dokumentacja oraz wiele przydatnych
- tutoriali, pokazujących wykorzystanie danych klas w praktyce, jak również
- realizację pewnych często wykorzystywanych funkcjonalności.
+ tutoriali, pokazujących użycie danych klas w praktyce, jak również realizację
+ pewnych często wykorzystywanych funkcjonalności.
  Dzięki temu, że wszystkie elementy frameworku dobrze ze sobą współpracują,
  konieczne było jedynie wybranie odpowiedniej technologii, która umożliwiłaby
  zadowalające przedstawienie ruchu układu w przestrzeni.
@@ -122,16 +126,17 @@ Dzięki wykorzystaniu .NET Framework i języka C#, wykonanie GUI w finalnym
 \emph on
 Windows Forms
 \emph default
- z oknem wizualizacji wykonanym w innej technice, również dało dobre rezultaty.
+ z oknem wizualizacji wykonanym w innej technice, nie spowodowało konfilktów
+ i dało dobre rezultaty.
  
 \end_layout
 
 \begin_layout Standard
 Reasumując, można stwierdzić, że zadanie postawione na początku realizacji
  tej pracy inżynierskiej zostało spełnione.
- Efektem finalnym są dwa programy: jeden wykonywany na mikroprocesorze i
- drugi, którego zadaniem było odbieranie danych pomiarowych, ich przetworzenie,
- wyświetlenie i wizualizacja.
+ Efekt finalny to dwa programy: jeden wykonywany na mikroprocesorze i drugi,
+ którego zadaniem było odbieranie danych pomiarowych, ich przetworzenie,
+ wyświetlenie i wizualizacja napisany w języku C#.
  Udało się doprowadzić te dwie osobne aplikacje do skutecznej współpracy,
  dzięki czemu mierzone położenie układu pomiarowego w przestrzeni jest odpowiedn
 io przedstawiane w oknie wizualizacji programu działającego na komputerze
