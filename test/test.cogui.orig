@@ -23,7 +23,10 @@
 <part id="10"/>
 <part id="11"/>
 <part id="12"/>
+<<<<<<< Updated upstream
 <part id="13"/>
+=======
+>>>>>>> Stashed changes
 </presentation>
 </folder>
 </info>
@@ -46,7 +49,11 @@
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Lukasz/Documents/Pozycjometr/test/main.c" title="main.c" tooltip="C:/Users/Lukasz/Documents/Pozycjometr/test/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/main.c"/>
+<<<<<<< Updated upstream
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4207" selectionTopPixel="2340"/>
+=======
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2968" selectionTopPixel="1755"/>
+>>>>>>> Stashed changes
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ADXL345.c" partName="ADXL345.c" path="C:/Users/Lukasz/Documents/Pozycjometr/test/ADXL345.c" title="ADXL345.c" tooltip="C:/Users/Lukasz/Documents/Pozycjometr/test/ADXL345.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/ADXL345/ADXL345.c"/>
@@ -80,10 +87,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/ADXL345/ADXL345Add.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="114" selectionTopPixel="0"/>
 </editor>
+<<<<<<< Updated upstream
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" partName="uart.c" path="C:/Users/Lukasz/Documents/Pozycjometr/test/uart.c" title="uart.c" tooltip="C:/Users/Lukasz/Documents/Pozycjometr/test/uart.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/uart.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="5520" selectionTopPixel="2100"/>
 </editor>
+=======
+>>>>>>> Stashed changes
 </editors>
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
@@ -276,8 +286,13 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
+<<<<<<< Updated upstream
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@13ec519" ratio="0.7" ratioLeft="469" ratioRight="201" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6a1ed1">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+=======
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13ec519" ratio="0.7" ratioLeft="469" ratioRight="201" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6a1ed1">
 <folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+>>>>>>> Stashed changes
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
@@ -378,8 +393,11 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/ADXL345/ADXL345.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/L3G4200D/l3g4200d_driver.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/ADXL345/ADXL345Add.h"/>
+<<<<<<< Updated upstream
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test/uart.c"/>
+=======
+>>>>>>> Stashed changes
 </editors>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="7026" y="0"/>
@@ -1279,7 +1297,8 @@
 <item historyLabel="main.c" index="36">
 <position info="not_deleted" x="2968" y="0"/>
 </item>
-<item active="true" historyLabel="ADXL345.c" index="40">
+<<<<<<< Updated upstream
+<item historyLabel="ADXL345.c" index="40">
 <position info="not_deleted" x="6376" y="12"/>
 </item>
 <item historyLabel="main.c" index="43">
@@ -1287,6 +1306,10 @@
 </item>
 <item active="true" historyLabel="uart.c" index="44">
 <position info="not_deleted" x="5520" y="8"/>
+=======
+<item active="true" historyLabel="ADXL345.c" index="40">
+<position info="not_deleted" x="6376" y="12"/>
+>>>>>>> Stashed changes
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -1295,14 +1318,17 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<<<<<<< Updated upstream
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="test/uart.c">
+<persistable path="/test/uart.c"/>
+</file>
+=======
+>>>>>>> Stashed changes
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADXL345Add.h" tooltip="test/ADXL345/ADXL345Add.h">
 <persistable path="/test/ADXL345/ADXL345Add.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="l3g4200d_driver.h" tooltip="test/L3G4200D/l3g4200d_driver.h">
 <persistable path="/test/L3G4200D/l3g4200d_driver.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spihal_ssp.c" tooltip="test/spihal_ssp.c">
-<persistable path="/test/spihal_ssp.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spihal_ssp.c" tooltip="test/spihal_ssp.c">
 <persistable path="/test/spihal_ssp.c"/>
@@ -1337,8 +1363,11 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lpc17xx_gpio.c" tooltip="test/lpc17xx_lib/source/lpc17xx_gpio.c">
 <persistable path="/test/lpc17xx_lib/source/lpc17xx_gpio.c"/>
 </file>
+<<<<<<< Updated upstream
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lpc17xx_gpio.c" tooltip="test/lpc17xx_lib/source/lpc17xx_gpio.c">
 <persistable path="/test/lpc17xx_lib/source/lpc17xx_gpio.c"/>
 </file>
+=======
+>>>>>>> Stashed changes
 </mruList>
 </workbench>

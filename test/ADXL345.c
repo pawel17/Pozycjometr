@@ -140,7 +140,7 @@ char ADXL345_Init(char commProtocol)
     if(commProtocol == ADXL345_SPI_COMM)
     {
         status = SPI_HAL_Init(0,        // Transfer format.
-                          1000000,  // SPI clock frequency.
+                          4000000,  // SPI clock frequency.
                           1,        // SPI clock polarity.
                           0);       // SPI clock edge.
     }

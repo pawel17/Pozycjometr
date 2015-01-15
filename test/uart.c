@@ -79,12 +79,17 @@ void UART_IntReceive(void) {
 			}
 		}
 // no more data
-		else {
-			if(!strcmp(rb.rx, "RESET")) {
-				ResetData();
-				strcpy(rb.rx, "");
-			}
+		else{
+			break;
 		}
+
+		if(!strcmp(rb.rx, "RESET")) {
+			ResetData();
+			memset(rb.rx, 0, sizeof(rb.rx));//strcpy(rb.rx, "");
+						rb.rx_head = 0;
+						rb.rx_tail = 0;
+		}
+
 	}
 }
 /********************************************************************//**

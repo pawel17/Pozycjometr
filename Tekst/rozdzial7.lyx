@@ -67,12 +67,12 @@ Interfejs użytkownika
 
 \begin_layout Standard
 W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
- dokonania pomiaru przyśpieszenia i kąta obrotu układu.
+ dokonania pomiaru przemieszczenia i kąta obrotu układu.
  Dane przesłane do komputera nie mogą być jedynie wyświetlone po stronie
  komputera w postaci ciągu znaków, gdyż to praktycznie uniemożliwiałoby
  analizę otrzymywanych danych.
  Z tego względu konieczne jest odpowiednie przekształcenie otrzymanych danych
- w sposób, który umożliwi zobrazowanie zmierzonych przyspieszeń bądź obrotów.
+ w sposób, który umożliwi zobrazowanie zmierzonych przemieszczeń bądź obrotów.
  W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
  w formie graficznej wyników.
  Wykorzystano do tego platformę .NET i język C# z wykorzystaniem 
@@ -144,8 +144,8 @@ name "fig:Okno-główne-programu"
 \end_layout
 
 \begin_layout Standard
-Otrzymane wyniki pomiaru przesunięcia i kąta obrotu wypisane są w odpowiednich
- polach, dla każdej z osi osobno.
+Otrzymane wyniki pomiaru przemieszczenia i kąta obrotu wypisane są w odpowiednic
+h polach, dla każdej z osi osobno.
  Jednakże najważniejszym elementem aplikacji jest okno wyświetlania wyników
  pomiaru w formie graficznej.
  Sześcian symbolizuje układ pomiarowy, dodatkowo przedstawiono osie układu
@@ -467,8 +467,8 @@ ApplicationWindow
 COMPortManager
 \emph default
  w procedurze obsługi zdarzenia.
- Dodatkowo metoda ta rozpoczyna się od spradzenia, czy wywoływanie nie jest
- wykonywane spoza bieżącego wątku.
+ Dodatkowo metoda ta rozpoczyna się od sprawdzenia, czy wywoływanie nie
+ jest wykonywane spoza głównego wątku.
  Jeśli taka sytuacja ma miejsce, metoda ta zapisywana jest jako delegat,
  który zostaje wykonany asynchronicznie z argumentami otrzymanymi z klasy
  obsługującej komunikację z portem szeregowym.

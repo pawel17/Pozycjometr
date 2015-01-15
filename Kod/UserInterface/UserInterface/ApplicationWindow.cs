@@ -93,6 +93,9 @@ namespace UserInterface
                 angleY.Text = angleStrings[1];
                 angleZ.Text = angleStrings[2];
 
+                //Console.WriteLine("GYRO: " + angleStrings[0] + " " + angleStrings[1] + " " + angleStrings[2]);
+                //Console.WriteLine("ACC: " + positionStrings[0] + " " + positionStrings[1] + " " + positionStrings[2]);
+
                 visualisation.Dispatcher.Invoke(() => ApplyMovement(position, angles));
             }            
         }

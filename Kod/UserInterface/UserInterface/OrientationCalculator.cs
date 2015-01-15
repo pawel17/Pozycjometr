@@ -14,7 +14,8 @@ namespace UserInterface
         private static readonly float GYRO_SENSITIVITY = 8.75e-3f;
         private static readonly float SAMP_PERIOD = 0.02f;
         private static readonly float RADIANS_TO_DEG_COEF = 180.0f / (float)(Math.PI);
-        private static readonly float COMPLEMENTARY_FILTER_GYRO_WEIGHT = 0.95f;
+        private static readonly float COMPLEMENTARY_FILTER_GYRO_WEIGHT = 0.93f;
+        private static readonly float G_ACC = 9.81f;
         private ThreeAxisMeasurmentData acc;
         private ThreeAxisMeasurmentData vel;
         private ThreeAxisMeasurmentData pos;
@@ -54,12 +55,12 @@ namespace UserInterface
 
         private float posRatio
         {
-            get { return RAW_ACC_TO_G * SAMP_PERIOD; }
+            get { return RAW_ACC_TO_G * G_ACC * SAMP_PERIOD * SAMP_PERIOD; }
         }
 
         private float velRatio
         {
-            get { return RAW_ACC_TO_G * SAMP_PERIOD * SAMP_PERIOD; }
+            get { return RAW_ACC_TO_G * G_ACC * SAMP_PERIOD; }
         }
 
         private float angRatio
@@ -104,7 +105,7 @@ namespace UserInterface
 	        velF.x = velRatio * vel.x[1];
 	        velF.y = velRatio * vel.y[1];
 
-            Console.WriteLine("{0} {1} {2}", pos.x[1], pos.y[1], pos.z[1]);
+            //Console.WriteLine("{0} {1} {2}", posF.x, posF.y, 0.0f);
         }
 
         private void checkIfMotionEnded()
