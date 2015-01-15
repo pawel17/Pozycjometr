@@ -118,9 +118,8 @@ key "Krzyzanowski207"
 \end_layout
 
 \begin_layout Standard
-Współpraca mikrokomputerów z urządzeniami peryferyjnymi odbywa się za pomocą
- tzw.
- interfejsów.
+Mikrokomputery komunikują się z urządzeniami peryferyjnymi poprzez tzw.
+ interfejsy.
  Przez interfejs rozumie się urządzenie, które pozwala na komunikację i
  wymianę danych pomiędzy dwoma innymi urządzeniami.
  Istnieją różne kryteria podziału interfejsów 
@@ -258,10 +257,10 @@ name "fig:Linie-transmisyjne"
 
 \begin_layout Standard
 Linia niesymetryczna składa się z przewodu sygnałowego (zwanego także gorącym)
- oraz masowego, stanowiącego odniesienie dla sygnału po obu stronach toru
+ oraz masowego, stanowiącego referencję dla sygnału po obu stronach toru
  transmisyjnego.
- W przypadku większej liczby sygnałów możliwe jest zastosowanie wspólnego
- przewodu powrotnego 
+ W sytuacji gdy w transmisji używa się więcej niż jednego sygnału, możliwe
+ jest zastosowanie wspólnego przewodu powrotnego 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Krzyzanowski207"
@@ -269,11 +268,11 @@ key "Krzyzanowski207"
 \end_inset
 
 .
- Największą wadą linii niesymetrycznej jest jej podatność na wpływ obcych
- pól elektromagnetycznych.
- Powodują one indukowanie się zakłóceń w przewodzie sygnałowym i powrotnym,
- które dodają się lub odejmują od właściwego sygnału na wejściu odbiornika.
- Z tego powodu linie tego typu stosuje się do przesyłu informacji na nieduże
+ Linie niesymetryczne są słabo odporne na działanie obcych pól elektromagnetyczn
+ych.
+ Powodują one indukowanie się zakłóceń, które dodają się lub odejmują od
+ właściwego sygnału na wejściu odbiornika.
+ Z tego powodu linie tego typu stosuje się do przesyłu danych na nieduże
  odległości.
  W celu zmniejszenia wpływu zewnętrznych pól, stosuje się następujące zabiegi:
 \end_layout
@@ -329,7 +328,7 @@ Transmisja szeregowa polega na przesyłaniu informacji bit po bicie.
  od sąsiednich linii danych.
  Inną wadą tego typu komunikacji jest także stosunkowo skomplikowana budowa
  (a co za tym idzie większy koszt) interfejsów równoległych.
- Uzasadniają to fakt wykorzystania przez większość współczesnych urządzeń
+ Uzasadnia to fakt wykorzystania przez większość współczesnych urządzeń
  cyfrowych interfejsów i transmisji szeregowych.
 \end_layout
 
@@ -432,8 +431,8 @@ simplex
 Dane wysyłane szeregowo są często przechowywane w rejestrach.
  Aby umożliwić transmisję bit po bicie stosuje się rejestry przesuwne lub
  multipleksery.
- W obu przypadkach należy określić czas trwania bitu (tzw.
- odcinek bitowy) 
+ W obu przypadkach należy zdefiniować czas transmisji pojedynczego bitu
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Krzyzanowski207"
@@ -442,11 +441,8 @@ key "Krzyzanowski207"
 
 .
  Służy do tego sygnał zegarowy nadajnika.
- Odbiornik określa wartość przesyłanych bitów w środkach poszczególnych
- odcinków bitowych.
- Także w tym przypadku używany jest sygnał zegarowy (zegar odbiornika).
- Istnieją dwa rodzaje transmisji szeregowej, różniące się zależnościami
- sygnałów zegarowych nadajnika i odbiornika:
+ Odbiornik określa wartość danego bitu w połowie czasu jego trwania.
+ Istnieją dwa rodzaje transmisji szeregowej:
 \end_layout
 
 \begin_layout Itemize
@@ -552,12 +548,10 @@ ilość bitów stopu.
 \end_layout
 
 \begin_layout Standard
-W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
- (stąd nazwa), dzięki czemu nie są konieczne bity startu i stopu.
- Dla zapewnienia poprawności synchronizacji, sygnał zegara przesyłany jest
- dodatkową linią, dzięki czemu zarówno odbiornik jak i nadajnik przesyłają
- bity w jednakowych odstępach czasu.
- Dane przesyłane grupowane są w bloki zwane ramkami (ang.
+W transmisji synchronicznej, wspólny sygnał zegarowy przesyłany jest dodatkową
+ linią, dzięki czemu zarówno odbiornik jak i nadajnik przesyłają bity w
+ jednakowych odstępach czasu.
+ Dane zgrupowane są w bloki zwane ramkami (ang.
  
 \emph on
 frame
@@ -575,7 +569,14 @@ reference "fig:Ramka-transmisji-szeregowej-synchr"
  Blok danych zawiera właściwe dane zgrupowane jeden za drugim.
  W celu zapewnienia poprawności transmisji, są one zakończone tzw.
  bajtami kontrolnymi i ewentualnymi bajtami korekcyjnymi pozwalającymi na
- naprawę uszkodzonych danych
+ naprawę uszkodzonych danych 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Krzyzanowski207"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -697,9 +698,9 @@ Interfejs SPI (ang.
 Serial Peripheral Interface
 \emph default
 ) został zaprojektowany i po raz pierwszy zastosowany przez firmę Motorola.
- Jest jednym z najczęściej używanych interfejsów komunikacyjnych między
- układami mikroprocesorowymi a peryferiami takimi jak przetworniki ADC/DAC,
- układy RTC, pamięci EEPROM, pamięci flash, karty MMC/SD, sterowniki ekranów
+ Jest jednym z najczęściej używanych interfejsów między mikroprocesorami
+ a urządzeniami zewnętrznymi takimi jak przetworniki AD/DA, pamięci EEPROM,
+ czujniki (akcelerometry, żyroskopy), pamięci flash, sterowniki ekranów
  dotykowych itp.
  W świetle omówionych wcześniej cech interfejsów, SPI może być scharaktryzowany
  jako:
@@ -882,7 +883,7 @@ Typowa realizacja transmisji SPI przy pomocy cyklicznego rejestru przesuwnego
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Krzyzanowski207"
+key "spi_am_gdynia"
 
 \end_inset
 
@@ -976,7 +977,7 @@ least significant bit
  W celu wymiany większej ilości informacji, wspomniany proces się powtarza.
  W trakcie pojedynczego cyklu komunikacji przesyłany jest zwykle bajt danych
  (8 bitów), choć nie jest to regułą; istnieją układy w których przesyła
- się 12, 16 lub 24 bity.
+ się 12 lub 16 bitów.
  Niektóre urządzenia 
 \emph on
 slave

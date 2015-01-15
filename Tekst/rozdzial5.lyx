@@ -72,20 +72,15 @@ Budowa i zasada działania
 \begin_layout Standard
 Żyroskop jest urządzeniem służącym do pomiaru lub utrzymywania położenia
  kątowego.
- Działa w
-\begin_inset space ~
-\end_inset
-
-oparciu o zasadę zachowania momentu pędu.
+ Jego działanie wyjaśnia się korzystając z zasady zachowania momentu pędu.
  Zwykle jego zasadniczym elementem jest ruchomy krążek, który wprawiony
  w szybki ruch obrotowy zachowuje położenie swojej osi obrotu, z niewielkimi
  ruchami precesyjnymi, które mogą zostać wyeliminowane dzięki zastosowaniu
- tłumienia.
- Aby poprawna praca żyroskopu była możliwa, konieczne jest zapewnienie wysokiej
- prędkości obrotowej krążka oraz dobrych warunków łożyskowania.
- Wymagają one zminimalizowania tarcia, co można osiągnąć poprzez łożyskowanie
- na strumieniu powietrza, lub zawieszeniu w polu elektrostatycznym (lub
- magnetycznym) w próżni.
+ tłumienia.Wysoka prędkość obrotowa i dobre warunki łożyskowania są konieczne
+ dla poprawnej pracy żyroskopu.
+ Korzystne łożyskowanie uzyskuje się dzięki strumieniowi sprężonego powietrza
+ lub poprzez zawieszenie żyroskopu w polu elektrostatycznym lub magnetycznym
+ w próżni.
  Przedmiotem znanym z życia codziennego, który wprawiony w szybki ruch obrotowy
  zachowuje się jak żyroskop jest bąk.
 \begin_inset Float figure
@@ -390,7 +385,7 @@ I
 \begin_inset Formula $f_{r}$
 \end_inset
 
- -- częstość ruchu oobrotowego krążka.
+ -- częstość ruchu obrotowego krążka.
 \end_layout
 
 \begin_layout Standard
@@ -412,9 +407,9 @@ Podział żyroskopów
 \begin_layout Standard
 Żyroskopy można podzielić na dwie grupy: kierunkowe oraz prędkościowe.
  W przypadku tych pierwszych, zasadniczym elementem jest szybko wirujący
- obiekt, mający zwykle postać dysku, zawieszony w konstrukcji pozwalającej
- na swobodny obrót wokół układu odniesienia (np.
- ciała do którego umocowany jest żyroskop).
+ obiekt, zawieszony w konstrukcji pozwalającej na swobodny obrót wokół układu
+ odniesienia (np.
+ ciała na którym umieszczony jest żyroskop).
  Można to uzyskać dzięki zastosowaniu odpowiednich przegubów o osi obrotu
  prostopadłej do osi obrotu wirującej bryły.
  Takie rozwiązanie zmniejsza wpływ obrotów ciała na żyroskop, który dąży
@@ -489,11 +484,19 @@ name "fig:zyroskop-MEMS"
 \end_layout
 
 \begin_layout Standard
-Żyroskopy są elementem wielu urządzeń elektrycznych, w których należy mierzyć
- lub rejestrować zmiany położenia (np.
+Żyroskopy są elementem wielu urządzeń elektronicznych, w których należy
+ mierzyć lub rejestrować zmiany położenia (np.
  wskaźniki komputerowe, myszki, smartfony).
  Mogą być one wytwarzane w technologii MEMS (o ktorej wspomniano w rozdziale
- o akcelerometrach), przy czym dotyczy to głównie żyroskopów prędkościowych.
+ o akcelerometrach), przy czym dotyczy to głównie żyroskopów prędkościowych
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+.
  Konstrukcje takie wykorzystują efekt Coriolisa, a ich poglądowy schemat
  pokazano na rysunku 
 \begin_inset CommandInset ref
@@ -513,7 +516,7 @@ reference "fig:zyroskop-MEMS"
  W trakcie przemieszczania się w przeciwnym kierunku, tj.
  ku środkowi tarczy, siła oddziaływania masy na ramę zmienia zwrot na przeciwny.
  Aby pozwolić na pomiar przyspieszenia Coriolisa, ramę wiesza się na sprężynach
- pod kątem prostym do kierunku przemieszczania się masy (rysunek 
+ pod kątem prostym do kierunku ruchu masy (rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:zyroskop-wibr-mems"
@@ -534,7 +537,7 @@ reference "fig:kond-grzebien"
 
 kondensatorem grzebieniowym, którego część elektrod jest związana z ruchomą
  ramą a pozostała część z nieruchomym podłożem.
- Wskutek siły wywieranej przez masę, dochodzi do zmiany odległości między
+ W wyniku siły wywieranej przez masę, dochodzi do zmiany odległości między
  elektrodami i w konsekwencji do zmiany pojemności kondensatora.
 \end_layout
 
@@ -657,9 +660,16 @@ Na rynku dostępne są czujniki mierzące prędkość obrotową wokół dwóch l
  trzech osi.
  Wcześniej chcąc uzyskać taki efekt należało zastosować kilka niezależnych
  żyroskopów jednoosiowych.
- W wielu zastosowaniach takie podejście się sprawdzało, lecz mogło nie być
- optymalne biorąc pod uwagę koszty oraz miejsce zajmowane przez cały układ
- pomiarowy.
+ W wielu zastosowaniach takie rozwiązanie było wystarczające, lecz mogło
+ nie być optymalne biorąc pod uwagę koszty oraz miejsce zajmowane przez
+ cały układ pomiarowy 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+.
  Dziś problem ten rozwiązują żyroskopy wieloosiowe.
  Przykładowy schematu blokowy takiego czujnika pokazano na rysunku 
 \begin_inset CommandInset ref

@@ -120,8 +120,7 @@ Firma
 \emph on
 ARM
 \emph default
- powstała ok.
- roku 1990 
+ powstała w roku 1990 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
@@ -165,10 +164,6 @@ ARM7
 , 
 \emph on
 ARM9
-\emph default
- i 
-\emph on
-ARM11
 \emph default
  zastępowane opecnie przez układy serii 
 \emph on
@@ -494,7 +489,7 @@ M3
 \end_inset
 
 kolejnym paragrafie.
- Najsilniejszym, pod względem mocy i możliwości obliczeniowych, przedstawicielem
+ Bardzo silnym, pod względem mocy i możliwości obliczeniowych, przedstawicielem
  podrodziny 
 \emph on
 Cortex-Mx
@@ -516,10 +511,10 @@ Cortex-M4
 \end_layout
 
 \begin_layout Standard
-Z punktu widzenia programisty najistotniejszą różnicą między poszczególnymi
+Z punktu widzenia programisty bardzo istotną różnicą między poszczególnymi
  rdzeniami 
 \emph on
-Cortex-Mx
+Cortex
 \emph default
  jest lista rozkazów (rysunek 
 \begin_inset CommandInset ref
@@ -715,16 +710,6 @@ reference "fig:Architektura-Harvard"
  w tym samym czasie.
  Ponieważ jednak przestrzeń adresowa dla obu z nich jest wspólna, nie mogą
  one wykorzystywać tej przestrzeni w pełni, lecz tylko w części.
- Teoretycznie architektura harwardzka pozwala zmniejszyć wpływ dostępu do
- danych na szybkość wykonywania się programu.
- W praktyce stosunkowo powolne taktowanie pamięci flash (do 24 Mhz 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Paprocki2009"
-
-\end_inset
-
-) może spowolnić wykonywanie programu.
 \end_layout
 
 \begin_layout Standard
@@ -900,8 +885,7 @@ procesowego wskaźnika stosu PSP (ang.
 \emph on
 process stack pointer
 \emph default
-) -- używanego przez programy użytkownika uruchamiane pod kontrolą systemu
- operacyjnego.
+) -- używanego przez programy użytkownika kontrolowane przez system operacyjny.
 \end_layout
 
 \begin_layout Standard
@@ -1140,7 +1124,7 @@ Cortex-M3
 \emph on
 bit-band
 \emph default
-): jeden w regionie pamięci RAM, a drugi w regionie urządzeń peryferyjnych.
+): w regionie pamięci RAM oraz w regionie urządzeń zewnętrznych.
  W pierwszym przypadku obszar rozpoczyna się od adresu 0x20000000, zaś drugi
  od 0x40000000 [
 \begin_inset CommandInset citation
@@ -1460,10 +1444,10 @@ NVIC
 nested vectored interrupt controller
 \emph default
 ).
- Pozwala on na obsługę piętnastu przerwań (wyjatków) systemowych i 240 przerwań
- zewnętrznych.
+ Pozwala on na obsługę maksymalnie piętnastu przerwań (wyjatków) systemowych
+ i 240 przerwań zewnętrznych.
  Faktyczna liczba obsługiwanych przerwań zależy od konkretnego mikrokontrolera.
- Większość wyjątków systemowych i wszystkie przerwania wewnętrzne moga mieć
+ Większość przerwań systemowych i wszystkie przerwania zewnętrzne moga mieć
  ustalany programowo priorytet 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1481,8 +1465,7 @@ reference "fig:priorytety-przerwan"
 \end_inset
 
 .
- Jak widać, zdarzeniem o najwyższym priorytecie w systemie jest zerowanie
- układu.
+ Jak widać, zdarzeniem o najwyższym priorytecie w systemie resetowanie.
 \end_layout
 
 \begin_layout Standard
@@ -1490,14 +1473,14 @@ Możliwości kontrolera
 \emph on
 NVIC
 \emph default
- można skrótowo opisać w następujących punktach
+ opisano skrótowo w poniższych punktach
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
 
 \end_inset
 
-:
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1537,7 +1520,7 @@ Dynamiczna zmiana priorytetów przerwań -- pozwala zmieniać programowo prioryt
 Zoptymalizowane opóźnienia czasowe obsługi przerwań -- uzyskano to m.
  in.
  dzięki automatycznemu zapisywaniu i odzyskiwaniu tzw.
- kontekstu zadania, czyli wartości kluczowych dla niego rejestrów.
+ kontekstu zadania, a więc zawartości najważniejszych dla niego rejestrów.
  Inne sposoby skrócenia opóźnień w obsłudze przerwań (np.
  
 \emph on
@@ -1554,7 +1537,7 @@ key "Paprocki2009"
 \end_layout
 
 \begin_layout Enumerate
-Maskowanie przerwań - wszystkie przerwania mogą być maskowane na podstawie
+Maskowanie przerwań - przerwania mogą być maskowane na podstawie wysokości
  priorytetów lub maskowane całkowicie poprzez wpisy do właściwych rejestrów
  maskujących.
 \end_layout
@@ -1651,7 +1634,7 @@ Cortex-M3
 unified assembly language
 \emph default
 ).
- Pozwala ona w szybszy i czytelniejszy sposób wykorzystywać w programie
+ Pozwala ona w łatwiejszy i czytelniejszy sposób wykorzystywać w programie
  rozkazy 16- i 32-bitowe.
 \end_layout
 
@@ -1665,51 +1648,29 @@ Thumb-2
 \end_inset
 
 32-bitowe.
- Przykładem jest dodawanie liczby do zawartości rejestru 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Paprocki2009"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-ADDS R0, #5 ;Domyślnie zostanie użyta instrukcja 16-bitowa
-\end_layout
-
-\begin_layout Plain Layout
-
-ADDS.N R0, #5 ;Jawne użycie rozkazu 16-bitowego (N = Narrow)
-\end_layout
-
-\begin_layout Plain Layout
-
-ADDS.W R0, #5 ;Jawne użycie rozkazu 32-bitowego Thumb-2 (W = Wide)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Użycie przyrostka 
-\emph on
-W
-\emph default
- lub 
+ O rodzaju operacji decyduje przyrostek (
 \emph on
 N
 \emph default
- po kropce za właściwą nazwą rozkazu pozwala wyspecyfikować długość rozkazu.
+ dla instrukcji 16-bitowych, 
+\emph on
+W
+\emph default
+ dla 32-bitowych) dodawany po kropce do właściwego mnemonika instrukcji
+ (np.
+ 
+\emph on
+ADDS.N
+\emph default
+ lub 
+\emph on
+ADDS.W
+\emph default
+, gdzie 
+\emph on
+ADDS
+\emph default
+ jest instrukcją dodawania liczby do zawartości rejestru będącego operandem).
  Mnemoniki pozbawione sufiksu są zwykle tłumaczone na instrukcje 16-bitowe.
 \end_layout
 
