@@ -1214,6 +1214,13 @@ z której wynika, że względne wychylenie masy przetwornika jest proporcjonalne
 
 \begin_layout Section
 Akcelerometr piezorezystancyjny
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Akcelerometr-piezorezystancyjny"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1284,7 +1291,7 @@ nym.
 \end_layout
 
 \begin_layout Standard
-Mierzone przyspieszenie bezwzględnejest przekształcane kolejno na:
+Mierzone przyspieszenie bezwzględne jest przekształcane kolejno na:
 \end_layout
 
 \begin_layout Itemize
@@ -1374,7 +1381,11 @@ gdzie
 \end_inset
 
  oznacza przyrost napięcia nierównowagi mostka przy zmianie pomiaru przyspieszen
-ia z 
+ia z
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 g
 \emph default

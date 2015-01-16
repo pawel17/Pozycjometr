@@ -75,8 +75,11 @@ Celem niniejszej pracy było zrealizowanie układu pozycjometru inercyjnego,
 
 \begin_layout Standard
 Podczas realizacji postawionego zadania konieczne było rozwiązanie kilku
- istotnych kwestii, które w znaczącym stopniu wpłynęły na sposób dokonania
- pomairu.
+ istotnych kwestii, które w
+\begin_inset space ~
+\end_inset
+
+znaczącym stopniu wpłynęły na sposób dokonania pomiaru.
  Pierwszy wykonany element: zmontowana płytka elektroniczna, której zadaniem
  było połączenie układów PmodACL i PmodGYRO z mikroprocesorem wymusiła konieczno
 ść wykorzystania interfejsu SSP.
@@ -86,7 +89,7 @@ Podczas realizacji postawionego zadania konieczne było rozwiązanie kilku
  Użycie innego interfejsu niż założony nie spowodowało jednak żadnego problemu
  w komunikacji, gdyż interfejs SSP mógł pracować w trybie SPI, dzięki czemu
  nie było konieczności modyfikacji oprogramowania.
- Należy dodać, że zaletą wykorzytania gniazda dla wyświetlacza LCD było
+ Należy dodać, że zaletą wykorzystania gniazda dla wyświetlacza LCD było
  uzyskanie solidnego i stabilnego połączenia pomiędzy wszystkimi układami,
  co znacząco poprawiło dokładność wykonywanego pomiaru.
  
@@ -120,13 +123,13 @@ Dzięki wykorzystaniu .NET Framework i języka C#, wykonanie GUI w finalnym
 \emph on
  Windows Presentation Foundation
 \emph default
- i języka XAML do narysowania sześcianiu zmieniającego położenie okazało
- się rozwiązaniem w zupełności wystaczającym.
+ i języka XAML do narysowania sześcianu zmieniającego położenie okazało
+ się rozwiązaniem w zupełności wystarczającym.
  Połączenie całego interfejsu graficznego zrealizowanego w 
 \emph on
 Windows Forms
 \emph default
- z oknem wizualizacji wykonanym w innej technice, nie spowodowało konfilktów
+ z oknem wizualizacji wykonanym w innej technice, nie spowodowało konfliktów
  i dało dobre rezultaty.
  
 \end_layout

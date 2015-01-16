@@ -1,0 +1,48 @@
+
+\chapter{Wnioski}
+
+Celem niniejszej pracy by³o zrealizowanie uk³adu pozycjometru inercyjnego,
+który korzystaj±c z wyników pomiarów wykonanych za pomoc± akcelerometra
+i ¿yroskopu, potrafi³ przedstawiæ ruch uk³adu pomiarowego w postaci
+graficznej na ekranie komputera. 
+
+Podczas realizacji postawionego zadania konieczne by³o rozwi±zanie
+kilku istotnych kwestii, które w~znacz±cym stopniu wp³ynê³y na sposób
+dokonania pomiaru. Pierwszy wykonany element: zmontowana p³ytka elektroniczna,
+której zadaniem by³o po³±czenie uk³adów PmodACL i PmodGYRO z mikroprocesorem
+wymusi³a konieczno¶æ wykorzystania interfejsu SSP. Przyczyn± takiej
+sytuacji by³ fakt, i¿ jedynym z³±czem, które mo¿na by³o wykorzystaæ
+do po³±czenia z mikrokontrolerem by³o z³±cze s³u¿±ce nominalnie do
+pod³±czenia wy¶wietlacza ciek³okrystalicznego. U¿ycie innego interfejsu
+ni¿ za³o¿ony nie spowodowa³o jednak ¿adnego problemu w komunikacji,
+gdy¿ interfejs SSP móg³ pracowaæ w trybie SPI, dziêki czemu nie by³o
+konieczno¶ci modyfikacji oprogramowania. Nale¿y dodaæ, ¿e zalet± wykorzystania
+gniazda dla wy¶wietlacza LCD by³o uzyskanie solidnego i stabilnego
+po³±czenia pomiêdzy wszystkimi uk³adami, co znacz±co poprawi³o dok³adno¶æ
+wykonywanego pomiaru. 
+
+Poprawne wykonanie pomiaru i przeliczenie wyników otrzymanych z urz±dzeñ
+pomiarowych nios³o ze sob± wiele trudno¶ci.
+
+Dziêki wykorzystaniu .NET Framework i jêzyka C\#, wykonanie GUI w
+finalnym kszta³cie nie sprawi³o zbyt wielu k³opotów w realizacji.
+Niezwykle du¿± pomoc± by³a rozbudowana dokumentacja oraz wiele przydatnych
+tutoriali, pokazuj±cych u¿ycie danych klas w praktyce, jak równie¿
+realizacjê pewnych czêsto wykorzystywanych funkcjonalno¶ci. Dziêki
+temu, ¿e wszystkie elementy frameworku dobrze ze sob± wspó³pracuj±,
+konieczne by³o jedynie wybranie odpowiedniej technologii, która umo¿liwi³aby
+zadowalaj±ce przedstawienie ruchu uk³adu w przestrzeni. Wykorzystanie\emph{
+Windows Presentation Foundation} i jêzyka XAML do narysowania sze¶cianu
+zmieniaj±cego po³o¿enie okaza³o siê rozwi±zaniem w zupe³no¶ci wystarczaj±cym.
+Po³±czenie ca³ego interfejsu graficznego zrealizowanego w \emph{Windows
+Forms} z oknem wizualizacji wykonanym w innej technice, nie spowodowa³o
+konfliktów i da³o dobre rezultaty. 
+
+Reasumuj±c, mo¿na stwierdziæ, ¿e zadanie postawione na pocz±tku realizacji
+tej pracy in¿ynierskiej zosta³o spe³nione. Efekt finalny to dwa programy:
+jeden wykonywany na mikroprocesorze i drugi, którego zadaniem by³o
+odbieranie danych pomiarowych, ich przetworzenie, wy¶wietlenie i wizualizacja
+napisany w jêzyku C\#. Uda³o siê doprowadziæ te dwie osobne aplikacje
+do skutecznej wspó³pracy, dziêki czemu mierzone po³o¿enie uk³adu pomiarowego
+w przestrzeni jest odpowiednio przedstawiane w oknie wizualizacji
+programu dzia³aj±cego na komputerze PC.

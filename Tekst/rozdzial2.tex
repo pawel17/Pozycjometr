@@ -15,7 +15,7 @@ gdzie:
 \end{onehalfspace}
 \begin{itemize}
 \begin{onehalfspace}
-\item \textbf{a --} wektor przyspieszenia,
+\item \textbf{a }-- wektor przyspieszenia,
 \item \textbf{v} -- wektor prêdko¶ci,
 \item t -- czas.\end{onehalfspace}
 
@@ -34,12 +34,12 @@ zapisaæ w nastêpuj±cy sposób:
 gdzie:
 \begin{itemize}
 \item \emph{v\textsubscript{\emph{x}}}, \emph{v\textsubscript{\emph{y}}},
-\emph{v\textsubscript{\emph{z}}} - sk³adowe wektora prêdko¶ci wzd³u¿
+\emph{v\textsubscript{\emph{z}}} -- sk³adowe wektora prêdko¶ci wzd³u¿
 odpowiednio osi \emph{x}, \emph{y} i \emph{z},
 \item \emph{a\textsubscript{\emph{x}}}, \emph{a\textsubscript{\emph{y}}},
-\emph{a\textsubscript{\emph{z}}} - sk³adowe wektora przyspieszenia
+\emph{a\textsubscript{\emph{z}}} -- sk³adowe wektora przyspieszenia
 wzd³u¿ odpowiednio osi \emph{x}, \emph{y}, \emph{z},
-\item \textbf{i}, \textbf{j}, \textbf{k} - wersory osi (odpowiednio) \emph{x},
+\item \textbf{i}, \textbf{j}, \textbf{k} -- wersory osi (odpowiednio) \emph{x},
 \emph{y}, \emph{z}.
 \end{itemize}
 Obecnie produkowane akcelerometry potrafi± mierzyæ przyspieszenia
@@ -76,9 +76,9 @@ nastêpuj±cymi parametrami:
 \item ilo¶æ osi pomiarowych,
 \item interfejs komunikacyjny (najczê¶ciej SPI lub I\textsuperscript{2}C).
 \end{itemize}
-Istotnym aspektem odró¿niaj±cym akcelerometry jest wykorzystywane
-w nich zjawisko fizyczne, pozwalaj±ce na pomiar przyspieszenia. W
-dalszej czê¶ci omówiono najczê¶ciej spotykane rodzaje przyspieszeniomierzy
+Istotnym aspektem odró¿niaj±cym ró¿ne rodzaje akcelerometrów jest
+wykorzystywane w nich zjawisko fizyczne, pozwalaj±ce na pomiar przyspieszenia.
+W dalszej czê¶ci omówiono najczê¶ciej spotykane rodzaje przyspieszeniomierzy
 oraz zasadê ich dzia³ania.
 
 
@@ -91,8 +91,6 @@ oraz zasadê ich dzia³ania.
 
 \caption{Model przetwornika sejsmicznego (\emph{¬ród³o:} \cite{Gawedzki2010})
 \label{fig:Model-przetwornika-sejsmicznego}}
-
-
 \end{figure}
 
 
@@ -107,52 +105,51 @@ Z uwagi na sta³o¶æ parametrów \emph{k}, \emph{D} przyjmujemy za³o¿enie
 co do liniowo¶ci przetwornika. Znaczenie wielko¶ci \emph{x}, \emph{u},
 \emph{y} jest nastêpuj±ce:
 \begin{itemize}
-\item \emph{x(t)} \textendash{} bezwzglêdne przemieszczenie obudowy przetwornika,
-\item \emph{y(t)} \textendash{} przemieszczenie masy sejsmicznej wzglêdem
-obudowy,
-\item \emph{u(t)} \textendash{} bezwzglêdne przemieszczenie masy sejsmicznej.
+\item \emph{x(t)} -- bezwzglêdne przemieszczenie obudowy przetwornika,
+\item \emph{y(t)} -- przemieszczenie masy sejsmicznej wzglêdem obudowy,
+\item \emph{u(t)} -- bezwzglêdne przemieszczenie masy sejsmicznej.
 \end{itemize}
 Równanie ruchu masy sejsmicznej ma nastêpuj±c± postaæ:
 
 \begin{equation}
-mu''=-ky-Dy'\label{eq:rownanie_ruchu_sejsmiczny_1}
+mu''=-ky-Dy'.\label{eq:rownanie_ruchu_sejsmiczny_1}
 \end{equation}
 Ponadto mo¿na zauwa¿yæ, ¿e:
 
 \begin{equation}
-u-x=y\label{eq:zwiazek_miedzy_wspolrzednymi}
+u-x=y.\label{eq:zwiazek_miedzy_wspolrzednymi}
 \end{equation}
 Po przekszta³ceniach otrzymujemy zale¿no¶æ:
 
 \begin{equation}
-my''+Dy'+ky=-mx''\label{eq:rownanie_ruchu_sejsmiczny_2}
+my''+Dy'+ky=-mx''.\label{eq:rownanie_ruchu_sejsmiczny_2}
 \end{equation}
 Równanie \ref{eq:rownanie_ruchu_sejsmiczny_2} wi±¿e bezwzglêdne przemieszczenie
 obudowy z wzglêdnym przemieszczeniem masy sejsmicznej. Po dokonaniu
 podstawieñ:
 
 \begin{equation}
-\omega_{0}=\sqrt{\frac{k}{m}}\label{eq:pulsacja_drgan_wlasnych}
+\omega_{0}=\sqrt{\frac{k}{m}},\label{eq:pulsacja_drgan_wlasnych}
 \end{equation}
 
 
 \begin{equation}
-\xi=\frac{D}{2\sqrt{km}}\label{eq:tlumienie_wzgledne}
+\xi=\frac{D}{2\sqrt{km}},\label{eq:tlumienie_wzgledne}
 \end{equation}
 omawiane równanie ró¿niczkowe mo¿e byæ zapisane jako:
 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}y''+\frac{2\xi}{\omega_{0}}y'+y=-\frac{1}{\omega_{0}^{2}}x''\label{eq:rownanie_ruchu_sejsmiczny_3}
+\frac{1}{\omega_{0}^{2}}y''+\frac{2\xi}{\omega_{0}}y'+y=-\frac{1}{\omega_{0}^{2}}x''.\label{eq:rownanie_ruchu_sejsmiczny_3}
 \end{equation}
 
 
-W celu wyznaczenia poprawnych warunków warunków pracy przetwornika,
-nale¿y pos³u¿yæ siê analiz± czêstotliwo¶ciow±. W tym celu równanie
-\ref{eq:rownanie_ruchu_sejsmiczny_3} poddajemy obustronnie transformacji
-Laplace'a (zak³adamy zerowe warunki pocz±tkowe):
+W celu wyznaczenia poprawnych warunków pracy przetwornika, nale¿y
+pos³u¿yæ siê analiz± czêstotliwo¶ciow±. W tym celu równanie \ref{eq:rownanie_ruchu_sejsmiczny_3}
+poddajemy obustronnie transformacji Laplace'a (zak³adamy zerowe warunki
+pocz±tkowe):
 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}s^{2}Y+\frac{2\xi}{\omega_{0}}sY+Y=-\frac{1}{\omega_{0}^{2}}s^{2}X\label{eq:rownanie_ruchu_sejsmiczny_operatorowo}
+\frac{1}{\omega_{0}^{2}}s^{2}Y+\frac{2\xi}{\omega_{0}}sY+Y=-\frac{1}{\omega_{0}^{2}}s^{2}X,\label{eq:rownanie_ruchu_sejsmiczny_operatorowo}
 \end{equation}
 
 
@@ -160,12 +157,12 @@ gdzie \emph{X} i \emph{Y} s± transformatami sygna³ów odpowiednio \emph{x}
 i \emph{y}:
 
 \begin{equation}
-X\left(s\right)=\mathcal{L}\left\{ x\left(t\right)\right\} \label{eq:laplace_x}
+X\left(s\right)=\mathcal{L}\left\{ x\left(t\right)\right\} ,\label{eq:laplace_x}
 \end{equation}
 
 
 \begin{equation}
-Y\left(s\right)=\mathcal{L}\left\{ y\left(t\right)\right\} \label{eq:laplace_y}
+Y\left(s\right)=\mathcal{L}\left\{ y\left(t\right)\right\} ,\label{eq:laplace_y}
 \end{equation}
 
 
@@ -173,7 +170,7 @@ gdzie $\mathcal{L}\left\{ f\left(t\right)\right\} $oznacza transformacjê
 Laplace'a funkcji \emph{f}, okre¶lon± wzorem:
 
 \begin{equation}
-F\left(s\right)=\mathcal{L}\left\{ f\left(t\right)\right\} =\int_{0}^{+\infty}e^{-st}f\left(t\right)dt\label{eq:laplace_definicja}
+F\left(s\right)=\mathcal{L}\left\{ f\left(t\right)\right\} =\int_{0}^{+\infty}e^{-st}f\left(t\right)dt.\label{eq:laplace_definicja}
 \end{equation}
 
 
@@ -182,7 +179,7 @@ czas, za¶ \emph{s} jest zmienn± zespolon±, bêd±c± zmienn± niezale¿n±
 transformaty. Sygna³y poddawane przekszta³ceniu Laplace'a przyjê³o
 siê nazywaæ w literaturze orygina³ami.
 
-Zgodnie z literatur± \cite{Gawedzki2010}, opisywane przetwornik sejsmiczny
+Zgodnie z literatur± \cite{Gawedzki2010}, opisywany przetwornik sejsmiczny
 mo¿e s³u¿yæ do pomiaru przemieszczenia lub przyspieszenia. Je¿eli
 za jego transmitancje operatorow± przyjmiemy iloraz transformaty wzglêdnego
 przemieszczenia \emph{Y} oraz transformaty bezwzglêdnego przyspieszenia
@@ -191,7 +188,7 @@ nazywamy akcelerometrem. Omawiana transmitancja zgodnie ze wzorem
 \ref{eq:rownanie_ruchu_sejsmiczny_operatorowo} ma postaæ:
 
 \begin{equation}
-G\left(s\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_akcelerometru_sejsmicznego}
+G\left(s\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}.\label{eq:transmitancja_akcelerometru_sejsmicznego}
 \end{equation}
 
 
@@ -201,14 +198,14 @@ podstawiamy $s=j\omega$, gdzie \emph{j} jest jednostk± urojon± a
 $\omega$ pulsacj±. Otrzymana transmitancja ma postaæ:
 
 \begin{equation}
-G\left(j\omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\left(\frac{\omega}{\omega_{0}}\right)^{2}+j2\xi\frac{\omega}{\omega_{0}}+1}\label{eq:transmitancja_widm_akcel_sejsm}
+G\left(j\omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\left(\frac{\omega}{\omega_{0}}\right)^{2}+j2\xi\frac{\omega}{\omega_{0}}+1}.\label{eq:transmitancja_widm_akcel_sejsm}
 \end{equation}
 
 
 Wygodniej pos³u¿yæ siê transmitancj± widmow± w funkcji pulsacji wzglêdnej:
 
 \begin{equation}
-G_{r}\left(j\Omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\Omega{}^{2}+j2\xi\Omega+1}\label{eq:transmitancja_widm_akcel_sejsm_wzgl}
+G_{r}\left(j\Omega\right)=-\frac{\frac{1}{\omega_{0}^{2}}}{-\Omega{}^{2}+j2\xi\Omega+1},\label{eq:transmitancja_widm_akcel_sejsm_wzgl}
 \end{equation}
 
 
@@ -219,12 +216,12 @@ mo¿na wyznaczyæ charakterystyki amplitudowe \emph{A} i fazowe $\phi$
 akcelerometru \cite{Gawedzki2010}:
 
 \begin{equation}
-A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}^{2}}\frac{1}{\sqrt{\left(1-\Omega^{2}\right)^{2}+4\xi^{2}\Omega^{2}}}\label{eq:chka_ampl_akcel_sejsm}
+A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}^{2}}\frac{1}{\sqrt{\left(1-\Omega^{2}\right)^{2}+4\xi^{2}\Omega^{2}}},\label{eq:chka_ampl_akcel_sejsm}
 \end{equation}
 
 
 \begin{equation}
-\phi\left(j\Omega\right)=arg\left\{ G_{r}\left(j\Omega\right)\right\} =-arctg\left(\frac{2\xi\Omega}{1-\Omega^{2}}\right)\label{eq:chka_fazowa_akcel_sejsm}
+\phi\left(j\Omega\right)=arg\left\{ G_{r}\left(j\Omega\right)\right\} =-arctg\left(\frac{2\xi\Omega}{1-\Omega^{2}}\right).\label{eq:chka_fazowa_akcel_sejsm}
 \end{equation}
 
 
@@ -235,8 +232,6 @@ A\left(j\Omega\right)=\left|G_{r}\left(j\Omega\right)\right|=\frac{1}{\omega_{0}
 
 \caption{Charakterystyki czêstotliwo¶ciowe akcelerometru (\emph{¬ród³o:} \cite{Gawedzki2010})
 \label{fig:Charakterystyki-czestotliwosciow}}
-
-
 \end{figure}
 
 
@@ -251,7 +246,7 @@ nazwê rezonansu. Aby rezonans móg³ wyst±piæ, musi byæ spe³niony warunek
 \cite{Gawedzki2010}:
 
 \begin{equation}
-\xi<\frac{1}{\sqrt{2}}\thickapprox0.707\label{eq:warunek_rezonansu}
+\xi<\frac{1}{\sqrt{2}}\thickapprox0.707.\label{eq:warunek_rezonansu}
 \end{equation}
 
 
@@ -259,7 +254,7 @@ Maksimum funkcji modu³u transmitancji widmowej jest osi±gane dla pulsacji
 wzglêdnej:
 
 \[
-\Omega_{r}=\sqrt{1-2\xi^{2}}
+\Omega_{r}=\sqrt{1-2\xi^{2}}.
 \]
 
 
@@ -276,7 +271,7 @@ mo¿na doj¶æ do wniosku, ¿e warunki te spe³nione s±, gdy:
 dla t³umienia ograniczonego warunkiem:
 
 \begin{equation}
-\xi\in\left(0.6,0.707\right)\label{eq:tlumienie_dla_niezniekszt_pracy_akcel_sejsm}
+\xi\in\left(0.6,0.707\right).\label{eq:tlumienie_dla_niezniekszt_pracy_akcel_sejsm}
 \end{equation}
 
 
@@ -302,7 +297,7 @@ pulsacji drgañ w³asnych. Wynika z tego, ¿e ¿±dania uzyskania szerokiego
 pasma przepustowego i du¿ej czu³o¶ci przetwarzania s± sprzeczne.
 
 
-\section{Akcelerometr piezorezystancyjny}
+\section{Akcelerometr piezorezystancyjny\label{sec:Akcelerometr-piezorezystancyjny}}
 
 \begin{figure}
 \begin{centering}
@@ -311,8 +306,6 @@ pasma przepustowego i du¿ej czu³o¶ci przetwarzania s± sprzeczne.
 
 \caption{Akcelerometr z piezorezystancyjnym czujnikiem tensometrycznym (\emph{¬ród³o:}
 \cite{Gawedzki2010}) \label{fig:Akcelerometr-z-piezorezystancyjn}}
-
-
 \end{figure}
 
 
@@ -322,7 +315,7 @@ elementem przetwornika jest masa sejsmiczna znajduj±ca siê na koñcu
 sprê¿ystej belki, zamocowanej jednostronnie do obudowy. Drgania masy
 na koñcu belki zachodz± wewn±trz obudowy wype³nionej olejem wiskotycznym.
 
-Mierzone przyspieszenie bezwzglêdnejest przekszta³cane kolejno na:
+Mierzone przyspieszenie bezwzglêdne jest przekszta³cane kolejno na:
 \begin{itemize}
 \item wzglêdne przemieszczenie y masy m wzglêdem obudowy,
 \item odkszta³cenie $\varepsilon$ wzglêdne belki,
@@ -338,12 +331,12 @@ mo¿liwo¶æ pomiaru sta³ych przyspieszeñ \cite{Gawedzki2010}. Czu³o¶æ
 przetwornika mo¿na wyznaczyæ z nastêpuj±cej zale¿no¶ci \cite{Gawedzki2010}:
 
 \begin{equation}
-S_{a}=\frac{\frac{\Delta U_{-g}^{g}}{U_{Z}}}{2g}\label{eq:czulosc_akcel_piezorez}
+S_{a}=\frac{\frac{\Delta U_{-g}^{g}}{U_{Z}}}{2g},\label{eq:czulosc_akcel_piezorez}
 \end{equation}
 
 
 gdzie $\Delta U_{-g}^{g}$ oznacza przyrost napiêcia nierównowagi
-mostka przy zmianie pomiaru przyspieszenia z \emph{g} na \emph{-g}.
+mostka przy zmianie pomiaru przyspieszenia z~\emph{g} na \emph{-g}.
 
 Uk³ady podobne do powy¿szego s± wytwarzane w technice mikromaszynowej
 MEMS, pozwalaj±cej na znaczne zmniejszenie rozmiaru przetwornika.
@@ -363,8 +356,6 @@ konstrukcji takiego akcelerometru pokazano na rysunku \ref{fig:mems-pojemnosciow
 \caption{Zasada dzia³ania akcelerometru pojemno¶ciowego: a) uk³ad znajduj±cy
 siê w spoczynku, b) uk³ad poddawany dzia³aniu przyspieszenia \textbf{\emph{a}}\emph{
 }(\emph{¬ród³o:} \cite{Gawedzki2010}) \label{fig:mems-pojemnosciowy}}
-
-
 \end{figure}
 
 
@@ -397,26 +388,28 @@ równowagi \cite{Gawedzki2010}.
 
 \subsection{Zasada dzia³ania}
 
-Dzia³anie tego typu przetworników polega na wykorzystaniu zjawiska
-piezoelektrycznego. Polega ono na pojawianiu siê ³adunku elektrycznego
-na powierzchni ³adunku pod wp³ywem istniej±cych naprê¿eñ mechanicznych.
-Kryszta³y, które cechuj± siê omawianymi w³asno¶ciami nazywane s± piezoelektrykami.
-W naturze istnieje równie¿ zjawisko odwrotne (nazywane zjawiskiem
-piezoelektrycznym odwrotnym, w odró¿nieniu od prostego), polegaj±ce
-na zmianie wymiarów kryszta³u pod wp³ywem przy³o¿onego pola elektrycznego. 
+Dzia³anie przetworników piezoelektrycznych polega na wykorzystaniu
+zjawiska piezoelektrycznego. Polega ono na pojawianiu siê ³adunku
+elektrycznego na powierzchni kryszta³u pod wp³ywem istniej±cych naprê¿eñ
+mechanicznych. Kryszta³y, które cechuj± siê omawianymi w³asno¶ciami
+nazywane s± piezoelektrykami. W naturze istnieje równie¿ zjawisko
+odwrotne (nazywane zjawiskiem piezoelektrycznym odwrotnym, w odró¿nieniu
+od prostego), polegaj±ce na zmianie wymiarów kryszta³u pod wp³ywem
+przy³o¿onego pola elektrycznego. 
 
 W praktyce jako piezoelektryka najczê¶ciej u¿ywa siê krzemu (SiO\textsubscript{2}).
 Do jego zalet mo¿na zaliczyæ stosunkowo du¿± wytrzyma³o¶æ mechaniczn±,
 znaczn± rezystywno¶æ i sta³± piezoelektryczn± i niewielk± zale¿no¶æ
 zjawiska piezoelektrycznego od temperatury.
 
-Na rysunku przedstawiono schematycznie budowê kryszta³u kwarcu. Jak
-widaæ jego komórka elementarna ma postaæ uk³adu heksagonalnego. Przy³o¿enie
-do p³ytki kwarcowej si³y powoduje przemieszczenie siê jonów krzemu
-i tlenu, co skutkuje pojawieniem siê ³adunków na jej powierzchni oraz
-pola elektrycznego w jej wnêtrzu. Kierunek pola zale¿y od kierunku
-dzia³ania si³y oraz od sposobu wyciêcia p³ytki wzglêdem osi krystalograficznych
-kwarcu, za¶ jego warto¶æ od warto¶ci dzia³aj±cej si³y.
+Na rysunku \ref{fig:Ilustracja-efektu-piezoelektrycz} przedstawiono
+schematycznie budowê kryszta³u kwarcu. Jak widaæ jego komórka elementarna
+ma postaæ uk³adu heksagonalnego. Przy³o¿enie do p³ytki kwarcowej si³y
+powoduje przemieszczenie siê jonów krzemu i tlenu, co skutkuje pojawieniem
+siê ³adunków na jej powierzchni oraz pola elektrycznego w jej wnêtrzu.
+Kierunek pola zale¿y od kierunku dzia³ania si³y oraz od sposobu wyciêcia
+p³ytki wzglêdem osi krystalograficznych kwarcu, za¶ jego warto¶æ od
+warto¶ci dzia³aj±cej si³y.
 
 \begin{figure}
 \begin{centering}
@@ -448,22 +441,21 @@ na powierzchni \emph{A\textsubscript{\emph{x}}} prostopad³ej do osi
 elektrycznej \emph{x}, wzd³u¿ której dzia³a si³a \emph{F} wynosi \cite{Gawedzki2010}:
 
 \begin{equation}
-q=k_{p}\sigma\label{eq:gestosc_ladunku_piezoelektryk}
+q=k_{p}\sigma,\label{eq:gestosc_ladunku_piezoelektryk}
 \end{equation}
 
 
 gdzie:
 \begin{itemize}
-\item \emph{k\textsubscript{\emph{p}}} \textendash{} sta³a (tzw. modu³
-piezoelektryczny),
-\item $\sigma$ - naprê¿enie powsta³e w p³ytce, w wyniku dzia³ania si³y
+\item \emph{k\textsubscript{\emph{p}}} -- sta³a (tzw. modu³ piezoelektryczny),
+\item $\sigma$ -- naprê¿enie powsta³e w p³ytce, w wyniku dzia³ania si³y
 \emph{F}.
 \end{itemize}
 Naprê¿enie wystêpuj±ce w ostatnim wzorze mo¿e byæ wyznaczone w nastêpuj±cy
 sposób:
 
 \begin{equation}
-\sigma=\frac{F}{A_{x}}\label{eq:naprezenie}
+\sigma=\frac{F}{A_{x}}.\label{eq:naprezenie}
 \end{equation}
 
 
@@ -471,14 +463,14 @@ Warto¶æ ³adunku \emph{Q} zgromadzonego na powierzchni krzemu wyniesie
 zatem:
 
 \begin{equation}
-Q=qA_{x}=k_{p}F\label{eq:ladunek_piezoelektryk}
+Q=qA_{x}=k_{p}F,\label{eq:ladunek_piezoelektryk}
 \end{equation}
 
 
 a napiêcie \emph{U} miêdzy powierzchniami p³ytki bêdzie mia³o warto¶æ:
 
 \begin{equation}
-U=\frac{Q}{C}\label{eq:napiecie_piezoelektryk}
+U=\frac{Q}{C},\label{eq:napiecie_piezoelektryk}
 \end{equation}
 
 
@@ -486,14 +478,14 @@ gdzie \emph{C} jest sum± pojemno¶ci p³ytki i obwodu pomiarowego \cite{Gawedzki20
 Czu³o¶æ ³adunkowa wynosi:
 
 \begin{equation}
-S_{Q}=\frac{dQ}{dF}=k_{p}\label{eq:czulosc_ladunkowa_piezoelektryka}
+S_{Q}=\frac{dQ}{dF}=k_{p},\label{eq:czulosc_ladunkowa_piezoelektryka}
 \end{equation}
 
 
 za¶ napiêciowa:
 
 \begin{equation}
-S_{U}=\frac{dU}{dF}=\frac{1}{C}S_{Q}=\frac{k_{p}}{C}\label{eq:czulosc_napieciowa_piezoelektryka}
+S_{U}=\frac{dU}{dF}=\frac{1}{C}S_{Q}=\frac{k_{p}}{C}.\label{eq:czulosc_napieciowa_piezoelektryka}
 \end{equation}
 
 
@@ -518,9 +510,9 @@ niskich czêstotliwo¶ci: a) model toru, b) schemat zastêpczy (\emph{¬ród³o:}
 
 
 P³ytka piezoelektryka posiada czêstotliwo¶æ rezonansow± drgañ zale¿n±
-od jej masy \emph{m}, i sprê¿ysto¶ci \emph{k}. Je¶li uwzglêdnimy,
-¿e p³ytka taka jest obiektem o parametrach roz³o¿onych, a nie skupionych
-(jak w omawianym poprzednio modelu), to nale¿y pamiêtaæ, ¿e bêdzie
+od jej masy \emph{m} i sprê¿ysto¶ci \emph{k}. Je¶li uwzglêdnimy, ¿e
+p³ytka taka jest obiektem o parametrach roz³o¿onych, a nie skupionych
+(jak w~omawianym poprzednio modelu), to nale¿y pamiêtaæ, ¿e bêdzie
 ona mog³a posiadaæ kilka czêstotliwo¶ci rezonansowych. Najni¿sza z
 nich ogranicza pasmo przetwarzania przetwornika od góry. W celu okre¶lenia
 dolnego ograniczenia, mo¿na pos³u¿yæ siê modelem toru pomiarowego
@@ -539,22 +531,22 @@ Dla obwodów z rysunku \ref{fig:schemat-toru-pomiarowego} mo¿na napisaæ
 nastêpuj±ce zale¿no¶ci:
 
 \begin{equation}
-C=C_{c}+C_{k}+C_{o}\label{eq:pojemnosc_zastepcza_toru}
+C=C_{c}+C_{k}+C_{o},\label{eq:pojemnosc_zastepcza_toru}
 \end{equation}
 
 
 \begin{equation}
-\frac{1}{R}=\frac{1}{R_{c}}+\frac{1}{R_{k}}+\frac{1}{R_{o}}\label{eq:rezystancja_zastepcza_toru}
+\frac{1}{R}=\frac{1}{R_{c}}+\frac{1}{R_{k}}+\frac{1}{R_{o}},\label{eq:rezystancja_zastepcza_toru}
 \end{equation}
 
 
 \begin{equation}
-i=i_{C}+i_{R}\label{eq:prad_wypadkowy_w_torze}
+i=i_{C}+i_{R},\label{eq:prad_wypadkowy_w_torze}
 \end{equation}
 
 
 \begin{equation}
-\frac{dQ}{dt}=C\frac{du}{dt}+\frac{u}{R}\label{eq:rownanie_pradow_w_torze}
+\frac{dQ}{dt}=C\frac{du}{dt}+\frac{u}{R}.\label{eq:rownanie_pradow_w_torze}
 \end{equation}
 
 
@@ -562,7 +554,7 @@ Ostatnie równanie mo¿na zapisaæ w postaci operatorowej (zak³adamy
 zerowe warunki pocz±tkowe):
 
 \begin{equation}
-sQ\left(s\right)=sCU\left(s\right)+\frac{1}{R}U\left(s\right)\label{eq:rownanie_pradow_operatorowo}
+sQ\left(s\right)=sCU\left(s\right)+\frac{1}{R}U\left(s\right).\label{eq:rownanie_pradow_operatorowo}
 \end{equation}
 
 
@@ -571,14 +563,14 @@ jako sygna³ wyj¶ciowy, mo¿emy wyznaczyæ transmitancjê \emph{K\textsubscript{\emp
 operatorow± toru:
 
 \begin{equation}
-K_{p}\left(s\right)=\frac{Rs}{RCs+1}\label{eq:transmitancja_toru}
+K_{p}\left(s\right)=\frac{Rs}{RCs+1}.\label{eq:transmitancja_toru}
 \end{equation}
 
 
 Transmitancja widmowa ma postaæ:
 
 \begin{equation}
-K_{p}\left(j\omega\right)=\frac{jR\omega}{jRC\omega+1}\label{eq:transmitancja_widmowa_toru}
+K_{p}\left(j\omega\right)=\frac{jR\omega}{jRC\omega+1}.\label{eq:transmitancja_widmowa_toru}
 \end{equation}
 
 
@@ -592,7 +584,7 @@ Na tej podstawie wyznaczamy charakterystykê amplitudow±:
 oraz fazow±:
 
 \begin{equation}
-\phi\left(\omega\right)=arg\left\{ K_{p}\left(j\omega\right)\right\} =arg\left\{ \frac{jR\omega}{jRC\omega+1}\right\} \label{eq:chka_fazowa_toru}
+\phi\left(\omega\right)=arg\left\{ K_{p}\left(j\omega\right)\right\} =arg\left\{ \frac{jR\omega}{jRC\omega+1}\right\} .\label{eq:chka_fazowa_toru}
 \end{equation}
 
 
@@ -663,7 +655,7 @@ Si³ê bezw³adno¶ci, z jak± masa sejsmiczna dzia³a na przetwornik, mo¿e
 byæ wyznaczona z zale¿no¶ci:
 
 \begin{equation}
-F_{b}=mu''\label{eq:sila_bezwladnosci}
+F_{b}=mu''.\label{eq:sila_bezwladnosci}
 \end{equation}
 
 
@@ -671,7 +663,7 @@ Uwzglêdniaj±c zale¿no¶æ \ref{eq:ladunek_piezoelektryk} ³±cz±c± si³ê
 z ³adunkiem, mo¿na napisaæ ¿e:
 
 \begin{equation}
-mu''=\frac{1}{k_{p}}Q\label{eq:sila_bezwl_ladunek}
+mu''=\frac{1}{k_{p}}Q.\label{eq:sila_bezwl_ladunek}
 \end{equation}
 
 
@@ -679,14 +671,14 @@ Przy za³o¿eniu zerowych warunków pocz±tkowych, transformata napiêcia
 \emph{u(t)} ma postaæ:
 
 \begin{equation}
-U\left(s\right)=\frac{1}{k_{p}ms^{2}}Q\left(s\right)\label{eq:napiecie_ladunek_operatorowo}
+U\left(s\right)=\frac{1}{k_{p}ms^{2}}Q\left(s\right).\label{eq:napiecie_ladunek_operatorowo}
 \end{equation}
 
 
 Równanie ruchu masy mo¿na zapisaæ jako:
 
 \begin{equation}
-mu''+cy'+ky=0\label{eq:rownanie_ruchu_piezo_1}
+mu''+cy'+ky=0,\label{eq:rownanie_ruchu_piezo_1}
 \end{equation}
 
 
@@ -694,7 +686,7 @@ co po uwzglêdnieniu zale¿no¶ci miêdzy przemieszczeniami prowadzi do
 zwi±zku:
 
 \begin{equation}
-mu''+cu'+ku=cx'+kx\label{eq:rownanie_ruchu_piezo_2}
+mu''+cu'+ku=cx'+kx.\label{eq:rownanie_ruchu_piezo_2}
 \end{equation}
 
 
@@ -702,7 +694,7 @@ Maj±c na uwadze podstawienia \ref{eq:pulsacja_drgan_wlasnych} i \ref{eq:tlumieni
 mo¿na powy¿sz± zale¿no¶æ zapisaæ operatorowo w nastêpuj±cy sposób:
 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right)\label{eq:rownanie_ruchu_piezo_operatorowo}
+\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right).\label{eq:rownanie_ruchu_piezo_operatorowo}
 \end{equation}
 
 
@@ -710,7 +702,7 @@ Transmitancja operatorowa, wi±¿±ca bezwzglêdne przemieszczenie masy
 \emph{u} z bezwzglêdnym przemieszczeniem \emph{x} obiektu ma postaæ:
 
 \begin{equation}
-G_{U}\left(s\right)=\frac{U\left(s\right)}{X\left(s\right)}=\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_napieciowa_piezo}
+G_{U}\left(s\right)=\frac{U\left(s\right)}{X\left(s\right)}=\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}.\label{eq:transmitancja_napieciowa_piezo}
 \end{equation}
 
 
@@ -718,7 +710,7 @@ Je¶li za sygna³ wyj¶ciowy przyjmiemy nie napiêcie lecz ³adunek, wówczas
 transmitancja przyjmie postaæ:
 
 \begin{equation}
-G_{Q}\left(s\right)=mk_{p}s^{2}\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}\label{eq:transmitancja_ladunkowa_piezo}
+G_{Q}\left(s\right)=mk_{p}s^{2}\frac{\frac{2\xi}{\omega_{0}}s+1}{\frac{1}{\omega_{0}^{2}}s^{2}+\frac{2\xi}{\omega_{0}}s+1}.\label{eq:transmitancja_ladunkowa_piezo}
 \end{equation}
 
 
@@ -735,7 +727,7 @@ G_{Q}\left(s\right)=mk_{p}s^{2}\label{eq:transmitancja_ladunkowa_piezo_uproszczo
 z czego wynika, ¿e w dziedzinie czasu zachodzi relacja:
 
 \begin{equation}
-Q=mk_{p}x''\label{eq:uproszczone_rown_ruchu_piezo}
+Q=mk_{p}x'',\label{eq:uproszczone_rown_ruchu_piezo}
 \end{equation}
 
 

@@ -170,7 +170,7 @@ ARM9
 \emph on
 ARM11
 \emph default
- zastępowane opecnie przez układy serii 
+ zastępowane obecnie przez układy serii 
 \emph on
 Cortex
 \emph default
@@ -195,8 +195,11 @@ key "Paprocki2009"
 \end_inset
 
  nazw.
- Wynika ona z tego, że producenci sprzętu używają nazwy rdzeni, podczas
- gdy firma 
+ Wynika ona z
+\begin_inset space ~
+\end_inset
+
+tego, że producenci sprzętu używają nazwy rdzeni, podczas gdy firma 
 \emph on
 ARM
 \emph default
@@ -468,7 +471,7 @@ Najprostszym i najbardziej energooszczędnym rdzeniem z serii
 \emph on
 M
 \emph default
-, jest układ uznaczony jako 
+, jest układ oznaczony jako 
 \emph on
 M0
 \emph default
@@ -679,7 +682,7 @@ ARM
 \emph default
 ) gęstość upakowania poleceń, mniejsze zapotrzebowanie na pamięć programu
  (flash) oraz szybsze wykonywanie rozkazów w stosunku do programu zapisanego
- przy uzyciu listy 
+ przy użyciu listy 
 \emph on
 Thumb
 \emph default
@@ -732,7 +735,7 @@ Mikrokontrolery z rdzeniem
 \emph on
 Cortex-M3
 \emph default
- wspierają dostęp do danych z uwzględnieniem dwóch sposobów ulożenia bajtów,
+ wspierają dostęp do danych z uwzględnieniem dwóch sposobów ułożenia bajtów,
  tj.
  
 \emph on
@@ -787,7 +790,11 @@ Dla rdzeni rodziny
 Cortex
 \emph default
  przewidziane są dwa tryby pracy: uprzywilejowany oraz użytkownika.
- W pierwszym z nich aplikacja ma pełny dostęp do wszystkich zasobów rdzenia.
+ W
+\begin_inset space ~
+\end_inset
+
+pierwszym z nich aplikacja ma pełny dostęp do wszystkich zasobów rdzenia.
  Znowuż w trybie użytkownika, niektóre zasoby nie mogą być używane przez
  aplikacje.
  Takie podejście pozwala na tworzenie bezpiecznych programów, w tym systemów
@@ -869,12 +876,20 @@ reference "fig:rejestry"
 
 ).
  Większość rozkazów 16-bitowych może używać jedynie rejestrów R0 -- R7.
- Rejestr R13 pełni funkcje wskażnika stosu SP (ang.
+ Rejestr R13 pełni funkcje wskaźnika stosu SP (ang.
  
 \emph on
 stack pointer
 \emph default
-) i w rzeczywistości składa się z dwóch rejestrów bankowanych 
+) i
+\begin_inset space ~
+\end_inset
+
+w
+\begin_inset space ~
+\end_inset
+
+rzeczywistości składa się z dwóch rejestrów bankowanych 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Paprocki2009"
@@ -969,7 +984,7 @@ control register
 \end_layout
 
 \begin_layout Standard
-Rejestry specjalne slużą do sterowania rdzeniem oraz do kontroli przebiegu
+Rejestry specjalne służą do sterowania rdzeniem oraz do kontroli przebiegu
  wykonywania programu.
  Mogą być modyfikowane jedynie za pomocą specjalnych rozkazów i nie może
  to mieć miejsca w trakcie normalnej pracy mikrokontrolera 
@@ -1151,9 +1166,12 @@ key "LPC1768"
 
 ].
  Takie rozwiązanie pozwala na optymalną pracę rdzenia.
- Normalnie aby zmienić jeden bit, należy odczytać wartość z właściwej komórki
- pamięci, ustawić w niej wartość odpowiedniego bitu, a następnie tak zmodyfikowa
-ną wartość zapisać w pierwotnej komórce.
+ Normalnie aby zmienić jeden bit, należy odczytać wartość z
+\begin_inset space ~
+\end_inset
+
+właściwej komórki pamięci, ustawić w niej wartość odpowiedniego bitu, a
+ następnie tak zmodyfikowaną wartość zapisać w pierwotnej komórce.
  Dzięki wykorzystaniu dostępu bitowego, ten sam rezultat można uzyskać dzięki
  dostępowi do właściwej komórki pamięci w obszarze mapowania bitów regionu
  
@@ -1161,7 +1179,7 @@ ną wartość zapisać w pierwotnej komórce.
 bit-band
 \emph default
 .
- Jej odpowiedni adres można wyznaczyć dzieki poniższym formułom 
+ Jej odpowiedni adres można wyznaczyć dzięki poniższym formułom 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bit_band_arm_www"
@@ -1404,7 +1422,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Przerwania obługiwane przez rdzeń 
+Przerwania obsługiwane przez rdzeń 
 \emph on
 Cortex-M3
 \emph default
@@ -1460,10 +1478,10 @@ NVIC
 nested vectored interrupt controller
 \emph default
 ).
- Pozwala on na obsługę piętnastu przerwań (wyjatków) systemowych i 240 przerwań
+ Pozwala on na obsługę piętnastu przerwań (wyjątków) systemowych i 240 przerwań
  zewnętrznych.
  Faktyczna liczba obsługiwanych przerwań zależy od konkretnego mikrokontrolera.
- Większość wyjątków systemowych i wszystkie przerwania wewnętrzne moga mieć
+ Większość wyjątków systemowych i wszystkie przerwania wewnętrzne mogą mieć
  ustalany programowo priorytet 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1481,8 +1499,11 @@ reference "fig:priorytety-przerwan"
 \end_inset
 
 .
- Jak widać, zdarzeniem o najwyższym priorytecie w systemie jest zerowanie
- układu.
+ Jak widać, zdarzeniem o
+\begin_inset space ~
+\end_inset
+
+najwyższym priorytecie w systemie jest zerowanie układu.
 \end_layout
 
 \begin_layout Standard

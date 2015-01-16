@@ -1,41 +1,43 @@
 
-\chapter{Pomiar}
+\chapter{Odczyt danych pomiarowych}
 
 
 \section{Uk³ady elektroniczne}
 
 Wyznaczenie pozycji w przestrzeni wymaga³o harmonijnego wspó³dzia³ania
 trzech zastosowanych w niniejszej pracy uk³adów elektronicznych. Najwa¿niejszym
-elementem, by³ zestaw uruchomieniowy LandTiger, zawieraj±cy mikrokontroler
+elementem by³ zestaw uruchomieniowy LandTiger, zawieraj±cy mikrokontroler
 LPC1768 opartym o rdzeñ ARM Cortex-M3. Mikrokontroler odpowiada³ za
 odczyt, przetwarzanie i przesy³anie danych pomiarowych zgromadzonych
-przez dwa urz±dzenia firmy Digilent: PmodACL i PmodGYRO. Pierwszy
-z tych uk³adów to trójosiowy, cyfrowy akcelerometr pracuj±cy na akcelerometrze
-ADXL345 firmy AnalogDevices. PmodGYRO oparty jest na uk³adzie L3G4200D
-firmy ST Microelectronics.
+przez dwa uk³ady pomiarowe firmy Digilent: PmodACL i PmodGYRO. Pierwszy
+z nich to trójosiowy, cyfrowy akcelerometr pracuj±cy na uk³adzie ADXL345
+firmy AnalogDevices, a drugi to ¿yroskop PmodGYRO oparty na uk³adzie
+L3G4200D firmy ST Microelectronics.
 
-ADXL345 to niewielki akcelerometr posiadaj±cy wysok± rodzielczo¶æ
+ADXL345 to niewielki akcelerometr posiadaj±cy wysok± rozdzielczo¶æ
 wykonywanych pomiarów (13-bitów) i wykonuj±cy pomiary w zakresie \textpm{}16g.
-Urz±dzenie to dokonuje pomiaru zarówno dynamicznego przy¶pieszenia
-bêd±cego rezultatem ruchu, jak równie¿ przy¶pieszenia statyczne takie
-jak grawitacja, która pozwalaj± pracowaæ jako czujniki przeci±¿enia.
-Czujnik ten jest przy¶pieszeniomerzem pojemno¶ciowym, którego zasada
-dzia³ania zosta³a ju¿ opisana wcze¶niej.
+Urz±dzenie to mierzy zarówno dynamiczne przy¶pieszenia bêd±ce rezultatem
+ruchu, jak równie¿ przy¶pieszenia statycznego takiego jak grawitacja,
+co mu pozwala mu pracowaæ jako czujnik przeci±¿enia. Uk³ad ten jest
+przy¶pieszeniomierzem pojemno¶ciowym, którego zasada dzia³ania zosta³a
+ju¿ opisana w rozdziale \ref{sec:Akcelerometr-piezorezystancyjny}.
 
-L3G4200D to trójosiowy czujnik przy¶pieszenia k±towego o rozdzielczo¶ci
+L3G4200D to trójosiowy czujnik prêdko¶ci k±towej o rozdzielczo¶ci
 16 bitów, zapewniaj±cy niewielki dryft zera oraz wysok± czu³o¶æ, niezale¿n±
-od czasu i temperatury. Uk³ad ten posiada trzy zakresy pomiarowowe:
-\textpm{}250/\textpm{}500/\textpm{}2000 dps oraz jest zdolny do wykonywania
-pomiarów w pa¶mie wybranym przez u¿ytkownika. ¯yroskopy firmy ST Microelectronics
-maj± lepsz± stabilno¶æ i czu³o¶æ w funkcji temperatury oraz odporno¶ci
-na uszkodzenia mechaniczne. Przewaga wynika z innego sposobu monta¿u
-struktury uk³adu pomiarowego. W zastosowanym urz±dzeniu, jest on zamontowany
-w jednym, centralnym punkcie, zamiast w kilku, jak ma to miejsce w
-innych rozwi±zaniach. Dziêki temu si³y wynikaj±ce ze zmian temperatury,
-naprê¿eñ mechanicznych przenosz± siê na uk³ad pomiarowy w znacznie
-miejszym stopniu. Dodatkowo wykorzystany ¿yroskop bazuje na jednej
-masie pomiarowej dla wszystkich trzech osi, co znacz±co poprawia symetriê
-sygna³ów wyj¶ciowych i skutkuje mniejszymi rezonansami.
+od czasu i temperatury. Uk³ad ten posiada trzy zakresy pomiarowe:
+\textpm{}250/\textpm{}500/\textpm{}2000 dps (ang. \emph{degree per
+second}) oraz jest zdolny do wykonywania pomiarów w~pa¶mie wybranym
+przez u¿ytkownika. ¯yroskopy firmy ST Microelectronics maj± bardzo
+dobr± stabilno¶æ i czu³o¶æ w funkcji temperatury oraz odporno¶æ na
+uszkodzenia mechaniczne. Przewaga nad innymi rozwi±zaniami tego typu
+wynika z innego sposobu monta¿u struktury uk³adu pomiarowego. W~zastosowanym
+urz±dzeniu, jest on zamontowany w jednym, centralnym punkcie, zamiast
+w kilku, jak ma to miejsce w innych rozwi±zaniach. Dziêki temu si³y
+wynikaj±ce ze zmian temperatury, naprê¿eñ mechanicznych przenosz±
+siê na uk³ad pomiarowy w znacznie mniejszym stopniu. Dodatkowo wykorzystany
+¿yroskop bazuje na jednej masie pomiarowej dla wszystkich trzech osi,
+co znacz±co poprawia symetriê sygna³ów wyj¶ciowych i skutkuje mniejszymi
+rezonansami {[}\cite{MEMS_gyroscope}{]}.
 
 
 \section{Po³±czenie uk³adów}
@@ -56,26 +58,108 @@ przedstawiono na rysunku \ref{fig:Schemat-po=000142=000105czenia-mikrokontrolera
 
 
 Przedstawiony na rysunku schemat przygotowano na zwyk³ej p³ytce uniwersalnej.
-Do po³±czenia z zestawem uruchomieniowym wykorzystano z³±cze 34-pinowe
-s³u¿±ce domy¶lnie do po³±czenia z ekranem LCD. Zawiera³o ono wszystkie
-piny konieczne do zapewnienia poprawnej pracy obu urz±dzeñ pomiarowych.
-Dodatkowo na p³ytce zamontowano dwa z³±cza 12-pinowe, do których wpiêto
-uk³ady PmodACL i PmodGYRO. Wykorzystanie wspomnianego z³±cza z zestawu
-uruchmieniowego pozwala³o na stabilne przy³±czenie akcelerometra i
-¿yroskopu. Dziêki takiemu rozwi±zaniu, pomiar dotyczy ca³ego uk³adu
-LandTiger oczywi¶cie wraz z mikroprocesorem zapewniaj±c niezawodno¶æ
-po³±czenia pomiêdzy wszystkimi p³ytkami drukowanymi wchodz±cymi w
-sk³ad zestawu pomiarowego.
+Do po³±czenia z~zestawem uruchomieniowym wykorzystano z³±cze 34-pinowe
+s³u¿±ce domy¶lnie do po³±czenia z ekranem LCD. Dodatkowo na p³ytce
+zamontowano dwa z³±cza 12-pinowe, do których wpiêto uk³ady PmodACL
+i PmodGYRO. Wykorzystanie wspomnianego z³±cza z zestawu uruchmieniowego
+pozwala³o na stabilne przy³±czenie akcelerometra i ¿yroskopu. Dziêki
+takiemu rozwi±zaniu, pomiar dotyczy ca³ego uk³adu LandTiger oczywi¶cie
+wraz z mikroprocesorem, zapewniaj±c niezawodno¶æ po³±czenia pomiêdzy
+wszystkimi p³ytkami drukowanymi wchodz±cymi w sk³ad zestawu pomiarowego.
+
+Do komunikacji pomiêdzy mikrokontrolerem a ¿yroskopem i akcelerometrem
+wykorzystano interfejs SPI. Zarówno w przypadku akcelerometru (ADXL345)
+oraz ¿yroskopu (uk³ad L3G4200D) dostêpne by³y sterowniki producentów
+niezale¿ne od posiadanego mikrokontrolera. Do dzia³ania wymaga³y one
+napisania w jêzyku C funkcji inicjalizuj±cych, przesy³aj±cych oraz
+odczytuj±cych dane z wykorzystaniem interfejsu SPI. Definicje takich
+funkcji s± zale¿ne od posiadanego mikrokontrolera. Wykorzystuj±c dokumentacjê
+ww. urz±dzeñ (\cite{ADXL345_datasheet} oraz \cite{L3G4200D_datasheet}),
+interfejs SPI mikrokontrolera LPC1768 zosta³ zainicjalizowany nastêpuj±cymi
+parametrami:
+\begin{itemize}
+\item czêstotliwo¶æ zegara \emph{f\textsubscript{SCLK}} -- 4 MHz,
+\item kolejno¶æ przesy³anych bitów -- najbardziej znacz±cy bit jako pierwszy
+(\emph{MSB first}),
+\item faza sygna³u zegarowego -- próbkowanie przy drugim zboczu (\emph{CPHA
+= 1}),
+\item polaryzacja sygna³u zegarowego -- zegar aktywny stanem wysokim (\emph{CPOL
+= 1}).
+\end{itemize}
+Mikrokontroler LPC1768 posiada interfejs SPI oraz dwa interfejsy szeregowe
+SSP. Te ostatnie mog± pracowaæ w trzech trybach (\cite{LPC1768}),
+z których jednym jest tryb SPI. Aby nie ingerowaæ w p³ytkê LandTiger
+z mikrokomputerem, wykorzystano istniej±ce na niej gniazdo s³u¿±ce
+do pod³±czania wy¶wietlacza LCD (nie u¿ywanego). Wymusi³o to wykorzystanie
+interfejsu SSP1 (\cite{landtiger_um}, \cite{landtiger_sch}) do komunikacji
+z sensorami.
+
+W celu uproszczenia realizacji zadania, postanowiono ¿e mikrokontroler
+pos³u¿y jedynie do odczytu przyspieszeñ i prêdko¶ci k±towych z czujników.
+Pomiar ten odbywa siê w pêtli g³ównej z czêstotliwo¶ci± próbkowania
+wynosz±c± 20 Hz. Za odmierzanie czasu odpowiada jeden z czasomierzy
+(ang. \emph{timer}) wbudowanych w uk³ad LPC1768. Wspó³praca z nim
+mog³aby siê odbywaæ na zasadzie ci±g³ego przegl±dania jednego z jego
+rejestrów (ang. \emph{pooling}) lub poprzez odblokowanie i wykorzystanie
+generowanego przez niego przerwania. W pracy wykorzystano drugi sposób.
+
+W celu zainicjalizowania ¿yroskopu nale¿a³o:
+\begin{itemize}
+\item ustawiæ jego tryb pracy jako normalny (prócz tego istnieje jeszcze
+tryb wy³±czenia oraz u¶pienia \cite{L3G4200D_datasheet}),
+\item okre¶liæ zakres pomiarowy, w naszym przypadku 250 dps,
+\item ustawiæ aktywne osie pomiarowe (X, Y, Z).
+\end{itemize}
+Konfiguracja akcelerometru polega³a na:
+\begin{itemize}
+\item ustawieniu pomiarowego trybu pracy,
+\item okre¶leniu zakresu pomiarów -- od -2 \emph{g} do 2 \emph{g} (przy
+czym \emph{g} jest przyspieszeniem ziemskim).
+\end{itemize}
+Ze wzglêdu na niewielkie mo¿liwo¶ci obliczeniowe mikrokontrolera (np.
+brak koprocesora arytmetycznego), zdecydowano ¿e najbardziej z³o¿one
+obliczenia bêd± przeprowadzane po stronie komputera PC. Program wykonywany
+przez uk³ad LPC1768 odpowiada zatem za nastêpuj±ce zadania:
+\begin{itemize}
+\item komunikacja z czujnikami i odczyt warto¶ci pomiarowych,
+\item u¶rednienie otrzymanych pomiarów (filtracja dolnoprzepustowa),
+\item wys³anie otrzymanych wyników do komputera poprzez interfejs UART.
+\end{itemize}
+Nale¿y zauwa¿yæ, ¿e dane pomiarowe pochodz±ce z akcelerometru i ¿yroskopu
+nie mog± pos³u¿yæ do wyznaczania przemieszczeñ i co za tym idzie aktualnego
+po³o¿enia. Wynika to ze sposobu obliczania przemieszczeñ -- dwukrotnego
+ca³kowania przyspieszenia mierzonego akcelerometrem. Odczyty z akcelerometru
+obarczone s± b³êdem. Dwukrotne ca³kowanie powoduje dodatkowe jego
+zwiêkszenie. Uzyskany b³±d jest tak znacz±cy, ¿e nie pozwala w praktyce
+na wykorzystanie tej metody do okre¶lania po³o¿enia. Da³o siê to równie¿
+zauwa¿yæ w trakcie realizacji niniejszej pracy. Przy pewnych za³o¿eniach,
+u¿ycie przyspieszeniomierza pozwala jednak na przybli¿one okre¶lanie
+przemieszczeñ. Ma to miejsce np. w miernikach zliczaj±cych ludzkie
+kroki.
+
+U¿ycie akcelerometru w po³±czeniu z ¿yroskopem pozwala za to na do¶æ
+dok³adny pomiar k±tów. Teoretycznie do okre¶lenia k±ta wystarcza sam
+¿yroskop. Ca³kuj±c mierzon± przez niego prêdko¶æ obrotow± mo¿na uzyskaæ
+k±t obrotu (znaj±c warunki pocz±tkowe). W praktyce ka¿dy odczyt warto¶ci
+prêdko¶ci mierzonej ¿yroskopem obarczony jest b³êdem. Ca³kowanie takich
+danych objawia siê tzw. dryftem. Objawia siê on tym ¿e po obrocie
+o pewien k±t, a nastêpnie rotacji o k±t przeciwny ca³ka mierzonych
+prêdko¶ci znacznie ró¿ni siê od warto¶ci k±ta pocz±tkowego. W celu
+znacz±cego zmniejszenia tego zjawiska, stosuje siê dodatkowo akcelerometr,
+którego odczyty równie¿ pozwalaj± na okre¶lenie k±ta. Oczywi¶cie pomiar
+akcelerometrem w takim celu ma sens tylko wtedy, gdy jest on nieruchomy
+dziêki czemu jedynym mierzonym przez niego przyspieszeniem jest przyspieszenie
+ziemskie. Je¶li istnieje potrzeba dok³adnego pomiaru k±tów obrotów
+wokó³ trzech osi, nale¿y dodatkowo zastosowaæ trzeci czujnik -- magnetometr
+(kompas)(\cite{RPY}, \cite{RPY_compas}).
 
 
-
-
-\section{Komunikacja}
+\section{Komunikacja z komputerem PC}
 
 Ostatnim elementem pomiaru, który obs³ugiwany jest przez mikroprocesor
 jest wys³anie zmierzonych danych do komputera. W tym celu wybrano
 interfejs UART, który umo¿liwia asynchroniczne odbieranie i nadawanie
-unformacji przy pomocy portu szeregowego (opisany w rozdziale \ref{sec:Interfejs-UART}).
+informacji przy pomocy portu szeregowego (opisany w rozdziale \ref{sec:Interfejs-UART}).
 Odbiór i dalsze przetwarzanie danych nastêpowa³o w komputerze przeno¶nym,
 niewyposa¿onym w z³±cze szeregowe. Z tego wzglêdu konieczne by³o zakupienie
 konwertera RS-232 na USB. Wykorzystano w tym celu uk³ad oparty na
@@ -83,20 +167,20 @@ chipsecie PL2303HX. Po zainstalowaniu odpowiednich sterowników, port
 COM stawa³ siê widoczny w systemie. Dziêki temu mo¿liwe by³o odbieranie
 danych pomiarowych, przeliczenie i wy¶wietlanie ich w aplikacji.
 
-Tak jak ju¿ wspomniano, w nieniejszej pracy wykorzystano wysy³anie
+Tak jak ju¿ wspomniano, w niniejszej pracy wykorzystano wysy³anie
 i odbieranie danych za po¶rednictwem interfejsu UART. Zarówno wysy³anie,
 jak i odbieranie danych oparto na przerwaniach. Przerwania by³y generowane
 w momencie pojawienia siê danych b±d¼ to w buforze wej¶ciowym, b±d¼
-te¿ w buforze wyj¶ciowym. Oba te typy by³y obs³ugiwane przez jedn±
-procedurê obs³ugi przerwania. W zale¿no¶ci od typu bufora, który otrzyma³
+te¿ w buforze wyj¶ciowym. Oba te typy przerwañ by³y obs³ugiwane przez
+jedn± procedurê obs³ugi. W zale¿no¶ci od typu bufora, który otrzyma³
 dane, przeprowadzano odczyt lub zapis danych do interfejsu. Mikroprocesor
 otrzymywa³ z komputera tylko jeden typ danych: by³ to ci±g tekstowy
 ``RESET''. Po jego otrzymaniu nastêpowa³o wyzerowanie zmiennych
-przechowuj±cych wyniki dotychczasowych pomiarów k±ta obrotu i przyspieszenia.
-Poprzez interfejs UART wysy³ano ³añcuchy znakowe zawieraj±ce wyniki.
-Dane pomiarowe by³y zapisywane w postaci C-stringa sk³adaj±cego siê
-z sze¶ciu liczb ca³kowitych oddzielonych znakami spacji. Trzy pierwsze
-liczby by³y wynikami odczytanymi z akcelerometru dla osi X, Y i Z,
-a trzy kolejne to dane z ¿yroskopu dla ka¿dej z osi. Tak przygotowany
-³añcuch przesy³any by³ do komputera, gdzie nastêpowa³a jego obróbka
-maj±ca na celu uzyskanie warto¶ci liczbowych.
+przechowuj±cych wyniki dotychczasowych pomiarów. Poprzez interfejs
+UART wysy³ano ³añcuchy znakowe zawieraj±ce wyniki. Dane pomiarowe
+by³y zapisywane w postaci C-stringa sk³adaj±cego siê z sze¶ciu liczb
+ca³kowitych oddzielonych znakami spacji. Trzy pierwsze liczby by³y
+u¶rednionymi wynikami odczytanymi z akcelerometru dla osi X, Y i~Z,
+a trzy kolejne to analogicznie uzyskane dane z ¿yroskopu dla ka¿dej
+z osi. Tak przygotowany ³añcuch przesy³any by³ do komputera, gdzie
+nastêpowa³a jego obróbka maj±ca na celu uzyskanie warto¶ci liczbowych.

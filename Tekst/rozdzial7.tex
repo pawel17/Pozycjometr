@@ -1,17 +1,17 @@
 
 \chapter{Interfejs u¿ytkownika}
 
-W poprzednim rodziale opisano wszystkie dzia³ania, które podjêto w
-celu dokonania pomiaru przy¶pieszenia i k±ta obrotu uk³adu. Dane przes³ane
-do komputera nie mog± byæ jedynie wy¶wietlone po stronie komputera
-w postaci ci±gu znaków, gdy¿ to praktycznie uniemo¿liwia³oby analizê
-otrzymywanych danych. Z tego wzglêdu konieczne jest odpowiednie przekszta³cenie
-otrzymanych danych w sposób, który umo¿liwi zobrazowanie zmierzonych
-przyspieszeñ b±d¼ obrotów. W tym celu przygotowano aplikacjê, której
-zadaniem jest odbiór i wy¶wietlenie w formie graficznej wyników. Wykorzystano
-do tego platformê .NET i jêzyk C\# z wykorzystaniem Windows Forms
-dla stworzenia interfejsu. Powodem wyboru tej technologii by³a wzglêdna
-prostota oraz mnogo¶æ klas i technik, które umo¿liwia³y osi±gniêcie
+W poprzednim rozdziale opisano wszystkie dzia³ania, które podjêto
+w celu dokonania pomiaru przy¶pieszenia i k±ta obrotu uk³adu. Dane
+przes³ane do komputera nie mog± byæ jedynie wy¶wietlone po stronie
+komputera w postaci ci±gu znaków, gdy¿ to praktycznie uniemo¿liwia³oby
+analizê otrzymywanych danych. Z tego wzglêdu konieczne jest odpowiednie
+przekszta³cenie otrzymanych danych w sposób, który umo¿liwi zobrazowanie
+zmierzonych przyspieszeñ b±d¼ obrotów. W tym celu przygotowano aplikacjê,
+której zadaniem jest odbiór i wy¶wietlenie wyników w formie graficznej.
+Wykorzystano do tego platformê .NET i jêzyk C\# z wykorzystaniem \emph{Windows
+Forms} dla stworzenia interfejsu. Powodem wyboru tej technologii by³a
+wzglêdna prostota oraz mnogo¶æ klas i technik, które umo¿liwia³y osi±gniêcie
 postawionego celu na systemie Windows. 
 
 
@@ -28,35 +28,36 @@ Okno g³ówne zrealizowanego programu przedstawiono na rysunku \ref{fig:Okno-g=000
 \end{figure}
 
 
-Otrzymane wyniki pomiaru przy¶pieszenia i k±ta obrotu wypisane s±
-w odpowiednich polach, dla ka¿dej z osi osobno. Jednak¿e najwa¿niejszym
+Otrzymane wyniki pomiaru przesuniêcia i k±ta obrotu wypisane s± w
+odpowiednich polach, dla ka¿dej z osi osobno. Jednak¿e najwa¿niejszym
 elementem aplikacji jest okno wy¶wietlania wyników pomiaru w formie
 graficznej. Sze¶cian symbolizuje uk³ad pomiarowy, dodatkowo przedstawiono
-osie uk³adu wspó³rzêdnych: o¶ X jest koloru niebieskiego, o¶ Y - ¿ó³tego
-a o¶ Z jest czerwona. Dziêki temu mo¿na ³atwiej zaobserwowaæ wszelkie
+osie uk³adu wspó³rzêdnych: o¶ X jest koloru niebieskiego, o¶ Y - czerwonego
+a o¶ Z jest ¿ó³ta. Dziêki temu mo¿na ³atwiej zaobserwowaæ wszelkie
 przemieszczenia i zmiany k±ta wzglêdem po³o¿enia pocz±tkowego. Poni¿ej
 okna wizualizacji umieszczono trzy prze³±czniki zgrupowane w panelu
-Tryb pomiaru. Umo¿liwiaj± one prze³±czanie siê pomiêdzy trzema ró¿nymi
-trybami wizualizacji. Obrót umo¿liwia obserwacjê jedynie wyników pracy
-¿yroskopu, Przemieszczenie wy³±cza wizualizacjê obrotów bry³y pozostawiaj±c
-przemieszczenie, a ostatni prze³±cznik pozwala na pe³ny podgl±d wyników
-pomiarów. Przycisk Ustawienia pozwala na ustawienie parametrów po³±czenia
-w osobnym oknie. Zostanie ono szczegó³owo opisane w kolejnej czê¶ci.
-Wci¶niêcie przycisku O programie wy¶wietla szczegó³ow± informacjê
-o zrealizowanej pracy in¿ynierskiej (Rysunek \ref{fig:Okno-informacji-o-programie}). 
+\emph{Tryb pomiaru}. Umo¿liwiaj± one prze³±czanie siê pomiêdzy trzema
+ró¿nymi trybami wizualizacji. \emph{Obrót} umo¿liwia obserwacjê jedynie
+wyników pracy ¿yroskopu, \emph{Przemieszczenie} wy³±cza wizualizacjê
+obrotów bry³y pozostawiaj±c tylko przemieszczenie, a ostatni prze³±cznik
+pozwala na pe³ny podgl±d wyników pomiarów. Przycisk \emph{Ustawienia}
+pozwala na zmianê parametrów po³±czenia w osobnym oknie. Zostanie
+ono szczegó³owo opisane w kolejnej czê¶ci. Wci¶niêcie przycisku \emph{O
+programie} wy¶wietla informacjê o zrealizowanej pracy in¿ynierskiej
+(rysunek \ref{fig:Okno-informacji-o-programie}). 
 
 \begin{figure}
 \centering{}\includegraphics[scale=0.7]{rys/aplikacja/info}\caption{Okno informacji o programie\label{fig:Okno-informacji-o-programie}}
 \end{figure}
 
 
-Za rozpoczêcie i zakoñczenie pomiarów odpowiadaj± przyciski Rozpocznij
-pomiar i Zakoñcz pomiar. W jednej chwili tylko jeden z przycisków
+Za rozpoczêcie i zakoñczenie pomiarów odpowiadaj± przyciski \emph{Rozpocznij
+pomiar} i\emph{ Zakoñcz pomiar}. W danej chwili tylko jeden z przycisków
 jest aktywny, dziêki czemu nie ma mo¿liwo¶ci wielokrotnego zainicjalizowania/zakoñczenia
 po³±czenia z wykorzystaniem interfejsu szeregowego. W przypadku próby
 nawi±zania po³±czenia bez odpowiednio skonfigurowanych parametrów
 po³±czenia wy¶wietlony zostanie odpowiedni komunikat informuj±cy o
-konieczno¶ci poprawienia wprowadzonych danych (Rysunek \ref{fig:Okno-b=000142=000119du-po=000142=000105czenia}).
+konieczno¶ci poprawienia wprowadzonych danych (rysunek \ref{fig:Okno-b=000142=000119du-po=000142=000105czenia}).
 
 \begin{figure}
 \begin{centering}
@@ -70,8 +71,8 @@ konieczno¶ci poprawienia wprowadzonych danych (Rysunek \ref{fig:Okno-b=000142=00
 
 \section{Okno ustawieñ}
 
-Okno ustawieñ parametrów transmisji szeregowej przedstawiono na poni¿szej
-ilustracji.
+Okno ustawieñ parametrów transmisji szeregowej przedstawiono na ilustracji
+\ref{fig:Opcje-programu}.
 
 \begin{figure}
 \begin{centering}
@@ -83,89 +84,209 @@ ilustracji.
 
 
 Kluczow± klas±, która s³u¿y do przechowywania parametrów po³±czenia
-dostêpnych i wybranych jest klasa statyczna CommunicationParameters.
+dostêpnych i wybranych jest klasa statyczna \texttt{CommunicationParameters}.
 Klasa ta zapamiêtuje wybrane parametry transmisji danych i tablice
 danych wy¶wietlanych w listach rozwijanych. Nazwy portów szeregowych
-dostêpnych w danym komputerze otrzymano korzystaj±c z metody GetPortNames
-klasy SerialPort znajduj±cej siê w przestrzeni nazw System.Port.IO,
+dostêpnych w danym komputerze otrzymano korzystaj±c z metody \texttt{GetPortNames()}
+klasy \texttt{SerialPort} znajduj±cej siê w przestrzeni nazw \emph{System.Port.IO},
 wykorzystywanej w aplikacji do komunikacji z mikroprocesorem. Aby
 rozpocz±æ pomiar konieczne jest jedynie wybranie odpowiedniej nazwy
 portu. Reszta parametrów domy¶lnie ustawiona jest na warto¶ci, które
 wybrano ju¿ w momencie konfiguracji komunikacji poprzez interfejs
 UART w mikroprocesorze. W przypadku zmiany tych parametrów, konieczne
-jest wybranie odpowiednich warto¶ci w oknie opcji. Klikniêcie przycisku
-Zapisz powoduje zapamiêtanie wybranych parametrów i powrót do okna
-g³ownego.
+jest wybranie odpowiednich warto¶ci w oknie opcji. Klikniêcie przycisku\emph{
+Zapisz} powoduje zapamiêtanie wybranych parametrów i powrót do okna
+g³ównego.
 
 
 \section{Komunikacja z portem szeregowym}
 
-Pierwszym zadaniem, jakie by³o konieczne do zrealizowania wymaga³o
-odebrania danych pomiarowych otrzymanych z mikroprocesora za po¶rednictwem
-portu szeregowego. Za komunikacjê z tym mikroprocesorem za po¶rednictwem
-tego portu odpowiedzialna jest klasa COMPortManager. Wykorzystano
-w tym celu klasê SerialPort, o której wspomniano ju¿ wcze¶niej. Klasa
-ta umo¿liwia kontrolê portów szeregowych komputera. Zapewnia ona komunikacjê
-synchroniczn±, sterowan± zdarzeniami wspieraj±c± szereg typów kodowania:
-ASCII, UTF8, Unicode i UTF32. 
+Pierwszym zadaniem by³o odebranie danych pomiarowych otrzymanych z
+mikroprocesora za po¶rednictwem portu szeregowego. Za komunikacjê
+z tym portem odpowiedzialna jest klasa \texttt{COMPortManager}. W
+ramach tej klasy wykorzystano klasê biblioteczn± \texttt{SerialPort},
+o której wspomniano ju¿ wcze¶niej. Klasa ta umo¿liwia kontrolê portów
+szeregowych komputera. Zapewnia ona komunikacjê synchroniczn±, sterowan±
+zdarzeniami wspieraj±c± szereg typów kodowania: ASCII, UTF8, Unicode
+i UTF32. 
 
 Komunikacja z portem szeregowym odbywa siê w puli w±tków, dziêki czemu
 wykonywana jest ona w tle. W przypadku, gdy za pomoc± tego portu otrzymane
-zostan± dane, wywo³ywane jest zdarzenie obs³ugiwane przez metodê SerialPortDataRecieved.
+zostan± dane, wywo³ywane jest zdarzenie obs³ugiwane przez metodê \texttt{SerialPortDataRecieved()}.
 Odczytuje ona dane otrzymane z portu szeregowego i zapisuje je w postaci
-stringu. Nastêpnie dane te s± opakowane w klasê ReceivedDataEventArgs,
+stringu. Nastêpnie dane te s± opakowywane w klasê \texttt{ReceivedDataEventArgs},
 która odpowiada za przechowywanie danych zdarzenia. Potem wywo³ywane
 jest zdarzenie z uzyskanymi wynikami, które przekazuje je do g³ównego
-okna aplikacji. W klasie COMPortManager jest równie¿ zaimplementowana
+okna aplikacji. W klasie \texttt{COMPortManager} jest równie¿ zaimplementowana
 metoda, której zadaniem jest wysy³anie do mikroprocesora komunikatu
-o tre¶ci ``RESET'', który powoduje wyzerowanie dotychczasowych wyników
+o tre¶ci ,,RESET'', który powoduje wyzerowanie dotychczasowych wyników
 pomiarów.
 
 
 \section{Przeliczenie otrzymanych wyników}
 
-Klasa ApplicationWindow, wy¶wietlaj±ca g³ówne okno aplikacji odbiera
-dane z klasy COMPortManager w procedurze obs³ugi zdarzenia. Dodatkowo
-metoda ta rozpoczyna siê od spradzenia, czy wywo³ywanie nie jest wykonywane
-spoza bie¿±cego w±tku. Je¶li taka sytuacja ma miejsce, metoda ta zapisywana
-jest jako delegat, który zostaje wykonany asynchronicznie z argumentami
-otrzymanymi z klasy obs³uguj±cej komunikacjê z portem szeregowym. 
+Klasa \texttt{ApplicationWindow}, wy¶wietlaj±ca g³ówne okno aplikacji,
+odbiera dane z klasy \texttt{COMPortManager} w procedurze obs³ugi
+zdarzenia. Dodatkowo metoda ta rozpoczyna siê sprawdzeniem, czy wywo³anie
+nie jest wykonywane spoza g³ównego w±tku. Je¶li taka sytuacja ma miejsce,
+metoda ta zapisywana jest jako delegat, który zostaje wykonany asynchronicznie
+z argumentami otrzymanymi z klasy obs³uguj±cej komunikacjê z portem
+szeregowym. 
 
-String zawieraj±cy dane odczytane z akcelerometru i ¿yroskopu zostaje
-nastêpnie rozdzielony na poszczególne dane. Trzy pierwsze stringi
-zawieraj± dane pomiarowe dotycz±ce przyspieszenia zostaj±, kolejne
-trzy to wyniki pomiarów ¿yroskopu. Zostaj± one zapisane do dwóch tablic
-³añcuchów znakowych, a nastêpnie zostaj± przekszta³cone do postaci
-liczb ca³okowitych, które pos³u¿± do dalszych przeliczeñ.
+String zawieraj±cy wyniki odczytane z akcelerometru i ¿yroskopu zostaje
+nastêpnie rozdzielony na poszczególne dane. Trzy pierwsze elementy
+zawieraj± u¶rednione przyspieszenia, kolejne trzy to ¶rednie prêdko¶ci
+zmierzone przez ¿yroskop. Zostaj± one zapisane do dwóch tablic ³añcuchów
+znakowych, a~nastêpnie przekszta³cone do postaci liczb ca³kowitych,
+które pos³u¿± do dalszych przeliczeñ.
+
+W celu wyznaczenia przemieszczeñ na podstawie uzyskanych przyspieszeñ,
+nale¿y dokonaæ ich dwukrotnego ca³kowania (\cite{acl_integrating}).
+W tym celu wykorzystano metodê trapezów, znan± tak¿e jako metoda Tustina.
+Jest to metoda numeryczna, polegaj±ca na zast±pieniu krzywej ci±g³ej
+(w tym wypadku przebiegu przyspieszenia) ³aman± sk³adaj±c± siê z odcinków
+³±cz±cych kolejne próbki pomiarowe. Pole pod krzyw± (ca³ka oznaczona)
+przybli¿a siê polem pod ³aman±. Korzystaj±c z tej metody, mo¿na wyznaczyæ
+sk³adow± prêdko¶ci w osi X w nastêpuj±cy sposób (\cite{acl_integrating}):
+
+\begin{equation}
+v_{x}^{n+1}=v_{x}^{n}+\left[a_{x}^{n}+\left(\frac{a_{x}^{n+1}-a_{x}^{n}}{2}\right)\right]\Delta t,\label{eq:metoda_trapezow}
+\end{equation}
 
 
+gdzie
+\begin{itemize}
+\item $v_{x}^{n}$-- warto¶æ prêdko¶ci w osi \emph{X} w \emph{n}-tym kroku
+obliczeniowym,
+\item $a_{x}^{n}$-- warto¶æ przyspieszenia w osi \emph{X} w \emph{n}-tym
+kroku obliczeniowym,
+\item $\Delta t$ -- krok ca³kowania (w tym wypadku okres próbkowania).
+\end{itemize}
+Analogicznie wyznacza siê prêdko¶ci i po³o¿enia w pozosta³ych osiach.
+
+W celu wyeliminowania wp³ywu szumów przy braku przyspieszenia, okre¶lono
+warto¶ci progowe (rysunek \ref{fig:discrimination_win}), które uznawane
+s± za zak³ócenia (\cite{acl_integrating}).
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/obliczenia/discrimination_window}
+\par\end{centering}
+
+\caption{Eliminacja szumów przy braku przyspieszenia (\emph{¬ród³o:} \cite{acl_integrating})\label{fig:discrimination_win}}
+
+
+\end{figure}
+
+
+
+
+Pamiêtaj±c, ¿e akcelerometr nie mierzy przyspieszenia w $\frac{m}{s^{2}}$,
+lecz w surowych liczbach (ang. \emph{raw data}), nale¿a³o dokonaæ
+przeliczenia jednostek bior±c pod uwagê czu³o¶æ sensora.
+
+Analogicznie post±piono ca³kuj±c prêdko¶ci k±towe mierzone przez ¿yroskop
+w celu obliczenia k±tów. Jak zosta³o wcze¶niej powiedziane, pomiar
+taki obarczony jest b³êdem zwi±zanym z dryftem i eliminuje siê go
+poprzez uwzglêdnienie pomiaru k±ta akcelerometrem. Ogólnie mo¿na zapisaæ,
+¿e
+
+\begin{equation}
+\alpha=k\alpha_{g}+\left(1-k\right)\alpha_{a},\label{eq:filtr_komplementarny}
+\end{equation}
+
+
+gdzie
+\begin{itemize}
+\item $\alpha_{g}$-- k±t obliczony przy pomocy danych pomiarowych z ¿yroskopu,
+\item $\alpha_{a}$-- k±t obliczony przy pomocy danych pomiarowych z akcelerometru,
+\item \emph{k} -- wspó³czynnik z przedzia³u (0 - 1).
+\end{itemize}
+Zale¿no¶æ \ref{eq:filtr_komplementarny} wyra¿a znan± w literaturze
+z dziedziny przetwarzania sygna³ów filtracjê komplementarn±. W omawianym
+przypadku pozwala ona zniwelowaæ b³±d dryftu zwi±zany z ¿yroskopem
+oraz b³±d pomiaru k±ta przy pomocy akcelerometru, wynikaj±cy z obecno¶ci
+przyspieszeñ innych ni¿ grawitacyjne. Mo¿na powiedzieæ równie¿, ¿e
+podana metoda ³±czy zalety pomiarów ¿yroskopem i akcelerometrem. Wspó³czynnik
+\emph{k} dobiera siê empirycznie. Dok³adniejsze wyniki, lecz du¿o
+bardzie z³o¿one obliczeniowo, daje filtracja Kallmana, szeroko opisywana
+w publikacjach z dziedziny przetwarzania sygna³ów. W metodzie tej,
+wagi z jakimi brane s± wielko¶ci pochodz±ce od poszczególnych czujników
+obliczane s± na bie¿±co.
+
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/obliczenia/rpy}
+\par\end{centering}
+
+\caption{K±ty \emph{roll}, \emph{pitch} i \emph{yaw} (\emph{¬ród³o:} \cite{RPY})\label{fig:katy_rpy}}
+
+
+\end{figure}
+
+
+W celu wyznaczenia k±tów (rys. \ref{fig:katy_rpy}) $\phi$ oraz $\theta$
+przy pomocy danych pochodz±cych z akcelerometru, mo¿na pos³u¿yæ siê
+nastêpuj±cymi zale¿no¶ciami (\cite{RPY}):
+
+\begin{equation}
+tan\left(\phi\right)=\frac{a_{y}}{a_{z}},\label{eq:roll_equation}
+\end{equation}
+
+
+\begin{equation}
+tan\left(\theta\right)=\frac{-a_{x}}{\sqrt{a_{z}^{2}+a_{y}^{2}}},\label{eq:pitch_equation}
+\end{equation}
+
+
+gdzie \emph{a\textsubscript{x}}, \emph{a\textsubscript{y}}, \emph{a\textsubscript{z}}
+s± przyspieszeniami (w naszym przypadku u¶rednionymi przyspieszeniami)
+odpowiednio w osi X, Y i Z.
+
+Jak widaæ, wzór \ref{eq:pitch_equation} nie pozwala na poprawne okre¶lenie
+æwiartki uk³adu wspó³rzêdnych, w której znajduje siê mierzony k±t.
+Ponadto je¶li sk³adowe przyspieszenia w osiach Y i Z bêd± równe zeru,
+niemo¿liwe bêdzie okre¶lenie k±ta obrotu wokó³ osi X. Ma to proste
+uzasadnienie fizyczne -- sk³adowe \emph{a\textsubscript{\emph{y}}}
+i \emph{a\textsubscript{\emph{z}}} bêd± równe jednocze¶nie zeru,
+gdy o¶ X bêdzie równoleg³a do wektora grawitacji. Wówczas obrót wokó³
+osi X jest ,,niewidoczny'' dla akcelerometru, gdy¿ nie rejestruje
+on ¿adnych zmian przyspieszenia we wszystkich osiach.
+
+W celu wyznaczenia k±ta $\psi$ nale¿y zastosowaæ magnetometr (\cite{RPY},
+\cite{RPY_compas}). Jest to przyrz±d potrafi±cy mierzyæ warto¶æ ziemskiego
+pola magnetycznego. Je¶li umie¶cimy kompas tak, by jego p³aszczyzna
+XY by³a równoleg³a do powierzchni ziemi, to obracanie nim wokó³ osi
+Z spowoduje, ¿e bêdzie rejestrowa³ ró¿ne warto¶ci pola magnetycznego
+w osiach X i Y. Sk³adowe te mog± pos³u¿yæ do oszacowania kata obrotu.
 
 Otrzymane wyniki zapisywane s± do odpowiednich pól tekstowych w oknie
 g³ównym aplikacji. Ze wzglêdu na fakt, i¿ wyliczone warto¶ci nie mog±
 byæ bezpo¶rednio zapisane do klasy dzia³aj±cej w innym w±tku, konieczne
-by³o zastosowanie metody Invoke klasy Dispatcher na obiekcie okna
-wizualizacji. Klasa Dispatcher umo¿liwia zarz±dzenia kolejk± elementów
-roboczych dla danego w±tku, w tym wypadku okna wizualizacji. Metoda
-Invoke jako argument przyjmuje delegat do funkcji, która zostanie
-na tym w±tku wykonana. T± funkcj± jest metoda klasy ApplicationWindow
-o nazwie ApplyMovement, która jako argumenty przyjmuje dwie tablice
-danych z wynikami z obu urz±dzeñ pomiarowych. Warto¶ci te s± przypisywane
-do odpowiednich zmiennych Nale¿y tutaj zaznaczyæ, ¿e w przypadku,
-gdy metoda ta wywo³ywana jest po raz pierwszy, wyniki pomiaru przesuniêcia/obrotu
+by³o zastosowanie metody \texttt{Invoke()} klasy \texttt{Dispatcher}
+na obiekcie okna wizualizacji. Klasa \texttt{Dispatcher} umo¿liwia
+zarz±dzenia kolejk± elementów roboczych dla danego w±tku, w tym wypadku
+okna wizualizacji. Metoda \texttt{Invoke()} jako argument przyjmuje
+delegat do funkcji, która zostanie na tym w±tku wykonana. T± funkcj±
+jest metoda klasy \texttt{ApplicationWindow} o nazwie \texttt{ApplyMovement()},
+która jako argumenty przyjmuje dwie tablice danych z wynikami z obu
+urz±dzeñ pomiarowych. Warto¶ci te s± przypisywane do odpowiednich
+zmiennych. Nale¿y tutaj zaznaczyæ, ¿e w~przypadku, gdy metoda ta
+wywo³ywana jest po raz pierwszy, wyniki pomiaru przesuniêcia/obrotu
 s± bezpo¶rednio wpisywane do odpowiednich zmiennych w obiekcie okna
 wizualizacji, a ich warto¶ci zapamiêtywane w odpowiedniej zmiennej
-w klasie ApplicationWindow. Ka¿dy kolejny pomiar skutkuje zapisaniem
-do okna liczby bêd±cej ró¿nic± poprzedniej i obecnej. Dziêki temu,
-aktualizacja pozycji sze¶cianu skutkuje jego przesuniêciem jedynie
+w klasie \texttt{ApplicationWindow}. Ka¿dy kolejny pomiar skutkuje
+zapisaniem do okna liczby bêd±cej ró¿nic± poprzedniej i obecnej. Dziêki
+temu, aktualizacja pozycji sze¶cianu skutkuje jego przesuniêciem jedynie
 o warto¶æ bêd±c± ró¿nic± pomiêdzy dwoma kolejnymi pomiarami. Po zapisaniu
 warto¶ci zmiennych, wywo³ywana jest w oknie metoda, której zadaniem
-jest wykonanie wszytkich transformacji na sze¶cianie. 
+jest wykonanie wszystkich transformacji na sze¶cianie. 
 
 Metoda powoduj±ca usuniêcie wszystkich transformacji równie¿ jest
-wywo³ywana z wykorzystaniem metody Invoke klasy Dispatcher. Dziêki
-niej mo¿na przywróciæ domy¶lne po³o¿enie sze¶cianiu i rozpocz±æ pomiar
-od pocz±tku, okre¶laj±c bie¿±ce po³o¿enie uk³adu jako domy¶lne. Metoda
-ta jest wywo³ywana ka¿dorazowo przy prze³±czaniu trybu wizualizacji,
+wywo³ywana z wykorzystaniem metody \texttt{Invoke()} klasy \texttt{Dispatcher}.
+Dziêki niej mo¿na przywróciæ domy¶lne po³o¿enie sze¶cianu i rozpocz±æ
+pomiar od pocz±tku, okre¶laj±c bie¿±ce po³o¿enie uk³adu jako domy¶lne.
+Metoda ta jest wywo³ywana ka¿dorazowo przy prze³±czaniu trybu wizualizacji,
 jak równie¿ po zakoñczeniu pomiaru.
 
 
@@ -174,23 +295,23 @@ jak równie¿ po zakoñczeniu pomiaru.
 Bior±c pod uwagê za³o¿enia przyjête przed realizacj± pracy, by³ to
 najwa¿niejszy etap w tworzeniu interfejsu u¿ytkownika. Konieczny by³
 wybór takiej technologii, która dobrze wspó³gra³a z reszt± programu
-napisan± w jêzyku C\# a jednocze¶nie zapewnia³aby du¿e mo¿liwo¶ci
+napisan± w jêzyku C\#, a jednocze¶nie zapewnia³aby du¿e mo¿liwo¶ci
 wizualizacji danych w postaci obiektów trójwymiarowych. Z tego wzglêdu
-zdecydowano siê skorzystaæ z Windows Presentation Foundation. Jest
-to silnik graficzny oparty o grafikê wektorow±, który pozwala na szerokie
+zdecydowano siê skorzystaæ z \emph{Windows Presentation Foundation}.
+Jest to silnik graficzny oparty o grafikê wektorow±, który daje du¿e
 mo¿liwo¶ci tworzenia aplikacji. API w WPF opiera siê na jêzyku XML,
-a dok³adniej wykorzystuje jego implementacjê o nazwie XAML. Zapewnia
+a dok³adniej wykorzystuje jego implementacjê o~nazwie XAML. Zapewnia
 on powi±zanie pomiêdzy interfejsem a logik± i umo¿liwia tworzenie
 zaawansowanych kontrolek, grafiki 2D i 3D, animacji, dokumentów, multimediów
-czy te¿ tekstu. Dodatkow± zalet± jest fakt, i¿ Windows Presentation
-Foundation jest zawarta w Microsoft .NET Framework, co czyni j± ³atwodostêpn±
-i zdoln± do pracy z innymi elementami biblioteki .NET Framework.
+czy te¿ tekstu. Dodatkow± zalet± jest fakt, i¿ \emph{Windows Presentation
+Foundation} jest zawarta w Microsoft .NET Framework, co czyni j± ³atwo
+dostêpn± i zdoln± do pracy z innymi elementami biblioteki .NET Framework.
 
 Okno wizualizacji zbudowane zosta³o jako biblioteka ³±czona dynamicznie.
 Takie rozwi±zanie jest konieczne ze wzglêdu na fakt, i¿ okno stworzone
-w WPF bêdzie umieszczone w interfejsie stworzonym za pomoc± Windows
-Forms. Dodatkowo konieczne by³o pod³±czenie kilku bibliotek, które
-s± konieczne w poprawnym dzia³aniu aplikacji. 
+w WPF bêdzie umieszczone w interfejsie stworzonym za pomoc± \emph{Windows
+Forms}. Dodatkowo konieczne by³o pod³±czenie kilku bibliotek, które
+s± niezbêdne w poprawnym dzia³aniu aplikacji. 
 
 Podstawowym elementem tworz±cym grafikê 3D jest trójk±t. Stworzenie
 za pomoc± trójk±tów sze¶cianu nie jest szczególnie trudnym wyzwaniem.
@@ -198,30 +319,34 @@ Problemem okaza³o siê narysowanie za pomoc± trójk±ta linii, które
 oznacza³y osie uk³adu wspó³rzêdnych. Teoretycznie liniê mo¿na narysowaæ
 z wykorzystaniem odpowiednio przeskalowanego prostok±ta, lecz w takim
 wypadku pojawia siê problem z zapewnieniem odpowiedniego o¶wietlenia
-i ustawienia kamery. Ze wzglêdu na znaczen trudno¶ci, jakie mog³a
-nie¶æ ze sob± implementacja tego rozwi±zania, zdecydowano siê na wykorzytanie
-biblioteki 3D Tools przygotowanej przez Microsoft. Zawiera ona klasê
-ScreenSpaceLines3D, które pozwalaj± na proste kre¶lenie linii.
+i ustawienia kamery. Ze wzglêdu na znaczne trudno¶ci, jakie mog³a
+nie¶æ ze sob± implementacja tego rozwi±zania, zdecydowano siê na wykorzystanie
+biblioteki \emph{3DTools} przygotowanej przez Microsoft. Zawiera ona
+klasê \texttt{ScreenSpaceLines3D}, które pozwalaj± na proste kre¶lenie
+linii.
 
-Jak ju¿ wspomniano w poprzednim paragrafie, dwie metody klasy ApplicationWindow
-operuj± bezpo¶rednio na danych klasy MainWindow, odpowiadaj±cej za
-wizualizacjê wyników pomiaru. Najwa¿niejsz± z metod w tej klasie jest
-metoda ApplyTransformation, która na podstawie danych zapisanych przez
-metodê ApplyMovement z interfejsu wykonuje odpowiednie transformacje
-na sze¶cianie. W tym celu wykorzystywane s± dwie klasy: AxisAngleRotation3D
-i TranslateTransform3D. Klasa AxisAngleRotation3D s³u¿y do obracania
-danego obiektu. Do jej poprawnej pracy konieczne jest podanie osi
-obrotu i k±ta, o jaki nale¿y obróciæ obiekt. TranslateTransform3D
-przesuwa obiekt o dany wektor. Wspó³rzêdne wektora to warto¶ci otrzymane
-z akcelerometru. Przyspieszenie obrazuje przesuniêcie obiektu od ¶rodka
-uk³adu wspó³rzêdnych. Tak przygotowane obiekty tych klas dodaje siê
-do kolekcji transformacji przypisanych do obiektu, w tym przypadku
-sze¶cianu.
+Jak ju¿ wspomniano w poprzednim paragrafie, dwie metody klasy \texttt{ApplicationWindow}
+operuj± bezpo¶rednio na danych klasy \texttt{MainWindow}, odpowiadaj±cej
+za wizualizacjê wyników pomiaru. Najwa¿niejsz± z metod w tej klasie
+jest metoda \texttt{ApplyTransformation()}, która na podstawie danych
+zapisanych przez metodê \texttt{ApplyMovement()} z interfejsu wykonuje
+odpowiednie transformacje na sze¶cianie. W tym celu wykorzystywane
+s± dwie klasy: \texttt{AxisAngleRotation3D} i~\texttt{TranslateTransform3D}.
+Klasa \texttt{AxisAngleRotation3D} s³u¿y do obracania danego obiektu.
+Do jej poprawnej pracy konieczne jest podanie osi obrotu i k±ta, o
+jaki nale¿y obróciæ obiekt. \texttt{TranslateTransform3D} przesuwa
+obiekt o dany wektor. Wspó³rzêdne tego wektora to warto¶ci otrzymane
+z akcelerometru. Tak przygotowane obiekty tych klas dodaje siê do
+kolekcji transformacji przypisanych do obiektu, w tym przypadku sze¶cianu.
 
-Powrót do stanu pocz±tkowego realizowany jest w metodzie RemoveAllTransformations.
+Powrót do stanu pocz±tkowego realizowany jest w metodzie \texttt{RemoveAllTransformations}.
 Odczytywana jest kolekcja transformacji, które wykonano na obiekcie,
 a nastêpnie s± one usuwane w kolejno¶ci odwrotnej do dodania. Dziêki
 temu mamy pewno¶æ, ¿e wszystkie przesuniêcia i obroty zostan± poprawnie
-usuniête i obiekt powróci do domy¶lego po³o¿enia.
+usuniête i obiekt powróci do domy¶lnego po³o¿enia. Niestety w wyniku
+kolejkowania danych otrzymanych z mikroprocesora mo¿e doj¶æ do sytuacji,
+gdy po usuniêciu wszystkich transformacji, dane otrzymane po resecie
+spowoduj± przesuniêcie sze¶cianu. Jednak¿e warto¶ci te nie wp³ywaj±
+znacz±co na pogorszenie jako¶ci otrzymanych wyników.
 
 \nocite{3Dtools,draw_cube,net_class_library,serial_port,transformations,uart_interupt,wpf3D_in_wf,wpf_in_wf}\nocite{wpf_lines}

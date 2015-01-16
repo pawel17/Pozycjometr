@@ -66,7 +66,7 @@ Interfejs użytkownika
 \end_layout
 
 \begin_layout Standard
-W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
+W poprzednim rozdziale opisano wszystkie działania, które podjęto w celu
  dokonania pomiaru przyśpieszenia i kąta obrotu układu.
  Dane przesłane do komputera nie mogą być jedynie wyświetlone po stronie
  komputera w postaci ciągu znaków, gdyż to praktycznie uniemożliwiałoby
@@ -74,7 +74,7 @@ W poprzednim rodziale opisano wszystkie działania, które podjęto w celu
  Z tego względu konieczne jest odpowiednie przekształcenie otrzymanych danych
  w sposób, który umożliwi zobrazowanie zmierzonych przyspieszeń bądź obrotów.
  W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
- w formie graficznej wyników.
+ wyników w formie graficznej.
  Wykorzystano do tego platformę .NET i język C# z wykorzystaniem 
 \emph on
 Windows Forms
@@ -168,8 +168,8 @@ Obrót
 \emph on
 Przemieszczenie
 \emph default
- wyłącza wizualizację obrotów bryły pozostawiając przemieszczenie, a ostatni
- przełącznik pozwala na pełny podgląd wyników pomiarów.
+ wyłącza wizualizację obrotów bryły pozostawiając tylko przemieszczenie,
+ a ostatni przełącznik pozwala na pełny podgląd wyników pomiarów.
  Przycisk 
 \emph on
 Ustawienia
@@ -180,8 +180,7 @@ Ustawienia
 \emph on
 O programie
 \emph default
- wyświetla szczegółową informację o zrealizowanej pracy inżynierskiej (rysunek
- 
+ wyświetla informację o zrealizowanej pracy inżynierskiej (rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Okno-informacji-o-programie"
@@ -361,21 +360,21 @@ name "fig:Opcje-programu"
 \begin_layout Standard
 Kluczową klasą, która służy do przechowywania parametrów połączenia dostępnych
  i wybranych jest klasa statyczna 
-\emph on
+\family typewriter
 CommunicationParameters
-\emph default
+\family default
 .
  Klasa ta zapamiętuje wybrane parametry transmisji danych i tablice danych
  wyświetlanych w listach rozwijanych.
  Nazwy portów szeregowych dostępnych w danym komputerze otrzymano korzystając
  z metody 
-\emph on
-GetPortNames
-\emph default
+\family typewriter
+GetPortNames()
+\family default
  klasy 
-\emph on
+\family typewriter
 SerialPort
-\emph default
+\family default
  znajdującej się w przestrzeni nazw 
 \emph on
 System.Port.IO
@@ -391,7 +390,7 @@ System.Port.IO
 \emph on
  Zapisz
 \emph default
- powoduje zapamiętanie wybranych parametrów i powrót do okna głownego.
+ powoduje zapamiętanie wybranych parametrów i powrót do okna głównego.
 \end_layout
 
 \begin_layout Section
@@ -399,19 +398,17 @@ Komunikacja z portem szeregowym
 \end_layout
 
 \begin_layout Standard
-Pierwszym zadaniem, jakie było konieczne do zrealizowania wymagało odebrania
- danych pomiarowych otrzymanych z mikroprocesora za pośrednictwem portu
- szeregowego.
- Za komunikację z tym mikroprocesorem za pośrednictwem tego portu odpowiedzialna
- jest klasa 
-\emph on
+Pierwszym zadaniem było odebranie danych pomiarowych otrzymanych z mikroprocesor
+a za pośrednictwem portu szeregowego.
+ Za komunikację z tym portem odpowiedzialna jest klasa 
+\family typewriter
 COMPortManager
-\emph default
+\family default
 .
- Wykorzystano w tym celu klasę 
-\emph on
+ W ramach tej klasy wykorzystano klasę biblioteczną 
+\family typewriter
 SerialPort
-\emph default
+\family default
 , o której wspomniano już wcześniej.
  Klasa ta umożliwia kontrolę portów szeregowych komputera.
  Zapewnia ona komunikację synchroniczną, sterowaną zdarzeniami wspierającą
@@ -424,29 +421,25 @@ Komunikacja z portem szeregowym odbywa się w puli wątków, dzięki czemu wykon
 a jest ona w tle.
  W przypadku, gdy za pomocą tego portu otrzymane zostaną dane, wywoływane
  jest zdarzenie obsługiwane przez metodę 
-\emph on
-SerialPortDataRecieved
-\emph default
+\family typewriter
+SerialPortDataRecieved()
+\family default
 .
  Odczytuje ona dane otrzymane z portu szeregowego i zapisuje je w postaci
  stringu.
- Następnie dane te są opakowane w klasę 
-\emph on
+ Następnie dane te są opakowywane w klasę 
+\family typewriter
 ReceivedDataEventArgs
-\emph default
+\family default
 , która odpowiada za przechowywanie danych zdarzenia.
  Potem wywoływane jest zdarzenie z uzyskanymi wynikami, które przekazuje
  je do głównego okna aplikacji.
  W klasie 
-\emph on
+\family typewriter
 COMPortManager
-\emph default
+\family default
  jest również zaimplementowana metoda, której zadaniem jest wysyłanie do
- mikroprocesora komunikatu o treści 
-\begin_inset Quotes eld
-\end_inset
-
-RESET
+ mikroprocesora komunikatu o treści ,,RESET
 \begin_inset Quotes erd
 \end_inset
 
@@ -459,16 +452,16 @@ Przeliczenie otrzymanych wyników
 
 \begin_layout Standard
 Klasa 
-\emph on
+\family typewriter
 ApplicationWindow
-\emph default
+\family default
 , wyświetlająca główne okno aplikacji, odbiera dane z klasy 
-\emph on
+\family typewriter
 COMPortManager
-\emph default
+\family default
  w procedurze obsługi zdarzenia.
- Dodatkowo metoda ta rozpoczyna się od spradzenia, czy wywoływanie nie jest
- wykonywane spoza bieżącego wątku.
+ Dodatkowo metoda ta rozpoczyna się sprawdzeniem, czy wywołanie nie jest
+ wykonywane spoza głównego wątku.
  Jeśli taka sytuacja ma miejsce, metoda ta zapisywana jest jako delegat,
  który zostaje wykonany asynchronicznie z argumentami otrzymanymi z klasy
  obsługującej komunikację z portem szeregowym.
@@ -478,10 +471,14 @@ COMPortManager
 \begin_layout Standard
 String zawierający wyniki odczytane z akcelerometru i żyroskopu zostaje
  następnie rozdzielony na poszczególne dane.
- Trzy pierwsze stringi zawierają uśrednione przyspieszenia, kolejne trzy
+ Trzy pierwsze elementy zawierają uśrednione przyspieszenia, kolejne trzy
  to średnie prędkości zmierzone przez żyroskop.
- Zostają one zapisane do dwóch tablic łańcuchów znakowych, a następnie przekszta
-łcone do postaci liczb całokowitych, które posłużą do dalszych przeliczeń.
+ Zostają one zapisane do dwóch tablic łańcuchów znakowych, a
+\begin_inset space ~
+\end_inset
+
+następnie przekształcone do postaci liczb całkowitych, które posłużą do
+ dalszych przeliczeń.
 \end_layout
 
 \begin_layout Standard
@@ -495,7 +492,7 @@ key "acl_integrating"
 
 ).
  W tym celu wykorzystano metodę trapezów, znaną także jako metoda Tustina.
- Jest to metoda numeryczna, polegajaca na zastapieniu krzywej ciągłej (w
+ Jest to metoda numeryczna, polegająca na zastąpieniu krzywej ciągłej (w
  tym wypadku przebiegu przyspieszenia) łamaną składającą się z odcinków
  łączących kolejne próbki pomiarowe.
  Pole pod krzywą (całka oznaczona) przybliża się polem pod łamaną.
@@ -513,7 +510,7 @@ key "acl_integrating"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-v_{x}^{n+1}=v_{x}^{n}+\left[a_{x}^{n}+\left(\frac{a_{x}^{n+1}-a_{x}^{n}}{2}\right)\right]\Delta t\label{eq:metoda_trapezow}
+v_{x}^{n+1}=v_{x}^{n}+\left[a_{x}^{n}+\left(\frac{a_{x}^{n+1}-a_{x}^{n}}{2}\right)\right]\Delta t,\label{eq:metoda_trapezow}
 \end{equation}
 
 \end_inset
@@ -568,8 +565,7 @@ Analogicznie wyznacza się prędkości i położenia w pozostałych osiach.
 
 \begin_layout Standard
 W celu wyeliminowania wpływu szumów przy braku przyspieszenia, określono
- wartości progowe (rys.
- 
+ wartości progowe (rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:discrimination_win"
@@ -669,7 +665,7 @@ Analogicznie postąpiono całkując prędkości kątowe mierzone przez żyroskop
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\alpha=k\alpha_{g}+\left(1-k\right)\alpha_{a}\label{eq:filtr_komplementarny}
+\alpha=k\alpha_{g}+\left(1-k\right)\alpha_{a},\label{eq:filtr_komplementarny}
 \end{equation}
 
 \end_inset
@@ -712,11 +708,21 @@ reference "eq:filtr_komplementarny"
 \end_inset
 
  wyraża znaną w literaturze z dziedziny przetwarzania sygnałów filtrację
- komplementarną.
- W omawianym przypadku pozwala on zniwelować błąd dryftu związany z żyroskopem
+ komplementarną
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tutaj jakaś referencja
+\end_layout
+
+\end_inset
+
+.
+ W omawianym przypadku pozwala ona zniwelować błąd dryftu związany z żyroskopem
  oraz błąd pomiaru kąta przy pomocy akcelerometru, wynikający z obecności
  przyspieszeń innych niż grawitacyjne.
- Mozna powiedzieć również, że podana metoda łączy zalety pomiarów żyroskopem
+ Można powiedzieć również, że podana metoda łączy zalety pomiarów żyroskopem
  i akcelerometrem.
  Współczynnik 
 \emph on
@@ -827,7 +833,7 @@ key "RPY"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-tan\left(\phi\right)=\frac{a_{y}}{a_{z}}\label{eq:roll_equation}
+tan\left(\phi\right)=\frac{a_{y}}{a_{z}},\label{eq:roll_equation}
 \end{equation}
 
 \end_inset
@@ -838,7 +844,7 @@ tan\left(\phi\right)=\frac{a_{y}}{a_{z}}\label{eq:roll_equation}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-tan\left(\theta\right)=\frac{-a_{x}}{\sqrt{a_{z}^{2}+a_{y}^{2}}}\label{eq:pitch_equation}
+tan\left(\theta\right)=\frac{-a_{x}}{\sqrt{a_{z}^{2}+a_{y}^{2}}},\label{eq:pitch_equation}
 \end{equation}
 
 \end_inset
@@ -902,7 +908,7 @@ reference "eq:pitch_equation"
  znajduje się mierzony kąt.
  Ponadto jeśli składowe przyspieszenia w osiach Y i Z będą równe zeru, niemożliw
 e będzie określenie kąta obrotu wokół osi X.
- Ma to proste uzasadnienie fizyczne - składowe 
+ Ma to proste uzasadnienie fizyczne -- składowe 
 \emph on
 a
 \begin_inset script subscript
@@ -964,7 +970,7 @@ key "RPY_compas"
  Jest to przyrząd potrafiący mierzyć wartość ziemskiego pola magnetycznego.
  Jeśli umieścimy kompas tak, by jego płaszczyzna XY była równoległa do powierzch
 ni ziemi, to obracanie nim wokół osi Z spowoduje, że będzie rejestrował
- różne wartości pola magnetcznego w osiach X i Y.
+ różne wartości pola magnetycznego w osiach X i Y.
  Składowe te mogą posłużyć do oszacowania kata obrotu.
 \end_layout
 
@@ -974,67 +980,71 @@ Otrzymane wyniki zapisywane są do odpowiednich pól tekstowych w oknie główny
  Ze względu na fakt, iż wyliczone wartości nie mogą być bezpośrednio zapisane
  do klasy działającej w innym wątku, konieczne było zastosowanie metody
  
-\emph on
-Invoke
-\emph default
+\family typewriter
+Invoke()
+\family default
  klasy 
-\emph on
+\family typewriter
 Dispatcher
-\emph default
+\family default
  na obiekcie okna wizualizacji.
  Klasa 
-\emph on
+\family typewriter
 Dispatcher
-\emph default
+\family default
  umożliwia zarządzenia kolejką elementów roboczych dla danego wątku, w tym
  wypadku okna wizualizacji.
  Metoda 
-\emph on
-Invoke
-\emph default
+\family typewriter
+Invoke()
+\family default
  jako argument przyjmuje delegat do funkcji, która zostanie na tym wątku
  wykonana.
  Tą funkcją jest metoda klasy 
-\emph on
+\family typewriter
 ApplicationWindow
-\emph default
+\family default
  o nazwie 
-\emph on
-ApplyMovement
-\emph default
+\family typewriter
+ApplyMovement()
+\family default
 , która jako argumenty przyjmuje dwie tablice danych z wynikami z obu urządzeń
  pomiarowych.
  Wartości te są przypisywane do odpowiednich zmiennych.
- Należy tutaj zaznaczyć, że w przypadku, gdy metoda ta wywoływana jest po
- raz pierwszy, wyniki pomiaru przesunięcia/obrotu są bezpośrednio wpisywane
- do odpowiednich zmiennych w obiekcie okna wizualizacji, a ich wartości
- zapamiętywane w odpowiedniej zmiennej w klasie 
-\emph on
+ Należy tutaj zaznaczyć, że w
+\begin_inset space ~
+\end_inset
+
+przypadku, gdy metoda ta wywoływana jest po raz pierwszy, wyniki pomiaru
+ przesunięcia/obrotu są bezpośrednio wpisywane do odpowiednich zmiennych
+ w obiekcie okna wizualizacji, a ich wartości zapamiętywane w odpowiedniej
+ zmiennej w klasie 
+\family typewriter
 ApplicationWindow
-\emph default
+\family default
 .
  Każdy kolejny pomiar skutkuje zapisaniem do okna liczby będącej różnicą
  poprzedniej i obecnej.
  Dzięki temu, aktualizacja pozycji sześcianu skutkuje jego przesunięciem
  jedynie o wartość będącą różnicą pomiędzy dwoma kolejnymi pomiarami.
  Po zapisaniu wartości zmiennych, wywoływana jest w oknie metoda, której
- zadaniem jest wykonanie wszytkich transformacji na sześcianie.
+ zadaniem jest wykonanie wszystkich transformacji na sześcianie.
  
 \end_layout
 
 \begin_layout Standard
 Metoda powodująca usunięcie wszystkich transformacji również jest wywoływana
  z wykorzystaniem metody 
-\emph on
-Invoke
-\emph default
+\family typewriter
+Invoke()
+\family default
  klasy 
-\emph on
+\family typewriter
 Dispatcher
-\emph default
+\family default
 .
- Dzięki niej można przywrócić domyślne położenie sześcianiu i rozpocząć
- pomiar od początku, określając bieżące położenie układu jako domyślne.
+ Dzięki niej można przywrócić domyślne położenie sześcianu i rozpocząć pomiar
+ od początku, określając bieżące położenie układu jako domyślne.
  Metoda ta jest wywoływana każdorazowo przy przełączaniu trybu wizualizacji,
  jak również po zakończeniu pomiaru.
 \end_layout
@@ -1057,7 +1067,11 @@ Windows Presentation Foundation
  Jest to silnik graficzny oparty o grafikę wektorową, który daje duże możliwości
  tworzenia aplikacji.
  API w WPF opiera się na języku XML, a dokładniej wykorzystuje jego implementacj
-ę o nazwie XAML.
+ę o
+\begin_inset space ~
+\end_inset
+
+nazwie XAML.
  Zapewnia on powiązanie pomiędzy interfejsem a logiką i umożliwia tworzenie
  zaawansowanych kontrolek, grafiki 2D i 3D, animacji, dokumentów, multimediów
  czy też tekstu.
@@ -1065,7 +1079,7 @@ Windows Presentation Foundation
 \emph on
 Windows Presentation Foundation
 \emph default
- jest zawarta w Microsoft .NET Framework, co czyni ją łatwodostępną i zdolną
+ jest zawarta w Microsoft .NET Framework, co czyni ją łatwo dostępną i zdolną
  do pracy z innymi elementami biblioteki .NET Framework.
 \end_layout
 
@@ -1091,57 +1105,61 @@ Podstawowym elementem tworzącym grafikę 3D jest trójkąt.
  prostokąta, lecz w takim wypadku pojawia się problem z zapewnieniem odpowiednie
 go oświetlenia i ustawienia kamery.
  Ze względu na znaczne trudności, jakie mogła nieść ze sobą implementacja
- tego rozwiązania, zdecydowano się na wykorzytanie biblioteki 
+ tego rozwiązania, zdecydowano się na wykorzystanie biblioteki 
 \emph on
 3DTools
 \emph default
  przygotowanej przez Microsoft.
  Zawiera ona klasę 
-\emph on
+\family typewriter
 ScreenSpaceLines3D
-\emph default
+\family default
 , które pozwalają na proste kreślenie linii.
 \end_layout
 
 \begin_layout Standard
 Jak już wspomniano w poprzednim paragrafie, dwie metody klasy 
-\emph on
+\family typewriter
 ApplicationWindow
-\emph default
+\family default
  operują bezpośrednio na danych klasy 
-\emph on
+\family typewriter
 MainWindow
-\emph default
+\family default
 , odpowiadającej za wizualizację wyników pomiaru.
  Najważniejszą z metod w tej klasie jest metoda 
-\emph on
-ApplyTransformation
-\emph default
+\family typewriter
+ApplyTransformation()
+\family default
 , która na podstawie danych zapisanych przez metodę 
-\emph on
-ApplyMovement
-\emph default
+\family typewriter
+ApplyMovement()
+\family default
  z interfejsu wykonuje odpowiednie transformacje na sześcianie.
  W tym celu wykorzystywane są dwie klasy: 
-\emph on
+\family typewriter
 AxisAngleRotation3D
-\emph default
- i 
-\emph on
+\family default
+ i
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
 TranslateTransform3D
-\emph default
+\family default
 .
  Klasa 
-\emph on
+\family typewriter
 AxisAngleRotation3D
-\emph default
+\family default
  służy do obracania danego obiektu.
  Do jej poprawnej pracy konieczne jest podanie osi obrotu i kąta, o jaki
  należy obrócić obiekt.
  
-\emph on
+\family typewriter
 TranslateTransform3D
-\emph default
+\family default
  przesuwa obiekt o dany wektor.
  Współrzędne tego wektora to wartości otrzymane z akcelerometru.
  Tak przygotowane obiekty tych klas dodaje się do kolekcji transformacji
@@ -1150,14 +1168,14 @@ TranslateTransform3D
 
 \begin_layout Standard
 Powrót do stanu początkowego realizowany jest w metodzie 
-\emph on
+\family typewriter
 RemoveAllTransformations
-\emph default
+\family default
 .
  Odczytywana jest kolekcja transformacji, które wykonano na obiekcie, a
  następnie są one usuwane w kolejności odwrotnej do dodania.
  Dzięki temu mamy pewność, że wszystkie przesunięcia i obroty zostaną poprawnie
- usunięte i obiekt powróci do domyślego położenia.
+ usunięte i obiekt powróci do domyślnego położenia.
  Niestety w wyniku kolejkowania danych otrzymanych z mikroprocesora może
  dojść do sytuacji, gdy po usunięciu wszystkich transformacji, dane otrzymane
  po resecie spowodują przesunięcie sześcianu.
