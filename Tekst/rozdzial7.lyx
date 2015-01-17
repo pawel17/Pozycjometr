@@ -530,7 +530,7 @@ gdzie
 \begin_inset Formula $v_{x}^{n}$
 \end_inset
 
--- wartość prędkości w osi 
+ -- wartość prędkości w osi 
 \emph on
 X
 \emph default
@@ -545,7 +545,7 @@ n
 \begin_inset Formula $a_{x}^{n}$
 \end_inset
 
--- wartość przyspieszenia w osi 
+ -- wartość przyspieszenia w osi 
 \emph on
 X
 \emph default
@@ -577,7 +577,11 @@ reference "fig:discrimination_win"
 \end_inset
 
 ), które wykorzystywane są do podjęcia decyzji, czy mierzona wartość jest
- szumem i czy w związku z tym można ją uznać za zerową 
+ szumem i czy w
+\begin_inset space ~
+\end_inset
+
+związku z tym można ją uznać za zerową 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
@@ -586,7 +590,7 @@ key "acl_integrating"
 
 .
  Algorytm postępowania jest prosty - jeśli wartość zmierzona mieści się
- w przedziale określonym przez wartości progowe, to to wartość tę uznajemy
+ w przedziale określonym przez wartości progowe, to wartość tę uznajemy
  za zerową.
  Omawiana procedura jest opisana w literaturze 
 \begin_inset CommandInset citation
@@ -771,14 +775,14 @@ gdzie
 \begin_inset Formula $\alpha_{g}$
 \end_inset
 
--- kąt obliczony przy pomocy danych pomiarowych z żyroskopu,
+ -- kąt obliczony przy pomocy danych pomiarowych z żyroskopu,
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $\alpha_{a}$
 \end_inset
 
--- kąt obliczony przy pomocy danych pomiarowych z akcelerometru,
+ -- kąt obliczony przy pomocy danych pomiarowych z akcelerometru,
 \end_layout
 
 \begin_layout Itemize
@@ -1110,7 +1114,7 @@ ApplicationWindow
 \family default
 .
  Każdy kolejny pomiar skutkuje zapisaniem do okna liczby będącej różnicą
- poprzedniej i obecnej.
+ wartości poprzedniej i obecnej.
  Dzięki temu, aktualizacja pozycji sześcianu skutkuje jego przesunięciem
  jedynie o wartość będącą różnicą pomiędzy dwoma kolejnymi pomiarami.
  Po zapisaniu wartości zmiennych, wywoływana jest w oknie metoda, której
@@ -1166,12 +1170,12 @@ nazwie XAML.
 Windows Presentation Foundation
 \emph default
  jest zawarta w Microsoft .NET Framework, co czyni ją łatwo dostępną i zdolną
- do pracy z innymi elementami biblioteki .NET Framework.
+ do pracy z innymi elementami tej biblioteki.
 \end_layout
 
 \begin_layout Standard
 Okno wizualizacji zbudowane zostało jako biblioteka łączona dynamicznie.
- Takie rozwiązanie jest konieczne ze względu na fakt, iż okno stworzone
+ Takie rozwiązanie było konieczne ze względu na fakt, iż okno stworzone
  w WPF będzie umieszczone w interfejsie stworzonym za pomocą 
 \emph on
 Windows Forms
@@ -1183,13 +1187,20 @@ Windows Forms
 \end_layout
 
 \begin_layout Standard
-Podstawowym elementem tworzącym grafikę 3D jest trójkąt.
+Podstawowym elementem tworzącym grafikę 3D w WPF jest trójkąt.
  Stworzenie za pomocą trójkątów sześcianu nie jest szczególnie trudnym wyzwaniem.
  Problemem okazało się narysowanie za pomocą trójkąta linii, które oznaczały
  osie układu współrzędnych.
- Teoretycznie linię można narysować z wykorzystaniem odpowiednio przeskalowanego
- prostokąta, lecz w takim wypadku pojawia się problem z zapewnieniem odpowiednie
-go oświetlenia i ustawienia kamery.
+ Teoretycznie linię można narysować z
+\begin_inset space ~
+\end_inset
+
+wykorzystaniem odpowiednio przeskalowanego prostokąta, lecz w takim wypadku
+ pojawia się problem z
+\begin_inset space ~
+\end_inset
+
+zapewnieniem odpowiedniego oświetlenia i ustawienia kamery.
  Ze względu na znaczne trudności, jakie mogła nieść ze sobą implementacja
  tego rozwiązania, zdecydowano się na wykorzystanie biblioteki 
 \emph on
@@ -1222,7 +1233,7 @@ ApplyTransformation()
 ApplyMovement()
 \family default
  z interfejsu wykonuje odpowiednie transformacje na sześcianie.
- W tym celu wykorzystywane są dwie klasy: 
+ W tym celu wykorzystywane są dwie klasy biblioteczne: 
 \family typewriter
 AxisAngleRotation3D
 \family default
@@ -1265,8 +1276,7 @@ RemoveAllTransformations
  Niestety w wyniku kolejkowania danych otrzymanych z mikroprocesora może
  dojść do sytuacji, gdy po usunięciu wszystkich transformacji, dane otrzymane
  po resecie spowodują przesunięcie sześcianu.
- Jednakże wartości te nie wpływają znacząco na pogorszenie jakości otrzymanych
- wyników.
+ Jednakże wartości te nie wpływają znacząco na wyniki tej operacji.
 \end_layout
 
 \begin_layout Standard

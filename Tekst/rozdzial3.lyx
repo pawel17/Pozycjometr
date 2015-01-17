@@ -422,7 +422,7 @@ półdupleks (ang.
 \emph on
 half duplex
 \emph default
-) - pozwalający na obustronną, lecz nie jednoczesną wymianę danych,
+) -- pozwalający na obustronną, lecz nie jednoczesną wymianę danych,
 \end_layout
 
 \begin_layout Itemize
@@ -431,7 +431,7 @@ simpleks (ang.
 \emph on
 simplex
 \emph default
-) - pozwalający na przesył danych tylko w jednym kierunku.
+) -- pozwalający na przesył danych tylko w jednym kierunku.
 \end_layout
 
 \begin_layout Standard
@@ -675,7 +675,11 @@ master
 slave
 \emph default
 'y.
- Rolą mastera jest kontrola całego procesu komunikacji.
+ Rolą 
+\emph on
+master
+\emph default
+'a jest kontrola całego procesu komunikacji.
  Urządzenie nadrzędne inicjalizuje komunikację ze 
 \emph on
 slave
@@ -1240,8 +1244,11 @@ slave'a
 \emph default
  itd.
  Port SPI takiego urządzenia podrzędnego w danym cyklu transmisji odbiera
- dane od poprzedniego urządzenia, które te same dane odebrało w poprzednim
- cyklu.
+ dane od poprzedniego urządzenia, które te same dane odebrało w
+\begin_inset space ~
+\end_inset
+
+poprzednim cyklu.
  Cała kaskada działa jak jeden duży rejestr przesuwny.
  Zaletą takiego rozwiązania jest to, że urządzenie typu 
 \emph on

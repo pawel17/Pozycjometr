@@ -120,12 +120,16 @@ robotyki, jako detektory ruchu i zderzeń.
 
 \begin_layout Standard
 Przedmiotem niniejszej pracy jest zrealizowanie pozycjometru inercyjnego
- na mikroprocesorze ARM CortexM3 z wykorzystaniem akcelerometru i żyroskopu
- wykonanych w technologii MEMS (
+ na mikroprocesorze 
+\emph on
+ARM Cortex-M3
+\emph default
+ z wykorzystaniem akcelerometru i żyroskopu wykonanych w technologii MEMS
+ (
 \emph on
 Micro Electro-Mechanical Systems
 \emph default
-) - wykonanych w krzemie układów elektro-mechanicznych.
+) - wykonanych w krzemie układów elektromechanicznych.
  Ze względu na fakt, iż jest to praca wykonywana wspólnie przez dwie osoby,
  dokonano następującego podziału zadań koniecznych do wykonania:
 \end_layout

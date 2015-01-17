@@ -131,9 +131,9 @@ w nadajnik jak i odbiornik.
 Prócz transmisji dupleksowej, w uk³adach cyfrowych mo¿liwe s± równie¿
 jeszcze dwa inne tryby wymiany danych:
 \begin{itemize}
-\item pó³dupleks (ang. \emph{half duplex}) - pozwalaj±cy na obustronn±,
+\item pó³dupleks (ang. \emph{half duplex}) -- pozwalaj±cy na obustronn±,
 lecz nie jednoczesn± wymianê danych,
-\item simpleks (ang. \emph{simplex}) - pozwalaj±cy na przesy³ danych tylko
+\item simpleks (ang. \emph{simplex}) -- pozwalaj±cy na przesy³ danych tylko
 w jednym kierunku.
 \end{itemize}
 Dane wysy³ane szeregowo s± czêsto przechowywane w rejestrach. Aby
@@ -209,7 +209,7 @@ korekcyjnymi pozwalaj±cymi na naprawê uszkodzonych danych \cite{Krzyzanowski207}
 Jest to model komunikacji, w którym jedno z kilku urz±dzeñ pe³ni rolê
 nadrzêdnego w stosunku do pozosta³ych. Urz±dzenie nadrzêdne nazywane
 jest \emph{master}'em, podczas gdy pozosta³e uk³ady to \emph{slave}'y.
-Rol± mastera jest kontrola ca³ego procesu komunikacji. Urz±dzenie
+Rol± \emph{master}'a jest kontrola ca³ego procesu komunikacji. Urz±dzenie
 nadrzêdne inicjalizuje komunikacjê ze \emph{slave}'ami i kontroluje
 ich dzia³anie. Jedynym typem danych przep³ywaj±cym w odwrotnym kierunku
 s± odpowiedzi urz±dzeñ podrzêdnych na otrzymane zapytania. Interfejsy
@@ -389,7 +389,7 @@ po³±czenia ³añcuchowego (znanego w literaturze anglojêzycznej jako
 \emph{daisy chain}). W takiej konfiguracji wyj¶cie jednego z~urz±dzeñ
 \emph{slave} jest po³±czone do wej¶cia drugiego \emph{slave'a} itd.
 Port SPI takiego urz±dzenia podrzêdnego w danym cyklu transmisji odbiera
-dane od poprzedniego urz±dzenia, które te same dane odebra³o w poprzednim
+dane od poprzedniego urz±dzenia, które te same dane odebra³o w~poprzednim
 cyklu. Ca³a kaskada dzia³a jak jeden du¿y rejestr przesuwny. Zalet±
 takiego rozwi±zania jest to, ¿e urz±dzenie typu \emph{master} mo¿e
 wykorzystywaæ tylko jeden sygna³ CS. Schemat takiego po³±czenia przedstawiono

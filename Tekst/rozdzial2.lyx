@@ -1202,7 +1202,7 @@ key "Gawedzki2010"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-y=-\frac{1}{\omega_{0}^{2}}x''=-\frac{1}{\omega_{0}^{2}}a\label{eq:uproszczone_rownanie_ruchu_akcel_sejsm}
+y=-\frac{1}{\omega_{0}^{2}}x''=-\frac{1}{\omega_{0}^{2}}a,\label{eq:uproszczone_rownanie_ruchu_akcel_sejsm}
 \end{equation}
 
 \end_inset

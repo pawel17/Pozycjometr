@@ -156,9 +156,9 @@ v_{x}^{n+1}=v_{x}^{n}+\left[a_{x}^{n}+\left(\frac{a_{x}^{n+1}-a_{x}^{n}}{2}\righ
 
 gdzie
 \begin{itemize}
-\item $v_{x}^{n}$-- warto¶æ prêdko¶ci w osi \emph{X} w \emph{n}-tym kroku
+\item $v_{x}^{n}$ -- warto¶æ prêdko¶ci w osi \emph{X} w \emph{n}-tym kroku
 obliczeniowym,
-\item $a_{x}^{n}$-- warto¶æ przyspieszenia w osi \emph{X} w \emph{n}-tym
+\item $a_{x}^{n}$ -- warto¶æ przyspieszenia w osi \emph{X} w \emph{n}-tym
 kroku obliczeniowym,
 \item $\Delta t$ -- krok ca³kowania (w tym wypadku okres próbkowania).
 \end{itemize}
@@ -166,10 +166,10 @@ Analogicznie wyznacza siê prêdko¶ci i po³o¿enia w pozosta³ych osiach.
 
 W celu wyeliminowania wp³ywu szumów przy braku przyspieszenia, okre¶lono
 warto¶ci progowe (rysunek \ref{fig:discrimination_win}), które wykorzystywane
-s± do podjêcia decyzji, czy mierzona warto¶æ jest szumem i czy w zwi±zku
+s± do podjêcia decyzji, czy mierzona warto¶æ jest szumem i czy w~zwi±zku
 z tym mo¿na j± uznaæ za zerow± \cite{acl_integrating}. Algorytm postêpowania
 jest prosty - je¶li warto¶æ zmierzona mie¶ci siê w przedziale okre¶lonym
-przez warto¶ci progowe, to to warto¶æ tê uznajemy za zerow±. Omawiana
+przez warto¶ci progowe, to warto¶æ tê uznajemy za zerow±. Omawiana
 procedura jest opisana w literaturze \cite{acl_integrating} i w jêzyku
 angielskim jest okre¶lana jako \emph{software discrimination window}.
 W dalszej czê¶ci niniejszej pracy bêdzie okre¶lana w skrócie jako
@@ -214,8 +214,8 @@ poprzez uwzglêdnienie pomiaru k±ta akcelerometrem. Ogólnie mo¿na zapisaæ,
 
 gdzie
 \begin{itemize}
-\item $\alpha_{g}$-- k±t obliczony przy pomocy danych pomiarowych z ¿yroskopu,
-\item $\alpha_{a}$-- k±t obliczony przy pomocy danych pomiarowych z akcelerometru,
+\item $\alpha_{g}$ -- k±t obliczony przy pomocy danych pomiarowych z ¿yroskopu,
+\item $\alpha_{a}$ -- k±t obliczony przy pomocy danych pomiarowych z akcelerometru,
 \item \emph{k} -- wspó³czynnik z przedzia³u (0 - 1).
 \end{itemize}
 Opisana metoda pozwala zniwelowaæ b³±d dryftu zwi±zany z ¿yroskopem
@@ -290,11 +290,11 @@ wywo³ywana jest po raz pierwszy, wyniki pomiaru przesuniêcia/obrotu
 s± bezpo¶rednio wpisywane do odpowiednich zmiennych w obiekcie okna
 wizualizacji, a ich warto¶ci zapamiêtywane w odpowiedniej zmiennej
 w klasie \texttt{ApplicationWindow}. Ka¿dy kolejny pomiar skutkuje
-zapisaniem do okna liczby bêd±cej ró¿nic± poprzedniej i obecnej. Dziêki
-temu, aktualizacja pozycji sze¶cianu skutkuje jego przesuniêciem jedynie
-o warto¶æ bêd±c± ró¿nic± pomiêdzy dwoma kolejnymi pomiarami. Po zapisaniu
-warto¶ci zmiennych, wywo³ywana jest w oknie metoda, której zadaniem
-jest wykonanie wszystkich transformacji na sze¶cianie. 
+zapisaniem do okna liczby bêd±cej ró¿nic± warto¶ci poprzedniej i obecnej.
+Dziêki temu, aktualizacja pozycji sze¶cianu skutkuje jego przesuniêciem
+jedynie o warto¶æ bêd±c± ró¿nic± pomiêdzy dwoma kolejnymi pomiarami.
+Po zapisaniu warto¶ci zmiennych, wywo³ywana jest w oknie metoda, której
+zadaniem jest wykonanie wszystkich transformacji na sze¶cianie. 
 
 Metoda powoduj±ca usuniêcie wszystkich transformacji równie¿ jest
 wywo³ywana z wykorzystaniem metody \texttt{Invoke()} klasy \texttt{Dispatcher}.
@@ -319,20 +319,20 @@ on powi±zanie pomiêdzy interfejsem a logik± i umo¿liwia tworzenie
 zaawansowanych kontrolek, grafiki 2D i 3D, animacji, dokumentów, multimediów
 czy te¿ tekstu. Dodatkow± zalet± jest fakt, i¿ \emph{Windows Presentation
 Foundation} jest zawarta w Microsoft .NET Framework, co czyni j± ³atwo
-dostêpn± i zdoln± do pracy z innymi elementami biblioteki .NET Framework.
+dostêpn± i zdoln± do pracy z innymi elementami tej biblioteki.
 
 Okno wizualizacji zbudowane zosta³o jako biblioteka ³±czona dynamicznie.
-Takie rozwi±zanie jest konieczne ze wzglêdu na fakt, i¿ okno stworzone
+Takie rozwi±zanie by³o konieczne ze wzglêdu na fakt, i¿ okno stworzone
 w WPF bêdzie umieszczone w interfejsie stworzonym za pomoc± \emph{Windows
 Forms}. Dodatkowo konieczne by³o pod³±czenie kilku bibliotek, które
 s± niezbêdne w poprawnym dzia³aniu aplikacji. 
 
-Podstawowym elementem tworz±cym grafikê 3D jest trójk±t. Stworzenie
+Podstawowym elementem tworz±cym grafikê 3D w WPF jest trójk±t. Stworzenie
 za pomoc± trójk±tów sze¶cianu nie jest szczególnie trudnym wyzwaniem.
 Problemem okaza³o siê narysowanie za pomoc± trójk±ta linii, które
 oznacza³y osie uk³adu wspó³rzêdnych. Teoretycznie liniê mo¿na narysowaæ
-z wykorzystaniem odpowiednio przeskalowanego prostok±ta, lecz w takim
-wypadku pojawia siê problem z zapewnieniem odpowiedniego o¶wietlenia
+z~wykorzystaniem odpowiednio przeskalowanego prostok±ta, lecz w takim
+wypadku pojawia siê problem z~zapewnieniem odpowiedniego o¶wietlenia
 i ustawienia kamery. Ze wzglêdu na znaczne trudno¶ci, jakie mog³a
 nie¶æ ze sob± implementacja tego rozwi±zania, zdecydowano siê na wykorzystanie
 biblioteki \emph{3DTools} przygotowanej przez Microsoft. Zawiera ona
@@ -345,7 +345,7 @@ za wizualizacjê wyników pomiaru. Najwa¿niejsz± z metod w tej klasie
 jest metoda \texttt{ApplyTransformation()}, która na podstawie danych
 zapisanych przez metodê \texttt{ApplyMovement()} z interfejsu wykonuje
 odpowiednie transformacje na sze¶cianie. W tym celu wykorzystywane
-s± dwie klasy: \texttt{AxisAngleRotation3D} i~\texttt{TranslateTransform3D}.
+s± dwie klasy biblioteczne: \texttt{AxisAngleRotation3D} i~\texttt{TranslateTransform3D}.
 Klasa \texttt{AxisAngleRotation3D} s³u¿y do obracania danego obiektu.
 Do jej poprawnej pracy konieczne jest podanie osi obrotu i k±ta, o
 jaki nale¿y obróciæ obiekt. \texttt{TranslateTransform3D} przesuwa
@@ -361,6 +361,6 @@ usuniête i obiekt powróci do domy¶lnego po³o¿enia. Niestety w wyniku
 kolejkowania danych otrzymanych z mikroprocesora mo¿e doj¶æ do sytuacji,
 gdy po usuniêciu wszystkich transformacji, dane otrzymane po resecie
 spowoduj± przesuniêcie sze¶cianu. Jednak¿e warto¶ci te nie wp³ywaj±
-znacz±co na pogorszenie jako¶ci otrzymanych wyników.
+znacz±co na wyniki tej operacji.
 
 \nocite{3Dtools,draw_cube,net_class_library,serial_port,transformations,uart_interupt,wpf3D_in_wf,wpf_in_wf}\nocite{wpf_lines}

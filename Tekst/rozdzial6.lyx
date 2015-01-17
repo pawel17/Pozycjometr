@@ -72,8 +72,15 @@ Układy elektroniczne
 \begin_layout Standard
 Wyznaczenie pozycji w przestrzeni wymagało harmonijnego współdziałania trzech
  zastosowanych w niniejszej pracy układów elektronicznych.
- Najważniejszym elementem był zestaw uruchomieniowy LandTiger, zawierający
- mikrokontroler LPC1768 opartym o rdzeń ARM Cortex-M3.
+ Najważniejszym elementem był zestaw uruchomieniowy 
+\emph on
+LandTiger
+\emph default
+, zawierający mikrokontroler LPC1768 opartym o rdzeń 
+\emph on
+ARM Cortex-M3
+\emph default
+.
  Mikrokontroler odpowiadał za odczyt, przetwarzanie i przesyłanie danych
  pomiarowych zgromadzonych przez dwa układy pomiarowe firmy Digilent: PmodACL
  i PmodGYRO.
@@ -86,10 +93,10 @@ Wyznaczenie pozycji w przestrzeni wymagało harmonijnego współdziałania trzec
 ADXL345 to niewielki akcelerometr posiadający wysoką rozdzielczość wykonywanych
  pomiarów (13-bitów) i wykonujący pomiary w zakresie ±16g.
  Urządzenie to mierzy zarówno dynamiczne przyśpieszenia będące rezultatem
- ruchu, jak również przyśpieszenia statycznego takiego jak grawitacja, co
- mu pozwala mu pracować jako czujnik przeciążenia.
+ ruchu, jak również przyśpieszenia statyczne takie jak grawitacja, co pozwala
+ mu pracować jako czujnik przeciążenia.
  Układ ten jest przyśpieszeniomierzem pojemnościowym, którego zasada działania
- została już opisana w rozdziale 
+ została opisana w rozdziale 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Akcelerometr-piezorezystancyjny"
@@ -199,7 +206,7 @@ name "fig:Schemat-połączenia-mikrokontrolera"
 \end_layout
 
 \begin_layout Standard
-Przedstawiony na rysunku schemat przygotowano na zwykłej płytce uniwersalnej.
+Schemat ten przygotowano na zwykłej płytce uniwersalnej.
  Do połączenia z
 \begin_inset space ~
 \end_inset
@@ -210,8 +217,8 @@ zestawem uruchomieniowym wykorzystano złącze 34-pinowe służące domyślnie
  układy PmodACL i PmodGYRO.
  Wykorzystanie wspomnianego złącza z zestawu uruchomieniowego pozwalało
  na stabilne przyłączenie akcelerometra i żyroskopu.
- Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger oczywiście
- wraz z mikroprocesorem, zapewniając niezawodność połączenia pomiędzy wszystkimi
+ Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger wraz
+ z mikroprocesorem, zapewniając niezawodność połączenia pomiędzy wszystkimi
  płytkami drukowanymi wchodzącymi w skład zestawu pomiarowego.
  Zdjęcia zmontowanej płytki z wpiętymi układami PmodACL i PmodGYRO przedstawiono
  na rysunkach 
@@ -399,8 +406,12 @@ key "LPC1768"
 \end_inset
 
 , z których jednym jest tryb SPI.
- Aby nie ingerować w płytkę LandTiger z mikrokomputerem, wykorzystano istniejące
- na niej gniazdo służące do podłączania wyświetlacza LCD (nie używanego).
+ Aby nie ingerować w płytkę LandTiger z
+\begin_inset space ~
+\end_inset
+
+mikrokomputerem, wykorzystano istniejące na niej gniazdo służące do podłączania
+ wyświetlacza LCD (nie używanego).
  Wymusiło to wykorzystanie interfejsu SSP1 (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -596,11 +607,7 @@ Tak jak już wspomniano, w niniejszej pracy wykorzystano wysyłanie i odbieranie
  W zależności od typu bufora, który otrzymał dane, przeprowadzano odczyt
  lub zapis danych do interfejsu.
  Mikroprocesor otrzymywał z komputera tylko jeden typ danych: był to ciąg
- tekstowy 
-\begin_inset Quotes eld
-\end_inset
-
-RESET
+ tekstowy ,,RESET
 \begin_inset Quotes erd
 \end_inset
 

@@ -1,5 +1,5 @@
 
-\chapter{Mikrokontrolery \emph{ARM} \emph{Cortex M3}}
+\chapter{Mikrokontrolery \emph{ARM} \emph{Cortex-M3}}
 
 Od kilku lat widaæ du¿y wzrost popularno¶ci mikrokontrolerów \emph{ARM}
 w systemach wbudowanych. Producenci wprowadzaj± na rynek coraz tañsze
@@ -152,7 +152,7 @@ only}. Odczytuj±c zawarto¶æ tego rejestru mo¿na sprawdziæ jaki sposób
 u³o¿enia bajtów obs³ugiwany jest w danym mikroprocesorze.
 
 Bardziej z³o¿one rdzenie \emph{Cortex-M3} posiadaj± jednostkê ochrony
-pamiêci MPU (ang. \emph{memory protextion unit}). Ponadto architektura
+pamiêci MPU (ang. \emph{Memory Protextion Unit}). Ponadto architektura
 Cortex przewiduje obecno¶æ bloków debugowania z obs³ug± pu³apek (ang.\emph{
 breakpoint}) oraz punktów podgl±dowych (ang. \emph{watchpoint}).
 
@@ -182,14 +182,14 @@ Rdzeñ \emph{Cortex M3} posiada 16 rejestrów podstawowych (R0 -- R15),
 z których trzyna¶cie (R0 -- R12) stanowi± rejestry ogólnego przeznaczenia
 (rysunek \ref{fig:rejestry}). Wiêkszo¶æ rozkazów 16-bitowych mo¿e
 u¿ywaæ jedynie rejestrów R0 -- R7. Rejestr R13 pe³ni funkcje wska¼nika
-stosu SP (ang. \emph{stack pointer}) i~w~rzeczywisto¶ci sk³ada siê
+stosu SP (ang. \emph{Stack Pointer}) i~w~rzeczywisto¶ci sk³ada siê
 z dwóch rejestrów bankowanych \cite{Paprocki2009}, z których w danej
 chwili widoczny jest jeden:
 \begin{itemize}
-\item g³ównego wska¼nika stosu MSP (ang. \emph{main stack pointer}) -- u¿ywanego
+\item g³ównego wska¼nika stosu MSP (ang. \emph{Main Stack Pointer}) -- u¿ywanego
 domy¶lnie przez przerwania i j±dro systemu operacyjnego pracuj±cego
 w trybie uprzywilejowanym,
-\item procesowego wska¼nika stosu PSP (ang. \emph{process stack pointer})
+\item procesowego wska¼nika stosu PSP (ang. \emph{Process Stack Pointer})
 -- u¿ywanego przez programy u¿ytkownika kontrolowane przez system
 operacyjny.
 \end{itemize}
@@ -200,8 +200,8 @@ naruszeniem stabilno¶ci systemu.
 Pozosta³e dwa rejestry podstawowe to:
 \begin{itemize}
 \item R14 -- zawieraj±cy adres powrotu z podprocedury,
-\item R15 -- licznik programu PC (ang. \emph{program counter}) znany te¿
-jako licznik instrukcji IC (ang. \emph{instruction counter}) -- zawiera
+\item R15 -- licznik programu PC (ang. \emph{Program Counter}) znany te¿
+jako licznik instrukcji IC (ang. \emph{Instruction Counter}) -- zawiera
 adres aktualnie wykonywanego rozkazu.
 \end{itemize}
 Oprócz wymienionych rejestrów podstawowych, rdzeñ \emph{Cortex-M3}
@@ -232,7 +232,7 @@ rozkazów i nie mo¿e to mieæ miejsca w trakcie normalnej pracy mikrokontrolera
 
 \section{Przestrzeñ adresowa}
 
-Rdzeñ Cortex-M3 jest w stanie zaadresowaæ przestrzeñ 4 GB pamiêci
+Rdzeñ \emph{Cortex-M3} jest w stanie zaadresowaæ przestrzeñ 4 GB pamiêci
 \cite{Krzyzanowski207}. Obejmuje ona tzw. segmenty, m. in. pamiêæ
 programu, SRAM i zewnêtrzn± pamiêæ RAM. Odpowiedni± mapê pamiêci pokazano
 na rysunku \ref{fig:Mapa-pamieci}.
@@ -333,11 +333,11 @@ stosuje siê dwie techniki:
 
 Konstrukcje dzisiejszych mikrokomputerów s± optymalizowane pod k±tem
 obs³ugi przerwañ. Rdzeñ \emph{Cortex-M3} posiada wbudowany kontroler
-przerwañ \emph{NVIC} (ang. \emph{nested vectored interrupt controller}).
+przerwañ \emph{NVIC} (ang. \emph{Nested Vectored Interrupt Controller}).
 Pozwala on na obs³ugê maksymalnie piêtnastu przerwañ (wyj±tków) systemowych
 i 240 przerwañ zewnêtrznych. Faktyczna liczba obs³ugiwanych przerwañ
 zale¿y od konkretnego mikrokontrolera. Wiêkszo¶æ przerwañ systemowych
-i wszystkie przerwania zewnêtrzne moga mieæ ustalany programowo priorytet
+i wszystkie przerwania zewnêtrzne mog± mieæ ustalany programowo priorytet
 \cite{Paprocki2009}. Niektóre priorytety zgrupowano (w kolejno¶ci
 malej±cej) w tabeli na rysunku \ref{fig:priorytety-przerwan}. Jak
 widaæ, zdarzeniem o najwy¿szym priorytecie w systemie jest resetowanie.
@@ -345,8 +345,8 @@ widaæ, zdarzeniem o najwy¿szym priorytecie w systemie jest resetowanie.
 Mo¿liwo¶ci kontrolera \emph{NVIC} opisano skrótowo w poni¿szych punktach\cite{Paprocki2009}.
 \begin{enumerate}
 \item Obs³uga przerwañ zagnie¿d¿onych (zwanych te¿ wielopoziomowymi) --
-je¶li w trakcie procedury obs³ugi przerwania ISR (ang. \emph{interrupt
-service routine}) wyst±pi przerwanie o wy¿szym poziomie, obs³uga bie¿±cego
+je¶li w trakcie procedury obs³ugi przerwania ISR (ang. \emph{Interrupt
+Service Routine}) wyst±pi przerwanie o wy¿szym poziomie, obs³uga bie¿±cego
 jest przerywana, nastêpuje skok do procedury obs³ugi przerwania o
 wy¿szym poziomie, a po jej zakoñczeniu powrót do obs³ugi zdarzenia
 poprzedniego (rysunek \ref{fig:wielpoz-obsluga-przerwan}).
@@ -390,8 +390,8 @@ pamiêci programu przy jednoczesnym wzro¶cie szybko¶ci jego wykonywania
 \cite{Paprocki2009}.
 
 W celu jeszcze lepszego wykorzystania ww. cech rdzenia \emph{Cortex-M3},
-stworzono odmianê asemblera oznaczan± w skrócie jako UAL (ang. \emph{unified
-assembly language}). Pozwala ona w ³atwiejszy i czytelniejszy sposób
+stworzono odmianê asemblera oznaczan± w skrócie jako UAL (ang. \emph{Unified
+Assembly Language}). Pozwala ona w ³atwiejszy i czytelniejszy sposób
 wykorzystywaæ w programie rozkazy 16- i 32-bitowe.
 
 Zestaw rozkazów \emph{Thumb-2} zawiera operacje, które mog± byæ wykonywane

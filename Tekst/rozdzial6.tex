@@ -6,21 +6,21 @@
 
 Wyznaczenie pozycji w przestrzeni wymaga³o harmonijnego wspó³dzia³ania
 trzech zastosowanych w niniejszej pracy uk³adów elektronicznych. Najwa¿niejszym
-elementem by³ zestaw uruchomieniowy LandTiger, zawieraj±cy mikrokontroler
-LPC1768 opartym o rdzeñ ARM Cortex-M3. Mikrokontroler odpowiada³ za
-odczyt, przetwarzanie i przesy³anie danych pomiarowych zgromadzonych
-przez dwa uk³ady pomiarowe firmy Digilent: PmodACL i PmodGYRO. Pierwszy
-z nich to trójosiowy, cyfrowy akcelerometr pracuj±cy na uk³adzie ADXL345
-firmy AnalogDevices, a drugi to ¿yroskop PmodGYRO oparty na uk³adzie
-L3G4200D firmy ST Microelectronics.
+elementem by³ zestaw uruchomieniowy \emph{LandTiger}, zawieraj±cy
+mikrokontroler LPC1768 opartym o rdzeñ \emph{ARM Cortex-M3}. Mikrokontroler
+odpowiada³ za odczyt, przetwarzanie i przesy³anie danych pomiarowych
+zgromadzonych przez dwa uk³ady pomiarowe firmy Digilent: PmodACL i
+PmodGYRO. Pierwszy z nich to trójosiowy, cyfrowy akcelerometr pracuj±cy
+na uk³adzie ADXL345 firmy AnalogDevices, a drugi to ¿yroskop PmodGYRO
+oparty na uk³adzie L3G4200D firmy ST Microelectronics.
 
 ADXL345 to niewielki akcelerometr posiadaj±cy wysok± rozdzielczo¶æ
 wykonywanych pomiarów (13-bitów) i wykonuj±cy pomiary w zakresie \textpm{}16g.
 Urz±dzenie to mierzy zarówno dynamiczne przy¶pieszenia bêd±ce rezultatem
-ruchu, jak równie¿ przy¶pieszenia statycznego takiego jak grawitacja,
-co mu pozwala mu pracowaæ jako czujnik przeci±¿enia. Uk³ad ten jest
-przy¶pieszeniomierzem pojemno¶ciowym, którego zasada dzia³ania zosta³a
-ju¿ opisana w rozdziale \ref{sec:Akcelerometr-piezorezystancyjny}.
+ruchu, jak równie¿ przy¶pieszenia statyczne takie jak grawitacja,
+co pozwala mu pracowaæ jako czujnik przeci±¿enia. Uk³ad ten jest przy¶pieszeniomierzem
+pojemno¶ciowym, którego zasada dzia³ania zosta³a opisana w rozdziale
+\ref{sec:Akcelerometr-piezorezystancyjny}.
 
 L3G4200D to trójosiowy czujnik prêdko¶ci k±towej o rozdzielczo¶ci
 16 bitów, zapewniaj±cy niewielki dryft zera oraz wysok± czu³o¶æ, niezale¿n±
@@ -57,18 +57,17 @@ przedstawiono na rysunku \ref{fig:Schemat-po=000142=000105czenia-mikrokontrolera
 \end{figure}
 
 
-Przedstawiony na rysunku schemat przygotowano na zwyk³ej p³ytce uniwersalnej.
-Do po³±czenia z~zestawem uruchomieniowym wykorzystano z³±cze 34-pinowe
-s³u¿±ce domy¶lnie do po³±czenia z ekranem LCD. Dodatkowo na p³ytce
-zamontowano dwa z³±cza 12-pinowe, do których wpiêto uk³ady PmodACL
-i PmodGYRO. Wykorzystanie wspomnianego z³±cza z zestawu uruchomieniowego
-pozwala³o na stabilne przy³±czenie akcelerometra i ¿yroskopu. Dziêki
-takiemu rozwi±zaniu, pomiar dotyczy ca³ego uk³adu LandTiger oczywi¶cie
-wraz z mikroprocesorem, zapewniaj±c niezawodno¶æ po³±czenia pomiêdzy
-wszystkimi p³ytkami drukowanymi wchodz±cymi w sk³ad zestawu pomiarowego.
-Zdjêcia zmontowanej p³ytki z wpiêtymi uk³adami PmodACL i PmodGYRO
-przedstawiono na rysunkach \ref{fig:G=0000F3rna-cz=000119=00015B=000107-zmontowanej}
-i~\ref{fig:Dolna-cz=000119=00015B=000107-p=000142ytki}:
+Schemat ten przygotowano na zwyk³ej p³ytce uniwersalnej. Do po³±czenia
+z~zestawem uruchomieniowym wykorzystano z³±cze 34-pinowe s³u¿±ce
+domy¶lnie do po³±czenia z ekranem LCD. Dodatkowo na p³ytce zamontowano
+dwa z³±cza 12-pinowe, do których wpiêto uk³ady PmodACL i PmodGYRO.
+Wykorzystanie wspomnianego z³±cza z zestawu uruchomieniowego pozwala³o
+na stabilne przy³±czenie akcelerometra i ¿yroskopu. Dziêki takiemu
+rozwi±zaniu, pomiar dotyczy ca³ego uk³adu LandTiger wraz z mikroprocesorem,
+zapewniaj±c niezawodno¶æ po³±czenia pomiêdzy wszystkimi p³ytkami drukowanymi
+wchodz±cymi w sk³ad zestawu pomiarowego. Zdjêcia zmontowanej p³ytki
+z wpiêtymi uk³adami PmodACL i PmodGYRO przedstawiono na rysunkach
+\ref{fig:G=0000F3rna-cz=000119=00015B=000107-zmontowanej} i~\ref{fig:Dolna-cz=000119=00015B=000107-p=000142ytki}:
 
 \begin{figure}
 \centering{}\includegraphics[scale=0.6]{rys/p³ytka/p³ytka_góra}\caption{Górna czê¶æ zmontowanej p³ytki\label{fig:G=0000F3rna-cz=000119=00015B=000107-zmontowanej}}
@@ -108,7 +107,7 @@ parametrami:
 Mikrokontroler LPC1768 posiada interfejs SPI oraz dwa interfejsy szeregowe
 SSP. Te ostatnie mog± pracowaæ w trzech trybach \cite{LPC1768}, z
 których jednym jest tryb SPI. Aby nie ingerowaæ w p³ytkê LandTiger
-z mikrokomputerem, wykorzystano istniej±ce na niej gniazdo s³u¿±ce
+z~mikrokomputerem, wykorzystano istniej±ce na niej gniazdo s³u¿±ce
 do pod³±czania wy¶wietlacza LCD (nie u¿ywanego). Wymusi³o to wykorzystanie
 interfejsu SSP1 (\cite{landtiger_um}, \cite{landtiger_sch}) do komunikacji
 z sensorami.
@@ -194,12 +193,12 @@ te¿ w buforze wyj¶ciowym. Oba te typy przerwañ by³y obs³ugiwane przez
 jedn± procedurê obs³ugi. W zale¿no¶ci od typu bufora, który otrzyma³
 dane, przeprowadzano odczyt lub zapis danych do interfejsu. Mikroprocesor
 otrzymywa³ z komputera tylko jeden typ danych: by³ to ci±g tekstowy
-``RESET''. Po jego otrzymaniu nastêpowa³o wyzerowanie zmiennych
-przechowuj±cych wyniki dotychczasowych pomiarów. Poprzez interfejs
-UART wysy³ano ³añcuchy znakowe zawieraj±ce wyniki. Dane pomiarowe
-by³y zapisywane w postaci C-stringa sk³adaj±cego siê z sze¶ciu liczb
-ca³kowitych oddzielonych znakami spacji. Trzy pierwsze liczby by³y
-u¶rednionymi wynikami odczytanymi z akcelerometru dla osi X, Y i~Z,
-a trzy kolejne to analogicznie uzyskane dane z ¿yroskopu dla ka¿dej
-z osi. Tak przygotowany ³añcuch przesy³any by³ do komputera, gdzie
-nastêpowa³a jego obróbka maj±ca na celu uzyskanie warto¶ci liczbowych.
+,,RESET''. Po jego otrzymaniu nastêpowa³o wyzerowanie zmiennych przechowuj±cych
+wyniki dotychczasowych pomiarów. Poprzez interfejs UART wysy³ano ³añcuchy
+znakowe zawieraj±ce wyniki. Dane pomiarowe by³y zapisywane w postaci
+C-stringa sk³adaj±cego siê z sze¶ciu liczb ca³kowitych oddzielonych
+znakami spacji. Trzy pierwsze liczby by³y u¶rednionymi wynikami odczytanymi
+z akcelerometru dla osi X, Y i~Z, a trzy kolejne to analogicznie
+uzyskane dane z ¿yroskopu dla ka¿dej z osi. Tak przygotowany ³añcuch
+przesy³any by³ do komputera, gdzie nastêpowa³a jego obróbka maj±ca
+na celu uzyskanie warto¶ci liczbowych.

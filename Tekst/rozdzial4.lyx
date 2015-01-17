@@ -68,7 +68,7 @@ ARM
 \emph default
  
 \emph on
-Cortex M3
+Cortex-M3
 \end_layout
 
 \begin_layout Standard
@@ -752,7 +752,7 @@ Cortex-M3
  posiadają jednostkę ochrony pamięci MPU (ang.
  
 \emph on
-memory protextion unit
+Memory Protextion Unit
 \emph default
 ).
  Ponadto architektura Cortex przewiduje obecność bloków debugowania z obsługą
@@ -864,7 +864,7 @@ reference "fig:rejestry"
  Rejestr R13 pełni funkcje wskaźnika stosu SP (ang.
  
 \emph on
-stack pointer
+Stack Pointer
 \emph default
 ) i
 \begin_inset space ~
@@ -888,7 +888,7 @@ key "Paprocki2009"
 głównego wskaźnika stosu MSP (ang.
  
 \emph on
-main stack pointer
+Main Stack Pointer
 \emph default
 ) -- używanego domyślnie przez przerwania i jądro systemu operacyjnego pracujące
 go w trybie uprzywilejowanym,
@@ -898,7 +898,7 @@ go w trybie uprzywilejowanym,
 procesowego wskaźnika stosu PSP (ang.
  
 \emph on
-process stack pointer
+Process Stack Pointer
 \emph default
 ) -- używanego przez programy użytkownika kontrolowane przez system operacyjny.
 \end_layout
@@ -921,12 +921,12 @@ R14 -- zawierający adres powrotu z podprocedury,
 R15 -- licznik programu PC (ang.
  
 \emph on
-program counter
+Program Counter
 \emph default
 ) znany też jako licznik instrukcji IC (ang.
  
 \emph on
-instruction counter
+Instruction Counter
 \emph default
 ) -- zawiera adres aktualnie wykonywanego rozkazu.
 \end_layout
@@ -1045,7 +1045,11 @@ Przestrzeń adresowa
 \end_layout
 
 \begin_layout Standard
-Rdzeń Cortex-M3 jest w stanie zaadresować przestrzeń 4 GB pamięci 
+Rdzeń 
+\emph on
+Cortex-M3
+\emph default
+ jest w stanie zaadresować przestrzeń 4 GB pamięci 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Krzyzanowski207"
@@ -1459,13 +1463,13 @@ NVIC
  (ang.
  
 \emph on
-nested vectored interrupt controller
+Nested Vectored Interrupt Controller
 \emph default
 ).
  Pozwala on na obsługę maksymalnie piętnastu przerwań (wyjątków) systemowych
  i 240 przerwań zewnętrznych.
  Faktyczna liczba obsługiwanych przerwań zależy od konkretnego mikrokontrolera.
- Większość przerwań systemowych i wszystkie przerwania zewnętrzne moga mieć
+ Większość przerwań systemowych i wszystkie przerwania zewnętrzne mogą mieć
  ustalany programowo priorytet 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1506,7 +1510,7 @@ Obsługa przerwań zagnieżdżonych (zwanych też wielopoziomowymi) -- jeśli
  w trakcie procedury obsługi przerwania ISR (ang.
  
 \emph on
-interrupt service routine
+Interrupt Service Routine
 \emph default
 ) wystąpi przerwanie o wyższym poziomie, obsługa bieżącego jest przerywana,
  następuje skok do procedury obsługi przerwania o wyższym poziomie, a po
@@ -1649,7 +1653,7 @@ Cortex-M3
 , stworzono odmianę asemblera oznaczaną w skrócie jako UAL (ang.
  
 \emph on
-unified assembly language
+Unified Assembly Language
 \emph default
 ).
  Pozwala ona w łatwiejszy i czytelniejszy sposób wykorzystywać w programie

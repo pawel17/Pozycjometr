@@ -76,8 +76,9 @@ Budowa i zasada działania
  Zwykle jego zasadniczym elementem jest ruchomy krążek, który wprawiony
  w szybki ruch obrotowy zachowuje położenie swojej osi obrotu, z niewielkimi
  ruchami precesyjnymi, które mogą zostać wyeliminowane dzięki zastosowaniu
- tłumienia.Wysoka prędkość obrotowa i dobre warunki łożyskowania są konieczne
- dla poprawnej pracy żyroskopu.
+ tłumienia.
+ Wysoka prędkość obrotowa i dobre warunki łożyskowania są konieczne dla
+ poprawnej pracy żyroskopu.
  Korzystne łożyskowanie uzyskuje się dzięki strumieniowi sprężonego powietrza
  lub poprzez zawieszenie żyroskopu w polu elektrostatycznym lub magnetycznym
  w próżni.
@@ -413,8 +414,7 @@ Podział żyroskopów
  W przypadku tych pierwszych, zasadniczym elementem jest szybko wirujący
  obiekt, zawieszony w konstrukcji pozwalającej na swobodny obrót wokół układu
  odniesienia (np.
- ciała na którym umieszczony jest żyroskop).konstrukcji pozwalającej na swobodny
- obrót wokół układu odniesienia (np.
+ ciała na którym umieszczony jest żyroskop).
  Można to uzyskać dzięki zastosowaniu odpowiednich przegubów o osi obrotu
  prostopadłej do osi obrotu wirującej bryły.
  Takie rozwiązanie zmniejsza wpływ obrotów ciała na żyroskop, który dąży
