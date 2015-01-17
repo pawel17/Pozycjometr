@@ -105,7 +105,25 @@ Ja bym tutaj coś więcej opisał o pomiarze i jego ułomnościach - propozycja
 
 \end_inset
 
+Wymagało ono dwukrotnego całkowania mierzonego przyspieszenia, które jak
+ każdy sygnał pomiarowy obarczone było błędem.
+ W wyniku tego nastąpiła szybka kumulacja błędu objawiająca się niedługo
+ po rozpoczęciu pomiaru.
+ Metody tej nie używa się do pomiaru położenia.
+ W tym celu stosuje się inne czujniki (np.
+ GPS).
+\end_layout
 
+\begin_layout Standard
+Kolejnym problemem była korekcja kąta mierzonego przy pomocy żyroskopu.
+ Jest to konieczne w celu zminimalizowania tzw.
+ dryftu.
+ Sam akcelerometr nie jest w stanie skorygować pomiarów w odniesieniu do
+ wszystkich trzech osi.
+ W tym celu konieczne byłoby zastosowanie magnetometru.
+ Aby uzyskać jeszcze dokładniejszy pomiar kątów, należałoby posłużyć się
+ także filtracją Kallmana, która jest znacznie bardziej złożona obliczeniowo
+ od wykorzystanej w niniejszej pracy filtracji komplementarnej.
 \end_layout
 
 \begin_layout Standard
