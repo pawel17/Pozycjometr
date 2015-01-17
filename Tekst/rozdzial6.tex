@@ -37,7 +37,7 @@ wynikaj±ce ze zmian temperatury, naprê¿eñ mechanicznych przenosz±
 siê na uk³ad pomiarowy w znacznie mniejszym stopniu. Dodatkowo wykorzystany
 ¿yroskop bazuje na jednej masie pomiarowej dla wszystkich trzech osi,
 co znacz±co poprawia symetriê sygna³ów wyj¶ciowych i skutkuje mniejszymi
-rezonansami {[}\cite{MEMS_gyroscope}.
+rezonansami \cite{MEMS_gyroscope}.
 
 
 \section{Po³±czenie uk³adów}
@@ -66,8 +66,9 @@ pozwala³o na stabilne przy³±czenie akcelerometra i ¿yroskopu. Dziêki
 takiemu rozwi±zaniu, pomiar dotyczy ca³ego uk³adu LandTiger oczywi¶cie
 wraz z mikroprocesorem, zapewniaj±c niezawodno¶æ po³±czenia pomiêdzy
 wszystkimi p³ytkami drukowanymi wchodz±cymi w sk³ad zestawu pomiarowego.
-Zdjêcia zmontowanej p³ytki przedstawiono na rysunkach \ref{fig:G=0000F3rna-cz=000119=00015B=000107-zmontowanej}
-i \ref{fig:Dolna-cz=000119=00015B=000107-p=000142ytki}:
+Zdjêcia zmontowanej p³ytki z wpiêtymi uk³adami PmodACL i PmodGYRO
+przedstawiono na rysunkach \ref{fig:G=0000F3rna-cz=000119=00015B=000107-zmontowanej}
+i~\ref{fig:Dolna-cz=000119=00015B=000107-p=000142ytki}:
 
 \begin{figure}
 \centering{}\includegraphics[scale=0.6]{rys/p³ytka/p³ytka_góra}\caption{Górna czê¶æ zmontowanej p³ytki\label{fig:G=0000F3rna-cz=000119=00015B=000107-zmontowanej}}
@@ -105,8 +106,8 @@ parametrami:
 = 1}).
 \end{itemize}
 Mikrokontroler LPC1768 posiada interfejs SPI oraz dwa interfejsy szeregowe
-SSP. Te ostatnie mog± pracowaæ w trzech trybach (\cite{LPC1768}),
-z których jednym jest tryb SPI. Aby nie ingerowaæ w p³ytkê LandTiger
+SSP. Te ostatnie mog± pracowaæ w trzech trybach \cite{LPC1768}, z
+których jednym jest tryb SPI. Aby nie ingerowaæ w p³ytkê LandTiger
 z mikrokomputerem, wykorzystano istniej±ce na niej gniazdo s³u¿±ce
 do pod³±czania wy¶wietlacza LCD (nie u¿ywanego). Wymusi³o to wykorzystanie
 interfejsu SSP1 (\cite{landtiger_um}, \cite{landtiger_sch}) do komunikacji

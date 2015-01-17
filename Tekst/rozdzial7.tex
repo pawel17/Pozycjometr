@@ -141,13 +141,13 @@ znakowych, a~nastêpnie przekszta³cone do postaci liczb ca³kowitych,
 które pos³u¿± do dalszych przeliczeñ.
 
 W celu wyznaczenia przemieszczeñ na podstawie uzyskanych przyspieszeñ,
-nale¿y dokonaæ ich dwukrotnego ca³kowania (\cite{acl_integrating}).
+nale¿y dokonaæ ich dwukrotnego ca³kowania \cite{acl_integrating}.
 W tym celu wykorzystano metodê trapezów, znan± tak¿e jako metoda Tustina.
 Jest to metoda numeryczna, polegaj±ca na zast±pieniu krzywej ci±g³ej
 (w tym wypadku przebiegu przyspieszenia) ³aman± sk³adaj±c± siê z odcinków
 ³±cz±cych kolejne próbki pomiarowe. Pole pod krzyw± (ca³ka oznaczona)
 przybli¿a siê polem pod ³aman±. Korzystaj±c z tej metody, mo¿na wyznaczyæ
-sk³adow± prêdko¶ci w osi X w nastêpuj±cy sposób (\cite{acl_integrating}):
+sk³adow± prêdko¶ci w osi X w nastêpuj±cy sposób \cite{acl_integrating}:
 
 \begin{equation}
 v_{x}^{n+1}=v_{x}^{n}+\left[a_{x}^{n}+\left(\frac{a_{x}^{n+1}-a_{x}^{n}}{2}\right)\right]\Delta t,\label{eq:metoda_trapezow}
@@ -167,14 +167,14 @@ Analogicznie wyznacza siê prêdko¶ci i po³o¿enia w pozosta³ych osiach.
 W celu wyeliminowania wp³ywu szumów przy braku przyspieszenia, okre¶lono
 warto¶ci progowe (rysunek \ref{fig:discrimination_win}), które wykorzystywane
 s± do podjêcia decyzji, czy mierzona warto¶æ jest szumem i czy w zwi±zku
-z tym mo¿na j± uznaæ za zerow± (\cite{acl_integrating}). Algorytm
-postêpowania jest prosty - je¶li warto¶æ zmierzona mie¶ci siê w przedziale
-okre¶lonym przez warto¶ci progowe, to to warto¶æ tê uznajemy za zerow±.
-Omawiana procedura jest opisana w literaturze (\cite{acl_integrating})
-i w jêzyku angielskim jest okre¶lana jako \emph{software discrimination
-window}. W dalszej czê¶ci niniejszej pracy bêdzie okre¶lana w skrócie
-jako SDW. Na rysunku \ref{fig:sdw_after} widaæ przebieg z rysunku
-\ref{fig:discrimination_win} po filtracji opisywan± metod±.
+z tym mo¿na j± uznaæ za zerow± \cite{acl_integrating}. Algorytm postêpowania
+jest prosty - je¶li warto¶æ zmierzona mie¶ci siê w przedziale okre¶lonym
+przez warto¶ci progowe, to to warto¶æ tê uznajemy za zerow±. Omawiana
+procedura jest opisana w literaturze \cite{acl_integrating} i w jêzyku
+angielskim jest okre¶lana jako \emph{software discrimination window}.
+W dalszej czê¶ci niniejszej pracy bêdzie okre¶lana w skrócie jako
+SDW. Na rysunku \ref{fig:sdw_after} widaæ przebieg z rysunku \ref{fig:discrimination_win}
+po filtracji opisywan± metod±.
 
 \begin{figure}
 \begin{centering}
@@ -241,7 +241,7 @@ pochodz±ce od poszczególnych czujników obliczane s± na bie¿±co.
 
 W celu wyznaczenia k±tów (rys. \ref{fig:katy_rpy}) $\phi$ oraz $\theta$
 przy pomocy danych pochodz±cych z akcelerometru, mo¿na pos³u¿yæ siê
-nastêpuj±cymi zale¿no¶ciami (\cite{RPY}):
+nastêpuj±cymi zale¿no¶ciami \cite{RPY}:
 
 \begin{equation}
 tan\left(\phi\right)=\frac{a_{y}}{a_{z}},\label{eq:roll_equation}

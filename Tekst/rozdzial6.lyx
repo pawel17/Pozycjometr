@@ -127,7 +127,7 @@ zastosowanym urządzeniu, jest on zamontowany w jednym, centralnym punkcie,
  przenoszą się na układ pomiarowy w znacznie mniejszym stopniu.
  Dodatkowo wykorzystany żyroskop bazuje na jednej masie pomiarowej dla wszystkic
 h trzech osi, co znacząco poprawia symetrię sygnałów wyjściowych i skutkuje
- mniejszymi rezonansami [
+ mniejszymi rezonansami 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MEMS_gyroscope"
@@ -213,14 +213,19 @@ zestawem uruchomieniowym wykorzystano złącze 34-pinowe służące domyślnie
  Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger oczywiście
  wraz z mikroprocesorem, zapewniając niezawodność połączenia pomiędzy wszystkimi
  płytkami drukowanymi wchodzącymi w skład zestawu pomiarowego.
- Zdjęcia zmontowanej płytki przedstawiono na rysunkach 
+ Zdjęcia zmontowanej płytki z wpiętymi układami PmodACL i PmodGYRO przedstawiono
+ na rysunkach 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Górna-część-zmontowanej"
 
 \end_inset
 
- i 
+ i
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Dolna-część-płytki"
@@ -386,14 +391,14 @@ CPOL = 1
 \begin_layout Standard
 Mikrokontroler LPC1768 posiada interfejs SPI oraz dwa interfejsy szeregowe
  SSP.
- Te ostatnie mogą pracować w trzech trybach (
+ Te ostatnie mogą pracować w trzech trybach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LPC1768"
 
 \end_inset
 
-), z których jednym jest tryb SPI.
+, z których jednym jest tryb SPI.
  Aby nie ingerować w płytkę LandTiger z mikrokomputerem, wykorzystano istniejące
  na niej gniazdo służące do podłączania wyświetlacza LCD (nie używanego).
  Wymusiło to wykorzystanie interfejsu SSP1 (

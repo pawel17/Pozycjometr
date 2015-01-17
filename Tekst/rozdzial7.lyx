@@ -72,7 +72,11 @@ W poprzednim rozdziale opisano wszystkie działania, które podjęto w celu
  komputera w postaci ciągu znaków, gdyż to praktycznie uniemożliwiałoby
  analizę otrzymywanych danych.
  Z tego względu konieczne jest odpowiednie przekształcenie otrzymanych danych
- w sposób, który umożliwi zobrazowanie zmierzonych przemieszczeń bądź obrotów.
+ w
+\begin_inset space ~
+\end_inset
+
+sposób, który umożliwi zobrazowanie zmierzonych przemieszczeń bądź obrotów.
  W tym celu przygotowano aplikację, której zadaniem jest odbiór i wyświetlenie
  wyników w formie graficznej.
  Wykorzystano do tego platformę .NET i język C# z wykorzystaniem 
@@ -483,28 +487,28 @@ następnie przekształcone do postaci liczb całkowitych, które posłużą do
 
 \begin_layout Standard
 W celu wyznaczenia przemieszczeń na podstawie uzyskanych przyspieszeń, należy
- dokonać ich dwukrotnego całkowania (
+ dokonać ich dwukrotnego całkowania 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
 
 \end_inset
 
-).
+.
  W tym celu wykorzystano metodę trapezów, znaną także jako metoda Tustina.
  Jest to metoda numeryczna, polegająca na zastąpieniu krzywej ciągłej (w
  tym wypadku przebiegu przyspieszenia) łamaną składającą się z odcinków
  łączących kolejne próbki pomiarowe.
  Pole pod krzywą (całka oznaczona) przybliża się polem pod łamaną.
  Korzystając z tej metody, można wyznaczyć składową prędkości w osi X w
- następujący sposób (
+ następujący sposób 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
 
 \end_inset
 
-):
+:
 \end_layout
 
 \begin_layout Standard
@@ -573,25 +577,25 @@ reference "fig:discrimination_win"
 \end_inset
 
 ), które wykorzystywane są do podjęcia decyzji, czy mierzona wartość jest
- szumem i czy w związku z tym można ją uznać za zerową (
+ szumem i czy w związku z tym można ją uznać za zerową 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
 
 \end_inset
 
-).
+.
  Algorytm postępowania jest prosty - jeśli wartość zmierzona mieści się
  w przedziale określonym przez wartości progowe, to to wartość tę uznajemy
  za zerową.
- Omawiana procedura jest opisana w literaturze (
+ Omawiana procedura jest opisana w literaturze 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
 
 \end_inset
 
-) i w języku angielskim jest określana jako 
+ i w języku angielskim jest określana jako 
 \emph on
 software discrimination window
 \emph default
@@ -902,14 +906,14 @@ reference "fig:katy_rpy"
 \end_inset
 
  przy pomocy danych pochodzących z akcelerometru, można posłużyć się następujący
-mi zależnościami (
+mi zależnościami 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RPY"
 
 \end_inset
 
-):
+:
 \end_layout
 
 \begin_layout Standard

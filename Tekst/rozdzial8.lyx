@@ -110,14 +110,14 @@ Poprawne wykonanie pomiaru i przeliczenie wyników otrzymanych z urządzeń
 tym celu stosuje się inne czujniki (np.
  GPS).
  Należy również dodać, że zastosowany przez nas sposób całkowania numerycznego
- (metoda trapezów) opisany w literaturze (
+ (metoda trapezów) opisany w literaturze 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
 
 \end_inset
 
-) jest stosunkowo prosty w
+ jest stosunkowo prosty w
 \begin_inset space ~
 \end_inset
 

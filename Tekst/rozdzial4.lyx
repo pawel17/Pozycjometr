@@ -1141,14 +1141,14 @@ bit-band
 \emph default
 ): w regionie pamięci RAM oraz w regionie urządzeń zewnętrznych.
  W pierwszym przypadku obszar rozpoczyna się od adresu 0x20000000, zaś drugi
- od 0x40000000 [
+ od 0x40000000 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LPC1768"
 
 \end_inset
 
-].
+.
  Takie rozwiązanie pozwala na optymalną pracę rdzenia.
  Normalnie aby zmienić jeden bit, należy odczytać wartość z
 \begin_inset space ~

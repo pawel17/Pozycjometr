@@ -518,7 +518,11 @@ reference "fig:zyroskop-MEMS"
  Gdy masa porusza się w kierunku brzegu tarczy, działa na nią siła skierowana
  w prawo.
  Jednocześnie sama masa oddziałuje na ramę siłą skierowaną w lewo.
- W trakcie przemieszczania się w przeciwnym kierunku, tj.
+ W
+\begin_inset space ~
+\end_inset
+
+trakcie przemieszczania się w przeciwnym kierunku, tj.
  ku środkowi tarczy, siła oddziaływania masy na ramę zmienia zwrot na przeciwny.
  Aby pozwolić na pomiar przyspieszenia Coriolisa, ramę wiesza się na sprężynach
  pod kątem prostym do kierunku ruchu masy (rysunek 
