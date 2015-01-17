@@ -1339,6 +1339,5 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lpc17xx_gpio.c" tooltip="test/lpc17xx_lib/source/lpc17xx_gpio.c">
 <persistable path="/test/lpc17xx_lib/source/lpc17xx_gpio.c"/>
-</file>
 </mruList>
 </workbench>
