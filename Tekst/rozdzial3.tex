@@ -16,10 +16,10 @@
 \end{figure}
 
 
-Wspó³praca mikrokomputerów z urz±dzeniami peryferyjnymi odbywa siê
-za pomoc± tzw. interfejsów. Przez interfejs rozumie siê urz±dzenie,
-które pozwala na komunikacjê i wymianê danych pomiêdzy dwoma innymi
-urz±dzeniami. Istniej± ró¿ne kryteria podzia³u interfejsów \cite{Krzyzanowski207}:
+Mikrokomputery komunikuj± siê z urz±dzeniami peryferyjnymi poprzez
+tzw. interfejsy. Przez interfejs rozumie siê urz±dzenie, które pozwala
+na komunikacjê i wymianê danych pomiêdzy dwoma innymi urz±dzeniami.
+Istniej± ró¿ne kryteria podzia³u interfejsów \cite{Krzyzanowski207}:
 \begin{itemize}
 \item ze wzglêdu na istnienie fizycznego po³±czenia miêdzy komunikuj±cymi
 siê urz±dzeniami:
@@ -66,15 +66,15 @@ symetryczne i niesymetryczne. Schemat obu pokazano na rysunku \ref{fig:Linie-tra
 
 
 Linia niesymetryczna sk³ada siê z przewodu sygna³owego (zwanego tak¿e
-gor±cym) oraz masowego, stanowi±cego odniesienie dla sygna³u po obu
-stronach toru transmisyjnego. W przypadku wiêkszej liczby sygna³ów
-mo¿liwe jest zastosowanie wspólnego przewodu powrotnego \cite{Krzyzanowski207}.
-Najwiêksz± wad± linii niesymetrycznej jest jej podatno¶æ na wp³yw
-obcych pól elektromagnetycznych. Powoduj± one indukowanie siê zak³óceñ
-w przewodzie sygna³owym i powrotnym, które dodaj± siê lub odejmuj±
-od w³a¶ciwego sygna³u na wej¶ciu odbiornika. Z tego powodu linie tego
-typu stosuje siê do przesy³u informacji na niedu¿e odleg³o¶ci. W celu
-zmniejszenia wp³ywu zewnêtrznych pól, stosuje siê nastêpuj±ce zabiegi:
+gor±cym) oraz masowego, stanowi±cego referencjê dla sygna³u po obu
+stronach toru transmisyjnego. W sytuacji gdy w transmisji u¿ywa siê
+wiêcej ni¿ jednego sygna³u, mo¿liwe jest zastosowanie wspólnego przewodu
+powrotnego \cite{Krzyzanowski207}. Linie niesymetryczne s± s³abo
+odporne na dzia³anie obcych pól elektromagnetycznych. Powoduj± one
+indukowanie siê zak³óceñ, które dodaj± siê lub odejmuj± od w³a¶ciwego
+sygna³u na wej¶ciu odbiornika. Z tego powodu linie tego typu stosuje
+siê do przesy³u danych na niedu¿e odleg³o¶ci. W celu zmniejszenia
+wp³ywu zewnêtrznych pól, stosuje siê nastêpuj±ce zabiegi:
 \begin{itemize}
 \item skrêcanie przewodów,
 \item ekranowanie linii.
@@ -107,7 +107,7 @@ transferu danych, jednak w praktyce jest ona ograniczona ze wzglêdu
 na zak³ócanie sygna³ów przez pola pochodz±ce od s±siednich linii danych.
 Inn± wad± tego typu komunikacji jest tak¿e stosunkowo skomplikowana
 budowa (a co za tym idzie wiêkszy koszt) interfejsów równoleg³ych.
-Uzasadniaj± to fakt wykorzystania przez wiêkszo¶æ wspó³czesnych urz±dzeñ
+Uzasadnia to fakt wykorzystania przez wiêkszo¶æ wspó³czesnych urz±dzeñ
 cyfrowych interfejsów i~transmisji szeregowych.
 
 \begin{figure}
@@ -138,13 +138,10 @@ w jednym kierunku.
 \end{itemize}
 Dane wysy³ane szeregowo s± czêsto przechowywane w rejestrach. Aby
 umo¿liwiæ transmisjê bit po bicie stosuje siê rejestry przesuwne lub
-multipleksery. W obu przypadkach nale¿y okre¶liæ czas trwania bitu
-(tzw. odcinek bitowy) \cite{Krzyzanowski207}. S³u¿y do tego sygna³
-zegarowy nadajnika. Odbiornik okre¶la warto¶æ przesy³anych bitów w
-¶rodkach poszczególnych odcinków bitowych. Tak¿e w tym przypadku u¿ywany
-jest sygna³ zegarowy (zegar odbiornika). Istniej± dwa rodzaje transmisji
-szeregowej, ró¿ni±ce siê zale¿no¶ciami sygna³ów zegarowych nadajnika
-i odbiornika:
+multipleksery. W obu przypadkach nale¿y zdefiniowaæ czas transmisji
+pojedynczego bitu \cite{Krzyzanowski207}. S³u¿y do tego sygna³ zegarowy
+nadajnika. Odbiornik okre¶la warto¶æ danego bitu w po³owie czasu jego
+trwania. Istniej± dwa rodzaje transmisji szeregowej:
 \begin{itemize}
 \item transmisja asynchroniczna,
 \item transmisja synchroniczna.
@@ -184,17 +181,15 @@ Przed w³a¶ciw± komunikacj± nale¿y ustaliæ jej nastêpuj±ce parametry:
 \item bit parzysto¶ci (obecny, nieobecny lub zanegowany),
 \item ilo¶æ bitów stopu.
 \end{itemize}
-W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
-(st±d nazwa), dziêki czemu nie s± konieczne bity startu i stopu. Dla
-zapewnienia poprawno¶ci synchronizacji, sygna³ zegara przesy³any jest
+W transmisji synchronicznej, wspólny sygna³ zegarowy przesy³any jest
 dodatkow± lini±, dziêki czemu zarówno odbiornik jak i nadajnik przesy³aj±
-bity w jednakowych odstêpach czasu. Dane przesy³ane grupowane s± w
-bloki zwane ramkami (ang. \emph{frame}). Ka¿d± ramkê rozpoczyna nag³ówek
-(rysunek \ref{fig:Ramka-transmisji-szeregowej-synchr}), zawieraj±cy
-dodatkowe informacje, np. ilo¶æ przesy³anych danych. Blok danych zawiera
-w³a¶ciwe dane zgrupowane jeden za drugim. W celu zapewnienia poprawno¶ci
-transmisji, s± one zakoñczone tzw. bajtami kontrolnymi i ewentualnymi
-bajtami korekcyjnymi pozwalaj±cymi na naprawê uszkodzonych danych
+bity w jednakowych odstêpach czasu. Dane zgrupowane s± w bloki zwane
+ramkami (ang. \emph{frame}). Ka¿d± ramkê rozpoczyna nag³ówek (rysunek
+\ref{fig:Ramka-transmisji-szeregowej-synchr}), zawieraj±cy dodatkowe
+informacje, np. ilo¶æ przesy³anych danych. Blok danych zawiera w³a¶ciwe
+dane zgrupowane jeden za drugim. W celu zapewnienia poprawno¶ci transmisji,
+s± one zakoñczone tzw. bajtami kontrolnymi i ewentualnymi bajtami
+korekcyjnymi pozwalaj±cymi na naprawê uszkodzonych danych \cite{Krzyzanowski207}.
 
 \begin{figure}
 \begin{centering}
@@ -228,11 +223,11 @@ Modbus i wiele innych.
 
 Interfejs SPI (ang. \emph{Serial Peripheral Interface}) zosta³ zaprojektowany
 i po raz pierwszy zastosowany przez firmê Motorola. Jest jednym z
-najczê¶ciej u¿ywanych interfejsów komunikacyjnych miêdzy uk³adami
-mikroprocesorowymi a peryferiami takimi jak przetworniki ADC/DAC,
-uk³ady RTC, pamiêci EEPROM, pamiêci flash, karty MMC/SD, sterowniki
-ekranów dotykowych itp. W ¶wietle omówionych wcze¶niej cech interfejsów,
-SPI mo¿e byæ scharakteryzowany jako:
+najczê¶ciej u¿ywanych interfejsów miêdzy mikroprocesorami a urz±dzeniami
+zewnêtrznymi takimi jak przetworniki AD/DA, pamiêci EEPROM, czujniki
+(akcelerometry, ¿yroskopy), pamiêci flash, sterowniki ekranów dotykowych
+itp. W ¶wietle omówionych wcze¶niej cech interfejsów, SPI mo¿e byæ
+scharakteryzowany jako:
 \begin{itemize}
 \item szeregowy,
 \item synchroniczny,
@@ -276,7 +271,7 @@ Wymienione powy¿ej sygna³y posiadaj± tak¿e alternatywne nazwy:
 \par\end{centering}
 
 \caption{Typowa realizacja transmisji SPI przy pomocy cyklicznego rejestru
-przesuwnego (\emph{¬ród³o:} \cite{Krzyzanowski207}) \label{fig:spi-rej-przesuwny}}
+przesuwnego (\emph{¬ród³o:} \cite{spi_am_gdynia}) \label{fig:spi-rej-przesuwny}}
 
 
 \end{figure}
@@ -306,8 +301,8 @@ Po wype³nieniu rejestrów nastêpuje obróbka zawartych w nich danych,
 tj. zapis do pamiêci, przetwarzanie itp. W celu wymiany wiêkszej ilo¶ci
 informacji, wspomniany proces siê powtarza. W trakcie pojedynczego
 cyklu komunikacji przesy³any jest zwykle bajt danych (8 bitów), choæ
-nie jest to regu³±; istniej± uk³ady w których przesy³a siê 12, 16
-lub 24 bity. Niektóre urz±dzenia \emph{slave} nie pozwalaj± na odbieranie
+nie jest to regu³±; istniej± uk³ady w których przesy³a siê 12 lub
+16 bitów. Niektóre urz±dzenia \emph{slave} nie pozwalaj± na odbieranie
 danych w ci±gu wiêkszej od zadanej liczby taktów sygna³u zegarowego;
 w innych rozwi±zaniach konstrukcyjnych dane nadmiarowe s± ignorowane.
 

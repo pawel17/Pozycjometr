@@ -2,12 +2,12 @@
 \chapter{Interfejs u¿ytkownika}
 
 W poprzednim rozdziale opisano wszystkie dzia³ania, które podjêto
-w celu dokonania pomiaru przy¶pieszenia i k±ta obrotu uk³adu. Dane
+w celu dokonania pomiaru przemieszczenia i k±ta obrotu uk³adu. Dane
 przes³ane do komputera nie mog± byæ jedynie wy¶wietlone po stronie
 komputera w postaci ci±gu znaków, gdy¿ to praktycznie uniemo¿liwia³oby
 analizê otrzymywanych danych. Z tego wzglêdu konieczne jest odpowiednie
 przekszta³cenie otrzymanych danych w sposób, który umo¿liwi zobrazowanie
-zmierzonych przyspieszeñ b±d¼ obrotów. W tym celu przygotowano aplikacjê,
+zmierzonych przemieszczeñ b±d¼ obrotów. W tym celu przygotowano aplikacjê,
 której zadaniem jest odbiór i wy¶wietlenie wyników w formie graficznej.
 Wykorzystano do tego platformê .NET i jêzyk C\# z wykorzystaniem \emph{Windows
 Forms} dla stworzenia interfejsu. Powodem wyboru tej technologii by³a
@@ -28,8 +28,8 @@ Okno g³ówne zrealizowanego programu przedstawiono na rysunku \ref{fig:Okno-g=000
 \end{figure}
 
 
-Otrzymane wyniki pomiaru przesuniêcia i k±ta obrotu wypisane s± w
-odpowiednich polach, dla ka¿dej z osi osobno. Jednak¿e najwa¿niejszym
+Otrzymane wyniki pomiaru przemieszczenia i k±ta obrotu wypisane s±
+w odpowiednich polach, dla ka¿dej z osi osobno. Jednak¿e najwa¿niejszym
 elementem aplikacji jest okno wy¶wietlania wyników pomiaru w formie
 graficznej. Sze¶cian symbolizuje uk³ad pomiarowy, dodatkowo przedstawiono
 osie uk³adu wspó³rzêdnych: o¶ X jest koloru niebieskiego, o¶ Y - czerwonego
@@ -127,11 +127,11 @@ pomiarów.
 
 Klasa \texttt{ApplicationWindow}, wy¶wietlaj±ca g³ówne okno aplikacji,
 odbiera dane z klasy \texttt{COMPortManager} w procedurze obs³ugi
-zdarzenia. Dodatkowo metoda ta rozpoczyna siê sprawdzeniem, czy wywo³anie
-nie jest wykonywane spoza g³ównego w±tku. Je¶li taka sytuacja ma miejsce,
-metoda ta zapisywana jest jako delegat, który zostaje wykonany asynchronicznie
-z argumentami otrzymanymi z klasy obs³uguj±cej komunikacjê z portem
-szeregowym. 
+zdarzenia. Dodatkowo metoda ta rozpoczyna siê od sprawdzenia, czy
+wywo³ywanie nie jest wykonywane spoza g³ównego w±tku. Je¶li taka sytuacja
+ma miejsce, metoda ta zapisywana jest jako delegat, który zostaje
+wykonany asynchronicznie z argumentami otrzymanymi z klasy obs³uguj±cej
+komunikacjê z portem szeregowym. 
 
 String zawieraj±cy wyniki odczytane z akcelerometru i ¿yroskopu zostaje
 nastêpnie rozdzielony na poszczególne dane. Trzy pierwsze elementy

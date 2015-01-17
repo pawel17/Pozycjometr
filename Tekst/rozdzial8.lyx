@@ -98,16 +98,7 @@ znaczącym stopniu wpłynęły na sposób dokonania pomiaru.
 \begin_layout Standard
 Poprawne wykonanie pomiaru i przeliczenie wyników otrzymanych z urządzeń
  pomiarowych niosło ze sobą wiele trudności.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Ja bym tutaj coś więcej opisał o pomiarze i jego ułomnościach - propozycja
-\end_layout
-
-\end_inset
-
-Wymagało ono dwukrotnego całkowania mierzonego przyspieszenia, które jak
+ Wymagało ono dwukrotnego całkowania mierzonego przyspieszenia, które jak
  każdy sygnał pomiarowy obarczone było błędem.
  W wyniku tego nastąpiła szybka kumulacja błędu objawiająca się niedługo
  po rozpoczęciu pomiaru.
