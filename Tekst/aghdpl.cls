@@ -16,6 +16,7 @@
 \DeclareOption{pdflatex}{\pdflatextrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} 
 \ProcessOptions\LoadClass[a4paper,oneside]{report} 
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 
 \RequirePackage{times}
 \RequirePackage[T1]{fontenc}
