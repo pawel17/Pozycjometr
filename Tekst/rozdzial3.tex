@@ -19,16 +19,16 @@
 Wspó³praca mikrokomputerów z urz±dzeniami peryferyjnymi odbywa siê
 za pomoc± tzw. interfejsów. Przez interfejs rozumie siê urz±dzenie,
 które pozwala na komunikacjê i wymianê danych pomiêdzy dwoma innymi
-urz±dzeniami. Istniej± ró¿ne kryteria podzia³u interfejsów:
+urz±dzeniami. Istniej± ró¿ne kryteria podzia³u interfejsów \cite{Krzyzanowski207}:
 \begin{itemize}
-\item ze wzglêdu na istnienie fizycznego po³±cznia miêdzy komunikujacymi
+\item ze wzglêdu na istnienie fizycznego po³±czenia miêdzy komunikuj±cymi
 siê urz±dzeniami:
 
 \begin{itemize}
 \item przewodowe (np. UART, I2C, FireWire (IEEE 1394), RS-232), w których
 rolê sygna³ów pe³ni± napiêcie lub pr±d, za¶ rolê medium przewody,
-\item bezprzewodowe (np. Bluetooth, IrDA, WiFi) , w których sygna³ami s±
-fale elektromagnetyczne, za¶ medium najczê¶ciej powietrze,
+\item bezprzewodowe (np. Bluetooth, IrDA, WiFi), w których sygna³ami s±
+fale elektromagnetyczne, za¶ medium najczê¶ciej powietrze;
 \end{itemize}
 \item ze wzglêdu na ilo¶æ danych (bitów) przesy³anych w trakcie elementarnego
 cyklu transmisji:
@@ -37,9 +37,9 @@ cyklu transmisji:
 \item szeregowe (np. SPI, UART, I2C), w których dane s± transmitowane bit
 po bicie,
 \item równoleg³e (np. GPIB, SCSI, ATA oraz u¿ywany kiedy¶ w drukarkach interfejs
-Centronics),
+Centronics);
 \end{itemize}
-\item charakter sygna³ów:
+\item ze wzglêdu na charakter sygna³ów:
 
 \begin{itemize}
 \item analogowe (np. Jack, S-Video),
@@ -50,7 +50,7 @@ Pod pojêciem interfejsu przewodowego rozumie siê z³±cza oraz przewody
 ³±cz±ce urz±dzenie zewnêtrzne z mikrokomputerem wraz z ich specyfikacj±
 mechaniczn± (kszta³t, rozmiar, ilo¶æ) oraz charakterystykami elektrycznymi
 sygna³ów (poziomy napiêæ i pr±dów, relacje czasowe). Aby przesy³ sygna³ów
-by³ mo¿liwy, zwi±zany z nimi obwód elektryczny musi byæ zamkniêty.,
+by³ mo¿liwy, zwi±zany z nimi obwód elektryczny musi byæ zamkniêty,
 dlatego sk³ada siê z dwóch przewodów tworz±cych liniê. Istniej± linie
 symetryczne i niesymetryczne. Schemat obu pokazano na rysunku \ref{fig:Linie-transmisyjne}.
 \begin{figure}
@@ -79,17 +79,17 @@ zmniejszenia wp³ywu zewnêtrznych pól, stosuje siê nastêpuj±ce zabiegi:
 \item skrêcanie przewodów,
 \item ekranowanie linii.
 \end{itemize}
-Linia symetryczna sk³ada siê z dwóch przewiodów wiod±cych sygna³y
-znajduj±ce siê w przeciwfazie oraz odbiornika z wej¶ciem ró¿nicowym.
-Dziêki temu, sygna³y o takich samych przebiegach indukowane w poszczególnych
-przewodach znosz± siê po odjêciu na wej¶ciu wzmacniacza. W celu zapewnienia
-lepszej ochrony przed zak³óceniami mo¿liwe jest równie¿ skrêcanie
-przewodów. Zasiêg linii symetrycznych jest du¿o wiêkszy ni¿ w przypadku
-linii niesymetrycznych i osiaga rz±d 1 km \cite{Krzyzanowski207}.
+Linia symetryczna sk³ada siê z dwóch przewodów wiod±cych sygna³y znajduj±ce
+siê w przeciwfazie oraz odbiornika z wej¶ciem ró¿nicowym. Dziêki temu,
+sygna³y o takich samych przebiegach indukowane w~poszczególnych przewodach
+znosz± siê po odjêciu na wej¶ciu wzmacniacza. W celu zapewnienia lepszej
+ochrony przed zak³óceniami mo¿liwe jest równie¿ skrêcanie przewodów.
+Zasiêg linii symetrycznych jest du¿o wiêkszy ni¿ w przypadku linii
+niesymetrycznych i osi±ga rz±d 1 km \cite{Krzyzanowski207}.
 
 Najbardziej odpornym na zak³ócenia elektromagnetyczne medium jest
 ¶wiat³owód. Pozwala on na transmisjê na bardzo du¿e odleg³o¶ci (od
-kilku do klikudziesiêciu kilometrów). Tor ¶wiat³owodowy wymaga zastosowania
+kilku do kilkudziesiêciu kilometrów). Tor ¶wiat³owodowy wymaga zastosowania
 nadajnika przekszta³caj±cego sygna³ elektryczny na impulsy ¶wietlne,
 w³a¶ciwego ¶wiat³owodu (wykonanego zwykle z w³ókna szklanego) oraz
 odbiornika realizuj±cego odwrotn± konwersjê sygna³ów.
@@ -102,13 +102,13 @@ Oznacza to, ¿e w elementarnym cyklu transmisji nadajnik wysy³a jeden
 bit, za¶ odbiornik go odbiera. Zalet± takiego rozwi±zania jest stosunkowo
 niewielka ilo¶æ u¿ytych przewodów. Liczba ta jest wiêksza w przypadku
 transmisji równoleg³ej, w której na raz mo¿liwe jest przesy³anie wiêkszej
-ilo¶ci bitów (ka¿dy swoim torem). Teoretycznie przyspiesza to szybko¶æ
+ilo¶ci bitów (ka¿dy swoim torem). Teoretycznie podnosi to szybko¶æ
 transferu danych, jednak w praktyce jest ona ograniczona ze wzglêdu
 na zak³ócanie sygna³ów przez pola pochodz±ce od s±siednich linii danych.
 Inn± wad± tego typu komunikacji jest tak¿e stosunkowo skomplikowana
-budowa (a co zatym idzie wiêkszy koszt) interfejsów równoleg³ych.
-Omawiana fakty uzasadniaj± dlaczego wiêkszo¶æ wspó³czesnych urz±dzeñ
-cyfrowych wykorzystuje interfejsy i transmisjê szeregow±.
+budowa (a co za tym idzie wiêkszy koszt) interfejsów równoleg³ych.
+Uzasadniaj± to fakt wykorzystania przez wiêkszo¶æ wspó³czesnych urz±dzeñ
+cyfrowych interfejsów i~transmisji szeregowych.
 
 \begin{figure}
 \begin{centering}
@@ -152,18 +152,18 @@ i odbiornika:
 
 \subsection{Transmisja asynchroniczna i synchroniczna}
 
-W przypadku transmishi asynchronicznej zegary nadajnika i odbiornika
+W przypadku transmisji asynchronicznej zegary nadajnika i odbiornika
 nie s± synchronizowane. Dane nie musz± byæ przesy³ane w sposób ci±g³y,
 tzn. miêdzy kolejnymi transmisjami, linia danych znajduje siê w stanie
 spoczynku przez tzw. czas martwy. Dane przesy³ane nosz± w literaturze
-nazwê znaku i sk³adaj± siê zwykle od piêciu do o¶miu bitów. Aby odbiornik
-móg³ wykryæ pocz±tek oraz koniec nadawania danych, ka¿dy znak poprzedzony
-jest tzw. bitem startu oraz zakoñczony tzw. bitami stopu (od jednego
-do dwóch). Dodatkowo w celu zapewnienia poprawno¶ci transmisji stosuje
-siê równie¿ tzw. bit parzysto¶ci. Wad± transmisji asynchronicznej
-jest istnienie czasu martwego, zmniejszaj±cego efektywno¶æ przesy³u
-danych. Suma liczby jedynek tworzacych znak wraz z bitem parzysto¶ci
-powinna tworzyæ liczbê parzyst±.
+nazwê znaku i~sk³adaj± siê zwykle z od piêciu do o¶miu bitów. Aby
+odbiornik móg³ wykryæ pocz±tek oraz koniec nadawania danych, ka¿dy
+znak poprzedzony jest tzw. bitem startu oraz zakoñczony tzw. bitami
+stopu (od jednego do dwóch). Dodatkowo w celu zapewnienia poprawno¶ci
+transmisji stosuje siê równie¿ tzw. bit parzysto¶ci. Wad± transmisji
+asynchronicznej jest istnienie czasu martwego, zmniejszaj±cego efektywno¶æ
+przesy³u danych. Suma liczby jedynek tworz±cych znak wraz z bitem
+parzysto¶ci powinna tworzyæ liczbê parzyst±.
 
 \begin{figure}
 \begin{centering}
@@ -185,17 +185,16 @@ Przed w³a¶ciw± komunikacj± nale¿y ustaliæ jej nastêpuj±ce parametry:
 \item ilo¶æ bitów stopu.
 \end{itemize}
 W transmisji synchronicznej zegary nadajnika i odbiornika sa synchronizowane
-(st±d nazwa), dziêki czemu nie s± konieczne bity startu i stopu. Dane
-przesy³ane grupowane s± w bloki zwane ramkami (ang. \emph{frame}).
-Ka¿d± ramkê rozpoczyna nag³ówek (rysunek \ref{fig:Ramka-transmisji-szeregowej-synchr}),
-zawieraj±cy bajty synchronizacji potrzebne do zsynchronizowania zegarów
-nadajnika i odbiornika. W celu zapewnienia poprawnego transferu, synchronizacja
-ta powinna byæ utrzymywana podczas ca³ego procesu komunikacji. Prócz
-wspomnianych bajtów, nag³ówek zawiera tak¿e dodatkowe informacje,
-np. ilo¶æ przesy³anych danych. Blok danych zawiera w³a¶ciwe dane zgrupowane
-jeden za drugim. W celu zapewnienia poprawno¶ci transmisji, s± one
-zakoñczone tzw. bajtami kontrolnymi i wewntualnymi bajtami korekcyjnymi
-pozwalaj±cymi na naprawê uszkodzonych danych.
+(st±d nazwa), dziêki czemu nie s± konieczne bity startu i stopu. Dla
+zapewnienia poprawno¶ci synchronizacji, sygna³ zegara przesy³any jest
+dodatkow± lini±, dziêki czemu zarówno odbiornik jak i nadajnik przesy³aj±
+bity w jednakowych odstêpach czasu. Dane przesy³ane grupowane s± w
+bloki zwane ramkami (ang. \emph{frame}). Ka¿d± ramkê rozpoczyna nag³ówek
+(rysunek \ref{fig:Ramka-transmisji-szeregowej-synchr}), zawieraj±cy
+dodatkowe informacje, np. ilo¶æ przesy³anych danych. Blok danych zawiera
+w³a¶ciwe dane zgrupowane jeden za drugim. W celu zapewnienia poprawno¶ci
+transmisji, s± one zakoñczone tzw. bajtami kontrolnymi i ewentualnymi
+bajtami korekcyjnymi pozwalaj±cymi na naprawê uszkodzonych danych
 
 \begin{figure}
 \begin{centering}
@@ -210,50 +209,19 @@ pozwalaj±cymi na naprawê uszkodzonych danych.
 
 
 
-\subsection{Transmisja równoleg³a}
+\subsection{Interfejsy typu \textit{master} -- \emph{slave}\label{sub:Interfejsy-typu-master}}
 
-W transmisji równoleg³ej grupy bitów wysy³ane s± w tym samym czasie
-niezale¿nymi liniami danych. Mo¿na powiedzieæ, ¿e w tym przypadku
-przesy³ane s± szeregowo grupy bitów (zwykle bajty lub tzw. s³owa).
-Dane wysy³ane s± w takt sygna³u zegarowego, zwanego sygna³em strobuj±cym.
-Odbiornik wykorzystuje ten sygna³ do zapisu odbieranych danych. Zwykle
-transmisja tego typu jest realizowana jednokierunkowo \cite{Krzyzanowski207}.
-W przypadku powolnych odbiorników (np. drukarki) stosuje siê dodatkowe
-bufory uniezale¿niaj±ce transmisjê od czasu przetwarzania. Aby jednak
-dane mog³y byæ przesy³ane, odbiornik musi zasygnalizowaæ nadajnikowi
-gotowo¶æ do ich odbioru przy pomocy sygna³u gotowo¶ci (rysunek \ref{fig:Uklad-transmisji-rownoleglej}).
-
-\begin{figure}
-\begin{centering}
-\includegraphics{rys/interfejsy/transmisja_rownolegla}
-\par\end{centering}
-
-\caption{Uk³ad transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})
-\label{fig:Uklad-transmisji-rownoleglej}}
-
-
-\end{figure}
-
-
-Na rysunku \ref{fig:sygnaly-transm-rown} pokazano przebiegi sygnalów
-towarzysz±cych transmisji równoleg³ej. Sygna³ strobu (aktywny poziomem
-niskim) jest ustawiany w sytuacji aktywnego sygna³u gotowo¶ci oraz
-po ustabilizowaniu siê stanu magistrali danych. Urz±dzenie zewnêtrzne
-(odbiornik) wykorzystuje jego zbocze opadaj±ce do zapisu odbieranych
-danych. W istniej±cych interfejsach, zarówno szeregowych jak i równoleg³ych
-wykorzystuje siê tak¿e inne sygna³y sterujace komunikacj±.
-
-\begin{figure}
-\begin{centering}
-\includegraphics{rys/interfejsy/przebiegi_transmisja_rownolegla}
-\par\end{centering}
-
-\caption{Przbiegi sygna³ów w transmisji równoleg³ej (\emph{¬ród³o:} \cite{Krzyzanowski207})
-\label{fig:sygnaly-transm-rown}}
-
-
-\end{figure}
-
+Jest to model komunikacji, w którym jedno z kilku urz±dzeñ pe³ni rolê
+nadrzêdnego w stosunku do pozosta³ych. Urz±dzenie nadrzêdne nazywane
+jest \emph{master}'em, podczas gdy pozosta³e uk³ady to \emph{slave}'y.
+Rol± mastera jest kontrola ca³ego procesu komunikacji. Urz±dzenie
+nadrzêdne inicjalizuje komunikacjê ze \emph{slave}'ami i kontroluje
+ich dzia³anie. Jedynym typem danych przep³ywaj±cym w odwrotnym kierunku
+s± odpowiedzi urz±dzeñ podrzêdnych na otrzymane zapytania. Interfejsy
+tego typu s± powszechnie stosowane w technice ze wzglêdu na du¿± niezawodno¶æ
+komunikacji i wzglêdn± prostotê dzia³ania. Przyk³adami tego typu komunikacji
+mog± byæ interfejsy takie jak: SPI, I\textsuperscript{2}C, 1-Wire,
+Modbus i wiele innych.
 
 
 \section{Interfejs SPI}
@@ -264,16 +232,17 @@ najczê¶ciej u¿ywanych interfejsów komunikacyjnych miêdzy uk³adami
 mikroprocesorowymi a peryferiami takimi jak przetworniki ADC/DAC,
 uk³ady RTC, pamiêci EEPROM, pamiêci flash, karty MMC/SD, sterowniki
 ekranów dotykowych itp. W ¶wietle omówionych wcze¶niej cech interfejsów,
-SPI mo¿e byæ scharaktryzowany jako:
+SPI mo¿e byæ scharakteryzowany jako:
 \begin{itemize}
 \item szeregowy,
 \item synchroniczny,
 \item komunikuj±cy siê w trybie \emph{full duplex},
 \item przewodowy.
 \end{itemize}
-Komunikacja z urz±dzeniami wykonywana jest w oparciu o model wymiany
-danych master/slave. Do przesy³u danych wykorzystywane s± zwykle 4
-przewody, choæ interfejs mo¿e równie¿ funkcjonowaæ w postaci trójprzewodowej.
+Komunikacja z urz±dzeniami wykonywana jest w oparciu o opisany w rozdziale
+\ref{sub:Interfejsy-typu-master} model wymiany danych \emph{master}
+- \emph{slave}. Do przesy³u danych wykorzystywane s± zwykle 4 przewody,
+choæ interfejs mo¿e równie¿ funkcjonowaæ w postaci trójprzewodowej.
 SPI jest standardem \emph{de facto}, tzn. jest powszechnie stosowany
 przez wielu producentów sprzêtu elektronicznego, lecz w przeciwieñstwie
 do standardu \emph{de jure} nie istnieje jego formalna specyfikacja
@@ -284,29 +253,20 @@ szeregowa lub SSI (ang. \emph{Synchronous Serial Interface}).
 Omawiany interfejs obejmuje cztery sygna³y:
 \begin{itemize}
 \item sygna³ zegarowy SCLK (wyj¶cie urz±dzenia\emph{ master}),
-\item sygna³ MOSI (ang. \emph{Master Output Slave Input}) -wyj¶cie urz±dzenia
+\item sygna³ MOSI (ang. \emph{Master Output Slave Input}) -- wyj¶cie urz±dzenia
 \emph{master} i wej¶cie urz±dzenia \emph{slave},
-\item sygna³ MISO (ang. \emph{Master Input Slave Output}) - wej¶cie urz±dzenia
+\item sygna³ MISO (ang. \emph{Master Input Slave Output}) -- wej¶cie urz±dzenia
 \emph{master} i wyj¶cie urz±dzenia \emph{slave},
 \item sygna³ CS (ang. \emph{Chip Select}) lub SS (ang. \emph{Slave Select})
-- sygna³ wyboru urz±dzenia (wyj¶cie urz±dzenia \emph{master}).
+-- sygna³ wyboru urz±dzenia (wyj¶cie urz±dzenia \emph{master}).
 \end{itemize}
 Wymienione powy¿ej sygna³y posiadaj± tak¿e alternatywne nazwy:
 \begin{itemize}
-\item SCLK - SCK, CLK,
-\item MOSI - SIMO, SDO, DO,
-\item MISO - SOMI, SDI, DI,
-\item CS - nCS, nSS, CSB, STE.
+\item SCLK -- SCK, CLK,
+\item MOSI -- SIMO, SDO, DO,
+\item MISO -- SOMI, SDI, DI,
+\item CS -- nCS, nSS, CSB, STE.
 \end{itemize}
-Z pojedynczym uk³adem \emph{master} mo¿e wspó³pracowaæ jeden lub wiêcej
-uk³adów typu \emph{slave}. W ostatnim przypadku nale¿y zapewniæ odpowiedni±
-(równa liczbie urz±dzeñ \emph{slave}) ilo¶æ niezale¿nych sygna³ów
-wyboru p³ytki (CS). Poniewa¿ uk³ad transmisji SPI wykorzystuje rejestr
-przesuwny, innym rozwi±zaniem mo¿e okazaæ siê tak¿e po³±czenie uk³adów
-podrzêdnych, tak aby utworzy³y jeden rejestr przesuwny. Ponadto wspó³praca
-z wieloma urz±dzeniami \emph{slave} wymaga, aby w trakcie ich nieaktywno¶ci
-ich wyj¶cia MISO wchodzi³y w stan wysokiej impedancji.
-
 
 \subsection{Przesy³ danych}
 
@@ -324,7 +284,7 @@ przesuwnego (\emph{¬ród³o:} \cite{Krzyzanowski207}) \label{fig:spi-rej-przesuwny
 
 Przed dokonaniem transmisji danych, urz±dzenie \emph{master} musi
 okre¶liæ odpowiedni± czêstotliwo¶æ sygna³u zegarowego. Nie mo¿e byæ
-ona wiêksza od ¿adnej z maksymalnych dopuszczalnych czêstotliwo¶æi
+ona wiêksza od ¿adnej z maksymalnych dopuszczalnych czêstotliwo¶ci
 wspieranych przez urz±dzenia \emph{slave}. Nastêpnie sygna³ wyboru
 urz±dzenia (CS) przechodzi w stan aktywny (zwykle logiczne 0). Je¶li
 nale¿y poczekaæ, aby wspó³pracuj±ce urz±dzenie podrzêdne dokona³o
@@ -334,32 +294,32 @@ urz±dzenie nadrzêdne musi wstrzymaæ siê z generacj± sygna³u zegarowego.
 Z ka¿dym taktem zegara zwi±zany jest cykl komunikacji \emph{full duplex}:
 \begin{itemize}
 \item urz±dzenie master wysy³a lini± MOSI kolejny bit, za¶ slave go odbiera,
-\item urz±dzenie slave wysy³a klejny bit danych lini± MISO, za¶ master go
-odbiera.
+\item urz±dzenie slave wysy³a kolejny bit danych lini± MISO, za¶ master
+go odbiera.
 \end{itemize}
 W transmisji wykorzystywane s± zwykle dwa rejestry przesuwne (po jednym
-dla urz±dzenia master i slave) po³±czone ze sob± tworz±c rejestr cykliczny
-(rysunek \ref{fig:spi-rej-przesuwny}). Zwykle wysy³any jest najbardziej
-znacz±cy bit MSB (ang. \emph{most significant bit}) a odbierany najmniej
-znacz±cy LSB (ang. \emph{least significant bit}). Po wype³nieniu rejestrów
-nastêpuje obróbka zawartych w nich danych, tj. zapis do pamiêci, przetwarzanie
-itp. W celu wymiany wiêkszej ilo¶ci informacji, wspomniany proces
-siê powtarza. W trakcie pojedynczego cyklu komunikacji przesy³any
-jest zwykle bajt danych (8 bitów), choæ nie jest to regu³±; istniej±
-uk³ady w których przesyla siê 12, 16 lub 24 bity. Niektóre urz±dzenia
-\emph{slave} nie pozwalaj± na odbieranie danych w ci±gu wiêkszej od
-zadanej liczby taktów sygna³u zegarowego; w innych rozwi±zaniach konstrukcyjnych
-dane nadmiarowe s± ignorowane.
+dla urz±dzenia master i~slave) po³±czone ze sob± tworz±c rejestr
+cykliczny (rysunek \ref{fig:spi-rej-przesuwny}). Zwykle wysy³any
+jest najbardziej znacz±cy bit MSB (ang. \emph{most significant bit})
+a odbierany najmniej znacz±cy LSB (ang. \emph{least significant bit}).
+Po wype³nieniu rejestrów nastêpuje obróbka zawartych w nich danych,
+tj. zapis do pamiêci, przetwarzanie itp. W celu wymiany wiêkszej ilo¶ci
+informacji, wspomniany proces siê powtarza. W trakcie pojedynczego
+cyklu komunikacji przesy³any jest zwykle bajt danych (8 bitów), choæ
+nie jest to regu³±; istniej± uk³ady w których przesy³a siê 12, 16
+lub 24 bity. Niektóre urz±dzenia \emph{slave} nie pozwalaj± na odbieranie
+danych w ci±gu wiêkszej od zadanej liczby taktów sygna³u zegarowego;
+w innych rozwi±zaniach konstrukcyjnych dane nadmiarowe s± ignorowane.
 
 Oprócz wymienionych sygna³ów steruj±cych komunikacj±, w urz±dzeniu
 \emph{slave} mo¿liwe jest równie¿ wyprowadzenie sygna³u przerwania.
 Przyk³adowo mo¿e to byæ sygna³ informuj±cy o dotkniêciu ekranu dotykowego,
 sygna³ alarmowy generowany przez czujnik temperatury lub zegar czasu
-rzeczywistego. Standard SPI nie przewiduje u¿ycia przerwañ, wiêc przeznaczanie
-dla nich oddzielnego pinu w urz±dzeniu \emph{slave} nie jest ani zakazane
-ani obowi±zkowe.
+rzeczywistego. Standard SPI nie przewiduje u¿ycia przerwañ, chocia¿
+przeznaczanie dla nich oddzielnego pinu w~urz±dzeniu \emph{slave}
+nie jest ani zakazane ani obowi±zkowe.
 
-Ka¿de z urz±dzeñ \emph{slave}, które nie zosta³o aktywowane sygna³em
+¯adne z urz±dzeñ \emph{slave}, które nie zosta³o aktywowane sygna³em
 CS nie powinno reagowaæ na sygna³ taktuj±cy ani sterowaæ wspóln± magistral±.
 Urz±dzenie \emph{master}, wybiera za¶ do wymiany informacji tylko
 jedno urz±dzenie podrzêdne.
@@ -379,7 +339,7 @@ jedno urz±dzenie podrzêdne.
 \end{figure}
 
 
-Poza okre¶leniem czêstotliwo¶ci sygna³u taktujacego, urz±dzenie nadrzêdne
+Poza okre¶leniem czêstotliwo¶ci sygna³u taktuj±cego, urz±dzenie nadrzêdne
 musi tak¿e zdefiniowaæ polaryzacjê i fazê tego sygna³u. Zwykle jest
 to zwi±zane z wpisaniem do odpowiednich rejestrów konfiguracyjnych
 warto¶ci 0 lub 1 na odpowiednich pozycjach. Bity na tych pozycjach
@@ -414,7 +374,7 @@ ze sposobów zorganizowania takiego uk³adu transmisji danych jest zastosowanie
 niezale¿nych sygna³ów CS dla ka¿dego z urz±dzeñ podrzêdnych. Przyk³ad
 takiego rozwi±zania pokazano na rysunku \ref{fig:spi-independent-slaves}.
 Poniewa¿ wszystkie wyj¶cia MISO uk³adów \emph{slave} s± po³±czone
-do wspólnej linii, powinny byæ one wyjsciami trójstanowymi.
+do wspólnej linii, powinny byæ one wyj¶ciami trójstanowymi.
 
 \begin{figure}
 \begin{centering}
@@ -431,7 +391,7 @@ urz±dzeniami \emph{slave} (\emph{¬ród³o:} \cite{spi_independent_slaves})
 
 Niektóre urz±dzenia wspieraj±ce SPI s± zaprojektowane z my¶l± o zastosowaniu
 po³±czenia ³añcuchowego (znanego w literaturze anglojêzycznej jako
-\emph{daisy chain}). W takiej konfiguracji wyj¶cie jednego z urz±dzeñ
+\emph{daisy chain}). W takiej konfiguracji wyj¶cie jednego z~urz±dzeñ
 \emph{slave} jest po³±czone do wej¶cia drugiego \emph{slave'a} itd.
 Port SPI takiego urz±dzenia podrzêdnego w danym cyklu transmisji odbiera
 dane od poprzedniego urz±dzenia, które te same dane odebra³o w poprzednim
@@ -477,10 +437,11 @@ do I2C, GPIB czy SCSI),
 \end{itemize}
 W¶ród wad interfejsu SPI mo¿na wymieniæ:
 \begin{itemize}
-\item wiêksz± w porównaniu do I2C ilo¶æ pinów obudowy IC,
+\item wiêksz± w porównaniu do I\textsuperscript{2}C ilo¶æ pinów obudowy
+IC,
 \item brak sprzêtowej kontroli przep³ywu danych przez urz±dzenia \emph{slave},
 \item brak sprzêtowego potwierdzania obecno¶ci urz±dzenia \emph{slave} (\emph{master}
-mo¿e ``rozmawiaæ'' z niczym),
+mo¿e ,,rozmawiaæ'' z niczym),
 \item brak wsparcia dla architektury multi-master,
 \item brak oficjalnego standardu,
 \item brak protoko³u obs³ugi b³êdów,
@@ -508,27 +469,27 @@ z takimi uk³adami peryferyjnymi jak:
 \section{Interfejs UART\label{sec:Interfejs-UART}}
 
 UART (ang. \emph{Universal Asynchronous Receiver and Transmitter})
-jest urz±dzeniem umo¿liwiaj±cym asynchroniczne odbieranie i nadawanie
-informacji przy pomocy portu szeregowego. Sklada siê z trzech zasadniczych
+jest protoko³em umo¿liwiaj±cym asynchroniczne odbieranie i nadawanie
+informacji przy pomocy portu szeregowego. Sk³ada siê z trzech zasadniczych
 elementów:
 \begin{itemize}
 \item konwertera równoleg³o-szeregowego (ang. \emph{parallel to serial}),
 pozwalaj±cego na przesy³anie danych z komputera,
-\item konwertera szerogowo-równoleg³ego, umo¿liwiaj±cego odbiór danych pochodz±cych
+\item konwertera szeregowo-równoleg³ego, umo¿liwiaj±cego odbiór danych pochodz±cych
 z komputera przez urz±dzenie zewnêtrzne,
 \item bufora danych, s³u¿±cego do tymczasowego przechowywania danych w przypadku
 szybkiej transmisji.
 \end{itemize}
-UART u¿ywany jest czêsto w po³aczeniu z takim standardami komunikacyjnymi
+UART u¿ywany jest czêsto w po³±czeniu z takim standardami komunikacyjnymi
 jak RS-232, EIA czy RS-485. Jego uniwersalno¶æ polega na tym, ¿e szybko¶æ
 transmisji oraz format danych s± konfigurowalne. Poziomy elektryczne
-sygna³ów elektrycznych oraz ich postaæ (np. sygnal ró¿nicowy) s± przez
-zewnêtrzny uk³ad sterownika. Omawiane urz±dzenia wyst±puj± jako uk³ady
-scalone (b±d¼ ich komponenty) bêd±ce sk³adnikami mikrokontrolerów.
-Isniej± konstrukcje ³±cz±ce dwa (DUART) lub osiem uk³adów UART w jednej
-obudowie. Istniej± równie¿ chipy pozwalaj±ce na komunikacjê synchroniczn±,
-okreslane w skrócie jako USART (ang. \emph{Universal Synchronous and
-Asynchronous Receiver and Transmitter}).
+sygna³ów elektrycznych oraz ich postaæ (np. sygna³ ró¿nicowy) ustawiane
+s± przez zewnêtrzny uk³ad sterownika. Omawiane urz±dzenia wystêpuj±
+jako uk³ady scalone (b±d¼ ich komponenty) bêd±ce sk³adnikami mikrokontrolerów.
+Istniej± konstrukcje ³±cz±ce dwa (DUART) lub osiem uk³adów UART w
+jednej obudowie. Istniej± równie¿ chipy pozwalaj±ce na komunikacjê
+synchroniczn±, okre¶lane w skrócie jako USART (ang. \emph{Universal
+Synchronous and Asynchronous Receiver and Transmitter}).
 
 
 \subsection{Transmisja}
@@ -562,25 +523,25 @@ duplex} oraz \emph{full duplex}.
 \end{figure}
 
 
-Rysunek \ref{fig:Ramka-danych-uart} przedstawia typow± ramkê u¿ywanê
+Rysunek \ref{fig:Ramka-danych-uart} przedstawia typow± ramkê u¿ywane
 w trakcie transmisji przy pomocy uk³adu UART. W stanie bezczynno¶ci
 (gdy nie przesy³ane s± ¿adne dane), linia danych jest zwykle w stanie
 wysokim. Wysy³anie w³a¶ciwych danych (zwanych znakiem) sygnalizowane
 jest bitem startu, tj. przej¶ciem linii danych do stanu niskiego.
-Znak sk³ada siê zazwyczaj z 5 - 8 bitów. W celu zapewnienia kontroli
-poprawno¶ci danych, mo¿e byæ zakoñczony tzw. bitem parzysto¶ci. W
-celu zasygnalizowania odbiornikowi zakoñczenia transmisji, przesy³any
+Przesy³any znak sk³ada siê zazwyczaj z 5 - 8 bitów. W celu zapewnienia
+kontroli poprawno¶ci danych, mo¿e byæ zakoñczony tzw. bitem parzysto¶ci.
+W celu zasygnalizowania odbiornikowi zakoñczenia transmisji, przesy³any
 jest bit stopu, który mo¿e byæ zdublowany.
 
 
 \subsection{Odbiór danych}
 
-Wszystkie operacje w ukladzie UART sterowane s± sygna³em zegarowym
-o czêstotliwo¶æi bêd±cej wielokrotno¶ci± czêsto¶ci u¿ywanej do przesy³ania
+Wszystkie operacje w uk³adzie UART sterowane s± sygna³em zegarowym
+o czêstotliwo¶ci bêd±cej wielokrotno¶ci± czêsto¶ci u¿ywanej do przesy³ania
 danych. Odbiornik próbkuje liniê danych w oczekiwaniu na pojawienie
 siê bitu startu. Je¶li linia danych przejdzie ze stanu spoczynkowego
 do aktywnego na czas wynosz±cy co najmniej po³owê okresu trwania bitu,
-zostanie to zinterpretowane jako bit startu. W przeciwnym wypadku
+zostanie to zinterpretowane jako bit startu. W~przeciwnym wypadku
 zarejestrowany impuls zostanie zignorowany. Nastêpnie po up³ywie niewielkiego
 czasu nastêpuje dalsze próbkowanie linii danych po³±czone z wczytywaniem
 znaku do odbiorczego rejestru przesuwnego. Po wczytaniu okre¶lonej
@@ -590,7 +551,7 @@ informuj±cy mikroprocesor o odebraniu danych.
 Komunikuj±ce siê uk³ady UART nie posiadaj± wspólnego sygna³u zegarowego.
 Ka¿dy z nich posiada w³asne zegary, których synchronizacja dokonuje
 siê w oparciu o sygna³ na linii danych. Zwykle synchronizacja ma miejsce
-w chwili zmianu stanu linii danych, o ile zmiana ta mo¿e byæ uznana
+w chwili zmiany stanu linii danych, o ile zmiana ta mo¿e byæ uznana
 za wa¿n±. Uproszczone uk³ady synchronizuj± siê w momencie detekcji
 opadaj±cego zbocza bitu startu, za¶ odczyt kolejnych bitów nastêpuje
 w po³owach czasów ich trwania. Takie rozwi±zanie dzia³a poprawnie,
@@ -637,8 +598,8 @@ Jak wspomniano wcze¶niej istniej± uk³ady typu USART potrafi±ce tak¿e
 pracowaæ w trybie transmisji synchronicznej. W tym wypadku przebieg
 sygna³u zegarowego jest pozyskiwany na podstawie sygna³u na linii
 danych. Dziêki obecno¶ci sygna³u synchronizacyjnego niepotrzebne staj±
-siê bity startu i stopu, co pozwala na lepsze wykorzystanie linii
-danych i w efekcie bardziej efektywn± komunikacjê. W przypadku trybu
+siê bity startu i~stopu, co pozwala na lepsze wykorzystanie linii
+danych i w efekcie bardziej efektywn± komunikacjê. W~przypadku trybu
 asynchronicznego, gdy nie ma danych do przes³ania, linia danych znajduje
 siê w stanie spoczynku. W trybie transmisji synchronicznej konieczne
 jest przesy³anie specjalnych znaków w celu utrzymania synchronizacji.
@@ -649,23 +610,24 @@ jest przesy³anie specjalnych znaków w celu utrzymania synchronizacji.
 Poni¿ej opisano mo¿liwe b³êdy towarzysz±ce komunikacji z wykorzystaniem
 urz±dzeñ UART.
 \begin{itemize}
-\item B³±d przepe³nienia (ang. \emph{overrun error}) - wystepuje, gdy odbiorca
-danych nie mo¿e przetworzyæ danej przed pojawieniem siê kolejne. Ró¿ne
-urz±dzenia dysponuj± ró¿nymi pojemno¶ciami buforów s³u¿±cych do przechowywania
-odebranych danych. Jednostka przetwarzaj±ca dane musi to robiæ na
-tyle szybko, aby zwolniæ miejsce dla kolejnych znaków - w przeciwnym
-razie dochodzi do nadpisania nie przetworzonych jeszcze informacji.
-\item B³±d niedope³nienia (ang. \emph{underrun error}) - ma miejsce, gdy
+\item B³±d przepe³nienia (ang. \emph{overrun error}) -- wystêpuje, gdy odbiorca
+nie mo¿e przetworzyæ jednej porcji danych przed pojawieniem siê kolejnej.
+Ró¿ne urz±dzenia dysponuj± ró¿nymi pojemno¶ciami buforów s³u¿±cych
+do przechowywania odebranych danych. Jednostka przetwarzaj±ca dane
+musi to robiæ na tyle szybko, aby zwolniæ miejsce dla kolejnych znaków
+-- w przeciwnym razie dochodzi do nadpisania nie przetworzonych jeszcze
+informacji.
+\item B³±d niedope³nienia (ang. \emph{underrun error}) -- ma miejsce, gdy
 po wys³aniu danych przez nadajnik, bufor nadawczy jest pusty. W trybie
 asynchronicznym sytuacja taka traktowana jest raczej jako brak danych
 do wys³ania ni¿ stan b³êdny. W trybie synchronicznym jest to powa¿ny
 b³±d.
-\item B³±d ramki (ang. \emph{framing error}) - pojawia siê, gdy bity startu
+\item B³±d ramki (ang. \emph{framing error}) -- pojawia siê, gdy bity startu
 i stopu nie s± wykrywane. Bit startu sygnalizuj±cy pocz±tek znaku
 stanowi odniesienie dla pozosta³ych bitów. Je¶li linia danych nie
 znajdzie siê we w³a¶ciwym stanie, gdy spodziewany jest bit stopu sygnalizowany
 jest b³±d ramki.
-\item B³±d parzysto¶ci (ang. \emph{parity error}) - wystepuje, gdy liczba
-jedynek w przesy³anym znaku wraz z bitem parzysto¶ci jest liczb± parzyst±.
-Istnienie omawianego bitu w ramce jest opcjonalne.\end{itemize}
+\item B³±d parzysto¶ci (ang. \emph{parity error}) -- wystêpuje, gdy liczba
+jedynek w przesy³anym znaku wraz z~bitem parzysto¶ci jest liczb±
+parzyst±. Istnienie omawianego bitu w ramce jest opcjonalne.\end{itemize}
 

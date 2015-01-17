@@ -133,8 +133,8 @@ key "Krzyzanowski207"
 \end_layout
 
 \begin_layout Itemize
-ze względu na istnienie fizycznego połącznia między komunikujacymi się urządzeni
-ami:
+ze względu na istnienie fizycznego połączenia między komunikującymi się
+ urządzeniami:
 \end_layout
 
 \begin_deeper
@@ -288,12 +288,15 @@ ekranowanie linii.
 \begin_layout Standard
 Linia symetryczna składa się z dwóch przewodów wiodących sygnały znajdujące
  się w przeciwfazie oraz odbiornika z wejściem różnicowym.
- Dzięki temu, sygnały o takich samych przebiegach indukowane w poszczególnych
- przewodach znoszą się po odjęciu na wejściu wzmacniacza.
+ Dzięki temu, sygnały o takich samych przebiegach indukowane w
+\begin_inset space ~
+\end_inset
+
+poszczególnych przewodach znoszą się po odjęciu na wejściu wzmacniacza.
  W celu zapewnienia lepszej ochrony przed zakłóceniami możliwe jest również
  skręcanie przewodów.
  Zasięg linii symetrycznych jest dużo większy niż w przypadku linii niesymetrycz
-nych i osiaga rząd 1 km 
+nych i osiąga rząd 1 km 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Krzyzanowski207"
@@ -305,7 +308,7 @@ key "Krzyzanowski207"
 
 \begin_layout Standard
 Najbardziej odpornym na zakłócenia elektromagnetyczne medium jest światłowód.
- Pozwala on na transmisję na bardzo duże odległości (od kilku do klikudziesięciu
+ Pozwala on na transmisję na bardzo duże odległości (od kilku do kilkudziesięciu
  kilometrów).
  Tor światłowodowy wymaga zastosowania nadajnika przekształcającego sygnał
  elektryczny na impulsy świetlne, właściwego światłowodu (wykonanego zwykle
@@ -329,7 +332,11 @@ Transmisja szeregowa polega na przesyłaniu informacji bit po bicie.
  Inną wadą tego typu komunikacji jest także stosunkowo skomplikowana budowa
  (a co za tym idzie większy koszt) interfejsów równoległych.
  Uzasadnia to fakt wykorzystania przez większość współczesnych urządzeń
- cyfrowych interfejsów i transmisji szeregowych.
+ cyfrowych interfejsów i
+\begin_inset space ~
+\end_inset
+
+transmisji szeregowych.
 \end_layout
 
 \begin_layout Standard
@@ -464,8 +471,11 @@ W przypadku transmisji asynchronicznej zegary nadajnika i odbiornika nie
  między kolejnymi transmisjami, linia danych znajduje się w stanie spoczynku
  przez tzw.
  czas martwy.
- Dane przesyłane noszą w literaturze nazwę znaku i składają się zwykle z
- od pięciu do ośmiu bitów.
+ Dane przesyłane noszą w literaturze nazwę znaku i
+\begin_inset space ~
+\end_inset
+
+składają się zwykle z od pięciu do ośmiu bitów.
  Aby odbiornik mógł wykryć początek oraz koniec nadawania danych, każdy
  znak poprzedzony jest tzw.
  bitem startu oraz zakończony tzw.
@@ -475,7 +485,7 @@ W przypadku transmisji asynchronicznej zegary nadajnika i odbiornika nie
  bit parzystości.
  Wadą transmisji asynchronicznej jest istnienie czasu martwego, zmniejszającego
  efektywność przesyłu danych.
- Suma liczby jedynek tworzacych znak wraz z bitem parzystości powinna tworzyć
+ Suma liczby jedynek tworzących znak wraz z bitem parzystości powinna tworzyć
  liczbę parzystą.
 \end_layout
 
@@ -666,7 +676,7 @@ slave
 \emph default
 'y.
  Rolą mastera jest kontrola całego procesu komunikacji.
- Urządzenie nadrzędne inicjalizuje komunikacje ze 
+ Urządzenie nadrzędne inicjalizuje komunikację ze 
 \emph on
 slave
 \emph default
@@ -702,7 +712,7 @@ Serial Peripheral Interface
  a urządzeniami zewnętrznymi takimi jak przetworniki AD/DA, pamięci EEPROM,
  czujniki (akcelerometry, żyroskopy), pamięci flash, sterowniki ekranów
  dotykowych itp.
- W świetle omówionych wcześniej cech interfejsów, SPI może być scharaktryzowany
+ W świetle omówionych wcześniej cech interfejsów, SPI może być scharakteryzowany
  jako:
 \end_layout
 
@@ -917,7 +927,7 @@ Przed dokonaniem transmisji danych, urządzenie
 master
 \emph default
  musi określić odpowiednią częstotliwość sygnału zegarowego.
- Nie może być ona większa od żadnej z maksymalnych dopuszczalnych częstotliwośći
+ Nie może być ona większa od żadnej z maksymalnych dopuszczalnych częstotliwości
  wspieranych przez urządzenia 
 \emph on
 slave
@@ -944,7 +954,7 @@ urządzenie master wysyła linią MOSI kolejny bit, zaś slave go odbiera,
 \end_layout
 
 \begin_layout Itemize
-urządzenie slave wysyła klejny bit danych linią MISO, zaś master go odbiera.
+urządzenie slave wysyła kolejny bit danych linią MISO, zaś master go odbiera.
 \end_layout
 
 \begin_layout Standard
@@ -1076,7 +1086,7 @@ key "spi_pol_ph"
 \end_layout
 
 \begin_layout Standard
-Poza określeniem częstotliwości sygnału taktujacego, urządzenie nadrzędne
+Poza określeniem częstotliwości sygnału taktującego, urządzenie nadrzędne
  musi także zdefiniować polaryzację i fazę tego sygnału.
  Zwykle jest to związane z wpisaniem do odpowiednich rejestrów konfiguracyjnych
  wartości 0 lub 1 na odpowiednich pozycjach.
@@ -1212,7 +1222,11 @@ Niektóre urządzenia wspierające SPI są zaprojektowane z myślą o zastosowan
 daisy chain
 \emph default
 ).
- W takiej konfiguracji wyjście jednego z urządzeń 
+ W takiej konfiguracji wyjście jednego z
+\begin_inset space ~
+\end_inset
+
+urządzeń 
 \emph on
 slave
 \emph default
@@ -1475,7 +1489,7 @@ Universal Asynchronous Receiver and Transmitter
 \emph default
 ) jest protokołem umożliwiającym asynchroniczne odbieranie i nadawanie informacj
 i przy pomocy portu szeregowego.
- Sklada się z trzech zasadniczych elementów:
+ Składa się z trzech zasadniczych elementów:
 \end_layout
 
 \begin_layout Itemize
@@ -1498,15 +1512,15 @@ bufora danych, służącego do tymczasowego przechowywania danych w przypadku
 \end_layout
 
 \begin_layout Standard
-UART używany jest często w połaczeniu z takim standardami komunikacyjnymi
+UART używany jest często w połączeniu z takim standardami komunikacyjnymi
  jak RS-232, EIA czy RS-485.
  Jego uniwersalność polega na tym, że szybkość transmisji oraz format danych
  są konfigurowalne.
  Poziomy elektryczne sygnałów elektrycznych oraz ich postać (np.
- sygnal różnicowy) ustawiane są przez zewnętrzny układ sterownika.
- Omawiane urządzenia wystąpują jako układy scalone (bądź ich komponenty)
+ sygnał różnicowy) ustawiane są przez zewnętrzny układ sterownika.
+ Omawiane urządzenia występują jako układy scalone (bądź ich komponenty)
  będące składnikami mikrokontrolerów.
- Isnieją konstrukcje łączące dwa (DUART) lub osiem układów UART w jednej
+ Istnieją konstrukcje łączące dwa (DUART) lub osiem układów UART w jednej
  obudowie.
  Istnieją również chipy pozwalające na komunikację synchroniczną, określane
  w skrócie jako USART (ang.
@@ -1610,7 +1624,7 @@ reference "fig:Ramka-danych-uart"
 
 \end_inset
 
- przedstawia typową ramkę używanę w trakcie transmisji przy pomocy układu
+ przedstawia typową ramkę używane w trakcie transmisji przy pomocy układu
  UART.
  W stanie bezczynności (gdy nie przesyłane są żadne dane), linia danych
  jest zwykle w stanie wysokim.
@@ -1630,7 +1644,7 @@ Odbiór danych
 
 \begin_layout Standard
 Wszystkie operacje w układzie UART sterowane są sygnałem zegarowym o częstotliwo
-śći będącej wielokrotnością częstości używanej do przesyłania danych.
+ści będącej wielokrotnością częstości używanej do przesyłania danych.
  Odbiornik próbkuje linię danych w oczekiwaniu na pojawienie się bitu startu.
  Jeśli linia danych przejdzie ze stanu spoczynkowego do aktywnego na czas
  wynoszący co najmniej połowę okresu trwania bitu, zostanie to zinterpretowane
@@ -1650,7 +1664,7 @@ przeciwnym wypadku zarejestrowany impuls zostanie zignorowany.
 Komunikujące się układy UART nie posiadają wspólnego sygnału zegarowego.
  Każdy z nich posiada własne zegary, których synchronizacja dokonuje się
  w oparciu o sygnał na linii danych.
- Zwykle synchronizacja ma miejsce w chwili zmianu stanu linii danych, o
+ Zwykle synchronizacja ma miejsce w chwili zmiany stanu linii danych, o
  ile zmiana ta może być uznana za ważną.
  Uproszczone układy synchronizują się w momencie detekcji opadającego zbocza
  bitu startu, zaś odczyt kolejnych bitów następuje w połowach czasów ich
@@ -1761,7 +1775,7 @@ Błąd przepełnienia (ang.
 \emph on
 overrun error
 \emph default
-) -- wystepuje, gdy odbiorca nie może przetworzyć jednej porcji danych przed
+) -- występuje, gdy odbiorca nie może przetworzyć jednej porcji danych przed
  pojawieniem się kolejnej.
  Różne urządzenia dysponują różnymi pojemnościami buforów służących do przechowy
 wania odebranych danych.
@@ -1802,7 +1816,7 @@ Błąd parzystości (ang.
 \emph on
 parity error
 \emph default
-) -- wystepuje, gdy liczba jedynek w przesyłanym znaku wraz z
+) -- występuje, gdy liczba jedynek w przesyłanym znaku wraz z
 \begin_inset space ~
 \end_inset
 

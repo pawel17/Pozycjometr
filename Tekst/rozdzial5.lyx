@@ -410,6 +410,8 @@ Podział żyroskopów
  obiekt, zawieszony w konstrukcji pozwalającej na swobodny obrót wokół układu
  odniesienia (np.
  ciała na którym umieszczony jest żyroskop).
+
+konstrukcji pozwalającej na swobodny obrót wokół układu odniesienia (np.
  Można to uzyskać dzięki zastosowaniu odpowiednich przegubów o osi obrotu
  prostopadłej do osi obrotu wirującej bryły.
  Takie rozwiązanie zmniejsza wpływ obrotów ciała na żyroskop, który dąży
@@ -487,7 +489,7 @@ name "fig:zyroskop-MEMS"
 Żyroskopy są elementem wielu urządzeń elektronicznych, w których należy
  mierzyć lub rejestrować zmiany położenia (np.
  wskaźniki komputerowe, myszki, smartfony).
- Mogą być one wytwarzane w technologii MEMS (o ktorej wspomniano w rozdziale
+ Mogą być one wytwarzane w technologii MEMS (o której wspomniano w rozdziale
  o akcelerometrach), przy czym dotyczy to głównie żyroskopów prędkościowych
  
 \begin_inset CommandInset citation

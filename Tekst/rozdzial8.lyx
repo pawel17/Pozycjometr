@@ -74,28 +74,30 @@ Celem niniejszej pracy było zrealizowanie układu pozycjometru inercyjnego,
 \end_layout
 
 \begin_layout Standard
-Zbudowana prosta płytka elektroniczna, której zadaniem było połączenie układów
- PmodACL i PmodGYRO z mikroprocesorem doprowadziła do konieczności modyfikacji
- założeń dotyczących komunikacji z tymi układami.
- Ze względu na bezpośrednią obsługę tylko jednego interfejsu SPI przez mikrokont
-roler
-\emph on
- Cortex M3
-\emph default
-, zdecydowano się wykorzystać interfejsy SSP, które mogą działać w trybie
- SPI.
- Dodatkowym argumentem przemawiającym za koniecznością przyjęcia takowego
- rozwiązania była potrzeba zapewnienia połączenia z mikroprocesorem poprzez
- już istniejące złącza.
- Jedynym możliwym do wykorzystania było złącze służące do podłączenia wyświetlac
-za ciekłokrystalicznego.
- Dzięki wykorzytaniu tego gniazda uzyskano solidne połączenie pomiędzy wszystkim
-i układami, co znacząco poprawiło dokładność wykonywanego pomiaru.
+Podczas realizacji postawionego zadania konieczne było rozwiązanie kilku
+ istotnych kwestii, które w
+\begin_inset space ~
+\end_inset
+
+znaczącym stopniu wpłynęły na sposób dokonania pomiaru.
+ Pierwszy wykonany element: zmontowana płytka elektroniczna, której zadaniem
+ było połączenie układów PmodACL i PmodGYRO z mikroprocesorem wymusiła konieczno
+ść wykorzystania interfejsu SSP.
+ Przyczyną takiej sytuacji był fakt, iż jedynym złączem, które można było
+ wykorzystać do połączenia z mikrokontrolerem było złącze służące nominalnie
+ do podłączenia wyświetlacza ciekłokrystalicznego.
+ Użycie innego interfejsu niż założony nie spowodowało jednak żadnego problemu
+ w komunikacji, gdyż interfejs SSP mógł pracować w trybie SPI, dzięki czemu
+ nie było konieczności modyfikacji oprogramowania.
+ Należy dodać, że zaletą wykorzystania gniazda dla wyświetlacza LCD było
+ uzyskanie solidnego i stabilnego połączenia pomiędzy wszystkimi układami,
+ co znacząco poprawiło dokładność wykonywanego pomiaru.
  
 \end_layout
 
 \begin_layout Standard
-Poprawne wykonanie pomiaru niosło ze sobą wiele trudności.
+Poprawne wykonanie pomiaru i przeliczenie wyników otrzymanych z urządzeń
+ pomiarowych niosło ze sobą wiele trudności.
 \begin_inset Note Note
 status open
 
@@ -130,8 +132,8 @@ Kolejnym problemem była korekcja kąta mierzonego przy pomocy żyroskopu.
 Dzięki wykorzystaniu .NET Framework i języka C#, wykonanie GUI w finalnym
  kształcie nie sprawiło zbyt wielu kłopotów w realizacji.
  Niezwykle dużą pomocą była rozbudowana dokumentacja oraz wiele przydatnych
- tutoriali, pokazujących wykorzystanie danych klas w praktyce, jak również
- realizację pewnych często wykorzystywanych funkcjonalności.
+ tutoriali, pokazujących użycie danych klas w praktyce, jak również realizację
+ pewnych często wykorzystywanych funkcjonalności.
  Dzięki temu, że wszystkie elementy frameworku dobrze ze sobą współpracują,
  konieczne było jedynie wybranie odpowiedniej technologii, która umożliwiłaby
  zadowalające przedstawienie ruchu układu w przestrzeni.
@@ -139,23 +141,24 @@ Dzięki wykorzystaniu .NET Framework i języka C#, wykonanie GUI w finalnym
 \emph on
  Windows Presentation Foundation
 \emph default
- i języka XAML do narysowania sześcianiu zmieniającego położenie okazało
- się rozwiązaniem w zupełności wystaczającym.
+ i języka XAML do narysowania sześcianu zmieniającego położenie okazało
+ się rozwiązaniem w zupełności wystarczającym.
  Połączenie całego interfejsu graficznego zrealizowanego w 
 \emph on
 Windows Forms
 \emph default
- z oknem wizualizacji wykonanym w innej technice, również dało dobre rezultaty.
+ z oknem wizualizacji wykonanym w innej technice, nie spowodowało konfliktów
+ i dało dobre rezultaty.
  
 \end_layout
 
 \begin_layout Standard
 Reasumując, można stwierdzić, że zadanie postawione na początku realizacji
  tej pracy inżynierskiej zostało spełnione.
- Efektem finalnym są dwa programy: jeden wykonywany na mikroprocesorze i
- drugi, którego zadaniem było odbieranie danych pomiarowych, ich przetworzenie,
- wyświetlenie i wizualizacja.
- Udało się doprowadzić te dwie osobne aplikacje do harmonijnej współpracy,
+ Efekt finalny to dwa programy: jeden wykonywany na mikroprocesorze i drugi,
+ którego zadaniem było odbieranie danych pomiarowych, ich przetworzenie,
+ wyświetlenie i wizualizacja napisany w języku C#.
+ Udało się doprowadzić te dwie osobne aplikacje do skutecznej współpracy,
  dzięki czemu mierzone położenie układu pomiarowego w przestrzeni jest odpowiedn
 io przedstawiane w oknie wizualizacji programu działającego na komputerze
  PC.

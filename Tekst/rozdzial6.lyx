@@ -62,7 +62,7 @@
 \begin_body
 
 \begin_layout Chapter
-Pomiar
+Odczyt danych pomiarowych
 \end_layout
 
 \begin_layout Section
@@ -75,36 +75,56 @@ Wyznaczenie pozycji w przestrzeni wymagało harmonijnego współdziałania trzec
  Najważniejszym elementem był zestaw uruchomieniowy LandTiger, zawierający
  mikrokontroler LPC1768 opartym o rdzeń ARM Cortex-M3.
  Mikrokontroler odpowiadał za odczyt, przetwarzanie i przesyłanie danych
- pomiarowych zgromadzonych przez dwa układy firmy Digilent: PmodACL i PmodGYRO.
+ pomiarowych zgromadzonych przez dwa układy pomiarowe firmy Digilent: PmodACL
+ i PmodGYRO.
  Pierwszy z nich to trójosiowy, cyfrowy akcelerometr pracujący na układzie
- ADXL345 firmy AnalogDevices.
- PmodGYRO oparty jest na żyroskopie L3G4200D firmy ST Microelectronics.
+ ADXL345 firmy AnalogDevices, a drugi to żyroskop PmodGYRO oparty na układzie
+ L3G4200D firmy ST Microelectronics.
 \end_layout
 
 \begin_layout Standard
 ADXL345 to niewielki akcelerometr posiadający wysoką rozdzielczość wykonywanych
  pomiarów (13-bitów) i wykonujący pomiary w zakresie ±16g.
- Urządzenie to dokonuje pomiaru zarówno dynamicznego przyśpieszenia będącego
- rezultatem ruchu, jak również przyśpieszenia statycznego takiego jak grawitacja
-, co mu pozwala pracować jako czujnik przeciążenia.
- Czujnik ten jest przyśpieszeniomerzem pojemnościowym, którego zasada działania
- została już opisana wcześniej.
+ Urządzenie to mierzy zarówno dynamiczne przyśpieszenia będące rezultatem
+ ruchu, jak również przyśpieszenia statycznego takiego jak grawitacja, co
+ mu pozwala mu pracować jako czujnik przeciążenia.
+ Układ ten jest przyśpieszeniomierzem pojemnościowym, którego zasada działania
+ została już opisana w rozdziale 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Akcelerometr-piezorezystancyjny"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 L3G4200D to trójosiowy czujnik prędkości kątowej o rozdzielczości 16 bitów,
  zapewniający niewielki dryft zera oraz wysoką czułość, niezależną od czasu
  i temperatury.
- Układ ten posiada trzy zakresy pomiarowowe: ±250/±500/±2000 dps oraz jest
- zdolny do wykonywania pomiarów w paśmie wybranym przez użytkownika.
+ Układ ten posiada trzy zakresy pomiarowe: ±250/±500/±2000 dps (ang.
+ 
+\emph on
+degree per second
+\emph default
+) oraz jest zdolny do wykonywania pomiarów w
+\begin_inset space ~
+\end_inset
+
+paśmie wybranym przez użytkownika.
  Żyroskopy firmy ST Microelectronics mają bardzo dobrą stabilność i czułość
  w funkcji temperatury oraz odporność na uszkodzenia mechaniczne.
- Przewaga nad innymi rozwiązaniami wynika z innego sposobu montażu struktury
- układu pomiarowego.
- W zastosowanym urządzeniu, jest on zamontowany w jednym, centralnym punkcie,
+ Przewaga nad innymi rozwiązaniami tego typu wynika z innego sposobu montażu
+ struktury układu pomiarowego.
+ W
+\begin_inset space ~
+\end_inset
+
+zastosowanym urządzeniu, jest on zamontowany w jednym, centralnym punkcie,
  zamiast w kilku, jak ma to miejsce w innych rozwiązaniach.
  Dzięki temu siły wynikające ze zmian temperatury, naprężeń mechanicznych
- przenoszą się na układ pomiarowy w znacznie miejszym stopniu.
+ przenoszą się na układ pomiarowy w znacznie mniejszym stopniu.
  Dodatkowo wykorzystany żyroskop bazuje na jednej masie pomiarowej dla wszystkic
 h trzech osi, co znacząco poprawia symetrię sygnałów wyjściowych i skutkuje
  mniejszymi rezonansami [
@@ -180,8 +200,12 @@ name "fig:Schemat-połączenia-mikrokontrolera"
 
 \begin_layout Standard
 Przedstawiony na rysunku schemat przygotowano na zwykłej płytce uniwersalnej.
- Do połączenia z zestawem uruchomieniowym wykorzystano złącze 34-pinowe
- służące domyślnie do połączenia z ekranem LCD.
+ Do połączenia z
+\begin_inset space ~
+\end_inset
+
+zestawem uruchomieniowym wykorzystano złącze 34-pinowe służące domyślnie
+ do połączenia z ekranem LCD.
  Dodatkowo na płytce zamontowano dwa złącza 12-pinowe, do których wpięto
  układy PmodACL i PmodGYRO.
  Wykorzystanie wspomnianego złącza z zestawu uruchmieniowego pozwalało na
@@ -270,8 +294,8 @@ key "LPC1768"
 \end_inset
 
 ), z których jednym jest tryb SPI.
- Aby nie ingerować w płytkę z mikrokomputerem, wykorzystano istniejące na
- niej gniazdo służące do podłączania wyświetlacza LCD (nie używanego).
+ Aby nie ingerować w płytkę LandTiger z mikrokomputerem, wykorzystano istniejące
+ na niej gniazdo służące do podłączania wyświetlacza LCD (nie używanego).
  Wymusiło to wykorzystanie interfejsu SSP1 (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -290,7 +314,7 @@ key "landtiger_sch"
 \end_layout
 
 \begin_layout Standard
-Dla uproszczenia realizacji zadania, postanowiono że mikrokontroler posłuży
+W celu uproszczenia realizacji zadania, postanowiono że mikrokontroler posłuży
  jedynie do odczytu przyspieszeń i prędkości kątowych z czujników.
  Pomiar ten odbywa się w pętli głównej z częstotliwością próbkowania wynoszącą
  20 Hz.
@@ -327,12 +351,7 @@ key "L3G4200D_datasheet"
 \end_layout
 
 \begin_layout Itemize
-określić zakres pomiarowy, w naszym przypadku 250 dps (ang.
- 
-\emph on
-degree per second
-\emph default
-),
+określić zakres pomiarowy, w naszym przypadku 250 dps,
 \end_layout
 
 \begin_layout Itemize
@@ -386,15 +405,15 @@ wysłanie otrzymanych wyników do komputera poprzez interfejs UART.
 Należy zauważyć, że dane pomiarowe pochodzące z akcelerometru i żyroskopu
  nie mogą posłużyć do wyznaczania przemieszczeń i co za tym idzie aktualnego
  położenia.
- Wynika to ze sposobu obliczania przemieszczeń - dwukrotnego całkowania
+ Wynika to ze sposobu obliczania przemieszczeń -- dwukrotnego całkowania
  przyspieszenia mierzonego akcelerometrem.
- Odczyty z akcelerometru obarczone są błędem, którego dwukrotne całkowanie
- (w praktyce sumowanie) powoduje jego znaczne narastanie.
+ Odczyty z akcelerometru obarczone są błędem.
+ Dwukrotne całkowanie powoduje dodatkowe jego zwiększenie.
  Uzyskany błąd jest tak znaczący, że nie pozwala w praktyce na wykorzystanie
  tej metody do określania położenia.
- Dało się to również zauważyć w niniejszej pracy.
+ Dało się to również zauważyć w trakcie realizacji niniejszej pracy.
  Przy pewnych założeniach, użycie przyspieszeniomierza pozwala jednak na
- określanie przemieszczeń.
+ przybliżone określanie przemieszczeń.
  Ma to miejsce np.
  w miernikach zliczających ludzkie kroki.
 \end_layout
@@ -402,7 +421,7 @@ Należy zauważyć, że dane pomiarowe pochodzące z akcelerometru i żyroskopu
 \begin_layout Standard
 Użycie akcelerometru w połączeniu z żyroskopem pozwala za to na dość dokładny
  pomiar kątów.
- Teoretycznie do okreslenia kąta wystarcza sam żyroskop.
+ Teoretycznie do określenia kąta wystarcza sam żyroskop.
  Całkując mierzoną przez niego prędkość obrotową można uzyskać kąt obrotu
  (znając warunki początkowe).
  W praktyce każdy odczyt wartości prędkości mierzonej żyroskopem obarczony
@@ -412,13 +431,13 @@ Użycie akcelerometru w połączeniu z żyroskopem pozwala za to na dość dokł
  Objawia się on tym że po obrocie o pewien kąt, a następnie rotacji o kąt
  przeciwny całka mierzonych prędkości znacznie różni się od wartości kąta
  początkowego.
- W celu eliminacji tego zjawiska, stosuje się dodatkowo akcelerometr, którego
- odczyty również pozwalają na określenie kąta.
+ W celu znaczącego zmniejszenia tego zjawiska, stosuje się dodatkowo akceleromet
+r, którego odczyty również pozwalają na określenie kąta.
  Oczywiście pomiar akcelerometrem w takim celu ma sens tylko wtedy, gdy
  jest on nieruchomy dzięki czemu jedynym mierzonym przez niego przyspieszeniem
  jest przyspieszenie ziemskie.
  Jeśli istnieje potrzeba dokładnego pomiaru kątów obrotów wokół trzech osi,
- należy dodatkowo zastosować trzeci czujnik - magnetometr (kompas)(
+ należy dodatkowo zastosować trzeci czujnik -- magnetometr (kompas)(
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RPY"
@@ -443,7 +462,7 @@ Komunikacja z komputerem PC
 Ostatnim elementem pomiaru, który obsługiwany jest przez mikroprocesor jest
  wysłanie zmierzonych danych do komputera.
  W tym celu wybrano interfejs UART, który umożliwia asynchroniczne odbieranie
- i nadawanie unformacji przy pomocy portu szeregowego (opisany w rozdziale
+ i nadawanie informacji przy pomocy portu szeregowego (opisany w rozdziale
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -487,8 +506,12 @@ RESET
  Dane pomiarowe były zapisywane w postaci C-stringa składającego się z sześciu
  liczb całkowitych oddzielonych znakami spacji.
  Trzy pierwsze liczby były uśrednionymi wynikami odczytanymi z akcelerometru
- dla osi X, Y i Z, a trzy kolejne to analogicznie uzyskane dane z żyroskopu
- dla każdej z osi.
+ dla osi X, Y i
+\begin_inset space ~
+\end_inset
+
+Z, a trzy kolejne to analogicznie uzyskane dane z żyroskopu dla każdej z
+ osi.
  Tak przygotowany łańcuch przesyłany był do komputera, gdzie następowała
  jego obróbka mająca na celu uzyskanie wartości liczbowych.
 \end_layout

@@ -105,7 +105,11 @@ Oczywiście wykorzystanie akcelerometrów i żyroskopów nie ogranicza się jedy
  do ich zastosowań w urządzeniach mobilnych.
  Czujniki przyśpieszenia wykorzystywane są również np.
  w układach stabilizacji optycznej, zabezpieczeniach chroniących przed skutkami
- upadków, układach automatyki i robotyki, jako detektory ruchu i zderzeń.
+ upadków, układach automatyki i
+\begin_inset space ~
+\end_inset
+
+robotyki, jako detektory ruchu i zderzeń.
  Żyroskopy wykorzystuje się głównie w układach pomiarowych kątów obrotu,
  oscylatorach, układach regulacji amplitudy drgań czy też w demodulatorach
  synchronicznych.
@@ -117,8 +121,11 @@ Oczywiście wykorzystanie akcelerometrów i żyroskopów nie ogranicza się jedy
 \begin_layout Standard
 Przedmiotem niniejszej pracy jest zrealizowanie pozycjometru inercyjnego
  na mikroprocesorze ARM CortexM3 z wykorzystaniem akcelerometru i żyroskopu
- wykonanych w technologii MEMS (Micro Electro-Mechanical Systems) - wykonanych
- w krzemie układów elektro-mechanicznych.
+ wykonanych w technologii MEMS (
+\emph on
+Micro Electro-Mechanical Systems
+\emph default
+) - wykonanych w krzemie układów elektro-mechanicznych.
  Ze względu na fakt, iż jest to praca wykonywana wspólnie przez dwie osoby,
  dokonano następującego podziału zadań koniecznych do wykonania:
 \end_layout
@@ -131,6 +138,19 @@ Przedmiotem niniejszej pracy jest zrealizowanie pozycjometru inercyjnego
 \begin_layout Itemize
 Paweł Mazik -- przygotowanie płytki koniecznej do połączenia mikrokontrolera
  z układami pomiarowymi, komunikacja z komputerem, interfejs użytkownika.
+\end_layout
+
+\begin_layout Standard
+Jeśli zaś chodzi o niniejszą pracę, to poszczególne rozdziały zostały napisane
+ wg następującego podziału:
+\end_layout
+
+\begin_layout Itemize
+Łukasz Cisowski -- rozdziały 2, 4, 6.2, 7.4;
+\end_layout
+
+\begin_layout Itemize
+Paweł Mazik -- rozdziały 3, 5, 6.1, 6.3, 7.1, 7.2, 7.3, 7.5.
 \end_layout
 
 \end_body
