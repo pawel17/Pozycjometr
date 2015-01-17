@@ -1182,7 +1182,14 @@ reference "eq:tlumienie_wzgledne"
 \end_inset
 
 ).
- Pozwala to na uproszczenie równania (wzór) do postaci 
+ Pozwala to na uproszczenie równania (wzór 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rownanie_ruchu_sejsmiczny_3"
+
+\end_inset
+
+) do postaci 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Gawedzki2010"
