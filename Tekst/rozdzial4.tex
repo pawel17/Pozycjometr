@@ -13,7 +13,7 @@ tak¿e serii \emph{M3}, gdy¿ jej dotyczy temat niniejszej pracy.
 
 \section{Firma \emph{ARM} i jej dzia³alno¶æ}
 
-Firma \emph{ARM} powsta³a ok. roku 1990 \cite{Paprocki2009} dziêki
+Firma \emph{ARM} powsta³a w roku 1990 \cite{Paprocki2009} dziêki
 porozumieniu kilku przedsiêbiorstw (m. in. \emph{Apple Computer} oraz
 \emph{VLSI Technology}) jako \emph{Advanced RISC Machines}. W 1998
 roku zmieniono nazwê i obecnie funkcjonuje ona jako \emph{ARM Holdings}.
@@ -21,8 +21,8 @@ Dzia³alno¶æ firmy skupia siê na uk³adach cyfrowych, przy czym nie
 jest to stricte produkcja pó³przewodników, lecz projektowanie i opracowywanie
 tzw. bloków w³asno¶ci intelektualnej IP (ang. \emph{Intellectual Property}).
 Flagowym produktem przedsiêbiorstwa s± rdzenie mikrokontrolerów, z
-których najbardziej popularnymi by³y \emph{ARM7}, \emph{ARM9} i \emph{ARM11}
-zastêpowane obecnie przez uk³ady serii \emph{Cortex}.
+których najbardziej popularnymi by³y \emph{ARM7}, \emph{ARM9} zastêpowane
+obecnie przez uk³ady serii \emph{Cortex}.
 
 Przegl±daj±c dokumentacje konkretnych mikrokontrolerów wykorzystuj±cych
 rdzenie \emph{ARM} i porównuj±c j± z tre¶ci± zawart± na stronie firmy
@@ -86,7 +86,7 @@ jest uk³ad oznaczony jako \emph{M0}. W~za³o¿eniach mia³ byæ jednostk±
 i szesnastobitowych w mniej zaawansowanych zastosowaniach. Rdzeñ \emph{Cortex-M1}
 projektowano z my¶l± o zastosowaniu w uk³adach logiki programowalnej
 (FPGA). Linia \emph{M3} zostanie szczegó³owo opisana w~kolejnym paragrafie.
-Najsilniejszym, pod wzglêdem mocy i mo¿liwo¶ci obliczeniowych, przedstawicielem
+Bardzo silnym, pod wzglêdem mocy i mo¿liwo¶ci obliczeniowych, przedstawicielem
 podrodziny \emph{Cortex-Mx} s± uk³ady sygnowane jako \emph{M4}. Ich
 zastosowaniem maj± byæ w za³o¿eniach obszary podobne do tych, w których
 u¿ywa siê procesorów DSP, a wiêc cyfrowe przetwarzanie sygna³ów. W
@@ -94,8 +94,8 @@ tym celu mikrokontrolery \emph{Cortex-M4} wyposa¿ono w sprzêtowe bloki
 (np. koprocesory) pozwalaj±ce realizowaæ obliczenia charakterystyczne
 dla procesorów sygna³owych.
 
-Z punktu widzenia programisty najistotniejsz± ró¿nic± miêdzy poszczególnymi
-rdzeniami \emph{Cortex-Mx} jest lista rozkazów (rysunek \ref{fig:thumb_2}).
+Z punktu widzenia programisty bardzo istotn± ró¿nic± miêdzy poszczególnymi
+rdzeniami \emph{Cortex} jest lista rozkazów (rysunek \ref{fig:thumb_2}).
 
 \begin{figure}
 \begin{centering}
@@ -140,10 +140,7 @@ magistrali danych i rozkazów (rysunek \ref{fig:Architektura-Harvard}).
 Zalet± takiej architektury jest mo¿liwo¶æ dostêpu do pamiêci danych
 i programu w tym samym czasie. Poniewa¿ jednak przestrzeñ adresowa
 dla obu z nich jest wspólna, nie mog± one wykorzystywaæ tej przestrzeni
-w pe³ni, lecz tylko w czê¶ci. Teoretycznie architektura harwardzka
-pozwala zmniejszyæ wp³yw dostêpu do danych na szybko¶æ wykonywania
-siê programu. W praktyce stosunkowo powolne taktowanie pamiêci flash
-(do 24 Mhz \cite{Paprocki2009}) mo¿e spowolniæ wykonywanie programu.
+w pe³ni, lecz tylko w czê¶ci.
 
 Mikrokontrolery z rdzeniem \emph{Cortex-M3} wspieraj± dostêp do danych
 z uwzglêdnieniem dwóch sposobów u³o¿enia bajtów, tj. \emph{little
@@ -193,8 +190,8 @@ chwili widoczny jest jeden:
 domy¶lnie przez przerwania i j±dro systemu operacyjnego pracuj±cego
 w trybie uprzywilejowanym,
 \item procesowego wska¼nika stosu PSP (ang. \emph{process stack pointer})
--- u¿ywanego przez programy u¿ytkownika uruchamiane pod kontrol± systemu
-operacyjnego.
+-- u¿ywanego przez programy u¿ytkownika kontrolowane przez system
+operacyjny.
 \end{itemize}
 Wykorzystanie dwóch stosów jest korzystne dla tworzenia bezpiecznych
 aplikacji, gdy¿ uniemo¿liwia dostêp do systemowego stosu, co grozi³oby
@@ -256,17 +253,16 @@ na rysunku \ref{fig:Mapa-pamieci}.
 \section{Obszary o dostêpie bitowym}
 
 Przestrzeñ adresowa rdzenia \emph{Cortex-M3} zawiera dwa obszary o
-dostêpie bitowym (okre¶lanych jako \emph{bit-band}): jeden w regionie
-pamiêci RAM, a drugi w regionie urz±dzeñ peryferyjnych. W pierwszym
-przypadku obszar rozpoczyna siê od adresu 0x20000000, za¶ drugi od
-0x40000000 {[}\cite{LPC1768}{]}. Takie rozwi±zanie pozwala na optymaln±
-pracê rdzenia. Normalnie aby zmieniæ jeden bit, nale¿y odczytaæ warto¶æ
-z~w³a¶ciwej komórki pamiêci, ustawiæ w niej warto¶æ odpowiedniego
-bitu, a nastêpnie tak zmodyfikowan± warto¶æ zapisaæ w pierwotnej komórce.
-Dziêki wykorzystaniu dostêpu bitowego, ten sam rezultat mo¿na uzyskaæ
-dziêki dostêpowi do w³a¶ciwej komórki pamiêci w obszarze mapowania
-bitów regionu \emph{bit-band}. Jej odpowiedni adres mo¿na wyznaczyæ
-dziêki poni¿szym formu³om \cite{bit_band_arm_www}:
+dostêpie bitowym (okre¶lanych jako \emph{bit-band}): w regionie pamiêci
+RAM oraz w regionie urz±dzeñ zewnêtrznych. W pierwszym przypadku obszar
+rozpoczyna siê od adresu 0x20000000, za¶ drugi od 0x40000000 {[}\cite{LPC1768}{]}.
+Takie rozwi±zanie pozwala na optymaln± pracê rdzenia. Normalnie aby
+zmieniæ jeden bit, nale¿y odczytaæ warto¶æ z~w³a¶ciwej komórki pamiêci,
+ustawiæ w niej warto¶æ odpowiedniego bitu, a nastêpnie tak zmodyfikowan±
+warto¶æ zapisaæ w pierwotnej komórce. Dziêki wykorzystaniu dostêpu
+bitowego, ten sam rezultat mo¿na uzyskaæ dziêki dostêpowi do w³a¶ciwej
+komórki pamiêci w obszarze mapowania bitów regionu \emph{bit-band}.
+Jej odpowiedni adres mo¿na wyznaczyæ dziêki poni¿szym formu³om \cite{bit_band_arm_www}:
 
 \begin{equation}
 bit\_word\_offset=(byte\_offset\cdot32)+(bit\_number\cdot4)\label{eq:bitband_formula_1}
@@ -338,17 +334,15 @@ stosuje siê dwie techniki:
 Konstrukcje dzisiejszych mikrokomputerów s± optymalizowane pod k±tem
 obs³ugi przerwañ. Rdzeñ \emph{Cortex-M3} posiada wbudowany kontroler
 przerwañ \emph{NVIC} (ang. \emph{nested vectored interrupt controller}).
-Pozwala on na obs³ugê piêtnastu przerwañ (wyj±tków) systemowych i
-240 przerwañ zewnêtrznych. Faktyczna liczba obs³ugiwanych przerwañ
-zale¿y od konkretnego mikrokontrolera. Wiêkszo¶æ wyj±tków systemowych
-i wszystkie przerwania wewnêtrzne mog± mieæ ustalany programowo priorytet
+Pozwala on na obs³ugê maksymalnie piêtnastu przerwañ (wyjatków) systemowych
+i 240 przerwañ zewnêtrznych. Faktyczna liczba obs³ugiwanych przerwañ
+zale¿y od konkretnego mikrokontrolera. Wiêkszo¶æ przerwañ systemowych
+i wszystkie przerwania zewnêtrzne moga mieæ ustalany programowo priorytet
 \cite{Paprocki2009}. Niektóre priorytety zgrupowano (w kolejno¶ci
 malej±cej) w tabeli na rysunku \ref{fig:priorytety-przerwan}. Jak
-widaæ, zdarzeniem o~najwy¿szym priorytecie w systemie jest zerowanie
-uk³adu.
+widaæ, zdarzeniem o najwy¿szym priorytecie w systemie jest resetowanie.
 
-Mo¿liwo¶ci kontrolera \emph{NVIC} mo¿na skrótowo opisaæ w nastêpuj±cych
-punktach\cite{Paprocki2009}:
+Mo¿liwo¶ci kontrolera \emph{NVIC} opisano skrótowo w poni¿szych punktach\cite{Paprocki2009}.
 \begin{enumerate}
 \item Obs³uga przerwañ zagnie¿d¿onych (zwanych te¿ wielopoziomowymi) --
 je¶li w trakcie procedury obs³ugi przerwania ISR (ang. \emph{interrupt
@@ -366,10 +360,10 @@ dziêki czemu unika siê sytuacji wielokrotnego obs³u¿enia tego samego
 zdarzenia podczas zmiany priorytetu.
 \item Zoptymalizowane opó¼nienia czasowe obs³ugi przerwañ -- uzyskano to
 m. in. dziêki automatycznemu zapisywaniu i odzyskiwaniu tzw. kontekstu
-zadania, czyli warto¶ci kluczowych dla niego rejestrów. Inne sposoby
-skrócenia opó¼nieñ w obs³udze przerwañ (np. \emph{Tail-Chaining},
+zadania, a wiêc zawarto¶ci najwa¿niejszych dla niego rejestrów. Inne
+sposoby skrócenia opó¼nieñ w obs³udze przerwañ (np. \emph{Tail-Chaining},
 przerywanie operacji POP) opisano w literaturze \cite{Paprocki2009}.
-\item Maskowanie przerwañ - wszystkie przerwania mog± byæ maskowane na podstawie
+\item Maskowanie przerwañ - przerwania mog± byæ maskowane na podstawie wysoko¶ci
 priorytetów lub maskowane ca³kowicie poprzez wpisy do w³a¶ciwych rejestrów
 maskuj±cych.
 \end{enumerate}
@@ -397,23 +391,16 @@ pamiêci programu przy jednoczesnym wzro¶cie szybko¶ci jego wykonywania
 
 W celu jeszcze lepszego wykorzystania ww. cech rdzenia \emph{Cortex-M3},
 stworzono odmianê asemblera oznaczan± w skrócie jako UAL (ang. \emph{unified
-assembly language}). Pozwala ona w szybszy i czytelniejszy sposób
+assembly language}). Pozwala ona w ³atwiejszy i czytelniejszy sposób
 wykorzystywaæ w programie rozkazy 16- i 32-bitowe.
 
 Zestaw rozkazów \emph{Thumb-2} zawiera operacje, które mog± byæ wykonywane
-zarówno jako 16- jak i~32-bitowe. Przyk³adem jest dodawanie liczby
-do zawarto¶ci rejestru \cite{Paprocki2009}:
-
-\begin{lstlisting}
-ADDS R0, #5 ;Domy¶lnie zostanie u¿yta instrukcja 16-bitowa
-ADDS.N R0, #5 ;Jawne u¿ycie rozkazu 16-bitowego (N = Narrow)
-ADDS.W R0, #5 ;Jawne u¿ycie rozkazu 32-bitowego Thumb-2 (W = Wide)
-\end{lstlisting}
-
-
-U¿ycie przyrostka \emph{W} lub \emph{N} po kropce za w³a¶ciw± nazw±
-rozkazu pozwala wyspecyfikowaæ d³ugo¶æ rozkazu. Mnemoniki pozbawione
-sufiksu s± zwykle t³umaczone na instrukcje 16-bitowe.
+zarówno jako 16- jak i~32-bitowe. O rodzaju operacji decyduje przyrostek
+(\emph{N} dla instrukcji 16-bitowych, \emph{W} dla 32-bitowych) dodawany
+po kropce do w³a¶ciwego mnemonika instrukcji (np. \emph{ADDS.N} lub
+\emph{ADDS.W}, gdzie \emph{ADDS} jest instrukcj± dodawania liczby
+do zawarto¶ci rejestru bêd±cego operandem). Mnemoniki pozbawione sufiksu
+s± zwykle t³umaczone na instrukcje 16-bitowe.
 
 Jak widaæ programowanie rdzenia \emph{Cortex-M3} w jêzyku asemblera
 niesie ze sob± spore mo¿liwo¶ci optymalizacji. Wad± tak niskopoziomowego

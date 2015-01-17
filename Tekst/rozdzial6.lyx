@@ -134,7 +134,7 @@ key "MEMS_gyroscope"
 
 \end_inset
 
-].
+.
 \end_layout
 
 \begin_layout Section
@@ -165,7 +165,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename rys/płytka.png
+	filename rys/płytka/płytka_schemat.png
 	lyxscale 70
 	scale 60
 
@@ -213,6 +213,106 @@ zestawem uruchomieniowym wykorzystano złącze 34-pinowe służące domyślnie
  Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger oczywiście
  wraz z mikroprocesorem, zapewniając niezawodność połączenia pomiędzy wszystkimi
  płytkami drukowanymi wchodzącymi w skład zestawu pomiarowego.
+ Zdjęcia zmontowanej płytki przedstawiono na rysunkach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Górna-część-zmontowanej"
+
+\end_inset
+
+ i 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dolna-część-płytki"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/płytka/płytka_góra.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Górna część zmontowanej płytki
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Górna-część-zmontowanej"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/płytka/płytka_spód.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Dolna część płytki
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dolna-część-płytki"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
