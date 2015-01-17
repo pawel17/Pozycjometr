@@ -572,7 +572,8 @@ reference "fig:discrimination_win"
 
 \end_inset
 
-), które uznawane są za zakłócenia (
+), które wykorzystywane są do podjęcia decyzji, czy mierzona wartość jest
+ szumem i czy w związku z tym można ją uznać za zerową (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "acl_integrating"
@@ -580,6 +581,37 @@ key "acl_integrating"
 \end_inset
 
 ).
+ Algorytm postępowania jest prosty - jeśli wartość zmierzona mieści się
+ w przedziale określonym przez wartości progowe, to to wartość tę uznajemy
+ za zerową.
+ Omawiana procedura jest opisana w literaturze (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acl_integrating"
+
+\end_inset
+
+) i w języku angielskim jest określana jako 
+\emph on
+software discrimination window
+\emph default
+.
+ W dalszej części niniejszej pracy będzie określana w skrócie jako SDW.
+ Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sdw_after"
+
+\end_inset
+
+ widać przebieg z rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:discrimination_win"
+
+\end_inset
+
+ po filtracji opisywaną metodą.
 \end_layout
 
 \begin_layout Standard
@@ -628,7 +660,56 @@ name "fig:discrimination_win"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rys/obliczenia/discrimination_window_after.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sygnał z rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:discrimination_win"
+
+\end_inset
+
+ po filtracji SDW (
+\emph on
+Źródło:
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acl_integrating"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sdw_after"
+
+\end_inset
+
 
 \end_layout
 
@@ -637,7 +718,12 @@ name "fig:discrimination_win"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -700,29 +786,10 @@ k
 \end_layout
 
 \begin_layout Standard
-Zależność 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:filtr_komplementarny"
-
-\end_inset
-
- wyraża znaną w literaturze z dziedziny przetwarzania sygnałów filtrację
- komplementarną
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Tutaj jakaś referencja
-\end_layout
-
-\end_inset
-
-.
- W omawianym przypadku pozwala ona zniwelować błąd dryftu związany z żyroskopem
- oraz błąd pomiaru kąta przy pomocy akcelerometru, wynikający z obecności
- przyspieszeń innych niż grawitacyjne.
- Można powiedzieć również, że podana metoda łączy zalety pomiarów żyroskopem
+Opisana metoda pozwala zniwelować błąd dryftu związany z żyroskopem oraz
+ błąd pomiaru kąta przy pomocy akcelerometru, wynikający z obecności przyspiesze
+ń innych niż grawitacyjne.
+ Można powiedzieć również, że taka procedura łączy zalety pomiarów żyroskopem
  i akcelerometrem.
  Współczynnik 
 \emph on
@@ -730,7 +797,22 @@ k
 \emph default
  dobiera się empirycznie.
  Dokładniejsze wyniki, lecz dużo bardzie złożone obliczeniowo, daje filtracja
- Kallmana, szeroko opisywana w publikacjach z dziedziny przetwarzania sygnałów.
+ Kalmana, szeroko opisywana w publikacjach z dziedziny przetwarzania sygnałów
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalman_pg"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nadachowski2004"
+
+\end_inset
+
+).
  W metodzie tej, wagi z jakimi brane są wielkości pochodzące od poszczególnych
  czujników obliczane są na bieżąco.
 \end_layout
