@@ -1204,7 +1204,7 @@ y=-\frac{1}{\omega_{0}^{2}}x''=-\frac{1}{\omega_{0}^{2}}a\label{eq:uproszczone_r
 \end_layout
 
 \begin_layout Standard
-z której wynika, że względne wychylenie masy przetwornika jest proporcjonalne
+z której wynika, że względne wychylenie masy sejsmicznej jest proporcjonalne
  do przyspieszenia bezwzględnego.
  Współczynnik proporcjonalności łączący te dwie wielkości jest jednak odwrotnie
  proporcjonalny do kwadratu pulsacji drgań własnych.
@@ -1288,7 +1288,15 @@ Mierzone przyspieszenie bezwzględnejest przekształcane kolejno na:
 \end_layout
 
 \begin_layout Itemize
-względne przemieszczenie y masy m względem obudowy,
+względne przemieszczenie 
+\emph on
+y
+\emph default
+ masy 
+\emph on
+m
+\emph default
+ względem obudowy,
 \end_layout
 
 \begin_layout Itemize
@@ -1335,7 +1343,7 @@ Z
 \end_layout
 
 \begin_layout Standard
-Ponieważ częstotliwość drgań własnych tego typu przetworników są stosunkowo
+Ponieważ częstotliwości drgań własnych tego typu przetworników są stosunkowo
  niskie (od kilkuset herców do kilku kiloherców), niewielkie jest również
  ich pasmo przenoszenia.
  Do zalet tego typu konstrukcji można zaliczyć możliwość pomiaru stałych
@@ -1615,8 +1623,14 @@ reference "fig:Ilustracja-efektu-piezoelektrycz"
  krzemu i tlenu, co skutkuje pojawieniem się ładunków na jej powierzchni
  oraz pola elektrycznego w jej wnętrzu.
  Kierunek pola zależy od kierunku działania siły oraz od sposobu wycięcia
- płytki względem osi krystalograficznych kwarcu, zaś jego wartość od wartości
- działającej siły.
+ płytki względem osi krystalograficznych kwarcu 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+, zaś jego wartość od wartości działającej siły.
 \end_layout
 
 \begin_layout Standard
@@ -2317,7 +2331,7 @@ reference "fig:Charakterystyki-amplitudowe-toru"
  Jak widać układ nie przenosi niskich częstotliwości.
  W szczególności nie jest możliwy pomiar sygnałów stałych.
  Wynika to z tego, że gromadzony na powierzchni piezoelektryka ładunek,
- rozładowuje się przez skończoną rezystancję toru pomiarowego.
+ rozładowuje się przez rezystancję toru pomiarowego.
  Dolna pulsacja graniczna toru wynosi 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2340,7 +2354,7 @@ key "Gawedzki2010"
 \end_layout
 
 \begin_layout Standard
-i rośnie ze wzrostem rezystancji 
+i maleje ze wzrostem rezystancji 
 \emph on
 R
 \emph default
@@ -2458,7 +2472,21 @@ name "fig:Model-akcelerometru-piezoelektry"
 \begin_layout Standard
 Zasada działania akcelerometru piezoelektrycznego polega na wytwarzaniu
  ładunku elektrycznego na powierzchni piezoelektryka, w wyniku oddziaływania
- masy sejsmicznej poddawanej działaniu siły bezwładności.
+ masy sejsmicznej poddawanej działaniu siły bezwładności (rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model-akcelerometru-piezoelektry"
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+.
  Wartość ładunku zależy od wartości siły, zaś znak od tego czy kryształ
  jest ściskany czy rozciągany.
 \end_layout
@@ -2480,7 +2508,14 @@ reference "fig:Model-akcelerometru-piezoelektry"
 
 \begin_layout Standard
 Siłę bezwładności, z jaką masa sejsmiczna działa na przetwornik, może być
- wyznaczona z zależności:
+ wyznaczona z zależności 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
