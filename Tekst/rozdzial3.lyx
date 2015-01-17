@@ -709,7 +709,11 @@ Serial Peripheral Interface
 \emph default
 ) został zaprojektowany i po raz pierwszy zastosowany przez firmę Motorola.
  Jest jednym z najczęściej używanych interfejsów między mikroprocesorami
- a urządzeniami zewnętrznymi takimi jak przetworniki AD/DA, pamięci EEPROM,
+ a
+\begin_inset space ~
+\end_inset
+
+urządzeniami zewnętrznymi takimi jak przetworniki AD/DA, pamięci EEPROM,
  czujniki (akcelerometry, żyroskopy), pamięci flash, sterowniki ekranów
  dotykowych itp.
  W świetle omówionych wcześniej cech interfejsów, SPI może być scharakteryzowany
@@ -1244,6 +1248,14 @@ slave'a
 master
 \emph default
  może wykorzystywać tylko jeden sygnał CS.
+ Schemat takiego połączenia przedstawiono na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Komunikacja-przy-pomocy"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1282,6 +1294,13 @@ key "spi_daisy_chain"
 \end_inset
 
 )
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Komunikacja-przy-pomocy"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

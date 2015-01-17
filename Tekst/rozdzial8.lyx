@@ -103,7 +103,11 @@ Poprawne wykonanie pomiaru i przeliczenie wyników otrzymanych z urządzeń
  W wyniku tego nastąpiła szybka kumulacja błędu objawiająca się niedługo
  po rozpoczęciu pomiaru.
  Metody tej nie używa się do pomiaru położenia.
- W tym celu stosuje się inne czujniki (np.
+ W
+\begin_inset space ~
+\end_inset
+
+tym celu stosuje się inne czujniki (np.
  GPS).
  Należy również dodać, że zastosowany przez nas sposób całkowania numerycznego
  (metoda trapezów) opisany w literaturze (
@@ -113,15 +117,22 @@ key "acl_integrating"
 
 \end_inset
 
-) jest stosunkowo prosty w implementacji, aczkolwiek jego dokładność często
- nie jest wystarczająca.
+) jest stosunkowo prosty w
+\begin_inset space ~
+\end_inset
+
+implementacji, aczkolwiek jego dokładność często nie jest wystarczająca.
  Lepsze rezultaty mogłaby dać np.
  metoda Rungego-Kutty.
 \end_layout
 
 \begin_layout Standard
 Kolejnym problemem była korekcja kąta mierzonego przy pomocy żyroskopu.
- Jest to konieczne w celu zminimalizowania tzw.
+ Jest to konieczne w
+\begin_inset space ~
+\end_inset
+
+celu zminimalizowania tzw.
  dryftu.
  Sam akcelerometr nie jest w stanie skorygować pomiarów w odniesieniu do
  wszystkich trzech osi.

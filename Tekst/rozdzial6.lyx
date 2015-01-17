@@ -208,8 +208,8 @@ zestawem uruchomieniowym wykorzystano złącze 34-pinowe służące domyślnie
  do połączenia z ekranem LCD.
  Dodatkowo na płytce zamontowano dwa złącza 12-pinowe, do których wpięto
  układy PmodACL i PmodGYRO.
- Wykorzystanie wspomnianego złącza z zestawu uruchmieniowego pozwalało na
- stabilne przyłączenie akcelerometra i żyroskopu.
+ Wykorzystanie wspomnianego złącza z zestawu uruchomieniowego pozwalało
+ na stabilne przyłączenie akcelerometra i żyroskopu.
  Dzięki takiemu rozwiązaniu, pomiar dotyczy całego układu LandTiger oczywiście
  wraz z mikroprocesorem, zapewniając niezawodność połączenia pomiędzy wszystkimi
  płytkami drukowanymi wchodzącymi w skład zestawu pomiarowego.

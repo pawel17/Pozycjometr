@@ -81,8 +81,12 @@ Budowa i zasada działania
  Korzystne łożyskowanie uzyskuje się dzięki strumieniowi sprężonego powietrza
  lub poprzez zawieszenie żyroskopu w polu elektrostatycznym lub magnetycznym
  w próżni.
- Przedmiotem znanym z życia codziennego, który wprawiony w szybki ruch obrotowy
- zachowuje się jak żyroskop jest bąk.
+ Przedmiotem znanym z
+\begin_inset space ~
+\end_inset
+
+życia codziennego, który wprawiony w szybki ruch obrotowy zachowuje się
+ jak żyroskop jest bąk.
 \begin_inset Float figure
 wide false
 sideways false
@@ -409,9 +413,8 @@ Podział żyroskopów
  W przypadku tych pierwszych, zasadniczym elementem jest szybko wirujący
  obiekt, zawieszony w konstrukcji pozwalającej na swobodny obrót wokół układu
  odniesienia (np.
- ciała na którym umieszczony jest żyroskop).
-
-konstrukcji pozwalającej na swobodny obrót wokół układu odniesienia (np.
+ ciała na którym umieszczony jest żyroskop).konstrukcji pozwalającej na swobodny
+ obrót wokół układu odniesienia (np.
  Można to uzyskać dzięki zastosowaniu odpowiednich przegubów o osi obrotu
  prostopadłej do osi obrotu wirującej bryły.
  Takie rozwiązanie zmniejsza wpływ obrotów ciała na żyroskop, który dąży

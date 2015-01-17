@@ -6,7 +6,7 @@ w celu dokonania pomiaru przemieszczenia i k±ta obrotu uk³adu. Dane
 przes³ane do komputera nie mog± byæ jedynie wy¶wietlone po stronie
 komputera w postaci ci±gu znaków, gdy¿ to praktycznie uniemo¿liwia³oby
 analizê otrzymywanych danych. Z tego wzglêdu konieczne jest odpowiednie
-przekszta³cenie otrzymanych danych w sposób, który umo¿liwi zobrazowanie
+przekszta³cenie otrzymanych danych w~sposób, który umo¿liwi zobrazowanie
 zmierzonych przemieszczeñ b±d¼ obrotów. W tym celu przygotowano aplikacjê,
 której zadaniem jest odbiór i wy¶wietlenie wyników w formie graficznej.
 Wykorzystano do tego platformê .NET i jêzyk C\# z wykorzystaniem \emph{Windows
@@ -165,8 +165,16 @@ kroku obliczeniowym,
 Analogicznie wyznacza siê prêdko¶ci i po³o¿enia w pozosta³ych osiach.
 
 W celu wyeliminowania wp³ywu szumów przy braku przyspieszenia, okre¶lono
-warto¶ci progowe (rysunek \ref{fig:discrimination_win}), które uznawane
-s± za zak³ócenia (\cite{acl_integrating}).
+warto¶ci progowe (rysunek \ref{fig:discrimination_win}), które wykorzystywane
+s± do podjêcia decyzji, czy mierzona warto¶æ jest szumem i czy w zwi±zku
+z tym mo¿na j± uznaæ za zerow± (\cite{acl_integrating}). Algorytm
+postêpowania jest prosty - je¶li warto¶æ zmierzona mie¶ci siê w przedziale
+okre¶lonym przez warto¶ci progowe, to to warto¶æ tê uznajemy za zerow±.
+Omawiana procedura jest opisana w literaturze (\cite{acl_integrating})
+i w jêzyku angielskim jest okre¶lana jako \emph{software discrimination
+window}. W dalszej czê¶ci niniejszej pracy bêdzie okre¶lana w skrócie
+jako SDW. Na rysunku \ref{fig:sdw_after} widaæ przebieg z rysunku
+\ref{fig:discrimination_win} po filtracji opisywan± metod±.
 
 \begin{figure}
 \begin{centering}
@@ -174,11 +182,19 @@ s± za zak³ócenia (\cite{acl_integrating}).
 \par\end{centering}
 
 \caption{Eliminacja szumów przy braku przyspieszenia (\emph{¬ród³o:} \cite{acl_integrating})\label{fig:discrimination_win}}
-
-
 \end{figure}
 
 
+\begin{figure}
+\begin{centering}
+\includegraphics{rys/obliczenia/discrimination_window_after}
+\par\end{centering}
+
+\caption{Sygna³ z rysunku \ref{fig:discrimination_win} po filtracji SDW (\emph{¬ród³o:}
+\cite{acl_integrating})\label{fig:sdw_after}}
+
+
+\end{figure}
 
 
 Pamiêtaj±c, ¿e akcelerometr nie mierzy przyspieszenia w $\frac{m}{s^{2}}$,
@@ -202,17 +218,15 @@ gdzie
 \item $\alpha_{a}$-- k±t obliczony przy pomocy danych pomiarowych z akcelerometru,
 \item \emph{k} -- wspó³czynnik z przedzia³u (0 - 1).
 \end{itemize}
-Zale¿no¶æ \ref{eq:filtr_komplementarny} wyra¿a znan± w literaturze
-z dziedziny przetwarzania sygna³ów filtracjê komplementarn±. W omawianym
-przypadku pozwala ona zniwelowaæ b³±d dryftu zwi±zany z ¿yroskopem
+Opisana metoda pozwala zniwelowaæ b³±d dryftu zwi±zany z ¿yroskopem
 oraz b³±d pomiaru k±ta przy pomocy akcelerometru, wynikaj±cy z obecno¶ci
 przyspieszeñ innych ni¿ grawitacyjne. Mo¿na powiedzieæ równie¿, ¿e
-podana metoda ³±czy zalety pomiarów ¿yroskopem i akcelerometrem. Wspó³czynnik
-\emph{k} dobiera siê empirycznie. Dok³adniejsze wyniki, lecz du¿o
-bardzie z³o¿one obliczeniowo, daje filtracja Kallmana, szeroko opisywana
-w publikacjach z dziedziny przetwarzania sygna³ów. W metodzie tej,
-wagi z jakimi brane s± wielko¶ci pochodz±ce od poszczególnych czujników
-obliczane s± na bie¿±co.
+taka procedura ³±czy zalety pomiarów ¿yroskopem i akcelerometrem.
+Wspó³czynnik \emph{k} dobiera siê empirycznie. Dok³adniejsze wyniki,
+lecz du¿o bardzie z³o¿one obliczeniowo, daje filtracja Kalmana, szeroko
+opisywana w publikacjach z dziedziny przetwarzania sygna³ów (\cite{kalman_pg},
+\cite{Nadachowski2004}). W metodzie tej, wagi z jakimi brane s± wielko¶ci
+pochodz±ce od poszczególnych czujników obliczane s± na bie¿±co.
 
 \begin{figure}
 \begin{centering}

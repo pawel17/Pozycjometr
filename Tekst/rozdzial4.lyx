@@ -1462,7 +1462,7 @@ NVIC
 nested vectored interrupt controller
 \emph default
 ).
- Pozwala on na obsługę maksymalnie piętnastu przerwań (wyjatków) systemowych
+ Pozwala on na obsługę maksymalnie piętnastu przerwań (wyjątków) systemowych
  i 240 przerwań zewnętrznych.
  Faktyczna liczba obsługiwanych przerwań zależy od konkretnego mikrokontrolera.
  Większość przerwań systemowych i wszystkie przerwania zewnętrzne moga mieć
