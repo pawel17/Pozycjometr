@@ -115,8 +115,8 @@ cyfrowych interfejsów i~transmisji szeregowych.
 \includegraphics{rys/interfejsy/transmisja_szeregowa}
 \par\end{centering}
 
-\caption{Uk³ad transmisji szeregowej (\emph{¬ród³o:} \cite{Krzyzanowski207})
-\label{fig:Uklad-transmisji-szeregowej}}
+\caption{Uk³ad transmisji szeregowej (opis sygna³ów w tek¶cie) (\emph{¬ród³o:}
+\cite{Krzyzanowski207}) \label{fig:Uklad-transmisji-szeregowej}}
 \end{figure}
 
 
@@ -152,15 +152,15 @@ trwania. Istniej± dwa rodzaje transmisji szeregowej:
 W przypadku transmisji asynchronicznej zegary nadajnika i odbiornika
 nie s± synchronizowane. Dane nie musz± byæ przesy³ane w sposób ci±g³y,
 tzn. miêdzy kolejnymi transmisjami, linia danych znajduje siê w stanie
-spoczynku przez tzw. czas martwy. Dane przesy³ane nosz± w literaturze
-nazwê znaku i~sk³adaj± siê zwykle z od piêciu do o¶miu bitów. Aby
-odbiornik móg³ wykryæ pocz±tek oraz koniec nadawania danych, ka¿dy
-znak poprzedzony jest tzw. bitem startu oraz zakoñczony tzw. bitami
-stopu (od jednego do dwóch). Dodatkowo w celu zapewnienia poprawno¶ci
-transmisji stosuje siê równie¿ tzw. bit parzysto¶ci. Wad± transmisji
-asynchronicznej jest istnienie czasu martwego, zmniejszaj±cego efektywno¶æ
-przesy³u danych. Suma liczby jedynek tworz±cych znak wraz z bitem
-parzysto¶ci powinna tworzyæ liczbê parzyst±.
+spoczynku przez tzw. czas martwy. Dane przesy³ane nosz± tak¿e nazwê
+znaku i~zawieraj± zwykle od piêciu do o¶miu bitów. Aby odbiornik
+móg³ wykryæ pocz±tek oraz koniec nadawania danych, ka¿dy znak poprzedzony
+jest tzw. bitem startu oraz zakoñczony tzw. bitami stopu (od jednego
+do dwóch). Dodatkowo w celu zapewnienia poprawno¶ci transmisji stosuje
+siê równie¿ tzw. bit parzysto¶ci. Wad± transmisji asynchronicznej
+jest istnienie czasu martwego, zmniejszaj±cego efektywno¶æ przesy³u
+danych. Suma liczby jedynek tworz±cych znak wraz z bitem parzysto¶ci
+powinna tworzyæ liczbê parzyst±.
 
 \begin{figure}
 \begin{centering}
@@ -224,10 +224,10 @@ Modbus i wiele innych.
 Interfejs SPI (ang. \emph{Serial Peripheral Interface}) zosta³ zaprojektowany
 i po raz pierwszy zastosowany przez firmê Motorola. Jest jednym z
 najczê¶ciej u¿ywanych interfejsów miêdzy mikroprocesorami a~urz±dzeniami
-zewnêtrznymi takimi jak przetworniki AD/DA, pamiêci EEPROM, czujniki
-(akcelerometry, ¿yroskopy), pamiêci flash, sterowniki ekranów dotykowych
-itp. W ¶wietle omówionych wcze¶niej cech interfejsów, SPI mo¿e byæ
-scharakteryzowany jako:
+zewnêtrznymi takimi jak przetworniki A/D oraz D/A, pamiêci EEPROM,
+czujniki (akcelerometry, ¿yroskopy), pamiêci flash, sterowniki ekranów
+dotykowych itp. W ¶wietle omówionych wcze¶niej cech interfejsów, SPI
+mo¿e byæ scharakteryzowany jako:
 \begin{itemize}
 \item szeregowy,
 \item synchroniczny,
@@ -470,11 +470,12 @@ informacji przy pomocy portu szeregowego. Sk³ada siê z trzech zasadniczych
 elementów:
 \begin{itemize}
 \item konwertera równoleg³o-szeregowego (ang. \emph{parallel to serial}),
-pozwalaj±cego na przesy³anie danych z komputera,
-\item konwertera szeregowo-równoleg³ego, umo¿liwiaj±cego odbiór danych pochodz±cych
-z komputera przez urz±dzenie zewnêtrzne,
-\item bufora danych, s³u¿±cego do tymczasowego przechowywania danych w przypadku
-szybkiej transmisji.
+pozwalaj±cego na przesy³anie danych z urz±dzenia cyfrowego (komputer,
+mikrokontroler itp.),
+\item konwertera szeregowo-równoleg³ego, umo¿liwiaj±cego odbiór danych przez
+urz±dzenie cyfrowe (np. komputer lub mikrokomputer),
+\item bufora danych, gromadz±cego tymaczasowo dane w przypadku szybkiej
+komunikacji.
 \end{itemize}
 UART u¿ywany jest czêsto w po³±czeniu z takim standardami komunikacyjnymi
 jak RS-232, EIA czy RS-485. Jego uniwersalno¶æ polega na tym, ¿e szybko¶æ

@@ -57,7 +57,7 @@ Do przyk³adów ich u¿ycia mo¿na zaliczyæ:
 \item zabezpieczenia dysków twardych, chroni±ce przed skutkami upadków i
 utrat± danych,
 \item urz±dzenia mobilne, których aplikacje wykorzystuj± informacje o nachyleniu
-i przemieszczeniu urz±dzenia,
+urz±dzenia,
 \item konsole i kontrolery gier,
 \item uk³ady wyzwalania poduszek powietrznych w samochodach,
 \item uk³ady automatyki i robotyki (identyfikatory po³o¿enia),
@@ -69,7 +69,7 @@ Istniej±ce obecnie na rynku konstrukcje akcelerometrów cechuj± siê
 nastêpuj±cymi parametrami:
 \begin{itemize}
 \item napiêcie zasilania (zwykle 3.3 V lub 5 V),
-\item charakter sygna³u wyj¶ciowego (zwykle analogowy, rzadziej cyfrowy),
+\item charakter sygna³u wyj¶ciowego (analogowy lub cyfrowy),
 \item pasmo przenoszenia,
 \item zakres pomiarowy (podawany zwykle w krotno¶ciach przyspieszenia ziemskiego
 \emph{g}),
@@ -397,7 +397,7 @@ odwrotne (nazywane zjawiskiem piezoelektrycznym odwrotnym, w odró¿nieniu
 od prostego), polegaj±ce na zmianie wymiarów kryszta³u pod wp³ywem
 przy³o¿onego pola elektrycznego. 
 
-W praktyce jako piezoelektryka najczê¶ciej u¿ywa siê krzemu (SiO\textsubscript{2}).
+W praktyce jako piezoelektryka najczê¶ciej u¿ywa siê kwarcu (SiO\textsubscript{2}).
 Do jego zalet mo¿na zaliczyæ stosunkowo du¿± wytrzyma³o¶æ mechaniczn±,
 znaczn± rezystywno¶æ i sta³± piezoelektryczn± i niewielk± zale¿no¶æ
 zjawiska piezoelektrycznego od temperatury.
@@ -475,7 +475,7 @@ U=\frac{Q}{C},\label{eq:napiecie_piezoelektryk}
 
 
 gdzie \emph{C} jest sum± pojemno¶ci p³ytki i obwodu pomiarowego \cite{Gawedzki2010}.
-Czu³o¶æ ³adunkowa wynosi:
+Czu³o¶æ ³adunkowa wynosi \cite{Gawedzki2010}:
 
 \begin{equation}
 S_{Q}=\frac{dQ}{dF}=k_{p},\label{eq:czulosc_ladunkowa_piezoelektryka}
@@ -517,7 +517,8 @@ ona mog³a posiadaæ kilka czêstotliwo¶ci rezonansowych. Najni¿sza z
 nich ogranicza pasmo przetwarzania przetwornika od góry. W celu okre¶lenia
 dolnego ograniczenia, mo¿na pos³u¿yæ siê modelem toru pomiarowego
 ukazanego na rysunku \ref{fig:schemat-toru-pomiarowego}, wykorzystuj±cego
-przetwornik piezoelektryczny. Tor sk³ada siê z nastêpuj±cych elementów:
+przetwornik piezoelektryczny. Tor sk³ada siê z nastêpuj±cych elementów
+\cite{Gawedzki2010}:
 \begin{itemize}
 \item p³ytki piezoelektrycznej o rezystancji \emph{R\textsubscript{\emph{c}}}
 i pojemno¶ci \emph{C\textsubscript{\emph{c}}},
@@ -693,7 +694,7 @@ Maj±c na uwadze podstawienia \ref{eq:pulsacja_drgan_wlasnych} i \ref{eq:tlumieni
 mo¿na powy¿sz± zale¿no¶æ zapisaæ operatorowo w nastêpuj±cy sposób:
 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right).\label{eq:rownanie_ruchu_piezo_operatorowo}
+\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)+U\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right).\label{eq:rownanie_ruchu_piezo_operatorowo}
 \end{equation}
 
 
