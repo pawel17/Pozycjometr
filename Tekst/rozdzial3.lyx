@@ -359,7 +359,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Układ transmisji szeregowej (
+Układ transmisji szeregowej (opis sygnałów w tekście) (
 \emph on
 Źródło:
 \emph default
@@ -471,11 +471,11 @@ W przypadku transmisji asynchronicznej zegary nadajnika i odbiornika nie
  między kolejnymi transmisjami, linia danych znajduje się w stanie spoczynku
  przez tzw.
  czas martwy.
- Dane przesyłane noszą w literaturze nazwę znaku i
+ Dane przesyłane noszą także nazwę znaku i
 \begin_inset space ~
 \end_inset
 
-składają się zwykle z od pięciu do ośmiu bitów.
+zawierają zwykle od pięciu do ośmiu bitów.
  Aby odbiornik mógł wykryć początek oraz koniec nadawania danych, każdy
  znak poprzedzony jest tzw.
  bitem startu oraz zakończony tzw.
@@ -717,9 +717,9 @@ Serial Peripheral Interface
 \begin_inset space ~
 \end_inset
 
-urządzeniami zewnętrznymi takimi jak przetworniki AD/DA, pamięci EEPROM,
- czujniki (akcelerometry, żyroskopy), pamięci flash, sterowniki ekranów
- dotykowych itp.
+urządzeniami zewnętrznymi takimi jak przetworniki A/D oraz D/A, pamięci
+ EEPROM, czujniki (akcelerometry, żyroskopy), pamięci flash, sterowniki
+ ekranów dotykowych itp.
  W świetle omówionych wcześniej cech interfejsów, SPI może być scharakteryzowany
  jako:
 \end_layout
@@ -1524,17 +1524,18 @@ konwertera równoległo-szeregowego (ang.
 \emph on
 parallel to serial
 \emph default
-), pozwalającego na przesyłanie danych z komputera,
+), pozwalającego na przesyłanie danych z urządzenia cyfrowego (komputer,
+ mikrokontroler itp.),
 \end_layout
 
 \begin_layout Itemize
-konwertera szeregowo-równoległego, umożliwiającego odbiór danych pochodzących
- z komputera przez urządzenie zewnętrzne,
+konwertera szeregowo-równoległego, umożliwiającego odbiór danych przez urządzeni
+e cyfrowe (np.
+ komputer lub mikrokomputer),
 \end_layout
 
 \begin_layout Itemize
-bufora danych, służącego do tymczasowego przechowywania danych w przypadku
- szybkiej transmisji.
+bufora danych, gromadzącego tymaczasowo dane w przypadku szybkiej komunikacji.
 \end_layout
 
 \begin_layout Standard

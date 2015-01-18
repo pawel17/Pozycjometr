@@ -549,9 +549,6 @@ Użycie akcelerometru w połączeniu z żyroskopem pozwala za to na dość dokł
  początkowego.
  W celu znaczącego zmniejszenia tego zjawiska, stosuje się dodatkowo akceleromet
 r, którego odczyty również pozwalają na określenie kąta.
- Oczywiście pomiar akcelerometrem w takim celu ma sens tylko wtedy, gdy
- jest on nieruchomy dzięki czemu jedynym mierzonym przez niego przyspieszeniem
- jest przyspieszenie ziemskie.
  Jeśli istnieje potrzeba dokładnego pomiaru kątów obrotów wokół trzech osi,
  należy dodatkowo zastosować trzeci czujnik -- magnetometr (kompas)(
 \begin_inset CommandInset citation

@@ -311,7 +311,14 @@ reference "fig:zyroskop2"
 
 \end_inset
 
-.
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zyro_am_gdynia"
+
+\end_inset
+
+).
  Jeżeli moment siły pochodzący od ciężaru 
 \emph on
 Q
@@ -492,9 +499,12 @@ name "fig:zyroskop-MEMS"
 Żyroskopy są elementem wielu urządzeń elektronicznych, w których należy
  mierzyć lub rejestrować zmiany położenia (np.
  wskaźniki komputerowe, myszki, smartfony).
- Mogą być one wytwarzane w technologii MEMS (o której wspomniano w rozdziale
- o akcelerometrach), przy czym dotyczy to głównie żyroskopów prędkościowych
- 
+ Mogą być one wytwarzane w
+\begin_inset space ~
+\end_inset
+
+technologii MEMS (o której wspomniano w rozdziale o akcelerometrach), przy
+ czym dotyczy to głównie żyroskopów prędkościowych 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "elektronikab2b"
@@ -523,7 +533,15 @@ reference "fig:zyroskop-MEMS"
 \end_inset
 
 trakcie przemieszczania się w przeciwnym kierunku, tj.
- ku środkowi tarczy, siła oddziaływania masy na ramę zmienia zwrot na przeciwny.
+ ku środkowi tarczy, siła oddziaływania masy na ramę zmienia zwrot na przeciwny
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+).
  Aby pozwolić na pomiar przyspieszenia Coriolisa, ramę wiesza się na sprężynach
  pod kątem prostym do kierunku ruchu masy (rysunek 
 \begin_inset CommandInset ref
@@ -688,7 +706,14 @@ reference "fig:czujnik-zyro-dwuosiowy"
 \end_inset
 
 .
- Prócz właściwych żyroskopów zawiera on także:
+ Prócz właściwych żyroskopów zawiera on także 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "elektronikab2b"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Itemize

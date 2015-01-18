@@ -111,8 +111,7 @@ Oczywiście wykorzystanie akcelerometrów i żyroskopów nie ogranicza się jedy
 
 robotyki, jako detektory ruchu i zderzeń.
  Żyroskopy wykorzystuje się głównie w układach pomiarowych kątów obrotu,
- oscylatorach, układach regulacji amplitudy drgań czy też w demodulatorach
- synchronicznych.
+ układach określających orientację obiektów oraz systemach nawigacyjnych.
  Duża ilością akcelerometrów i żyroskopów, wykorzystujących w swoim działaniu
  różne zjawiska fizyczne i ich znaczna rozpiętość cenowa sprawiły, że urządzenia
  te stały się bardzo popularne i powszechnie wykorzystywane w technice.

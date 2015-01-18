@@ -416,7 +416,7 @@ zabezpieczenia dysków twardych, chroniące przed skutkami upadków i utratą
 
 \begin_layout Itemize
 urządzenia mobilne, których aplikacje wykorzystują informacje o nachyleniu
- i przemieszczeniu urządzenia,
+ urządzenia,
 \end_layout
 
 \begin_layout Itemize
@@ -453,7 +453,7 @@ napięcie zasilania (zwykle 3.3 V lub 5 V),
 \end_layout
 
 \begin_layout Itemize
-charakter sygnału wyjściowego (zwykle analogowy, rzadziej cyfrowy),
+charakter sygnału wyjściowego (analogowy lub cyfrowy),
 \end_layout
 
 \begin_layout Itemize
@@ -1612,7 +1612,7 @@ znym odwrotnym, w odróżnieniu od prostego), polegające na zmianie wymiarów
 \end_layout
 
 \begin_layout Standard
-W praktyce jako piezoelektryka najczęściej używa się krzemu (SiO
+W praktyce jako piezoelektryka najczęściej używa się kwarcu (SiO
 \begin_inset script subscript
 
 \begin_layout Plain Layout
@@ -1906,7 +1906,14 @@ key "Gawedzki2010"
 \end_inset
 
 .
- Czułość ładunkowa wynosi:
+ Czułość ładunkowa wynosi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -2029,7 +2036,14 @@ reference "fig:schemat-toru-pomiarowego"
 \end_inset
 
 , wykorzystującego przetwornik piezoelektryczny.
- Tor składa się z następujących elementów:
+ Tor składa się z następujących elementów 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gawedzki2010"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Itemize
@@ -2639,7 +2653,7 @@ reference "eq:tlumienie_wzgledne"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right).\label{eq:rownanie_ruchu_piezo_operatorowo}
+\frac{1}{\omega_{0}^{2}}s^{2}U\left(s\right)+\frac{2\xi}{\omega_{0}}sU\left(s\right)+U\left(s\right)=\frac{2\xi}{\omega_{0}}sX\left(s\right)+X\left(s\right).\label{eq:rownanie_ruchu_piezo_operatorowo}
 \end{equation}
 
 \end_inset
